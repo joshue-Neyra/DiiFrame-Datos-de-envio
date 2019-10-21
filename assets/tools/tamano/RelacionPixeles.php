@@ -1,7 +1,8 @@
 <?php
 $mp = $_POST["mp"];
 
-$sql = "SELECT TOP IdRel, Resolucion, Pixeles, [2x3], [3x5], [4x6], [5x7], [6x8], [8x10], [11x14], [13x19], [16x20], [24x36]
+$sql = "SELECT  IdRel, Resolucion, Pixeles, [2x3] as t1, [3x5]  as t2, [4x6]  as t3, [5x7]  as t4, [6x8]  as t5,
+ [8x10]  as t6, [11x14]  as t7, [13x19] as t8 , [16x20]  as t9, [24x36]  as t10
 FROM     PixelesRelTamano
 WHERE  (Pixeles = $mp) and  Status_ID = 2";
 function getArraySQL($sql){

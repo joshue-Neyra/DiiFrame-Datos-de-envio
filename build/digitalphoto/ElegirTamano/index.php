@@ -34,13 +34,13 @@
 				<input id="mp" class="d-none" value=" <?php echo $nombre=$_GET['Mp'];?>">
 			</div>
 			<div class="row text-center justify-content-md-center">
-				<div class="col-lg-6 col-sm-6 mb-4">
+				<div id="botones" class="col-lg-6 col-sm-6 mb-4">
 					
 				</div>
 
 				<div class="col-lg-6 col-sm-6 mb-4">
 					<div class="card h-100">
-						<a><img width="50%" class=""
+						<a><img class="img-fluid"
 								src="/assets/tools/imageupload/<?php echo $nombre=$_GET['Nombre'];?>" alt="build"></a>
 
 					</div>
