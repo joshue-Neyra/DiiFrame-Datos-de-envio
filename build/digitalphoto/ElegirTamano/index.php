@@ -8,6 +8,7 @@
 </head>
 
 <body id="page-top">
+<?php require $_SERVER['DOCUMENT_ROOT'].'/assets/tools/connection.php'; ?>
 
 	<!-- Navigation -->
 	<!-- Navigation -->
@@ -29,27 +30,28 @@
 		<div class="container">
 			<div class="section-heading text-center">
 				<h2>Elige el tamaño de impresión</h2>
+				<h3 class="text-warning">Tamaño de imagen = <?php echo $nombre=$_GET['Mp'];?> MP</h3>
+				<input id="mp" class="d-none" value=" <?php echo $nombre=$_GET['Mp'];?>">
 			</div>
 			<div class="row text-center justify-content-md-center">
 				<div class="col-lg-6 col-sm-6 mb-4">
-						<div class="card h-100">
-							<a><img width="50%" class=""  src="/assets/tools/imageupload/<?php echo $nombre=$_GET['Nombre'];?>" alt="build"></a>
-							
-						</div>
+					
+				</div>
+
+				<div class="col-lg-6 col-sm-6 mb-4">
+					<div class="card h-100">
+						<a><img width="50%" class=""
+								src="/assets/tools/imageupload/<?php echo $nombre=$_GET['Nombre'];?>" alt="build"></a>
+
 					</div>
-			
-					<div class="col-lg-6 col-sm-6 mb-4">
-						<div class="card h-100">
-							<a><img width="50%" class=""  src="/assets/tools/imageupload/<?php echo $nombre=$_GET['Nombre'];?>" alt="build"></a>
-							
-						</div>
-					</div>
-				
+				</div>
+
 			</div>
 		</div>
 	</section>
 	<?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/footer.html'; ?>
-	
+	<script type="text/javascript" src="/assets/js/TamanoRelPixeles.js" ></script>
+
 </body>
 
 </html>
