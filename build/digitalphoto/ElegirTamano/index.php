@@ -9,7 +9,7 @@
 
 <body id="page-top">
 <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/tools/connection.php'; ?>
-
+<?php require $_SERVER['DOCUMENT_ROOT'].'/assets/tools/sesion.php'; ?>
 	<!-- Navigation -->
 	<!-- Navigation -->
 	<?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/nav2.html'; ?>
@@ -30,8 +30,8 @@
 		<div class="container">
 			<div class="section-heading text-center">
 				<h2>Elige el tamaño de impresión</h2>
-				<h3 class="text-warning">Tamaño de imagen = <?php echo $nombre=$_GET['Mp'];?> MP</h3>
-				<input id="mp" class="d-none" value=" <?php echo $nombre=$_GET['Mp'];?>">
+				<h3 class="text-warning">Tamaño de imagen = <?php echo $Mp?> MP</h3>
+				<input id="mp" class="d-none" value=" <?php echo $Mp;?>">
 			</div>
 			<div class="row text-center justify-content-md-center">
 				<div id="botones" class="col-lg-6 col-sm-6 mb-4">
@@ -41,7 +41,7 @@
 				<div class="col-lg-6 col-sm-6 mb-4">
 					<div class="card h-100">
 						<a><img class="img-fluid"
-								src="/assets/tools/imageupload/<?php echo $nombre=$_GET['Nombre'];?>" alt="build"></a>
+								src="/assets/tools/imageupload/<?php echo $nombre?>" alt="build"></a>
 
 					</div>
 				</div>
