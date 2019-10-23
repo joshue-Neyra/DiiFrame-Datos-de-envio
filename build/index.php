@@ -5,111 +5,12 @@
 	<title>DiiFrame - Inicio</title>
 	<meta name="description" content="">
 	<?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/head.html'; ?>
-	<style>
-		//Section Vantagens
-
-		#vantagens {
-			background-color: #F9F9F9;
-		}
-
-
-
-		.lib-row {
-			width: 100%;
-		}
-
-		.icon-round {
-			width: 80px;
-			line-height: 70px;
-			text-align: center;
-			padding-top: 8px;
-			border-radius: 100%;
-			display: inline-block;
-			position: absolute;
-			right: -38px;
-			top: 20px;
-			background-color: #2CAFFD;
-		}
-
-		.ozi-icon i {
-			font-size: 28px;
-			padding: 0px;
-			font-weight: bold;
-		}
-
-		.card-text {
-			position: initial;
-		}
-
-		.lib-panel {
-			margin-bottom: 20Px;
-		}
-
-		.lib-panel img {
-			width: 100%;
-			background-color: transparent;
-		}
-
-		.lib-panel .row,
-		.lib-panel .col-md-6 {
-			margin: 0;
-			padding: 0;
-			background-color: #FFFFFF;
-		}
-
-
-		.lib-panel .lib-row {
-			padding: 0 20px 0 20px;
-		}
-
-		.lib-panel .lib-row.lib-header {
-			background-color: #FFFFFF;
-			font-size: 20px;
-			padding: 10px 20px 0 20px;
-		}
-
-		.lib-panel .lib-row.lib-header .lib-header-seperator {
-			height: 2px;
-			width: 26px;
-			background-color: #2CAFFD;
-			margin: 7px 0 7px 0;
-		}
-
-		.lib-panel .lib-row.lib-desc {
-			position: relative;
-			height: auto;
-			display: block;
-			font-size: 13px;
-		}
-
-		.lib-panel .lib-row.lib-desc a {
-			position: absolute;
-			width: 100%;
-			bottom: 10px;
-			left: 20px;
-		}
-
-		.row-margin-bottom {
-			margin-bottom: 20px;
-		}
-
-		.box-shadow {
-			-webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, .10);
-			box-shadow: 0 0 10px 0 rgba(0, 0, 0, .10);
-		}
-
-	</style>
+	<link href="/assets/css/build.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
 		<!-- Navigation -->
 	<?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/nav2.html'; ?>
-
-	<div class="row container align-self-center">
-		<div class="col-sm-2 bg-dark align-self-center">
-			<p class="text-white">a)</p>
-		</div>
-	</div>
 
 	<section class="features" id="features">
 		<div class="container">

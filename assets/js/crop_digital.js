@@ -55,7 +55,7 @@ function crop() {
                     console.log(response);
                     alert("La imagen excede el limite de 8 MB");
                 }
-                else{
+                else if(response == "Image has been uploaded"){
                     location.href = "/build/digitalphoto/ElegirTamano/index.php?Nombre="+fileName+"&Mp="+mp;
                 }
 

@@ -14,20 +14,7 @@
     <!-- Navigation -->
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/nav2.html'; ?>
 
-    <div class="row container align-self-center">
-        <div class="col-sm-2 bg-dark align-self-center">
-            <p class="text-white">a)</p>
-        </div>
-        <div class="col-sm-2 bg-dark align-self-center">
-            <p class="text-white">b)</p>
-        </div>
-        <div class="col-sm-2 bg-dark align-self-center">
-            <p class="text-white">c)</p>
-        </div>
-        <div class="col-sm-2 bg-dark align-self-center">
-            <p class="text-white">d)</p>
-        </div>
-    </div>
+
 
     <section class="features bg-light" id="features">
         <div class="container">
