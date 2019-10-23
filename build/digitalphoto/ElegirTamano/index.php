@@ -26,7 +26,7 @@
                 <div class="col-lg-6 col-sm-6 mb-4">
                     <div class="table-responsive">
                         <table class="table table-warning  table-striped">
-                            <caption>La calidad es proporcional al número de estrellas</caption>
+                            <caption>La calidad de impresión es proporcional al número de estrellas</caption>
                             <thead class="table-primary">
                                 <tr>
                                     <th scope="col">Tamaño</th>
@@ -43,7 +43,7 @@
 
                 <div class="col-lg-6 col-sm-6 mb-4">
                     <div class="card">
-                        <a><img class="img-fluid" src="/assets/tools/imageupload/<?php echo $nombre?>" alt="build"></a>
+                        <a><img width="250px" class="img-fluid" src="/assets/tools/imageupload/<?php echo $nombre?>" alt="build"></a>
                         <div class="card-footer container">
                                 <p><?php echo $nombre?></p>
                         </div>
