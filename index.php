@@ -121,20 +121,7 @@
 	</div>
 
 
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-sm-6 py-3 align-self-center bg-warning "><img alt="img" class="img-fluid d-block mx-auto " src="/assets/img/design.jpg" width="70%"></div>
-			<div class="col-sm-6  align-self-center">
-				<div class="container text-center text-black mx-auto">
-					<h1>Genera tu cuadro como si fueras un diseñador!! </h1>
 
-					<h3 class=" mb-4">Puedes generar y ver tu propio marco en vivo y en diferentes ambientes.</h3>
-					<button class="btn btn-warning btn-lg text-white">Empecemos Ahora</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	
 	<section class="bg-light">
 		<div class="container">
 			<div class="row ">
@@ -249,17 +236,6 @@
 			</div>
 		</div>
 	</section>
-	
-	<section id="contact" class="map py-0 my-0">
-		<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Calle+23+52,+Santa+Cruz+Aviacion,+15540+Ciudad+de+México,+CDMX&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
-		<br>
-		<small>
-			<a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
-		</small>
-	</section>
-
-	
-
 	<?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/footer.html'; ?>
 	<?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/scripts.html'; ?>
 	<script>
