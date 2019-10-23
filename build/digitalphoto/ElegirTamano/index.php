@@ -44,7 +44,9 @@
                 <div class="col-lg-6 col-sm-6 mb-4">
                     <div class="card">
                         <a><img class="img-fluid" src="/assets/tools/imageupload/<?php echo $nombre?>" alt="build"></a>
-
+                        <div class="card-footer container">
+                                <p><?php echo $nombre?></p>
+                        </div>
                     </div>
                 </div>
 

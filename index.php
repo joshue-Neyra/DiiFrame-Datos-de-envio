@@ -12,7 +12,7 @@
 	<!-- Navigation -->
 	<?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/nav.html'; ?>
 	
-	<div class="container-fluid">
+	<div class="container-fluid  bg-light">
 		<div class="row no-gutter">
 			<div id="carouselExampleIndicators" class="carousel slide col-lg-8" data-ride="carousel">
 				<ol class="carousel-indicators">
