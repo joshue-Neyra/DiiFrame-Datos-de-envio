@@ -1,10 +1,12 @@
 <?php
 $mp = $_POST["mp"];
 
-$sql = "SELECT  IdRel, Resolucion, Pixeles, [2x3] as t1, [3x5]  as t2, [4x6]  as t3, [5x7]  as t4, [6x8]  as t5,
- [8x10]  as t6, [11x14]  as t7, [13x19] as t8 , [16x20]  as t9, [24x36]  as t10
-FROM     PixelesRelTamano
-WHERE  (Pixeles = $mp) and  Status_ID = 2";
+$sql = "SELECT dbo.PixelesRelTamano.Tamano_ID, dbo.PixelesRelTamano.Calidad, dbo.PixelesRelTamano.Status_ID,
+dbo.Pixeles.Pixeles, dbo.PixelesRelTamano.Pixeles_ID, dbo.TamanosImpresion.Tamano
+FROM     dbo.PixelesRelTamano INNER JOIN
+                  dbo.Pixeles ON dbo.PixelesRelTamano.Pixeles_ID = dbo.Pixeles.Pixeles_ID INNER JOIN
+                  dbo.TamanosImpresion ON dbo.PixelesRelTamano.Tamano_ID = dbo.TamanosImpresion.Tamano_ID
+				  where dbo.Pixeles.Pixeles = $mp and dbo.PixelesRelTamano.Status_ID = 2";
 function getArraySQL($sql){
     //Creamos la conexión con la función anterior
     require $_SERVER['DOCUMENT_ROOT'].'/assets/tools/connection.php'; 

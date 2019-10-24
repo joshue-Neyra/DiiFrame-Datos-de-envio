@@ -25,7 +25,7 @@
             <div class="row text-center justify-content-md-center">
                 <div class="col-lg-6 col-sm-6 mb-4">
                     <div class="table-responsive">
-                        <table class="table table-warning  table-striped">
+                        <table class="table table-light  table-striped">
                             <caption>La calidad de impresión es proporcional al número de estrellas</caption>
                             <thead class="table-primary">
                                 <tr>

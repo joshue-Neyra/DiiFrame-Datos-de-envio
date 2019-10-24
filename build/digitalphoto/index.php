@@ -25,7 +25,7 @@
                 <a>
                     <div class="col-lg-6 col-sm-6 mb-4">
                         <div class="card h-100">
-                            <a id="preview"><img class="card-img-top" id="target" src="/assets/img/upload.jpg" alt="build"></a>
+                            <a id="preview"><img class="img-fluid" width="250px" id="target" src="/assets/img/upload.jpg" alt="build"></a>
                             <div class="card-body container">
                                 <div class="custom-file mb-3">
                                     <input type="file" class="custom-file-input" id="imagen" value="Buscar" accept="image/*">
