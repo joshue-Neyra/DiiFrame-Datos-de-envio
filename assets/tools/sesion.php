@@ -4,4 +4,4 @@ session_start();
 $Mp=$_GET['Mp'];
 $nombre=$_GET['Nombre'];
 $_SESSION['Mp']=$Mp;
-$_SESSION['Nombre']=$nombre;
+$_SESSION['Nombre']="/assets/tools/imageupload/$nombre";

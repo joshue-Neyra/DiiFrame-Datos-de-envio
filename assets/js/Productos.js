@@ -14,27 +14,36 @@ function ListaProductos() {
         success: function (response) {
             //console.log(response);
             var DatosJson = JSON.parse(JSON.stringify(response));
-            console.log(DatosJson.length);
+            //console.log(DatosJson.length);
             for (i = 0; i < DatosJson.length; i++) {
-                console.log(DatosJson[i].Prod_Nombre);
-                $("#Productos").append('<div class="col-md-3 col-sm-6">'+
+                console.log(DatosJson[i].ImagenUsuario);
+                $("#Productos").append('<div class="col-md-3 col-sm-6">' +
                     '<div class="product-grid3">' +
                     '<div class="product-image3">' +
                     '<a href="#">' +
-                    '  <img class="pic-1" src="'+DatosJson[i].RutaImagen1+'">' +
-                    ' <img class="pic-2" src="'+DatosJson[i].RutaImagen2+'">' +
+                    '<div class="device-container ">' +
+                    '<div class="device-mockup ipad_pro landscape white ">' +
+                    '<div class="device" style="background-image: url('+DatosJson[i].RutaImagen1+');">' +
+                    '<div class="screen ">' +
+                    '<img src="'+DatosJson[i].ImagenUsuario+'" class="img-fluid" width="50%" alt="img">' +
+                    '</div>' +
+                    '<div class="button">' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
                     '</a>' +
                     '<ul class="social">' +
-                    ' <li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>' +
-                    ' <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>' +
+                    '<li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>' +
+                    '<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>' +
                     '</ul>' +
-                    '<span class="product-new-label">New</span>' +
+                    '<span class="product-new-label">Nuevo</span>' +
                     '</div>' +
                     '<div class="product-content">' +
-                    '<h3 class="title"><a href="#">'+DatosJson[i].Prod_Nombre+' </a></h3 > ' +
+                    '<h3 class="title"><a href="#">Mens Blazer</a></h3>' +
                     '<div class="price">' +
-                    '$' + DatosJson[i].Prod_Precio+
-                   // '<span>$75.00</span>' +
+                    '$63.50' +
+                    '<span>$75.00</span>' +
                     '</div>' +
                     '<ul class="rating">' +
                     '<li class="fa fa-star"></li>' +
