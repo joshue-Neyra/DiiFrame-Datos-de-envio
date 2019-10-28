@@ -5,11 +5,32 @@
     <title>DiiFrame - Elegir Marco</title>
     <meta name="description" content="">
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/head.html'; ?>
-    <link href="/assets/css/cajasmarcos.css" rel="stylesheet">
-    <link href="/assets/device-mockups/device-mockups.css" rel="stylesheet">
-    <link href="/assets/device-mockups/device-mockups2.min.css" rel="stylesheet">
+    <link href="/assets/css/cajasmarcos.min.css" rel="stylesheet">
+    <link href="/assets/device-mockups/device-mockups.min.css" rel="stylesheet">
     <style>
+        #circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150px;
+            height: 150px;
+        }
 
+        .loader {
+            width: calc(100% - 0px);
+            height: calc(100% - 0px);
+            border: 8px solid #09f;
+            border-top: 8px solid #F2C600;
+            border-radius: 50%;
+            animation: rotate 5s linear infinite;
+        }
+
+        @keyframes rotate {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
     </style>
 </head>
 
@@ -21,77 +42,36 @@
 
 
 
-    <section class="features bg-light" id="features">
-        <div class="container">
-            <div class="section-heading text-center">
-                <h2>Elige el Marco de tu preferencia</h2>
-                <input id="mp" class="d-none" value=" <?php echo $size=$_GET['size'];?>">
+
+    <section class="features bg-light mb-5" id="features">
+        <div class="container pb-5">
+            <div class="section-heading text-center row justify-content-md-center">
+                <div class="col-md-12">
+                    <h2>Elige el Marco de tu preferencia</h2>
+                    <input id="Tamano_ID" class="d-none" value=" <?php echo $size=$_GET['Tamano_ID'];?>">
+                </div>
+                <div class="swatch-selector col-md-8" id="color-1">
+                    <div class="row justify-content-md-center">
+                        <div class="swatch selected" style="background-color:rgb(249, 243, 233);"></div>
+                        <div class="swatch" style="background-color:rgb(128, 128, 128);"></div>
+                        <div class="swatch" style="background-color:rgb(61, 61, 70);"></div>
+                    </div>
+                </div>
             </div>
 
         </div>
-
+        <div id="circle" >
+            <div class="loader">
+                <div class="loader">
+                    <div class="loader">
+                        <div class="loader">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="container">
             <div class="row justify-content-md-center" id="Productos">
-
-
-                
-                <!-- Navigation
-        <div class="col-md-3 col-sm-6">
-            <div class="product-grid3">
-                <div class="product-image3">
-                    <a href="#">
-                        <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo4/images/img-3.jpg">
-                        <img class="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo4/images/img-4.jpg">
-                    </a>
-                    <ul class="social">
-                        <li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>
-                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                    </ul>
-                </div>
-                <div class="product-content">
-                    <h3 class="title"><a href="#">Women's Designer Top</a></h3>
-                    <div class="price">
-                        $43.50
-                    </div>
-                    <ul class="rating">
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-            <div class="product-grid3">
-                <div class="product-image3">
-                    <a href="#">
-                        <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo4/images/img-5.jpg">
-                        <img class="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo4/images/img-6.jpg">
-                    </a>
-                    <ul class="social">
-                        <li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>
-                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                    </ul>
-                    <span class="product-new-label">New</span>
-                </div>
-                <div class="product-content">
-                    <h3 class="title"><a href="#">Men's Blazer</a></h3>
-                    <div class="price">
-                        $63.50
-                        <span>$75.00</span>
-                    </div>
-                    <ul class="rating">
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star"></li>
-                        <li class="fa fa-star disable"></li>
-                        <li class="fa fa-star disable"></li>
-                    </ul>
-                </div>
-            </div>
-        </div> -->
             </div>
         </div>
     </section>

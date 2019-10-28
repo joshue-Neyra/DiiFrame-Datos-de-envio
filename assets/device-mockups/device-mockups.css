@@ -1,37 +1,3 @@
-/*
- *	HTML5 Device Mockups
- *
- *	By:
- *		Tomi Hiltunen
- *		tomi@mitakuuluu.fi
- *		http://fi.linkedin.com/in/tomihiltunen/
- *
- *		Angelos Arnis
- *		http://fi.linkedin.com/in/angelosarnis/
- *
- *	Inluded in this package:
- *		- iPhone5 (black/white, portrait/landscape)
- *		- iPad2 (black/white, portrait/landscape)
- *		- iMac
- *		- MacBook Pro (retina model)
- *		- Nexus 7
- *		- Lumia 920
- *		- Microsoft Surface
- *		- Galaxy S3
- *
- *  Added by ben182 (@beno182):
- *		- iPhone 6
- *  	- iPhone 6 Plus
- *		- iPhone SE
- *		- iPad Air
- *		- iPad Air 2
- *		- iPad Pro
- *		- Macbook 2015
- *
- *
- */
-
- /* GENERAL STYLE */
 
 .device-mockup {
 	position: relative;
