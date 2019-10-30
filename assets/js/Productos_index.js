@@ -33,7 +33,7 @@ function ListaProductos() {
                     '<h3 class="title"><a href="#">Mens Blazer</a></h3>' +
                     '<div class="price">' +
                     '$' + DatosJson[i].Precio +
-                    '<span>$75.00</span>' +
+                    '<span>Desde</span>' +
                     '</div>' +
                     '<ul class="rating">' +
                     '<li class="fa fa-star"></li>' +
