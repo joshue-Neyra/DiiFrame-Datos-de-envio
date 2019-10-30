@@ -30,7 +30,7 @@ function ListaProductos() {
                     '<span class="product-new-label">Nuevo</span>' +
                     '</div>' +
                     '<div class="product-content">' +
-                    '<h3 class="title"><a href="#">Mens Blazer</a></h3>' +
+                    '<h3 class="title"><a href="#">'+DatosJson[i].Prod_Nombre+'</a></h3>' +
                     '<div class="price">' +
                     '$' + DatosJson[i].Precio +
                     '<span>Desde</span>' +
@@ -39,7 +39,7 @@ function ListaProductos() {
                     '<li class="fa fa-star"></li>' +
                     '<li class="fa fa-star"></li>' +
                     '<li class="fa fa-star"></li>' +
-                    '<li class="fa fa-star disable"></li>' +
+                    '<li class="fa fa-star"></li>' +
                     '<li class="fa fa-star disable"></li>' +
                     '</ul>' +
                     '</div>' +
