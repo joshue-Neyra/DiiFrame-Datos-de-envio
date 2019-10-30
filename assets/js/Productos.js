@@ -62,7 +62,7 @@ function ListaProductos() {
                     '<a href="#">' +
                     '<div class="pic-1 device-container" style="background-color:rgb(249, 243, 233);"> ' +
                     '<div class="device-mockup ipad_pro landscape white ">' +
-                    '<div class="device" style="background-image: url(' + DatosJson[i].RutaImagen2 + ');">' +
+                    '<div class="device" style="background-image: url(' + DatosJson[i].RutaImagen1 + ');">' +
                     '<div class="screen ">' +
                     '<img src="' + DatosJson[i].ImagenUsuario + '" class="img-fluid" width="50%" alt="img">' +
                     '</div>' +

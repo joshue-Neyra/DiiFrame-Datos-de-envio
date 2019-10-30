@@ -5,7 +5,7 @@
     <title>DiiFrame - Productos</title>
     <meta name="description" content="">
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/head.html'; ?>
-    <link href="/assets/css/cajasmarcos.css" rel="stylesheet">
+    <link href="/assets/css/cajasproductos.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -29,7 +29,7 @@
     </section>
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/footer.html'; ?>
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/scripts.html'; ?>
-    <script type="text/javascript" src="/assets/js/Productos.js"></script>
+    <script type="text/javascript" src="/assets/js/Productos_index.js"></script>
 
 </body>
 
