@@ -12,7 +12,20 @@
 
     <!-- Navigation -->
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/nav.html'; ?>
-
+    <header class="masthead" style="background-image: url('/assets/img/header.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Un marco es el toque final perfecto </h1>
+            <span class="subheading">Verdaderos Marcos persinalizados desde $39</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- Navigation 
     <div class="container-fluid  bg-light">
         <div class="row no-gutter">
             <div id="carouselExampleIndicators" class="carousel slide col-lg-8" data-ride="carousel">
@@ -22,17 +35,14 @@
                     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                 </ol>
                 <div class="carousel-inner" role="listbox">
-                    <!-- Slide One - Set the background image for this slide in the line below -->
                     <div class="carousel-item active" style="background-image: url('/assets/img/header.jpg')">
                         <div class="carousel-caption d-none d-md-block">
                         </div>
                     </div>
-                    <!-- Slide Two - Set the background image for this slide in the line below -->
                     <div class="carousel-item" style="background-image: url('/assets/img/header2.jpg')">
                         <div class="carousel-caption d-none d-md-block">
                         </div>
                     </div>
-                    <!-- Slide Three - Set the background image for this slide in the line below -->
                     <div class="carousel-item" style="background-image: url('/assets/img/header3.jpg')">
                         <div class="carousel-caption d-none d-md-block">
                         </div>
@@ -58,7 +68,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
 
     <div class="container-fluid" id="howitworks">
         <div class="row no-gutter">

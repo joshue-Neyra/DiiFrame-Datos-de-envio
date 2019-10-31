@@ -163,56 +163,102 @@ section h2 {
 }
 
 header.masthead {
-    position: relative;
-    width: 100%;
-    padding-top: 150px;
-    padding-bottom: 100px;
-    color: white;
-    background: url("../img/bg-pattern.png"), #7b4397;
-    background: url("../img/bg-pattern.png"), -webkit-gradient(linear, right top, left top, from(#7b4397), to(#dc2430));
-    background: url("../img/bg-pattern.png"), linear-gradient(to left, #7b4397, #dc2430);
+  margin-bottom: 0px;
+  background: no-repeat center center;
+  background-color: #868e96;
+  background-attachment: scroll;
+  position: relative;
+  background-size: cover;
 }
 
-header.masthead .header-content {
-    max-width: 500px;
-    margin-bottom: 100px;
-    text-align: center;
+header.masthead .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #212529;
+  opacity: 0.5;
 }
 
-header.masthead .header-content h1 {
+header.masthead .page-heading,
+header.masthead .post-heading,
+header.masthead .site-heading {
+  padding: 200px 0 150px;
+  color: white;
+}
+
+@media only screen and (min-width: 768px) {
+  header.masthead .page-heading,
+  header.masthead .post-heading,
+  header.masthead .site-heading {
+    padding: 200px 0;
+  }
+}
+
+header.masthead .page-heading,
+header.masthead .site-heading {
+  text-align: center;
+}
+
+header.masthead .page-heading h1,
+header.masthead .site-heading h1 {
+  font-size: 50px;
+  margin-top: 0;
+}
+
+header.masthead .page-heading .subheading,
+header.masthead .site-heading .subheading {
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.1;
+  display: block;
+  margin: 10px 0 0;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+@media only screen and (min-width: 768px) {
+  header.masthead .page-heading h1,
+  header.masthead .site-heading h1 {
+    font-size: 80px;
+  }
+}
+
+header.masthead .post-heading h1 {
+  font-size: 35px;
+}
+
+header.masthead .post-heading .meta,
+header.masthead .post-heading .subheading {
+  line-height: 1.1;
+  display: block;
+}
+
+header.masthead .post-heading .subheading {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 10px 0 30px;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+header.masthead .post-heading .meta {
+  font-size: 20px;
+  font-weight: 300;
+  font-style: italic;
+  font-family: 'Lora', 'Times New Roman', serif;
+}
+
+header.masthead .post-heading .meta a {
+  color: #fff;
+}
+
+@media only screen and (min-width: 768px) {
+  header.masthead .post-heading h1 {
+    font-size: 55px;
+  }
+  header.masthead .post-heading .subheading {
     font-size: 30px;
-}
-
-header.masthead .device-container {
-    max-width: 325px;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-header.masthead .device-container .screen img {
-    border-radius: 3px;
-}
-
-@media (min-width: 992px) {
-    header.masthead {
-        height: 100vh;
-        min-height: 775px;
-        padding-top: 0;
-        padding-bottom: 0;
-    }
-
-    header.masthead .header-content {
-        margin-bottom: 0;
-        text-align: left;
-    }
-
-    header.masthead .header-content h1 {
-        font-size: 50px;
-    }
-
-    header.masthead .device-container {
-        max-width: 325px;
-    }
+  }
 }
 
 section.download {
