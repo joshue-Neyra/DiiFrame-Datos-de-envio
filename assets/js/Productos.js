@@ -59,7 +59,7 @@ function ListaProductos() {
                 $("#Productos").append('<div class="col-md-3 col-sm-6">' +
                     '<div class="product-grid3 ">' +
                     '<div class="product-image3 ">' +
-                    '<a href="#">' +
+                    '<a href="/Pedido/">' +
                     '<div class="pic-1 device-container" style="background-color:rgb(249, 243, 233);"> ' +
                     '<div class="device-mockup ipad_pro landscape white ">' +
                     '<div class="device" style="background-image: url(' + DatosJson[i].RutaImagen1 + ');">' +
