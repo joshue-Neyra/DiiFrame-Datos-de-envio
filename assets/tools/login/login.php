@@ -18,7 +18,7 @@ else{
 	$_SESSION['Usuario'] = $user;
 	$resultado=  sqlsrv_fetch_array($req);
 	$_SESSION['Id'] = $resultado['ID_Cliente'];
-	$_SESSION['Nombre'] = $resultado['Clie_Nombre'];
+	$_SESSION['Nombre_Cliente'] = $resultado['Clie_Nombre'];
      echo  $resultado['ID_Cliente'];
 	
 }
