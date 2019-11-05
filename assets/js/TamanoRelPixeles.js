@@ -42,7 +42,7 @@ function size() {
                     contenido = contenido + '<i class="fas fa-star text-warning"></i>';
                 }
                 $("#botones").append('<tr>' +
-                    '<th scope="row">'+DatosJson[i].Tamano+' cm</th>' +
+                    '<th scope="row">'+DatosJson[i].Tamano+' ´´</th>' +
                     '<td>' + contenido + '</td>' +
                     '<td><a href="/build/digitalphoto/ElegirMarco/index.php?Tamano_ID=' + DatosJson[i].Tamano_ID + '"><button class="btn btn-primary m-1">' +
                     'Elegir </button></a></td>' +

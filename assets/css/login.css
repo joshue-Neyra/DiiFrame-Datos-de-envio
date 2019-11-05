@@ -1,0 +1,18 @@
+ :root {
+     --input-padding-x: 1.5rem;
+     --input-padding-y: .75rem;
+ }
+
+ body {
+     background: #F3C807;
+     background: linear-gradient(to right, #F3DA69, #f1d246);
+ }
+ .avatar {
+     width: 100px;
+     height: 100px;
+     border-right-style: 50%;
+     position: absolute;
+     top: -50px;
+     left: calc(50% - 50px);
+
+ }

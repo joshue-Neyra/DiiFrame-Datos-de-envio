@@ -9,7 +9,7 @@
 
 <body id="page-top">
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/tools/connection.php'; ?>
-    <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/tools/sesion.php'; ?>
+    <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/tools/Sesion/sesion_MP-Nombre.php'; ?>
     <!-- Navigation -->
     <!-- Navigation -->
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/nav2.html'; ?>

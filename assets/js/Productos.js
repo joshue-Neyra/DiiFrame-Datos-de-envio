@@ -52,15 +52,16 @@ function ListaProductos() {
         success: function (response) {
             //console.log(response);
             var DatosJson = JSON.parse(JSON.stringify(response));
-            var giro = "-webkit-transform: rotate(-90deg);-moz-transform: rotate(-90deg);-ms-transform: rotate(-90deg);";
-            //console.log(DatosJson.length);
+            var tamano = document.getElementById("Tamano_ID").value;
+            console.log(tamano);
             for (i = 0; i < DatosJson.length; i++) {
                 console.log(DatosJson[i].ImagenUsuario);
                 $("#Productos").append('<div class="col-md-3 col-sm-6">' +
                     '<div class="product-grid3 ">' +
                     '<div class="product-image3 ">' +
-                    '<a href="/Pedido/">' +
-                    '<div class="pic-1 device-container" style="background-color:rgb(249, 243, 233);"> ' +
+                    '<a href="/Pedido/?prod=' + DatosJson[i].Producto_ID + '&tamano='+parseInt(tamano)+'">' +
+                    '<div class="pic-1 device-container" style="background-color:rgb(249, 243, 233);' +
+                    ' id="ImagenDiv_'+DatosJson[i].Producto_ID+'"> ' +
                     '<div class="device-mockup ipad_pro landscape white ">' +
                     '<div class="device" style="background-image: url(' + DatosJson[i].RutaImagen1 + ');">' +
                     '<div class="screen ">' +
@@ -83,7 +84,7 @@ function ListaProductos() {
                     '<div class="product-content">' +
                     '<h3 class="title"><a href="#">' + DatosJson[i].Prod_Nombre + '</a></h3>' +
                     '<div class="price">' +
-                    '$' +DatosJson[i].Precio+
+                    '$' + DatosJson[i].Precio +
                     '<span>$75.00</span>' +
                     '</div>' +
                     '<ul class="rating">' +
