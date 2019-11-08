@@ -5,6 +5,7 @@
     <title>DiiFrame - Carrito</title>
     <meta name="description" content="">
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/head.html'; ?>
+    <link href="/assets/css/login.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -19,7 +20,7 @@
     <div class="container mb-4 my-5">
         <div class="card row">
             <div class="col-12">
-                <h3 class="mb-3 my-3 text-center text-success">Tu carrito de compra</h3>
+                <h3 class="mb-3 my-3 text-center text-danger">Tu carrito de compra</h3>
                 <div class="table-responsive">
 
                     <table class="table table-striped">
@@ -50,7 +51,7 @@
                     </div>
                 </div>
             </div>
-            <a class="btn btn-warning" href="#" data-toggle="modal" data-target="#logoutModal">Cerrar Sesion </a>
+            <a class="btn btn-danger" href="#" data-toggle="modal" data-target="#logoutModal">Cerrar Sesion </a>
         </div>
     </div>
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

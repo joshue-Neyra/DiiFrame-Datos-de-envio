@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>DiiFrame - Login</title>
+    <title>DiiFrame - Productos</title>
     <meta name="description" content="">
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/head.html'; ?>
     <link href="/assets/css/login.min.css" rel="stylesheet">
@@ -21,18 +21,17 @@
                 <div class="card card-signin my-5">
                     <div class="card-body ">
                         <img src="http://www.vijayyadav.tk/images/avatar.png" class="avatar mb-5">
-                        <input id="inp_pedido" class="d-none" value=" <?php echo $size=$_GET['Pedido'];?>">
                         <h5 class="card-title text-center my-5">Iniciar sesión</h5>
-                        <form class="form-signin" onsubmit="login();" autocomplete="on">
+                        <form class="form-signin" onsubmit="login();">
                             <div class="form-group">
                                 <div class="form-label-group">
-                                    <input type="email" id="inp_usuario" class="form-control" placeholder="Correo Electronico" required="required" autofocus="autofocus" autocomplete="current-username">
+                                    <input type="email" id="inp_usuario" class="form-control" placeholder="Correo Electronico" required="required" autofocus="autofocus">
                                     <label for="inp_usuario">Correo Electronico</label>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="form-label-group">
-                                    <input type="password" id="inp_contraseña" class="form-control" placeholder="Contraseña" required="required" autocomplete="current-password">
+                                    <input type="password" id="inp_contraseña" class="form-control" placeholder="Contraseña" required="required">
                                     <label for="inp_contraseña">Contraseña</label>
                                 </div>
                             </div>
@@ -55,7 +54,7 @@
 
 
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/scripts.html'; ?>
-    <script type="text/javascript" src="/assets/js/login.js" async></script>
+    <script type="text/javascript" src="/assets/js/login.js"></script>
 
 </body>
 

@@ -4,5 +4,5 @@
 	session_destroy();
 	echo'<script type="text/javascript">
     
-    location.href="/";
+    location.href="/login/";
     </script>';
