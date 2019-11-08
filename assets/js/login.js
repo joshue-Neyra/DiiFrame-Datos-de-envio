@@ -2,7 +2,7 @@ function login() {
 
 	var parametros = {
 		"usuario": document.getElementById("inp_usuario").value,
-		"contrasena": document.getElementById("inp_contraseña").value,
+		"contrasena": document.getElementById("inp_contrasena").value,
 	}
 	$.ajax({
 		data: parametros,

@@ -12,7 +12,6 @@
 <body id="page-top">
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/tools/connection.php'; ?>
     <!-- Navigation -->
-    <!-- Navigation -->
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/nav2.html'; ?>
     <input id="Tamano_ID" class="d-none" value=" <?php echo $size=$_GET['tamano'];?>">
     <input id="Producto_ID" class="d-none" value=" <?php echo $size=$_GET['prod'];?>">

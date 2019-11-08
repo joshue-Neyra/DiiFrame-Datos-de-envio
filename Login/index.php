@@ -1,60 +1,63 @@
-<!DOCTYPE html5>
+<?php require $_SERVER['DOCUMENT_ROOT'].'/assets/tools/connection.php'; ?>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>DiiFrame - Productos</title>
-    <meta name="description" content="">
-    <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/head.html'; ?>
-    <link href="/assets/css/login.min.css" rel="stylesheet">
+	<?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/Principal/head.html'; ?>
     <link href="/assets/css/sb-admin.min.css" rel="stylesheet">
+    <style> body {
+     background: #F3C807;
+     background: linear-gradient(to right, #F3DA69, #f1d246);
+ }
+     .avatar {
+     width: 100px;
+     height: 100px;
+     border-right-style: 50%;
+     position: absolute;
+     top: -50px;
+     left: calc(50% - 50px);
+
+ }</style>
 </head>
 
-<body id="page-top">
-    <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/tools/connection.php'; ?>
-    <!-- Navigation -->
-    <!-- Navigation -->
-    <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/nav2.html'; ?>
-
-    <div class="container my-5">
-        <div class="row">
-            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-                <div class="card card-signin my-5">
-                    <div class="card-body ">
-                        <img src="http://www.vijayyadav.tk/images/avatar.png" class="avatar mb-5">
-                        <h5 class="card-title text-center my-5">Iniciar sesión</h5>
-                        <form class="form-signin" onsubmit="login();">
-                            <div class="form-group">
-                                <div class="form-label-group">
-                                    <input type="email" id="inp_usuario" class="form-control" placeholder="Correo Electronico" required="required" autofocus="autofocus">
-                                    <label for="inp_usuario">Correo Electronico</label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="form-label-group">
-                                    <input type="password" id="inp_contraseña" class="form-control" placeholder="Contraseña" required="required">
-                                    <label for="inp_contraseña">Contraseña</label>
-                                </div>
-                            </div>
-
-                            <div class="custom-control custom-checkbox mb-3">
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1">Recordar contraseña</label>
-                            </div>
-                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Entrar</button>
-
-                        </form>
-                        <hr class="my-4">
+<body >
+<?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/nav2.html'; ?>
+	<div class="container">
+		<div class="card card-login mx-auto my-5">
+             
+			<div class="card-body">
+                <img src="http://www.vijayyadav.tk/images/avatar.png" class="avatar mb-5 ">
+                <h3 class="card-title text-center my-5 text-muted">Iniciar sesión</h3>
+				<form>
+					<div class="form-group">
+						<div class="form-label-group">
+							<input type="email" id="inp_usuario" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
+							<label for="inp_usuario">Usuario</label>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="form-label-group">
+							<input type="password" id="inp_contrasena" class="form-control" placeholder="Password" required="required">
+							<label for="inp_contrasena">Contraseña</label>
+						</div>
+					</div>
+					<a class="btn btn-primary btn-block" onclick="login();">Iniciar</a>
+				</form>
+                
+				<hr class="my-4">
                         <p class="text-muted text-center">¿Aún no tienes una cuenta?</p>
                         <button class="btn btn-lg btn-danger btn-block text-uppercase" type="submit">Crear Cuenta</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+			</div>
+		</div>
+	</div>
 
+	<!-- Bootstrap core JavaScript-->
+	<script src="/assets/vendor/jquery/jquery.min.js"></script>
+	<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/scripts.html'; ?>
-    <script type="text/javascript" src="/assets/js/login.js"></script>
+	<!-- Core plugin JavaScript-->
+	<script src="/assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+	<script src="/assets/js/login.js"></script>
 
 </body>
 
