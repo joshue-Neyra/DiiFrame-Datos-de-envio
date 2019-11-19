@@ -8,7 +8,7 @@ $sql = "SELECT  Producto_ID, Prod_Nombre, Prod_Marca, Prod_Unidad_Medida, Prod_P
 Prod_Precio2, Prod_Precio3, Imagen, Informacion, Familia_ID, SubFamilia_ID, Prod_PrecioUSD, Prod_CostoUSD, Prod_Puntos, Proveedor_ID, PorRecibir, PorSurtir, Prod_Oferta, Prod_Mod_Precio, Activo, FechaAlta, ValidoDesde, 
 ValidoHasta, Existencia, Eliminado, Nombre_Fact, NoCancelarNota, CantidadMaxOrdenar, ActivarCantidadMaxOrdenar, BotonPaq_ID, Cliente_ID, TieneLogistica, ActivarManejoPrecioUSD, CodigoBarras, BloquearProdVenta, 
 ProdBajaExistencia, ID_ClaveProdServ, ID_ClaveUnidad, PrdMeta_ID, ID_Status, Almacen_ID, ID_Ejecutivo_Alta, Hora_Alta, RutaImagen1, RutaImagen2, RutaImagen3, '$imagen' as ImagenUsuario,
-(select Precio from TamanosImpresion where Tamano_ID='$Tamano') as Precio,(select Tamano from TamanosImpresion where Tamano_ID='$Tamano') as Tamano
+(select Precio from TamanosImpresion where Tamano_ID='$Tamano') as Precio,(select Tamano from TamanosImpresion where Tamano_ID='$Tamano') as Tamano,$Tamano as Tamano_ID
 FROM     Productos
 WHERE   ID_Status = 2 and Producto_ID= $Producto";
 function getArraySQL($sql){

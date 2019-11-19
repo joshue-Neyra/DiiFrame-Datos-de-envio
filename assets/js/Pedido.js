@@ -22,6 +22,7 @@ function Producto() {
                     '<div class="xzoom-thumbs">' +
                     '<a href="'+DatosJson[i].RutaImagen2+'"><img class="xzoom-gallery" width="80" src="'+DatosJson[i].RutaImagen2+'" xpreview="'+DatosJson[i].RutaImagen2+'" title="The description goes here"></a>' +
                     '<a href="'+DatosJson[i].RutaImagen3+'"><img class="xzoom-gallery" width="80" src="'+DatosJson[i].RutaImagen3+'" xpreview="'+DatosJson[i].RutaImagen3+'" title="The description goes here"></a>' +
+                    '<a href="'+DatosJson[i].ImagenUsuario+'"><img class="xzoom-gallery" width="80" src="'+DatosJson[i].ImagenUsuario+'" xpreview="'+DatosJson[i].ImagenUsuario+'" title="The description goes here"></a>' +
                     '</div>');
                 $("#Descripcion").append('<p class="last-sold text-muted"><small>145 articulos vendidos</small></p>'+
                     '<h4 class="product-title mb-2">'+DatosJson[i].Prod_Nombre+' - '+DatosJson[i].Prod_Descripcion+ ' - ' +DatosJson[i].Tamano+'"'+'</h4>'+
@@ -33,10 +34,13 @@ function Producto() {
                     '<div class="form-group mb-2">'+
                         '<label for="quant">Cantidad:  </label>'+
                         '<input type="number" min="1" id="inp_cant" class="form-control input-lg" value="1" placeholder="1">'+
+                        '<input type="number"  id="inp_precio" class="d-none" value="'+DatosJson[i].Precio+'">'+
+                        '<input type="text"  id="inp_imagen" class="d-none" value="'+DatosJson[i].ImagenUsuario+'">'+
+                        '<input type="number"  id="inp_Tamano" class="d-none" value="'+DatosJson[i].Tamano_ID+'">'+
                     '</div>'+
                     '</form>'+
                     
-                    '<button class="btn btn-primary btn-lg btn-block" onclick="Pedido('+parametros.Tamano+','+parametros.Producto+')">Agregar al Carrito</button>');
+                    '<button class="btn btn-primary btn-lg btn-block" onclick="Pedido('+parametros.Producto+')">Agregar al Carrito</button>');
             }
         }
     });
@@ -45,10 +49,13 @@ function Producto() {
 function Pedido(Tamano,Producto) {
     //alert(Tamano);
     var parametros = {
-        "Tamano": Tamano,
         "Producto": Producto,
-        "Cantidad": document.getElementById("inp_cant").value
+        "Tamano": document.getElementById("inp_Tamano").value,
+        "Cantidad": document.getElementById("inp_cant").value,
+        "Precio": document.getElementById("inp_precio").value,
+        "Imagen": document.getElementById("inp_imagen").value
     }
+    alert(parametros.Tamano);
 
     $.ajax({
         data: parametros,

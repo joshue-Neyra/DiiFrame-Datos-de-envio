@@ -1,9 +1,8 @@
 <?php
 session_start();
-$_SESSION['Tamano']=$_POST['Tamano'];
-$_SESSION['Producto']=$_POST['Producto'];
-$_SESSION['Cantidad']=$_POST['Cantidad'];
-
-$Producto= $_SESSION['Producto'];
-
-echo "$Producto";
+    $_SESSION['Producto_ID'][]=$_POST['Producto'];
+    $_SESSION['Tamano'][]=$_POST['Tamano'];
+    $_SESSION['Cantidad'][]=$_POST['Cantidad'];
+    $_SESSION['Precio'][]=$_POST['Precio'];
+    $_SESSION['Imagen'][]=$_POST['Imagen'];
+    echo count($_SESSION['Producto_ID']);
