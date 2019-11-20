@@ -1,10 +1,8 @@
 <?php
 session_start();
-include 'Carrito.php';
+$lista=array();
 for($i=0;$i<count($_SESSION['Producto']);$i++)
     {
-    
-    
     $producto = $_SESSION['Producto'][$i];
     $productonombre = $_SESSION['Prod_Nombre'][$i];
     $tamano = $_SESSION['Tamano'][$i];
@@ -13,13 +11,8 @@ for($i=0;$i<count($_SESSION['Producto']);$i++)
     $precio = $_SESSION['Precio'][$i];
     $imagen = $_SESSION['Imagen'][$i];
     
-    $carrito = new Carrito();
-    $carrito->setProducto($producto);
-    $carrito->setProductonombre($productonombre);
-    $carrito->setTamano($tamano);
-    $carrito->setTamanoID($tamanoID);
-    $carrito->setCantidad($cantidad);
-    $carrito->setPrecio($precio);
-    $carrito->setImagen($imagen);
-    echo json_encode($carrito);
+    $lista[] = array('Producto' => $producto, 'Prod_Nombre' => $productonombre, 'Tamano' => $tamano, 'Tamano_ID' => $tamanoID, 'Cantidad' => $cantidad, 'Precio' => $precio, 'Imagen' => $imagen);
+   
+    
     }
+echo json_encode($lista);

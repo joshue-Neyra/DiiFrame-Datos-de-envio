@@ -3,23 +3,22 @@ $(document).ready(function () {
 });
 
 function Carrito() {
+    var parametros = "";
 
     $.ajax({
+        data: parametros,
         url: '/assets/tools/Carrito/VerCarrito.php',
         type: 'post',
         success: function (response) {
-            
-             var DatosJson = JSON.stringify(response);
-            var count = Object.keys(DatosJson).length;
             console.log(response);
-            
+            var DatosJson = JSON.parse(response);
             for (i = 0; i < DatosJson.length; i++) {
                 $("#tbl_carrito").append('<tr>' +
                     '<td><img width="50px" src="' + DatosJson[i].Imagen + '" /> </td>' +
-                    '<td>' + DatosJson[i].Imagen + '</td>' +
-                    '<td>' + DatosJson[i].Imagen + '</td>' +
-                    '<td><input class="form-control" type="number" value="' + DatosJson[i].Imagen + '" /></td>' +
-                    '<td class="text-right">$ ' + DatosJson[i].Imagen + '</td>' +
+                    '<td>' + DatosJson[i].Prod_Nombre + '</td>' +
+                    '<td>' + DatosJson[i].Tamano + '</td>' +
+                    '<td><input class="form-control" type="number" value="' + DatosJson[i].Cantidad + '" /></td>' +
+                    '<td class="text-right">$ ' + DatosJson[i].Precio + '</td>' +
                     '<td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button>' +
                     '</td>' +
                     '</tr>');
