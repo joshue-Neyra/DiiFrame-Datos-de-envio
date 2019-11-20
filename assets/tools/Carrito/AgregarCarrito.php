@@ -1,10 +1,14 @@
 <?php
 session_start();
- if(isset($_POST['item_src']))
+ if(isset($_POST['Producto']))
   {
-    $_SESSION['name'][]=$_POST['item_name'];
-    $_SESSION['price'][]=$_POST['item_price'];
-    $_SESSION['src'][]=$_POST['item_src'];
-    echo count($_SESSION['name']);
+    $_SESSION['Producto'][]=$_POST['Producto'];
+    $_SESSION['Prod_Nombre'][]=$_POST['Prod_Nombre'];
+    $_SESSION['Imagen'][]=$_POST['Imagen'];
+    $_SESSION['Tamano_ID'][]=$_POST['Tamano_ID'];
+    $_SESSION['Tamano'][]=$_POST['Tamano'];
+    $_SESSION['Precio'][]=$_POST['Precio'];
+    $_SESSION['Cantidad'][]=$_POST['Cantidad'];
+    echo count($_SESSION['Producto']);
     exit();
   }

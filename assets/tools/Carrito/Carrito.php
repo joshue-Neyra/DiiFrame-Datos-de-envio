@@ -6,6 +6,8 @@ class Carrito implements JsonSerializable {
     private $cantidad;
     private $precio;
     private $imagen;
+    private $productonombre;
+    private $tamanoID;
 
     public function setProducto($producto) {
         $this->producto = $producto;
@@ -14,6 +16,13 @@ class Carrito implements JsonSerializable {
     public function getProducto() {
         return $this->producto;
     }
+       public function setProductonombre($productonombre) {
+        $this->productonombre = $productonombre;
+    }
+
+    public function getProductonombre() {
+        return $this->productonombre;
+    }
 
     public function setTamano($tamano) {
         $this->tamano = $tamano;
@@ -21,6 +30,13 @@ class Carrito implements JsonSerializable {
 
     public function getTamano() {
         return $this->tamano;
+    }
+     public function setTamanoID($tamanoID) {
+        $this->tamanoID = $tamanoID;
+    }
+
+    public function getTamanoID() {
+        return $this->tamanoID;
     }
 
     public function setCantidad($cantidad) {
@@ -50,7 +66,9 @@ class Carrito implements JsonSerializable {
     public function jsonSerialize() {
         return [
             'Producto' => $this->getProducto(),
+            'ProductoNombre' => $this->getProductonombre(),
             'Tamano' => $this->getTamano(),
+            'TamanoID' => $this->getTamanoID(),
             'Cantidad' => $this->getCantidad(),
             'Precio' => $this->getPrecio(),
             'Imagen' => $this->getImagen()

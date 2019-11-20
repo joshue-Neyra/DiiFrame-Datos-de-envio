@@ -36,7 +36,9 @@ function Producto() {
                     '<input type="number" min="1" id="inp_cant" class="form-control input-lg" value="1" placeholder="1">' +
                     '<input type="number"  id="inp_precio" class="d-none" value="' + DatosJson[i].Precio + '">' +
                     '<input type="text"  id="inp_imagen" class="d-none" value="' + DatosJson[i].ImagenUsuario + '">' +
-                    '<input type="number"  id="inp_Tamano" class="d-none" value="' + DatosJson[i].Tamano_ID + '">' +
+                    '<input type="number"  id="inp_Tamano_ID" class="d-none" value="' + DatosJson[i].Tamano_ID + '">' +
+                    '<input type="text"  id="inp_Tamano" class="d-none" value="' + DatosJson[i].Tamano + '">' +
+                    '<input type="text"  id="inp_ProdNombre" class="d-none" value="' + DatosJson[i].Prod_Nombre + '">' +
                     '</div>' +
                     '</form>' +
 
@@ -48,26 +50,25 @@ function Producto() {
 
 
 
-    function cart(id)
-    {
-	  var ele=id;
-	  var img_src=document.getElementById("inp_imagen").value;
-	  var name=document.getElementById("inp_Tamano").value;
-	  var price=document.getElementById("inp_precio").value;
-	
-	  $.ajax({
-        type:'post',
-        url:'/assets/tools/Carrito/AgregarCarrito.php',
-        data:{
-          item_src:img_src,
-          item_name:name,
-          item_price:price
+function cart(id) {
+
+    $.ajax({
+        type: 'post',
+        url: '/assets/tools/Carrito/AgregarCarrito.php',
+        data: {
+            Producto: id,
+            Prod_Nombre: document.getElementById("inp_ProdNombre").value,
+            Imagen: document.getElementById("inp_imagen").value,
+            Tamano_ID: document.getElementById("inp_Tamano_ID").value,
+            Tamano: document.getElementById("inp_Tamano").value,
+            Precio: document.getElementById("inp_precio").value,
+            Cantidad: document.getElementById("inp_cant").value,
+
         },
-        success:function(response) {
+        success: function (response) {
             alert("Elemento Agregado exitosamente")
             document.getElementById("Cantidad_Carrito").innerHTML = response;
         }
-      });
-	
-    }
+    });
 
+}

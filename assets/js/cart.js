@@ -7,12 +7,11 @@ function Carrito() {
     $.ajax({
         url: '/assets/tools/Carrito/VerCarrito.php',
         type: 'post',
-        dataType: 'json',
         success: function (response) {
             
              var DatosJson = JSON.stringify(response);
             var count = Object.keys(DatosJson).length;
-            console.log(DatosJson.length);
+            console.log(response);
             
             for (i = 0; i < DatosJson.length; i++) {
                 $("#tbl_carrito").append('<tr>' +
