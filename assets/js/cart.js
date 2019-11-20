@@ -12,6 +12,7 @@ function Carrito() {
         success: function (response) {
             console.log(response);
             var DatosJson = JSON.parse(response);
+            var suma=0;
             for (i = 0; i < DatosJson.length; i++) {
                 $("#tbl_carrito").append('<tr>' +
                     '<td><img width="50px" src="' + DatosJson[i].Imagen + '" /> </td>' +
@@ -22,6 +23,7 @@ function Carrito() {
                     '<td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button>' +
                     '</td>' +
                     '</tr>');
+                suma=parseFloat(DatosJson[i].Precio)+suma;
             }
             $("#tbl_carrito").append('<tr>' +
                 '<td></td>' +
@@ -29,7 +31,7 @@ function Carrito() {
                 '<td></td>' +
                 '<td></td>' +
                 '<td>Sub-Total</td>' +
-                '<td class="text-right">$</td>' +
+                '<td class="text-right">$'+suma+'</td>' +
                 '</tr>');
         }
     });

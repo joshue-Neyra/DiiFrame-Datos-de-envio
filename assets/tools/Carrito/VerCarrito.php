@@ -12,7 +12,5 @@ for($i=0;$i<count($_SESSION['Producto']);$i++)
     $imagen = $_SESSION['Imagen'][$i];
     
     $lista[] = array('Producto' => $producto, 'Prod_Nombre' => $productonombre, 'Tamano' => $tamano, 'Tamano_ID' => $tamanoID, 'Cantidad' => $cantidad, 'Precio' => $precio, 'Imagen' => $imagen);
-   
-    
     }
 echo json_encode($lista);
