@@ -53,9 +53,8 @@ function ListaProductos() {
             //console.log(response);
             var DatosJson = JSON.parse(JSON.stringify(response));
             var tamano = document.getElementById("Tamano_ID").value;
-            console.log(tamano);
             for (i = 0; i < DatosJson.length; i++) {
-                console.log(DatosJson[i].ImagenUsuario);
+                //console.log(DatosJson[i].ImagenUsuario);
                 $("#Productos").append('<div class="col-md-3 col-sm-6">' +
                     '<div class="product-grid3 ">' +
                     '<div class="product-image3 ">' +

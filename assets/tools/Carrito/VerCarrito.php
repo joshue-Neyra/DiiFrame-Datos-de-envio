@@ -1,31 +1,29 @@
 <?php
 session_start();
-$imagen = $_SESSION['Nombre'];
-$Tamano = $_SESSION['Tamano'];
-$Producto = $_SESSION['Producto'];
-$Cantidad =$_SESSION['Cantidad'];
-$sql = "SELECT  Producto_ID, Prod_Nombre, RutaImagen1, RutaImagen2, RutaImagen3, '$imagen' as ImagenUsuario,
-(select Precio from TamanosImpresion where Tamano_ID='$Tamano') as Precio,(select Tamano from TamanosImpresion where Tamano_ID='$Tamano') as Tamano, '$Cantidad' as Cantidad
-FROM     Productos
-WHERE   Producto_ID = $Producto";
-function getArraySQL($sql){
-    //Creamos la conexión con la función anterior
-    require $_SERVER['DOCUMENT_ROOT'].'/assets/tools/connection.php'; 
-
-    if(!$result = sqlsrv_query($conn, $sql)) die(); //si la conexión cancelar programa
-
-    $rawdata = array(); //creamos un array
-
-    //guardamos en un array multidimensional todos los datos de la consulta
-    $i=0;
-
-    while($row = sqlsrv_fetch_array($result))
+include 'Carrito.php';
+for($i=0;$i<count($_SESSION['src']);$i++)
     {
-        $rawdata[$i] = $row;
-        $i++;
+    $producto = $_SESSION['name'][$i];
+    $tamano = $_SESSION['src'][$i];
+    $cantidad = $_SESSION['src'][$i];
+    $precio = $_SESSION['price'][$i];
+    $imagen = $_SESSION['src'][$i];
+    
+    $carrito = new Carrito();
+    $carrito->setProducto($producto);
+    $carrito->setTamano($tamano);
+    $carrito->setCantidad($cantidad);
+    $carrito->setPrecio($precio);
+    $carrito->setImagen($imagen);
+    
+    //echo "<tr>" ;
+    //echo "<td><img width='50px' src='".$_SESSION['src'][$i]."' /> </td>" ;
+    //echo "<td>".$_SESSION['name'][$i]."</td>";
+    //echo "<td>".$_SESSION['price'][$i]."</td>";
+    //echo "<td><input class='form-control' type='number' value='1'/></td>" ;
+    //echo "<td>$ </td>" ;
+    //echo "<td class='text-right'><button class='btn btn-sm btn-danger'><i class='fa fa-trash'></i></button>" ;
+    //echo "</td>" ;
+    //echo "</tr>";
+    echo json_encode($carrito);
     }
-    return $rawdata; //devolvemos el array
-}
-
-        $myArray = getArraySQL($sql);
-        echo json_encode($myArray);
