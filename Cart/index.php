@@ -5,7 +5,6 @@
     <title>DiiFrame - Carrito</title>
     <meta name="description" content="">
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/head.html'; ?>
-    <link href="/assets/css/login.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -19,7 +18,7 @@
 
     <div class="container mb-4 my-5">
         <div class="card row">
-            <div class="col-12">
+            <div class="col-md-12">
                 <h3 class="mb-3 my-3 text-center text-danger">Tu carrito de compra</h3>
                 <div class="table-responsive">
 
@@ -41,17 +40,20 @@
                     </table>
                 </div>
             </div>
-            <div class="col mb-2">
-                <div class="row">
-                    <div class="col-sm-12  col-md-6">
+            <div class="col-md-12">
+                <div class="row justify-content-lg-center">
+                    <div class="col-lg-6 ">
                         <a href="/"><button class="btn btn-block btn-primary">Continuar comprando</button></a>
                     </div>
-                    <div class="col-sm-12 col-md-6 text-right">
+                    <div class="col-lg-6  text-right">
                         <button class="btn btn-block btn-success">Realizar Pedido</button>
+                    </div>
+                    <div class="col-lg-8 my-3">
+                        <center><a class="btn btn-warning btn-small text-white" href="#" data-toggle="modal" data-target="#logoutModal">Cerrar Sesion </a></center>
                     </div>
                 </div>
             </div>
-            <a class="btn btn-danger" href="#" data-toggle="modal" data-target="#logoutModal">Cerrar Sesion </a>
+
         </div>
     </div>
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
