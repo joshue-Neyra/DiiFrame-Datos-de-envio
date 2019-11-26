@@ -18,12 +18,11 @@ function Producto() {
             var DatosJson = JSON.parse(JSON.stringify(response));
             for (i = 0; i < DatosJson.length; i++) {
                 //console.log(DatosJson[i].RutaImagen2);
-                $("#carrusel_zoom").html('<img class="xzoom img-fluid" id="xzoom-default" src="' + DatosJson[i].RutaImagen2 + '" xoriginal="' + DatosJson[i].RutaImagen2 + '" />' +
-                    '<div class="xzoom-thumbs">' +
-                    '<a href="' + DatosJson[i].RutaImagen2 + '"><img class="xzoom-gallery" width="80" src="' + DatosJson[i].RutaImagen2 + '" xpreview="' + DatosJson[i].RutaImagen2 + '" title="The description goes here"></a>' +
-                    '<a href="' + DatosJson[i].RutaImagen3 + '"><img class="xzoom-gallery" width="80" src="' + DatosJson[i].RutaImagen3 + '" xpreview="' + DatosJson[i].RutaImagen3 + '" title="The description goes here"></a>' +
-                    '<a href="' + DatosJson[i].ImagenUsuario + '"><img class="xzoom-gallery" width="80" src="' + DatosJson[i].ImagenUsuario + '" xpreview="' + DatosJson[i].ImagenUsuario + '" title="The description goes here"></a>' +
-                    '</div>');
+                $("#carrusel_zoom").append('<a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox1">' +
+                    '<img class="img-fluid" src="'+DatosJson[i].ImagenUsuario+'" alt="">' +
+                    '</a>');
+                 $("#modal1").append(
+                    '<img class="img-fluid" src="'+DatosJson[i].ImagenUsuario+'" alt="">');
                 $("#Descripcion").append('<p class="last-sold text-muted"><small>145 articulos vendidos</small></p>' +
                     '<h4 class="product-title mb-2">' + DatosJson[i].Prod_Nombre + ' - ' + DatosJson[i].Prod_Descripcion + ' - ' + DatosJson[i].Tamano + '"' + '</h4>' +
                     '<h2 class="product-price display-4">$ ' + DatosJson[i].Precio + '</h2>' +
@@ -66,7 +65,8 @@ function cart(id) {
 
         },
         success: function (response) {
-            alert("Elemento Agregado exitosamente")
+            alert("Elemento Agregado exitosamente");
+            $("#carrusel_zoom").append('<a class="nav-link" href="/Cart/"><button class="btn btn-warning btn-lg btn-block" >Ir al Carrito</button></a>');
             document.getElementById("Cantidad_Carrito").innerHTML = response;
         }
     });

@@ -16,16 +16,18 @@
     <input id="Tamano_ID" class="d-none" value=" <?php echo $size=$_GET['tamano'];?>">
     <input id="Producto_ID" class="d-none" value=" <?php echo $size=$_GET['prod'];?>">
     <div class="container">
-        <div class="card-group mb-5 my-5" >
+        <div class="card-group mb-5 my-5">
             <div class="card">
                 <div class="card-header">
                 </div>
                 <div class="card-body">
 
-                    <div class="xzoom-container " id="carrusel_zoom">
-                        <img class="xzoom img-fluid" id="xzoom-default" src="/assets/img/build2.jpg" xoriginal="/assets/img/build2.jpg" />
-                        <div class="xzoom-thumbs">
-                            <a href="/assets/img/build2.jpg"><img class="xzoom-gallery" width="80" src="/assets/img/build2.jpg" xpreview="/assets/img/build2.jpg" title="The description goes here"></a>
+                    <div class="container " id="carrusel_zoom">
+
+                        <div class="col-xs-6 col-sm-3">
+                            <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
+                                <img class="img-fluid" src="https://s3.amazonaws.com/ooomf-com-files/lqCNpAk3SCm0bdyd5aA0_IMG_4060_1%20copy.jpg" alt="...">
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -34,8 +36,21 @@
                 <div class="card-header">
                 </div>
                 <div class="card-body" id="Descripcion">
-                    
 
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="lightbox1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <button type="button" class="close hidden" data-dismiss="modal" aria-hidden="true">×</button>
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="container" id="modal1">
+
+                        <img class="img-fluid" src="" alt="" />
+                    </div>
                 </div>
             </div>
         </div>
