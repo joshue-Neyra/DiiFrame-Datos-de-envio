@@ -24,11 +24,7 @@
 
                     <div class="container " id="carrusel_zoom">
 
-                        <div class="col-xs-6 col-sm-3">
-                            <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
-                                <img class="img-fluid" src="https://s3.amazonaws.com/ooomf-com-files/lqCNpAk3SCm0bdyd5aA0_IMG_4060_1%20copy.jpg" alt="...">
-                            </a>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -48,6 +44,19 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <div class="container" id="modal1">
+
+                        <img class="img-fluid" src="" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+      <div id="lightbox2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <button type="button" class="close hidden" data-dismiss="modal" aria-hidden="true">×</button>
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="container" id="modal2">
 
                         <img class="img-fluid" src="" alt="" />
                     </div>
