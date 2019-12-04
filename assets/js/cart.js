@@ -42,7 +42,7 @@ function show_cart() {
         type: 'post',
         url: '/assets/tools/Carrito/VerCarrito.php',
         success: function (response) {
-            console.log(response);
+            //console.log(response);
             document.getElementById("tbl_carrito").innerHTML = response;
         }
     });

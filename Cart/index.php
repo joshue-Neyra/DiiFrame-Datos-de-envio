@@ -46,7 +46,7 @@
                         <a href="/"><button class="btn btn-block btn-primary">Continuar comprando</button></a>
                     </div>
                     <div class="col-lg-6  text-right">
-                        <button class="btn btn-block btn-success">Realizar Pedido</button>
+                        <button class="btn btn-block btn-success" onclick="iVoy();">Realizar Pedido</button>
                     </div>
                     <div class="col-lg-8 my-3">
                         <center><a class="btn btn-warning btn-small text-white" href="#" data-toggle="modal" data-target="#logoutModal">Cerrar Sesion </a></center>
@@ -77,6 +77,7 @@
 
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/scripts.html'; ?>
     <script type="text/javascript" src="/assets/js/cart.js"></script>
+    <script type="text/javascript" src="/assets/js/prueba.js"></script>
 
 </body>
 
