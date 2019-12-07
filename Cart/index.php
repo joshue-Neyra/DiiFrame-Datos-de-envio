@@ -116,7 +116,9 @@
                         </tr>
                         <tr>
                             <td class="label">Country</td>
-                            <td class="wideField" colspan="3"><input class="field" id="country" disabled="true" /></td>
+                            <td class="wideField" colspan="3"><input class="field" id="country" disabled="true" />
+                            <input  id="lat" value="" disabled="true" />
+                            <input  id="long" value="" disabled="true" /></td>
                         </tr>
                     </table>
                     <div class="pac-card" id="pac-card">

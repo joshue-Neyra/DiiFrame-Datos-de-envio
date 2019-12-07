@@ -115,7 +115,9 @@
              "url": "https://maps.googleapis.com/maps/api/geocode/json?address=" + direccion + "&key=AIzaSyDZUUeX_yN1WG82W6v4ZyqF9UeygP0gSME",
              "method": "POST",
              success: function (r) {
-                 var cor=r.results[0].geometry.location
+                 var cor=r.results[0].geometry.location;
+                 $("#lat").val(cor.lat);
+                 $("#long").val(cor.lng);
                  console.log(cor.lat);
                  console.log(cor.lng);
              }

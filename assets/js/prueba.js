@@ -52,12 +52,41 @@ function iVoy() {
     });
 
 }
-function ShowDireccion(){
+
+function ShowDireccion() {
     //console.log("algo");
     $("#form-carrito").hide();
     $("#form-direccion").show();
 }
-$( "#target" ).submit(function( event ) {
-  alert( "Validado" );
-  event.preventDefault();
+$("#target").submit(function (event) {
+
+    var parametros = {
+        "Celular": document.getElementById("inp_cli_cel").value,
+        "Telefono": document.getElementById("inp_cli_tel").value,
+        "street_number": document.getElementById("street_number").value,
+        "Calle": document.getElementById("route").value,
+        "locality": document.getElementById("locality").value,
+        "estado": document.getElementById("administrative_area_level_1").value,
+        "cp": document.getElementById("postal_code").value,
+        "cp": document.getElementById("country").value,
+        "lat": document.getElementById("lat").value,
+        "long": document.getElementById("long").value,
+
+    }
+    alert(parametros.lat);
+    $.ajax({
+        data: parametros,
+        url: '/assets/tools/Carrito/EditarCliente.php',
+        type: 'post',
+        success: function (response) {
+            //console.log(response);
+            if (response == "Registro exitoso") {
+                //alert("Registro exitoso");
+                location.href = "/Productos/";
+            } else {
+                alert("Error, Intentar nuevamente");
+            }
+        }
+    });
+    event.preventDefault();
 });
