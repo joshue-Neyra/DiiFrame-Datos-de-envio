@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    $("#form-direccion").hide();
     Carrito()
 });
 
@@ -10,7 +11,7 @@ function Carrito() {
         url: '/assets/tools/Carrito/VerCarrito.php',
         type: 'post',
         success: function (response) {
-            console.log(response);
+            //console.log(response);
             var DatosJson = JSON.parse(response);
             var suma=0;
             for (i = 0; i < DatosJson.length; i++) {
