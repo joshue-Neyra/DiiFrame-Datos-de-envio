@@ -38,14 +38,4 @@ function Carrito() {
     });
 }
 
-function show_cart() {
-    $.ajax({
-        type: 'post',
-        url: '/assets/tools/Carrito/VerCarrito.php',
-        success: function (response) {
-            //console.log(response);
-            document.getElementById("tbl_carrito").innerHTML = response;
-        }
-    });
 
-}

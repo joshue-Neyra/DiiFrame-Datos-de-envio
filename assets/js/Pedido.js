@@ -69,7 +69,6 @@ function cart(id) {
             Tamano: document.getElementById("inp_Tamano").value,
             Precio: document.getElementById("inp_precio").value,
             Cantidad: document.getElementById("inp_cant").value,
-
         },
         success: function (response) {
             alert("Elemento Agregado exitosamente");

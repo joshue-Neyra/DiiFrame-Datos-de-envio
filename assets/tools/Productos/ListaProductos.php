@@ -9,7 +9,7 @@ ValidoHasta, Existencia, Eliminado, Nombre_Fact, NoCancelarNota, CantidadMaxOrde
 ProdBajaExistencia, ID_ClaveProdServ, ID_ClaveUnidad, PrdMeta_ID, ID_Status, Almacen_ID, ID_Ejecutivo_Alta, Hora_Alta, RutaImagen1, RutaImagen2, RutaImagen3, '$imagen' as ImagenUsuario,
 (select Precio from TamanosImpresion where Tamano_ID='$Tamano') as Precio
 FROM     Productos
-WHERE   ID_Status = 2";
+WHERE   ID_Status = 2 and PrdMeta_ID = 'Producto'";
 function getArraySQL($sql){
     //Creamos la conexión con la función anterior
     require $_SERVER['DOCUMENT_ROOT'].'/assets/tools/connection.php'; 

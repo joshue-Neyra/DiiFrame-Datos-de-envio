@@ -1,4 +1,4 @@
-function iVoy() {
+function    CotizacioniVoy(LatEmp, LngEmp ,LatCli, LngCli) {
     var data = {
         "data": {
             "bOrder": {
@@ -12,8 +12,8 @@ function iVoy() {
                             "idAddress": null,
                             "externalNumber": null,
                             "internalNumber": null,
-                            "latitude": "19.4147264",
-                            "longitude": "-99.18085289999999",
+                            "latitude": LatEmp,
+                            "longitude": LngEmp,
                             "neighborhood": "null",
                             "street": "null",
                             "zipCode": "null"
@@ -26,8 +26,8 @@ function iVoy() {
                             "idAddress": null,
                             "externalNumber": "null",
                             "internalNumber": null,
-                            "latitude": "19.4182726",
-                            "longitude": "-99.16175069999997",
+                            "latitude": LatCli,
+                            "longitude": LngCli,
                             "neighborhood": "null",
                             "street": "null",
                             "zipCode": "null"
@@ -46,8 +46,11 @@ function iVoy() {
         },
         "processData": false,
         "data": JSON.stringify(data),
-        success: function (response) {
-            console.log(response);
+        success: function (r) {
+            var precio = r.data.price;
+            //console.log(precio);
+            InsertPedido(precio);
+            
         }
     });
 
@@ -65,28 +68,73 @@ $("#target").submit(function (event) {
         "Telefono": document.getElementById("inp_cli_tel").value,
         "street_number": document.getElementById("street_number").value,
         "Calle": document.getElementById("route").value,
-        "locality": document.getElementById("locality").value,
+        "ciudad": document.getElementById("locality").value,
         "estado": document.getElementById("administrative_area_level_1").value,
         "cp": document.getElementById("postal_code").value,
-        "cp": document.getElementById("country").value,
+        "Country": document.getElementById("country").value,
         "lat": document.getElementById("lat").value,
         "long": document.getElementById("long").value,
 
     }
-    alert(parametros.lat);
+    //alert(parametros.lat + "," + parametros.long);
     $.ajax({
         data: parametros,
         url: '/assets/tools/Carrito/EditarCliente.php',
         type: 'post',
         success: function (response) {
-            //console.log(response);
             if (response == "Registro exitoso") {
-                //alert("Registro exitoso");
-                location.href = "/Productos/";
+                GetCoordenadasEmpresa(parametros.lat,parametros.long);
             } else {
-                alert("Error, Intentar nuevamente");
+                alert(response);
             }
         }
     });
     event.preventDefault();
 });
+
+function GetCoordenadasEmpresa(LatCli,LngCli) {
+    $.ajax({
+        url: '/assets/tools/Carrito/CoordenadasEmp.php',
+        type: 'post',
+        dataType: 'json',
+        success: function (r) {
+            CotizacioniVoy(r.Lat, r.Long ,LatCli, LngCli);
+        }
+    });
+}
+function InsertPedido(CostoEnvio){
+    var d = new Date();
+	var dia = d.getDate();
+	var mes = d.getMonth() + 1;
+	var año = d.getFullYear();
+	var hora = d.getHours();
+	var minuto = d.getMinutes();
+	var segundos = d.getSeconds();
+	if (mes.toString().length < 2) {
+		mes = "0" + mes.toString();
+	} else {
+		mes = mes.toString();
+	}
+	if (dia.toString().length < 2) {
+		dia = "0" + dia.toString();
+	} else {
+		dia = dia.toString();
+	}
+	var fecha = dia + "-" + mes + "-" + año.toString() + " " + hora.toString() + ":" + minuto.toString() + ":" + segundos.toString();
+    var parametros = {
+        "CostoEnvio":CostoEnvio,
+        "fecha":fecha,
+        
+    }
+    $.ajax({
+        url: '/assets/tools/Carrito/InsertPedido.php',
+        type: 'post',
+        data:parametros,
+        success: function (r) {
+            location.href="/Cart/Confirmar/?Nota_ID="+r;
+            console.log(r);
+        }
+    });
+    
+    
+}

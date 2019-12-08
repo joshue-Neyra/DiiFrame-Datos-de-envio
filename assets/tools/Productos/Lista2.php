@@ -5,7 +5,7 @@ Prod_Precio2, Prod_Precio3, Imagen, Informacion, Familia_ID, SubFamilia_ID, Prod
 ValidoHasta, Existencia, Eliminado, Nombre_Fact, NoCancelarNota, CantidadMaxOrdenar, ActivarCantidadMaxOrdenar, BotonPaq_ID, Cliente_ID, TieneLogistica, ActivarManejoPrecioUSD, CodigoBarras, BloquearProdVenta, 
 ProdBajaExistencia, ID_ClaveProdServ, ID_ClaveUnidad, PrdMeta_ID, ID_Status, Almacen_ID, ID_Ejecutivo_Alta, Hora_Alta, RutaImagen1, RutaImagen2, RutaImagen3,(select Precio from TamanosImpresion where Tamano_ID=1) as Precio
 FROM     Productos
-WHERE   ID_Status = 2";
+WHERE   ID_Status = 2 PrdMeta_ID = 'Producto'";
 function getArraySQL($sql){
     //Creamos la conexión con la función anterior
     require $_SERVER['DOCUMENT_ROOT'].'/assets/tools/connection.php'; 

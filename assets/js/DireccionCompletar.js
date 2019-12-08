@@ -118,8 +118,8 @@
                  var cor=r.results[0].geometry.location;
                  $("#lat").val(cor.lat);
                  $("#long").val(cor.lng);
-                 console.log(cor.lat);
-                 console.log(cor.lng);
+                 //console.log(cor.lat);
+                 //console.log(cor.lng);
              }
          });
 
