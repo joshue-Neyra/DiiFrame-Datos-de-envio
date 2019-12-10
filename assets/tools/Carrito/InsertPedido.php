@@ -79,7 +79,7 @@ else{
                 $cantidad = $_SESSION['Cantidad'][$i];
                 $precio = $_SESSION['Precio'][$i];
                 $imglocal=$_SESSION['Imagen'][$i];
-                $imagen = "http://diiframe.com.mx/$imglocal";
+                $imagen = "$imglocal";
                 $precio_total= $cantidad * $precio;
 
                 $sql = "EXEC NuevoInventario @Serv_ID =?,
@@ -147,7 +147,7 @@ else{
                         0,//eliminado
                         1,//activado
                         0,//descuento
-                        0,
+                        1,//tamano
                         0,
                         '/assets/img/envio.jpg');
 

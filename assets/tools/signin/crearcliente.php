@@ -14,7 +14,6 @@ $EsClieLavanderiaInd=0;
 $MetaClieID=1;
 $ID_Status=2;
 $Ejecutivo_ID=1;
-$Puesto_ID=0;
 
 
 $sql = "SELECT ID_Cliente FROM Clientes WHERE  Clie_email ='$Clie_email' ";
@@ -30,11 +29,10 @@ if(sqlsrv_has_rows($req) != 1){
             @param7 =?,
             @param8 =?,
             @param9 =?,
-            @param10 =?,
             @param11 =?,
             @param12 =?";
         $params = array($Clie_Nombre, $Clie_Apellidos, $FechaAlta,$EsVentaFacturacion,$DescuentoActivado,
-                $EsClieLavanderiaInd,$MetaClieID,$ID_Status,$Ejecutivo_ID, $Puesto_ID,$Clie_email, $PasswordInternet);
+                $EsClieLavanderiaInd,$MetaClieID,$ID_Status,$Ejecutivo_ID,$Clie_email, $PasswordInternet);
 
         $stmt = sqlsrv_query( $conn, $sql, $params);
         if( $stmt === false ) {
