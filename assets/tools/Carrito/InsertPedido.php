@@ -118,8 +118,8 @@ else{
                 if( $stmt === false ) {
                      die( print_r( sqlsrv_errors(), true));
                 }
-                else {
-                        $sql = "EXEC NuevoInventario @Serv_ID =?,
+            }
+            $sql = "EXEC NuevoInventario @Serv_ID =?,
                         @Prod_ID =?,
                         @Inv_cant =?,
                         @Inv_pre_unit =?,
@@ -156,8 +156,6 @@ else{
                          die( print_r( sqlsrv_errors(), true));
                     }
                     else {echo "$Nota_ID";}
-                }
-            }
             
     }
     
