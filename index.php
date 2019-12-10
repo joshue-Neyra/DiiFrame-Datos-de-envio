@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -86,7 +87,7 @@
                                     <i class="fas  fa-stack-1x fa-inverse text-white">1</i>
                                 </a>
                             </div>
-                            <h3 class="text-center">Seleccionar Marco</h3>
+                            <h3 class="text-center">Subir foto o envíanos tu arte</h3>
                         </div>
                     </div>
                     <div class="col-lg-12">
@@ -97,7 +98,7 @@
                                     <i class="fas  fa-stack-1x fa-inverse">2</i>
                                 </a>
                             </div>
-                            <h3 class="text-center">Subir foto o envíanos tu foto o arte</h3>
+                            <h3 class="text-center">Selecciona tu marco favorito</h3>
                         </div>
                     </div>
                     <div class="col-lg-12">
@@ -117,10 +118,10 @@
             <div id="carouselExampleIndicators2" class="carousel slide col-lg-6" data-ride="carousel">
                 <div class="carousel-inner" role="listbox">
                     <!-- Slide One - Set the background image for this slide in the line below -->
-                    <div class="carousel-item active" style="background-image: url('/assets/img/2-2.jpg')">
+                    <div class="carousel-item active" style="background-image: url('/assets/img/2-1.jpg')">
                     </div>
                     <!-- Slide Two - Set the background image for this slide in the line below -->
-                    <div class="carousel-item" style="background-image: url('/assets/img/2-1.jpg')">
+                    <div class="carousel-item" style="background-image: url('/assets/img/2-2.jpg')">
                     </div>
                     <!-- Slide Three - Set the background image for this slide in the line below -->
                     <div class="carousel-item" style="background-image: url('/assets/img/2-3.jpg')">
@@ -142,7 +143,7 @@
                 <div class="col-xl-4 col-lg-5">
                     <div class="featured-text text-center text-lg-left">
                         <h4>Ponlo en perspectiva</h4>
-                        <p class="text-black-50 mb-0">Hay algo satisfactorio en enmarcar una imagen. Agrega los toques finales a un proyecto, enfocando su visión del mundo. Y con la deslumbrante variedad de marcos de fotos digitales de BeFunky, puede encontrar el perfecto para cualquier fotografía. Es rápido, fácil y es la mejor manera de hacer que sus fotos se destaquen.</p>
+                        <p class="text-black-50 mb-0">Hay algo satisfactorio en enmarcar una imagen. Agrega los toques finales a un proyecto, enfocando su visión del mundo. Y con la deslumbrante variedad de marcos de fotos digitales de BeFunky, puede encontrar el perfecto para cualquier fotografía. En DiiFrame es rápido, fácil y es la mejor manera de hacer que sus fotos se destaquen.</p>
                     </div>
                 </div>
             </div>
