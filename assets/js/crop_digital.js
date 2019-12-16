@@ -1,3 +1,6 @@
+$(document).ready(function () {
+    $(".loader").hide();
+});
 $("#imagen").on("change", function() {
     var fileName = $(this).val().split("\\").pop();
     $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
@@ -32,6 +35,8 @@ $("#imagen").on("change", function() {
 })();
 
 function crop() {
+    $(".loader").fadeIn();
+    
     $("#target").cropper("getCroppedCanvas").toBlob(function(blob) {
         var formData = new FormData();
         formData.append("croppedImage", blob);
