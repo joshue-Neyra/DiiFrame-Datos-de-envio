@@ -17,6 +17,7 @@ function VerPedido() {
             console.log(response);
             var DatosJson = JSON.parse(response);
             var suma=0;
+            $("#tbl_confirmar").text("");
             for (i = 0; i < DatosJson.length; i++) {
                 if(DatosJson[i].PrdMeta_ID =='Envio'){
                    disabled ="disabled";
@@ -24,7 +25,7 @@ function VerPedido() {
                     Tamaño = "";
                    }
                 else {
-                    btnDel = '<td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button>';
+                    btnDel = '<td class="text-right"><button class="btn btn-sm btn-danger" onclick="BorrarInventario('+DatosJson[i].Inv_ID+')"><i class="fa fa-trash"></i> </button>';
                     Tamaño= DatosJson[i].Tamano;
                 }
                 $("#tbl_confirmar").append('<tr>' +
@@ -46,6 +47,21 @@ function VerPedido() {
                 '<td>Total</td>' +
                 '<td class="text-right">$'+suma+'</td>' +
                 '</tr>');
+        }
+    });
+}
+function BorrarInventario(id) {
+    var parametros = {
+        "id": id
+    }
+
+    $.ajax({
+        data: parametros,
+        url: '/assets/tools/Confirmar/BorrarInventario.php',
+        type: 'post',
+        success: function (response) {
+            console.log(response);
+            VerPedido() 
         }
     });
 }

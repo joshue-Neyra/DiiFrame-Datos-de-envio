@@ -1,4 +1,4 @@
-function    CotizacioniVoy(LatEmp, LngEmp ,LatCli, LngCli) {
+function CotizacioniVoy(LatEmp, LngEmp, LatCli, LngCli) {
     var data = {
         "data": {
             "bOrder": {
@@ -50,7 +50,7 @@ function    CotizacioniVoy(LatEmp, LngEmp ,LatCli, LngCli) {
             var precio = r.data.price;
             //console.log(precio);
             InsertPedido(precio);
-            
+
         }
     });
 
@@ -76,65 +76,70 @@ $("#target").submit(function (event) {
         "long": document.getElementById("long").value,
 
     }
-    //alert(parametros.lat + "," + parametros.long);
-    $.ajax({
-        data: parametros,
-        url: '/assets/tools/Carrito/EditarCliente.php',
-        type: 'post',
-        success: function (response) {
-            if (response == "Registro exitoso") {
-                GetCoordenadasEmpresa(parametros.lat,parametros.long);
-            } else {
-                alert(response);
+    if (parametros.estado != "CDMX") {
+        alert("Lo sentimos, por el momento los envios fuera de CDMX no estan disponibles");
+    } else {
+        $.ajax({
+            data: parametros,
+            url: '/assets/tools/Carrito/EditarCliente.php',
+            type: 'post',
+            success: function (response) {
+                if (response == "Registro exitoso") {
+                    GetCoordenadasEmpresa(parametros.lat, parametros.long);
+                } else {
+                    alert(response);
+                }
             }
-        }
-    });
+        });
+    }
+
     event.preventDefault();
 });
 
-function GetCoordenadasEmpresa(LatCli,LngCli) {
+function GetCoordenadasEmpresa(LatCli, LngCli) {
     $.ajax({
         url: '/assets/tools/Carrito/CoordenadasEmp.php',
         type: 'post',
         dataType: 'json',
         success: function (r) {
-            CotizacioniVoy(r.Lat, r.Long ,LatCli, LngCli);
+            CotizacioniVoy(r.Lat, r.Long, LatCli, LngCli);
         }
     });
 }
-function InsertPedido(CostoEnvio){
+
+function InsertPedido(CostoEnvio) {
     var d = new Date();
-	var dia = d.getDate();
-	var mes = d.getMonth() + 1;
-	var año = d.getFullYear();
-	var hora = d.getHours();
-	var minuto = d.getMinutes();
-	var segundos = d.getSeconds();
-	if (mes.toString().length < 2) {
-		mes = "0" + mes.toString();
-	} else {
-		mes = mes.toString();
-	}
-	if (dia.toString().length < 2) {
-		dia = "0" + dia.toString();
-	} else {
-		dia = dia.toString();
-	}
-	var fecha = dia + "-" + mes + "-" + año.toString() + " " + hora.toString() + ":" + minuto.toString() + ":" + segundos.toString();
+    var dia = d.getDate();
+    var mes = d.getMonth() + 1;
+    var año = d.getFullYear();
+    var hora = d.getHours();
+    var minuto = d.getMinutes();
+    var segundos = d.getSeconds();
+    if (mes.toString().length < 2) {
+        mes = "0" + mes.toString();
+    } else {
+        mes = mes.toString();
+    }
+    if (dia.toString().length < 2) {
+        dia = "0" + dia.toString();
+    } else {
+        dia = dia.toString();
+    }
+    var fecha = dia + "-" + mes + "-" + año.toString() + " " + hora.toString() + ":" + minuto.toString() + ":" + segundos.toString();
     var parametros = {
-        "CostoEnvio":CostoEnvio,
-        "fecha":fecha,
-        
+        "CostoEnvio": CostoEnvio,
+        "fecha": fecha,
+
     }
     $.ajax({
         url: '/assets/tools/Carrito/InsertPedido.php',
         type: 'post',
-        data:parametros,
+        data: parametros,
         success: function (r) {
-            location.href="/Cart/Confirmar/?Nota_ID="+r;
+            location.href = "/Cart/Confirmar/?Nota_ID=" + r;
             console.log(r);
         }
     });
-    
-    
+
+
 }

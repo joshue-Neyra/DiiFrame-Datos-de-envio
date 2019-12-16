@@ -19,6 +19,13 @@ else{
 	$resultado=  sqlsrv_fetch_array($req);
 	$_SESSION['Id'] = $resultado['ID_Cliente'];
 	$_SESSION['Nombre_Cliente'] = $resultado['Clie_Nombre'];
+    $_SESSION['Producto'][]=0;
+    $_SESSION['Prod_Nombre'][]=0;
+    $_SESSION['Imagen'][]=0;
+    $_SESSION['Tamano_ID'][]=0;
+    $_SESSION['Tamano'][]=0;
+    $_SESSION['Precio'][]=0;
+    $_SESSION['Cantidad'][]=0;
      echo  $resultado['ID_Cliente'];
 	
 }
