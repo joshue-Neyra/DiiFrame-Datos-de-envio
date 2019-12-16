@@ -16,26 +16,43 @@ function Producto() {
         success: function (response) {
             console.log(response);
             var DatosJson = JSON.parse(JSON.stringify(response));
+            var orientacion = "";
             for (i = 0; i < DatosJson.length; i++) {
+
                 //console.log(DatosJson[i].RutaImagen2);
-                $("#carrusel_zoom").append('<a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox1">' +
-                    '<img class="img-fluid" src="' + DatosJson[i].ImagenUsuario + '" alt="">' +
-                    '</a>' +
-                    '<div class="col-md-4">' +
-                     '<a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox2">' +
+                $("#carrusel_zoom").append(
+                    '<div class="col-md-4 border border-warning">' +
+                    '<a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox1">' +
                     '<img class="img-fluid" src="' + DatosJson[i].RutaImagen2 + '" alt="">' +
-                    '</a>' +                     
+                    '</a>' +
+                    '</div>' +
+                    '<div class="col-md-4 border border-warning">' +
+                    '<a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox2">' +
+                    '<img class="img-fluid" src="' + DatosJson[i].RutaImagen3 + '" alt="">' +
+                    '</a>' +
                     '</div>');
+                if (DatosJson[i].Orientacion == 1) {
+                    orientacion = "portrait";
+                } else {
+                    orientacion = "landscape";
+                }
+                $("#carrusel_zoom2").append('<div class="border border-warning device-mockup ipad_pro '+orientacion+' white ">' +
+                    '<div class="device" style="background-image: url(' + DatosJson[i].RutaImagen1 + ');">' +
+                    '<div class="screen ">' +
+                    '<img src="' + DatosJson[i].ImagenUsuario + '" class="img-fluid" width="50%" alt="img">' +
+                    '</div>');
+
+
                 $("#modal1").append(
-                    '<img class="img-fluid" src="' + DatosJson[i].ImagenUsuario + '" alt="">');
-                 $("#modal2").append(
-                    '<img class="img-fluid" src="' + DatosJson[i].RutaImagen2 + '" alt="">');
+                    '<img class="img-fluid" src="' + DatosJson[i].RutaImagen2 + '" alt="img">');
+                $("#modal2").append(
+                    '<img class="img-fluid" src="' + DatosJson[i].RutaImagen3 + '" alt="img">');
                 $("#Descripcion").append('<p class="last-sold text-muted"><small>145 articulos vendidos</small></p>' +
                     '<h4 class="product-title mb-2">' + DatosJson[i].Prod_Nombre + ' - ' + DatosJson[i].Prod_Descripcion + ' - ' + DatosJson[i].Tamano + '"' + '</h4>' +
                     '<h2 class="product-price display-4">$ ' + DatosJson[i].Precio + '</h2>' +
                     '<p class="text-success"><i class="fab fa-cc-mastercard"></i> <i class="fab fa-cc-visa"></i> <i class="fab fa-cc-paypal"></i></p>' +
-                    '<p class="mb-0"><i class="fa fa-truck"></i> Envio gratuito en CDMX</p>' +
-                    '<div class="text-muted mb-2"><small>Aplica restricciones</small></div>' +
+                    '<p class="mb-0"><i class="fa fa-truck"></i> Envios solo a CDMX</p>' +
+                    //'<div class="text-muted mb-2"><small>Aplica restricciones</small></div>' +
                     '<form class="form-inline">' +
                     '<div class="form-group mb-2">' +
                     '<label for="quant">Cantidad:  </label>' +

@@ -38,30 +38,20 @@
 /* DEVICES */
 
 
-/* iPad Pro */
 .device-mockup.ipad_pro,
 .device-mockup.ipad_pro.portrait {
     padding-bottom: 138.63%;
 }
 
 .device-mockup.ipad_pro.landscape {
-}
-
-
-
-.device-mockup.ipad_pro.landscape > .device {
-	
+	padding-bottom: 72.14%;
 }
 
 
 
 .device-mockup.ipad_pro > .device > .screen,
 .device-mockup.ipad_pro.portrait > .device > .screen {
-    top: 7.025723%; bottom: 6.854341%; left: 5.15995%; right: 5.15995%;
-}
-
-.device-mockup.ipad_pro.landscape > .device > .screen {
-    display: flex;
+     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 100%;
@@ -70,6 +60,12 @@
     bottom: 25%;
     right: 25%;
 }
+
+.device-mockup.ipad_pro.landscape > .device > .screen {
+    width: 100%;
+    top: 5.177551%; bottom: 5.177551%; left: 25%; right: 25%;
+}
+
 
 
 

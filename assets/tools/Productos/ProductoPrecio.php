@@ -3,9 +3,9 @@ session_start();
 $imagen = $_SESSION['Nombre'];
 $Tamano=$_POST['Tamano'];
 $Producto=$_POST['Producto'];
-
-$sql = "SELECT  Producto_ID, Prod_Nombre, Prod_Marca, RutaImagen1, RutaImagen2, RutaImagen3, '$imagen' as ImagenUsuario,
-(select Precio from TamanosImpresion where Tamano_ID='$Tamano') as Precio,(select Tamano from TamanosImpresion where Tamano_ID='$Tamano') as Tamano,$Tamano as Tamano_ID
+$Orientacion = $_SESSION['Orientacion'];
+$sql = "SELECT  Producto_ID, Prod_Nombre, Prod_Marca,Prod_Descripcion, RutaImagen1, RutaImagen2, RutaImagen3,'$imagen' as ImagenUsuario,
+(select Precio from TamanosImpresion where Tamano_ID='$Tamano') as Precio,(select Tamano from TamanosImpresion where Tamano_ID='$Tamano') as Tamano,$Tamano as Tamano_ID,$Orientacion as Orientacion
 FROM     Productos
 WHERE   ID_Status = 2 and Producto_ID= $Producto";
 function getArraySQL($sql){

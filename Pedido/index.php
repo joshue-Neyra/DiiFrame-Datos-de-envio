@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/head.html'; ?>
     <link href="/assets/css/pedido.css" rel="stylesheet">
-
+    <link href="/assets/device-mockups/device-mockups.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -22,9 +22,9 @@
                 </div>
                 <div class="card-body">
 
-                    <div class="container " id="carrusel_zoom">
-
-                        
+                    <div class="row justify-content-md-center">
+                        <div class="col col-lg-10" id="carrusel_zoom2"> </div>
+                        <div class="col col-lg-10 row justify-content-md-center" id="carrusel_zoom"> </div>
                     </div>
                 </div>
             </div>
@@ -51,7 +51,7 @@
             </div>
         </div>
     </div>
-      <div id="lightbox2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div id="lightbox2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <button type="button" class="close hidden" data-dismiss="modal" aria-hidden="true">×</button>
             <div class="modal-content">

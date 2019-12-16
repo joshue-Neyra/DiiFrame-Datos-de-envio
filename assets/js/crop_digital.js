@@ -46,6 +46,13 @@ function crop() {
         var ancho = medidas.width;
         var calculo = (alto * ancho)/100000
         var mp = parseInt(calculo);
+        var orientacion =0;
+        if (alto>ancho){
+            orientacion=1;
+        }
+        else{
+            orientacion=2;
+        }
         //alert(ancho+"x"+alto+"-"+fileName+"- MPX: "+mp);
         
         formData.append("croppedImage", blob,fileName);
@@ -61,7 +68,7 @@ function crop() {
                     alert("La imagen excede el limite de 8 MB");
                 }
                 else if(response == "Image has been uploaded"){
-                    location.href = "/build/digitalphoto/ElegirTamano/index.php?Nombre="+fileName+"&Mp="+mp;
+                    location.href = "/build/digitalphoto/ElegirTamano/index.php?Nombre="+fileName+"&Mp="+mp+"&Ori="+orientacion;
                 }
 
             },

@@ -53,15 +53,22 @@ function ListaProductos() {
             //console.log(response);
             var DatosJson = JSON.parse(JSON.stringify(response));
             var tamano = document.getElementById("Tamano_ID").value;
+            var orientacion="";
             for (i = 0; i < DatosJson.length; i++) {
                 //console.log(DatosJson[i].ImagenUsuario);
+                if (DatosJson[i].Orientacion == 1){
+                    orientacion = "portrait";
+                }
+                else {
+                    orientacion = "landscape";
+                }
                 $("#Productos").append('<div class="col-md-3 col-sm-6">' +
                     '<div class="product-grid3 ">' +
                     '<div class="product-image3 ">' +
                     '<a href="/Pedido/?prod=' + DatosJson[i].Producto_ID + '&tamano='+parseInt(tamano)+'">' +
                     '<div class="pic-1 device-container" style="background-color:rgb(249, 243, 233);' +
                     ' id="ImagenDiv_'+DatosJson[i].Producto_ID+'"> ' +
-                    '<div class="device-mockup ipad_pro landscape white ">' +
+                    '<div class="device-mockup ipad_pro '+orientacion+' white ">' +
                     '<div class="device" style="background-image: url(' + DatosJson[i].RutaImagen1 + ');">' +
                     '<div class="screen ">' +
                     '<img src="' + DatosJson[i].ImagenUsuario + '" class="img-fluid" width="50%" alt="img">' +
