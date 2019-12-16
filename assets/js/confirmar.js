@@ -18,10 +18,13 @@ function VerPedido() {
             var DatosJson = JSON.parse(response);
             var suma=0;
             $("#tbl_confirmar").text("");
+            if(DatosJson.length == 1 && DatosJson[0].Prod_Nombre =="Envio"){
+                location.href="/Cart/";
+            }
             for (i = 0; i < DatosJson.length; i++) {
                 if(DatosJson[i].PrdMeta_ID =='Envio'){
                    disabled ="disabled";
-                    btnDel = "";
+                    btnDel = "<td></td>";
                     Tamaño = "";
                    }
                 else {
