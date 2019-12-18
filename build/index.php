@@ -69,6 +69,7 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <div class="row row-margin-bottom ">
+                        <!--
                         <div class="col-md-6 no-padding lib-item" data-category="view">
                             <div class="lib-panel">
                                 <div class="row box-shadow w-100">
@@ -93,7 +94,7 @@
                                 </div>
                             </div>
                         </div>
-                         <!--
+                        
                         <div class="col-md-6 no-padding lib-item" data-category="view">
                             <div class="lib-panel">
                                 <div class="row box-shadow w-100">
@@ -240,7 +241,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>-->
+                        </div>
                         <div class="col-md-6 no-padding lib-item" data-category="view">
                             <div class="lib-panel">
                                 <div class="row box-shadow w-100">
@@ -284,12 +285,13 @@
                                             <div class="lib-header-seperator"></div>
                                         </div>
                                         <div class="lib-row lib-desc pl-5">
-                                             <p class="card-text my-3">No entra en ninguna otra categoría, ésta es la adecuada</p>
+                                            <p class="card-text my-3">No entra en ninguna otra categoría, ésta es la adecuada</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        //-->
                         <div class="col-md-6 no-padding lib-item" data-category="view">
                             <div class="lib-panel">
                                 <div class="row box-shadow w-100">
@@ -308,7 +310,7 @@
                                             <div class="lib-header-seperator"></div>
                                         </div>
                                         <div class="lib-row lib-desc pl-5">
-                                             <p class="card-text my-3">¿Solo requieres el marco? Escógelo y nosotros te lo enviamos</p>
+                                            <p class="card-text my-3">¿Solo requieres el marco? Escógelo y nosotros te lo enviamos</p>
                                         </div>
                                     </div>
                                 </div>
