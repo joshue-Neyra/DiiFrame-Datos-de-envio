@@ -8,16 +8,17 @@
 
 
     <link rel="stylesheet" type="text/css" href="/assets/crop/cropper.css">
-     <style>
+    <style>
         .loader {
-    position: fixed;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    height: 100%;
-    z-index: 9999;
-    background: url('/assets/img/loading.gif') 50% 50% no-repeat rgb(249,249,249);
-    opacity: .8;
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: url('/assets/img/loading.gif') 50% 50% no-repeat rgb(249, 249, 249);
+            opacity: .8;
+
     </style>
 </head>
 
@@ -26,7 +27,7 @@
     <!-- Navigation -->
     <!-- Navigation -->
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/nav2.html'; ?>
-   <div class="loader"></div>
+    <div class="loader"></div>
     <section class="features" id="features">
         <div class="container">
             <div class="section-heading text-center">
