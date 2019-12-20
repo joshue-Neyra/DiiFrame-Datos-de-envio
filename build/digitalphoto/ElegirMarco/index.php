@@ -32,20 +32,38 @@
 
     <section class="features bg-light mb-5" id="features">
         <div class="container pb-5">
-            <div class="section-heading text-center row justify-content-md-center">
-                <div class="col-md-12">
-                    <h2>Elige el Marco de tu preferencia</h2>
+            <div class="card">
+                <div class="card-header text-center bg-primary">
+                    <h3>Elige tu marialuisa</h3>
+                </div>
+                <div class="card-body row">
+                    <div class=" col-md-6">
+                        <div class="form-group row">
+                            <label for="Tamano_Marialuisa" class="col-sm-2 col-form-label">Tamaño:</label>
+                            <div class="col-sm-8">
+                                <select class="form-control" id="Tamano_Marialuisa">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swatch-selector col-md-6" id="color-1">
+                        <div class="form-group row">
+                            <label  class="col-sm-2 col-form-label">Color:</label>
+                            <div class="col-sm-8">
+                                <div class="row justify-content-md-center" id="form_marialuisa">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                     <input id="Tamano_ID" class="d-none" value=" <?php echo $size=$_GET['Tamano_ID'];?>">
                     <input id="Color" class="d-none" value="">
                 </div>
-                <div class="swatch-selector col-md-8" id="color-1">
-                    <div class="row justify-content-md-center" id="form_marialuisa">
-                    </div>
-                </div>
             </div>
 
+
         </div>
-      <div class="loader"></div>
+        <div class="loader"></div>
         <div class="container">
             <div class="row justify-content-md-center" id="Productos">
             </div>

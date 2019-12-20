@@ -1,6 +1,7 @@
 var myVar;
 $(document).ready(function () {
     Marialuisa();
+    TamanosMarialuisa();
     $(".loader").hide();
 });
 
@@ -32,7 +33,7 @@ function ListaProductos(bg) {
                 $("#Productos").append('<div class="col-md-3 col-sm-6">' +
                     '<div class="product-grid3 ">' +
                     '<div class="product-image3 ">' +
-                    '<a href="#" onclick="Redireccion('+DatosJson[i].Producto_ID+','+parseInt(tamano)+');">' +
+                    '<a href="#" onclick="Redireccion(' + DatosJson[i].Producto_ID + ',' + parseInt(tamano) + ');">' +
                     '<div class="pic-1 device-container" style="background-color:' + bg + ';' +
                     ' id="ImagenDiv_' + DatosJson[i].Producto_ID + '"> ' +
                     '<div class="device-mockup ipad_pro ' + orientacion + ' white ">' +
@@ -111,9 +112,29 @@ function Marialuisa() {
 
 }
 
-function Redireccion(Producto,Tamano) {
-    var color= document.getElementById('Color').value;
-    location.href = '/Pedido/?prod=' + Producto + '&tamano=' + Tamano + '&color='+color;
+function Redireccion(Producto, Tamano) {
+    var Tm = document.getElementById('Tamano_Marialuisa').value;
+    var color = document.getElementById('Color').value;
+    var algo = color.substring(1);
+    location.href = '/Pedido/?prod=' + Producto + '&tamano=' + Tamano + '&TM=' + Tm + '&Color=' + algo;
     //alert(Producto+", "+Tamano);
     //
+}
+
+function TamanosMarialuisa() {
+    $.ajax({
+        url: '/assets/tools/Productos/TamanosMarialuisa.php',
+        type: 'post',
+        dataType: 'json',
+        success: function (response) {
+            var DatosJson = JSON.parse(JSON.stringify(response));
+            $("#Tamano_Marialuisa").text("");
+            for (i = 0; i < DatosJson.length; i++) {
+                $("#Tamano_Marialuisa").append('<option value="' + DatosJson[i].Tamano_ID + '">' + DatosJson[i].Tamano + ' cm</option>')
+            }
+        }
+
+
+    });
+
 }

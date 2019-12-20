@@ -1,6 +1,7 @@
 $(document).ready(function () {
     VerPedido()
 });
+
 function VerPedido() {
     var parametros = {
         "id": document.getElementById("Nota_ID").value
@@ -11,36 +12,45 @@ function VerPedido() {
         url: '/assets/tools/Confirmar/VerPedido.php',
         type: 'post',
         success: function (response) {
-            var disabled="";
+            var disabled = "";
             var btnDel = "";
             var Tamaño = "";
             console.log(response);
             var DatosJson = JSON.parse(response);
-            var suma=0;
+            var suma = 0;
+            var imagen="";
+            var exit=1;
             $("#tbl_confirmar").text("");
-            if(DatosJson.length == 1 && DatosJson[0].Prod_Nombre =="Envio"){
-                location.href="/Cart/";
-            }
+        
             for (i = 0; i < DatosJson.length; i++) {
-                if(DatosJson[i].PrdMeta_ID =='Envio'){
-                   disabled ="disabled";
+                if (DatosJson[i].PrdMeta_ID == 'Envio') {
+                    disabled = "disabled";
                     btnDel = "<td></td>";
                     Tamaño = "";
-                   }
+                    imagen='<img width="50px" src="' + DatosJson[i].RutaImagen + '" />';
+                }
+                else if(DatosJson[i].PrdMeta_ID == 'Marialuisa'){
+                    disabled = "disabled";
+                    btnDel = "<td></td>";
+                    Tamaño = DatosJson[i].Tamano+" cm";
+                    imagen='';
+                }
                 else {
-                    btnDel = '<td class="text-right"><button class="btn btn-sm btn-danger" onclick="BorrarInventario('+DatosJson[i].Inv_ID+')"><i class="fa fa-trash"></i> </button>';
-                    Tamaño= DatosJson[i].Tamano;
+                    btnDel = '<td class="text-right"><button class="btn btn-sm btn-danger" onclick="BorrarInventario(' + DatosJson[i].Inv_ID + ')"><i class="fa fa-trash"></i> </button>';
+                    Tamaño = DatosJson[i].Tamano;
+                    imagen='<img width="50px" src="' + DatosJson[i].RutaImagen + '" />';
+                    exit=0;
                 }
                 $("#tbl_confirmar").append('<tr>' +
-                    '<td><img width="50px" src="' + DatosJson[i].RutaImagen + '" /> </td>' +
+                    '<td>'+imagen+' </td>' +
                     '<td>' + DatosJson[i].Prod_Nombre + '</td>' +
                     '<td>' + Tamaño + '</td>' +
-                    '<td><input class="form-control" '+disabled+' type="number" value="' + DatosJson[i].Inv_cant + '" /></td>' +
+                    '<td><input class="form-control" ' + disabled + ' type="number" value="' + DatosJson[i].Inv_cant + '" /></td>' +
                     '<td class="text-right">$ ' + DatosJson[i].Inv_pre_total + '</td>' +
-                     btnDel+
+                    btnDel +
                     '</td>' +
                     '</tr>');
-                suma=parseFloat(DatosJson[i].Inv_pre_total)+suma;
+                suma = parseFloat(DatosJson[i].Inv_pre_total) + suma;
             }
             $("#tbl_confirmar").append('<tr>' +
                 '<td></td>' +
@@ -48,11 +58,15 @@ function VerPedido() {
                 '<td></td>' +
                 '<td></td>' +
                 '<td>Total</td>' +
-                '<td class="text-right">$'+suma+'</td>' +
+                '<td class="text-right">$' + suma + '</td>' +
                 '</tr>');
+            if(exit==1){
+                location.href="/cart/";
+            }
         }
     });
 }
+
 function BorrarInventario(id) {
     var parametros = {
         "id": id
@@ -64,7 +78,7 @@ function BorrarInventario(id) {
         type: 'post',
         success: function (response) {
             console.log(response);
-            VerPedido() 
+            VerPedido()
         }
     });
 }
@@ -75,8 +89,8 @@ function BorrarInventario(id) {
  * @see {@link https://developers.google.com/pay/api/web/reference/request-objects#PaymentDataRequest|apiVersion in PaymentDataRequest}
  */
 const baseRequest = {
-  apiVersion: 2,
-  apiVersionMinor: 0
+    apiVersion: 2,
+    apiVersionMinor: 0
 };
 
 /**
@@ -106,11 +120,11 @@ const allowedCardAuthMethods = ["PAN_ONLY", "CRYPTOGRAM_3DS"];
  * @see {@link https://developers.google.com/pay/api/web/reference/request-objects#gateway|PaymentMethodTokenizationSpecification}
  */
 const tokenizationSpecification = {
-  type: 'PAYMENT_GATEWAY',
-  parameters: {
-    'gateway': 'example',
-    'gatewayMerchantId': 'exampleGatewayMerchantId'
-  }
+    type: 'PAYMENT_GATEWAY',
+    parameters: {
+        'gateway': 'example',
+        'gatewayMerchantId': 'exampleGatewayMerchantId'
+    }
 };
 
 /**
@@ -120,11 +134,11 @@ const tokenizationSpecification = {
  * @see {@link https://developers.google.com/pay/api/web/reference/request-objects#CardParameters|CardParameters}
  */
 const baseCardPaymentMethod = {
-  type: 'CARD',
-  parameters: {
-    allowedAuthMethods: allowedCardAuthMethods,
-    allowedCardNetworks: allowedCardNetworks
-  }
+    type: 'CARD',
+    parameters: {
+        allowedAuthMethods: allowedCardAuthMethods,
+        allowedCardNetworks: allowedCardNetworks
+    }
 };
 
 /**
@@ -133,12 +147,10 @@ const baseCardPaymentMethod = {
  *
  * @see {@link https://developers.google.com/pay/api/web/reference/request-objects#CardParameters|CardParameters}
  */
-const cardPaymentMethod = Object.assign(
-  {},
-  baseCardPaymentMethod,
-  {
-    tokenizationSpecification: tokenizationSpecification
-  }
+const cardPaymentMethod = Object.assign({},
+    baseCardPaymentMethod, {
+        tokenizationSpecification: tokenizationSpecification
+    }
 );
 
 /**
@@ -159,13 +171,11 @@ let paymentsClient = null;
  * @returns {object} Google Pay API version, payment methods supported by the site
  */
 function getGoogleIsReadyToPayRequest() {
-  return Object.assign(
-      {},
-      baseRequest,
-      {
-        allowedPaymentMethods: [baseCardPaymentMethod]
-      }
-  );
+    return Object.assign({},
+        baseRequest, {
+            allowedPaymentMethods: [baseCardPaymentMethod]
+        }
+    );
 }
 
 /**
@@ -175,16 +185,16 @@ function getGoogleIsReadyToPayRequest() {
  * @returns {object} PaymentDataRequest fields
  */
 function getGooglePaymentDataRequest() {
-  const paymentDataRequest = Object.assign({}, baseRequest);
-  paymentDataRequest.allowedPaymentMethods = [cardPaymentMethod];
-  paymentDataRequest.transactionInfo = getGoogleTransactionInfo();
-  paymentDataRequest.merchantInfo = {
-    // @todo a merchant ID is available for a production environment after approval by Google
-    // See {@link https://developers.google.com/pay/api/web/guides/test-and-deploy/integration-checklist|Integration checklist}
-    // merchantId: '0123456789',
-    merchantName: 'Example Merchant'
-  };
-  return paymentDataRequest;
+    const paymentDataRequest = Object.assign({}, baseRequest);
+    paymentDataRequest.allowedPaymentMethods = [cardPaymentMethod];
+    paymentDataRequest.transactionInfo = getGoogleTransactionInfo();
+    paymentDataRequest.merchantInfo = {
+        // @todo a merchant ID is available for a production environment after approval by Google
+        // See {@link https://developers.google.com/pay/api/web/guides/test-and-deploy/integration-checklist|Integration checklist}
+        // merchantId: '0123456789',
+        merchantName: 'Example Merchant'
+    };
+    return paymentDataRequest;
 }
 
 /**
@@ -194,10 +204,12 @@ function getGooglePaymentDataRequest() {
  * @returns {google.payments.api.PaymentsClient} Google Pay API client
  */
 function getGooglePaymentsClient() {
-  if ( paymentsClient === null ) {
-    paymentsClient = new google.payments.api.PaymentsClient({environment: 'TEST'});
-  }
-  return paymentsClient;
+    if (paymentsClient === null) {
+        paymentsClient = new google.payments.api.PaymentsClient({
+            environment: 'TEST'
+        });
+    }
+    return paymentsClient;
 }
 
 /**
@@ -207,19 +219,19 @@ function getGooglePaymentsClient() {
  * ability to pay.
  */
 function onGooglePayLoaded() {
-  const paymentsClient = getGooglePaymentsClient();
-  paymentsClient.isReadyToPay(getGoogleIsReadyToPayRequest())
-      .then(function(response) {
-        if (response.result) {
-          addGooglePayButton();
-          // @todo prefetch payment data to improve performance after confirming site functionality
-          // prefetchGooglePaymentData();
-        }
-      })
-      .catch(function(err) {
-        // show error in developer console for debugging
-        console.error(err);
-      });
+    const paymentsClient = getGooglePaymentsClient();
+    paymentsClient.isReadyToPay(getGoogleIsReadyToPayRequest())
+        .then(function (response) {
+            if (response.result) {
+                addGooglePayButton();
+                // @todo prefetch payment data to improve performance after confirming site functionality
+                // prefetchGooglePaymentData();
+            }
+        })
+        .catch(function (err) {
+            // show error in developer console for debugging
+            console.error(err);
+        });
 }
 
 /**
@@ -229,10 +241,12 @@ function onGooglePayLoaded() {
  * @see {@link https://developers.google.com/pay/api/web/guides/brand-guidelines|Google Pay brand guidelines}
  */
 function addGooglePayButton() {
-  const paymentsClient = getGooglePaymentsClient();
-  const button =
-      paymentsClient.createButton({onClick: onGooglePaymentButtonClicked});
-  document.getElementById('container').appendChild(button);
+    const paymentsClient = getGooglePaymentsClient();
+    const button =
+        paymentsClient.createButton({
+            onClick: onGooglePaymentButtonClicked
+        });
+    document.getElementById('container').appendChild(button);
 }
 
 /**
@@ -242,13 +256,13 @@ function addGooglePayButton() {
  * @returns {object} transaction info, suitable for use as transactionInfo property of PaymentDataRequest
  */
 function getGoogleTransactionInfo() {
-  return {
-    countryCode: 'MX',
-    currencyCode: 'MXN',
-    totalPriceStatus: 'FINAL',
-    // set to cart total
-    totalPrice: '1.00'
-  };
+    return {
+        countryCode: 'MX',
+        currencyCode: 'MXN',
+        totalPriceStatus: 'FINAL',
+        // set to cart total
+        totalPrice: '1.00'
+    };
 }
 
 /**
@@ -257,33 +271,33 @@ function getGoogleTransactionInfo() {
  * @see {@link https://developers.google.com/pay/api/web/reference/client#prefetchPaymentData|prefetchPaymentData()}
  */
 function prefetchGooglePaymentData() {
-  const paymentDataRequest = getGooglePaymentDataRequest();
-  // transactionInfo must be set but does not affect cache
-  paymentDataRequest.transactionInfo = {
-    totalPriceStatus: 'NOT_CURRENTLY_KNOWN',
-    currencyCode: 'USD'
-  };
-  const paymentsClient = getGooglePaymentsClient();
-  paymentsClient.prefetchPaymentData(paymentDataRequest);
+    const paymentDataRequest = getGooglePaymentDataRequest();
+    // transactionInfo must be set but does not affect cache
+    paymentDataRequest.transactionInfo = {
+        totalPriceStatus: 'NOT_CURRENTLY_KNOWN',
+        currencyCode: 'USD'
+    };
+    const paymentsClient = getGooglePaymentsClient();
+    paymentsClient.prefetchPaymentData(paymentDataRequest);
 }
 
 /**
  * Show Google Pay payment sheet when Google Pay payment button is clicked
  */
 function onGooglePaymentButtonClicked() {
-  const paymentDataRequest = getGooglePaymentDataRequest();
-  paymentDataRequest.transactionInfo = getGoogleTransactionInfo();
+    const paymentDataRequest = getGooglePaymentDataRequest();
+    paymentDataRequest.transactionInfo = getGoogleTransactionInfo();
 
-  const paymentsClient = getGooglePaymentsClient();
-  paymentsClient.loadPaymentData(paymentDataRequest)
-      .then(function(paymentData) {
-        // handle the response
-        processPayment(paymentData);
-      })
-      .catch(function(err) {
-        // show error in developer console for debugging
-        console.error(err);
-      });
+    const paymentsClient = getGooglePaymentsClient();
+    paymentsClient.loadPaymentData(paymentDataRequest)
+        .then(function (paymentData) {
+            // handle the response
+            processPayment(paymentData);
+        })
+        .catch(function (err) {
+            // show error in developer console for debugging
+            console.error(err);
+        });
 }
 
 /**
@@ -293,8 +307,8 @@ function onGooglePaymentButtonClicked() {
  * @see {@link https://developers.google.com/pay/api/web/reference/response-objects#PaymentData|PaymentData object reference}
  */
 function processPayment(paymentData) {
-  // show returned data in developer console for debugging
+    // show returned data in developer console for debugging
     console.log(paymentData);
-  // @todo pass payment token to your gateway to process payment
-  paymentToken = paymentData.paymentMethodData.tokenizationData.token;
+    // @todo pass payment token to your gateway to process payment
+    paymentToken = paymentData.paymentMethodData.tokenizationData.token;
 }

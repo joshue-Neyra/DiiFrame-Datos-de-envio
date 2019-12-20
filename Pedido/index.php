@@ -10,11 +10,13 @@
 </head>
 
 <body id="page-top">
-    <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/tools/connection.php'; ?>
     <!-- Navigation -->
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/nav2.html'; ?>
-    <input id="Tamano_ID" class="d-none" value=" <?php echo $size=$_GET['tamano'];?>">
-    <input id="Producto_ID" class="d-none" value=" <?php echo $size=$_GET['prod'];?>">
+    <input id="Tamano_ID" class="d-none" value=" <?php echo $_GET['tamano'];?>">
+    <input id="Producto_ID" class="d-none" value=" <?php echo $_GET['prod'];?>">
+    
+    <input id="Tamano_M" class="d-none" value=" <?php echo $_GET['TM'];?>">
+    <input id="Color" class="d-none" value="#<?php echo $_GET['Color'];?>">
     <div class="container">
         <div class="card-group mb-5 my-5">
             <div class="card">

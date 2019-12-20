@@ -17,6 +17,7 @@ function Producto() {
             console.log(response);
             var DatosJson = JSON.parse(JSON.stringify(response));
             var orientacion = "";
+            var Color = document.getElementById("Color").value;
             for (i = 0; i < DatosJson.length; i++) {
 
                 //console.log(DatosJson[i].RutaImagen2);
@@ -36,9 +37,9 @@ function Producto() {
                 } else {
                     orientacion = "landscape";
                 }
-                $("#carrusel_zoom2").append('<div class="border border-warning device-mockup ipad_pro '+orientacion+' white ">' +
+                $("#carrusel_zoom2").append('<div style="background-color:' + Color + ';" class="border border-warning device-mockup ipad_pro ' + orientacion + ' white ">' +
                     '<div class="device" style="background-image: url(' + DatosJson[i].RutaImagen1 + ');">' +
-                    '<div class="screen ">' +
+                    '<div class="screen " >' +
                     '<img src="' + DatosJson[i].ImagenUsuario + '" class="img-fluid" width="50%" alt="img">' +
                     '</div>');
 
@@ -88,9 +89,47 @@ function cart(id) {
             Cantidad: document.getElementById("inp_cant").value,
         },
         success: function (response) {
-            alert("Elemento Agregado exitosamente");
-            $("#Descripcion").append('<a class="nav-link" href="/Cart/"><button class="btn btn-warning btn-lg btn-block" >Ir al Carrito</button></a>');
-            document.getElementById("Cantidad_Carrito").innerHTML = response;
+            Marialuisa();
+        }
+    });
+
+}
+
+function Marialuisa() {
+
+    $.ajax({
+        type: 'post',
+        url: '/assets/tools/Carrito/AgregarMarialuisa.php',
+        data: {
+            Prod_Nombre: document.getElementById("Color").value,
+            Tamano_ID: document.getElementById("Tamano_M").value,
+            Precio: 0,
+            Cantidad: document.getElementById("inp_cant").value,
+        },
+        dataType: 'json',
+        success: function (response) {
+            var DatosJson = JSON.parse(JSON.stringify(response));
+            //console.log(response);
+            //console.log(DatosJson[0].Prod_Nombre);
+            $.ajax({
+                type: 'post',
+                url: '/assets/tools/Carrito/AgregarCarrito.php',
+                data: {
+                    Producto: DatosJson[0].Producto_ID,
+                    Prod_Nombre: DatosJson[0].Prod_Nombre,
+                    Imagen: DatosJson[0].Imagen,
+                    Tamano_ID: DatosJson[0].Tamano_ID,
+                    Tamano: DatosJson[0].Tamano,
+                    Precio: DatosJson[0].Precio,
+                    Cantidad: DatosJson[0].Cantidad,
+                },
+                success: function (response) {
+                    console.log(response);
+                    alert("Elemento Agregado exitosamente");
+                    $("#Descripcion").append('<a class="nav-link" href="/Cart/"><button class="btn btn-warning btn-lg btn-block" >Ir al Carrito</button></a>');
+                    document.getElementById("Cantidad_Carrito").innerHTML = response;
+                }
+            });
         }
     });
 
