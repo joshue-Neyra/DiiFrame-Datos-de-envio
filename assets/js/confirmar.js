@@ -1,5 +1,6 @@
 $(document).ready(function () {
     VerPedido()
+    $("#form_pago").hide();
 });
 
 function VerPedido() {
@@ -15,63 +16,103 @@ function VerPedido() {
             var disabled = "";
             var btnDel = "";
             var Tamaño = "";
-            console.log(response);
+
             var DatosJson = JSON.parse(response);
             var suma = 0;
-            var imagen="";
-            var exit=1;
+            var sumaprod = 0;
+            var exit = 1;
             $("#tbl_confirmar").text("");
-        
+
             for (i = 0; i < DatosJson.length; i++) {
-                if (DatosJson[i].PrdMeta_ID == 'Envio') {
-                    disabled = "disabled";
-                    btnDel = "<td></td>";
-                    Tamaño = "";
-                    imagen='<img width="50px" src="' + DatosJson[i].RutaImagen + '" />';
+                if (DatosJson[i].PrdMeta_ID == 'Producto') {
+                    $("#tbl_confirmar").append('<tr>' +
+                        '<td>' + '<img width="50px" src="' + DatosJson[i].RutaImagen + '" />' + ' </td>' +
+                        '<td>' + DatosJson[i].Prod_Nombre + '</td>' +
+                        '<td>' + DatosJson[i].Tamano + '</td>' +
+                        '<td><input class="form-control" ' + disabled + ' type="number" value="' + DatosJson[i].Inv_cant + '" /></td>' +
+                        '<td class="text-right">$ ' + Math.round10(DatosJson[i].Inv_pre_total, -2) + '</td>' +
+                        '<td class="text-right"><button class="btn btn-sm btn-danger" onclick="BorrarInventario(' + DatosJson[i].Inv_ID + ')"><i class="fa fa-trash"></i> </button>' +
+                        '</td>' +
+                        '</tr>');
+                    exit = 0;
+                    sumaprod = parseFloat(sumaprod) + parseFloat(DatosJson[i].Inv_pre_total);
+                } else if (DatosJson[i].PrdMeta_ID == 'Envio') {
+                    var envio = Math.round10(DatosJson[i].Inv_pre_total, -2)
+                    $("#envio").html("$" + envio);
                 }
-                else if(DatosJson[i].PrdMeta_ID == 'Marialuisa'){
-                    disabled = "disabled";
-                    btnDel = "<td></td>";
-                    Tamaño = DatosJson[i].Tamano+" cm";
-                    imagen='';
-                }
-                else {
-                    btnDel = '<td class="text-right"><button class="btn btn-sm btn-danger" onclick="BorrarInventario(' + DatosJson[i].Inv_ID + ')"><i class="fa fa-trash"></i> </button>';
-                    Tamaño = DatosJson[i].Tamano;
-                    imagen='<img width="50px" src="' + DatosJson[i].RutaImagen + '" />';
-                    exit=0;
-                }
-                $("#tbl_confirmar").append('<tr>' +
-                    '<td>'+imagen+' </td>' +
-                    '<td>' + DatosJson[i].Prod_Nombre + '</td>' +
-                    '<td>' + Tamaño + '</td>' +
-                    '<td><input class="form-control" ' + disabled + ' type="number" value="' + DatosJson[i].Inv_cant + '" /></td>' +
-                    '<td class="text-right">$ ' + DatosJson[i].Inv_pre_total + '</td>' +
-                    btnDel +
-                    '</td>' +
-                    '</tr>');
                 suma = parseFloat(DatosJson[i].Inv_pre_total) + suma;
             }
-            $("#tbl_confirmar").append('<tr>' +
-                '<td></td>' +
-                '<td></td>' +
-                '<td></td>' +
-                '<td></td>' +
-                '<td>Total</td>' +
-                '<td class="text-right">$' + suma + '</td>' +
-                '</tr>');
-            if(exit==1){
-                location.href="/cart/";
+            sumaprod = Math.round10(sumaprod, -2);
+            $("#subtotal").html("$" + sumaprod);
+            var iva = suma * 0.16;
+            var total = suma * 1.16;
+            total = Math.round10(total, -2);
+            $("#iva").html("$" + iva);
+            $("#total").html("$" + total);
+            if (exit == 1) {
+                location.href = "/cart/";
             }
         }
     });
 }
+$("#btn_resumen").click(function () {
+    $("#form_productos").fadeOut("slow");
+    $("#form_pago").fadeIn("slow");
+
+});
+
+(function () {
+    /**
+     * Ajuste decimal de un número.
+     *
+     * @param {String}  tipo  El tipo de ajuste.
+     * @param {Number}  valor El numero.
+     * @param {Integer} exp   El exponente (el logaritmo 10 del ajuste base).
+     * @returns {Number} El valor ajustado.
+     */
+    function decimalAdjust(type, value, exp) {
+        // Si el exp no está definido o es cero...
+        if (typeof exp === 'undefined' || +exp === 0) {
+            return Math[type](value);
+        }
+        value = +value;
+        exp = +exp;
+        // Si el valor no es un número o el exp no es un entero...
+        if (isNaN(value) || !(typeof exp === 'number' && exp % 1 === 0)) {
+            return NaN;
+        }
+        // Shift
+        value = value.toString().split('e');
+        value = Math[type](+(value[0] + 'e' + (value[1] ? (+value[1] - exp) : -exp)));
+        // Shift back
+        value = value.toString().split('e');
+        return +(value[0] + 'e' + (value[1] ? (+value[1] + exp) : exp));
+    }
+
+    // Decimal round
+    if (!Math.round10) {
+        Math.round10 = function (value, exp) {
+            return decimalAdjust('round', value, exp);
+        };
+    }
+    // Decimal floor
+    if (!Math.floor10) {
+        Math.floor10 = function (value, exp) {
+            return decimalAdjust('floor', value, exp);
+        };
+    }
+    // Decimal ceil
+    if (!Math.ceil10) {
+        Math.ceil10 = function (value, exp) {
+            return decimalAdjust('ceil', value, exp);
+        };
+    }
+})();
 
 function BorrarInventario(id) {
     var parametros = {
         "id": id
     }
-
     $.ajax({
         data: parametros,
         url: '/assets/tools/Confirmar/BorrarInventario.php',
@@ -82,233 +123,54 @@ function BorrarInventario(id) {
         }
     });
 }
-/**
- * Define the version of the Google Pay API referenced when creating your
- * configuration
- *
- * @see {@link https://developers.google.com/pay/api/web/reference/request-objects#PaymentDataRequest|apiVersion in PaymentDataRequest}
- */
-const baseRequest = {
-    apiVersion: 2,
-    apiVersionMinor: 0
-};
 
-/**
- * Card networks supported by your site and your gateway
- *
- * @see {@link https://developers.google.com/pay/api/web/reference/request-objects#CardParameters|CardParameters}
- * @todo confirm card networks supported by your site and gateway
- */
-const allowedCardNetworks = ["AMEX", "DISCOVER", "INTERAC", "JCB", "MASTERCARD", "VISA"];
+$(document).ready(function () {
 
-/**
- * Card authentication methods supported by your site and your gateway
- *
- * @see {@link https://developers.google.com/pay/api/web/reference/request-objects#CardParameters|CardParameters}
- * @todo confirm your processor supports Android device tokens for your
- * supported card networks
- */
-const allowedCardAuthMethods = ["PAN_ONLY", "CRYPTOGRAM_3DS"];
+    OpenPay.setId('mzdtln0bmtms6o3kck8f');
+    OpenPay.setApiKey('pk_f0660ad5a39f4912872e24a7a660370c');
+    OpenPay.setSandboxMode(true);
+    //Se genera el id de dispositivo
+    var deviceSessionId = OpenPay.deviceData.setup("payment-form", "deviceIdHiddenFieldName");
 
-/**
- * Identify your gateway and your site's gateway merchant identifier
- *
- * The Google Pay API response will return an encrypted payment method capable
- * of being charged by a supported gateway after payer authorization
- *
- * @todo check with your gateway on the parameters to pass
- * @see {@link https://developers.google.com/pay/api/web/reference/request-objects#gateway|PaymentMethodTokenizationSpecification}
- */
-const tokenizationSpecification = {
-    type: 'PAYMENT_GATEWAY',
-    parameters: {
-        'gateway': 'example',
-        'gatewayMerchantId': 'exampleGatewayMerchantId'
+    $('#payment-form').submit(function (event) {
+        event.preventDefault();
+        $("#pay-button").prop("disabled", true);
+        OpenPay.token.extractFormAndCreate('payment-form', sucess_callbak, error_callbak);
+    });
+
+    var sucess_callbak = function (response) {
+        var token_id = response.data.id;
+        $('#token_id').val(token_id);
+
+        //console.log(response);
+        //alert(response.data);
+        Pago(deviceSessionId);
+    };
+
+    var error_callbak = function (response) {
+        var desc = response.data.description != undefined ? response.data.description : response.message;
+        alert("ERROR [" + response.status + "] " + desc);
+        $("#pay-button").prop("disabled", false);
+    };
+
+});
+
+function Pago(deviceSessionId) {
+    var parametros = {
+        "token_id": document.getElementById("token_id").value,
+        "deviceIdHiddenFieldName": deviceSessionId,
+        "description": "Prueba",
+        "amount": 1
     }
-};
-
-/**
- * Describe your site's support for the CARD payment method and its required
- * fields
- *
- * @see {@link https://developers.google.com/pay/api/web/reference/request-objects#CardParameters|CardParameters}
- */
-const baseCardPaymentMethod = {
-    type: 'CARD',
-    parameters: {
-        allowedAuthMethods: allowedCardAuthMethods,
-        allowedCardNetworks: allowedCardNetworks
-    }
-};
-
-/**
- * Describe your site's support for the CARD payment method including optional
- * fields
- *
- * @see {@link https://developers.google.com/pay/api/web/reference/request-objects#CardParameters|CardParameters}
- */
-const cardPaymentMethod = Object.assign({},
-    baseCardPaymentMethod, {
-        tokenizationSpecification: tokenizationSpecification
-    }
-);
-
-/**
- * An initialized google.payments.api.PaymentsClient object or null if not yet set
- *
- * @see {@link getGooglePaymentsClient}
- */
-let paymentsClient = null;
-
-/**
- * Configure your site's support for payment methods supported by the Google Pay
- * API.
- *
- * Each member of allowedPaymentMethods should contain only the required fields,
- * allowing reuse of this base request when determining a viewer's ability
- * to pay and later requesting a supported payment method
- *
- * @returns {object} Google Pay API version, payment methods supported by the site
- */
-function getGoogleIsReadyToPayRequest() {
-    return Object.assign({},
-        baseRequest, {
-            allowedPaymentMethods: [baseCardPaymentMethod]
+    //alert(parametros.deviceIdHiddenFieldName)
+    $.ajax({
+        data: parametros,
+        url: '/assets/tools/Confirmar/CargoTarjeta.php',
+        type: 'post',
+        success: function (response) {
+            console.log(response);
+            //VerPedido()
         }
-    );
-}
+    });
 
-/**
- * Configure support for the Google Pay API
- *
- * @see {@link https://developers.google.com/pay/api/web/reference/request-objects#PaymentDataRequest|PaymentDataRequest}
- * @returns {object} PaymentDataRequest fields
- */
-function getGooglePaymentDataRequest() {
-    const paymentDataRequest = Object.assign({}, baseRequest);
-    paymentDataRequest.allowedPaymentMethods = [cardPaymentMethod];
-    paymentDataRequest.transactionInfo = getGoogleTransactionInfo();
-    paymentDataRequest.merchantInfo = {
-        // @todo a merchant ID is available for a production environment after approval by Google
-        // See {@link https://developers.google.com/pay/api/web/guides/test-and-deploy/integration-checklist|Integration checklist}
-        // merchantId: '0123456789',
-        merchantName: 'Example Merchant'
-    };
-    return paymentDataRequest;
-}
-
-/**
- * Return an active PaymentsClient or initialize
- *
- * @see {@link https://developers.google.com/pay/api/web/reference/client#PaymentsClient|PaymentsClient constructor}
- * @returns {google.payments.api.PaymentsClient} Google Pay API client
- */
-function getGooglePaymentsClient() {
-    if (paymentsClient === null) {
-        paymentsClient = new google.payments.api.PaymentsClient({
-            environment: 'TEST'
-        });
-    }
-    return paymentsClient;
-}
-
-/**
- * Initialize Google PaymentsClient after Google-hosted JavaScript has loaded
- *
- * Display a Google Pay payment button after confirmation of the viewer's
- * ability to pay.
- */
-function onGooglePayLoaded() {
-    const paymentsClient = getGooglePaymentsClient();
-    paymentsClient.isReadyToPay(getGoogleIsReadyToPayRequest())
-        .then(function (response) {
-            if (response.result) {
-                addGooglePayButton();
-                // @todo prefetch payment data to improve performance after confirming site functionality
-                // prefetchGooglePaymentData();
-            }
-        })
-        .catch(function (err) {
-            // show error in developer console for debugging
-            console.error(err);
-        });
-}
-
-/**
- * Add a Google Pay purchase button alongside an existing checkout button
- *
- * @see {@link https://developers.google.com/pay/api/web/reference/request-objects#ButtonOptions|Button options}
- * @see {@link https://developers.google.com/pay/api/web/guides/brand-guidelines|Google Pay brand guidelines}
- */
-function addGooglePayButton() {
-    const paymentsClient = getGooglePaymentsClient();
-    const button =
-        paymentsClient.createButton({
-            onClick: onGooglePaymentButtonClicked
-        });
-    document.getElementById('container').appendChild(button);
-}
-
-/**
- * Provide Google Pay API with a payment amount, currency, and amount status
- *
- * @see {@link https://developers.google.com/pay/api/web/reference/request-objects#TransactionInfo|TransactionInfo}
- * @returns {object} transaction info, suitable for use as transactionInfo property of PaymentDataRequest
- */
-function getGoogleTransactionInfo() {
-    return {
-        countryCode: 'MX',
-        currencyCode: 'MXN',
-        totalPriceStatus: 'FINAL',
-        // set to cart total
-        totalPrice: '1.00'
-    };
-}
-
-/**
- * Prefetch payment data to improve performance
- *
- * @see {@link https://developers.google.com/pay/api/web/reference/client#prefetchPaymentData|prefetchPaymentData()}
- */
-function prefetchGooglePaymentData() {
-    const paymentDataRequest = getGooglePaymentDataRequest();
-    // transactionInfo must be set but does not affect cache
-    paymentDataRequest.transactionInfo = {
-        totalPriceStatus: 'NOT_CURRENTLY_KNOWN',
-        currencyCode: 'USD'
-    };
-    const paymentsClient = getGooglePaymentsClient();
-    paymentsClient.prefetchPaymentData(paymentDataRequest);
-}
-
-/**
- * Show Google Pay payment sheet when Google Pay payment button is clicked
- */
-function onGooglePaymentButtonClicked() {
-    const paymentDataRequest = getGooglePaymentDataRequest();
-    paymentDataRequest.transactionInfo = getGoogleTransactionInfo();
-
-    const paymentsClient = getGooglePaymentsClient();
-    paymentsClient.loadPaymentData(paymentDataRequest)
-        .then(function (paymentData) {
-            // handle the response
-            processPayment(paymentData);
-        })
-        .catch(function (err) {
-            // show error in developer console for debugging
-            console.error(err);
-        });
-}
-
-/**
- * Process payment data returned by the Google Pay API
- *
- * @param {object} paymentData response from Google Pay API after user approves payment
- * @see {@link https://developers.google.com/pay/api/web/reference/response-objects#PaymentData|PaymentData object reference}
- */
-function processPayment(paymentData) {
-    // show returned data in developer console for debugging
-    console.log(paymentData);
-    // @todo pass payment token to your gateway to process payment
-    paymentToken = paymentData.paymentMethodData.tokenizationData.token;
 }
