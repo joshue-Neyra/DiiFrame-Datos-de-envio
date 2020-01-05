@@ -125,7 +125,6 @@ function Marialuisa() {
                 },
                 success: function (response) {
                     console.log(response);
-                    alert("Elemento Agregado exitosamente");
                     $("#Descripcion").append('<a class="nav-link" href="/Cart/"><button class="btn btn-warning btn-lg btn-block" >Ir al Carrito</button></a>');
                     document.getElementById("Cantidad_Carrito").innerHTML = response;
                 }

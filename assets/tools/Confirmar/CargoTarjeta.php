@@ -49,8 +49,8 @@ require $_SERVER['DOCUMENT_ROOT'].'/assets/tools/resources/OpenpayToken.php';
 	
 
 
-    $openpay = Openpay::getInstance('mzdtln0bmtms6o3kck8f',
-      'sk_e568c42a6c384b7ab02cd47d2e407cab');
+    $openpay = Openpay::getInstance('mtqyjqyjlbynx1od78wq',
+      'sk_1c4da98b82444145aa4cceb003c13aac');
 
     $customer = array(
          'name' => $Cli_Nombre,
@@ -65,9 +65,16 @@ require $_SERVER['DOCUMENT_ROOT'].'/assets/tools/resources/OpenpayToken.php';
         'description' => $_POST["description"],
         //'use_card_points' => 0, // Opcional, si estamos usando puntos
         'device_session_id' => $_POST["deviceIdHiddenFieldName"],
+        'order_id'=> $_POST["Nota_ID"],
         'customer' => $customer
         );
 
+    
+    try {
     $charge = $openpay->charges->create($chargeData);
+        echo $charge->status;
+    } catch (Exception $e) {
+    echo   $e->getMessage(), "\n";
+    }
     }
 ?>

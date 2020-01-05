@@ -30,6 +30,12 @@ function Carrito() {
                 else{}
                 suma = parseFloat(DatosJson[i].Precio) + suma;
             }
+            if (suma>0){
+                $("#btn_show").prop("disabled", false);
+            }
+            else{
+                $("#btn_show").prop("disabled", true);
+            }
             $("#tbl_carrito").append('<tr>' +
                 '<td></td>' +
                 '<td></td>' +

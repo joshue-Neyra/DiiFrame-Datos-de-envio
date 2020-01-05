@@ -116,7 +116,7 @@ function Redireccion(Producto, Tamano) {
     var Tm = document.getElementById('Tamano_Marialuisa').value;
     var color = document.getElementById('Color').value;
     var algo = color.substring(1);
-    location.href = '/Pedido/?prod=' + Producto + '&tamano=' + Tamano + '&TM=' + Tm + '&Color=' + algo;
+    location.href = '/VistaPrevia/?prod=' + Producto + '&tamano=' + Tamano + '&TM=' + Tm + '&Color=' + algo;
     //alert(Producto+", "+Tamano);
     //
 }

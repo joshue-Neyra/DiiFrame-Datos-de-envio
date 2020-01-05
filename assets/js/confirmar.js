@@ -1,6 +1,7 @@
 $(document).ready(function () {
     VerPedido()
     $("#form_pago").hide();
+    $(".loader").hide();
 });
 
 function VerPedido() {
@@ -126,8 +127,8 @@ function BorrarInventario(id) {
 
 $(document).ready(function () {
 
-    OpenPay.setId('mzdtln0bmtms6o3kck8f');
-    OpenPay.setApiKey('pk_f0660ad5a39f4912872e24a7a660370c');
+    OpenPay.setId('mtqyjqyjlbynx1od78wq');
+    OpenPay.setApiKey('pk_00c7c01143a44c0c9a136cc26a83ce75');
     OpenPay.setSandboxMode(true);
     //Se genera el id de dispositivo
     var deviceSessionId = OpenPay.deviceData.setup("payment-form", "deviceIdHiddenFieldName");
@@ -136,6 +137,7 @@ $(document).ready(function () {
         event.preventDefault();
         $("#pay-button").prop("disabled", true);
         OpenPay.token.extractFormAndCreate('payment-form', sucess_callbak, error_callbak);
+        $(".loader").show();
     });
 
     var sucess_callbak = function (response) {
@@ -158,9 +160,11 @@ $(document).ready(function () {
 function Pago(deviceSessionId) {
     var parametros = {
         "token_id": document.getElementById("token_id").value,
+        "Nota_ID": document.getElementById("Nota_ID").value,
         "deviceIdHiddenFieldName": deviceSessionId,
         "description": "Prueba",
-        "amount": 1
+        "amount": 1,
+        
     }
     //alert(parametros.deviceIdHiddenFieldName)
     $.ajax({
@@ -168,8 +172,14 @@ function Pago(deviceSessionId) {
         url: '/assets/tools/Confirmar/CargoTarjeta.php',
         type: 'post',
         success: function (response) {
-            console.log(response);
-            //VerPedido()
+            $(".loader").hide();
+            if(response =="completed"){
+                alert("Pago Aceptado");
+            }
+            else {
+                alert(response);
+                location.reload();
+            }
         }
     });
 

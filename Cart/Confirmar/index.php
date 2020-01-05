@@ -21,15 +21,25 @@
             vertical-align: top;
             border-top: 1px solid #dee2e6;
         }
-
+        .loader {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: url('/assets/img/loading.gif') 50% 50% no-repeat rgb(249, 249, 249);
+            opacity: .8;
+        }
     </style>
 </head>
 
 <body id="page-top">
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/nav2.html'; ?>
+    <div class="loader"></div>
     <section id="form_productos">
         <div class="container">
-            <h3 class="mb-3 my-3 text-center text-danger">Pedido No. <?php echo $_GET['Nota_ID'];?></h3>
+            <h3 class="mb-3 my-3 text-center text-danger">Cotización No. <?php echo $_GET['Nota_ID'];?></h3>
             <input id="Nota_ID" class="d-none" value="<?php echo $_GET['Nota_ID'];?>">
             <div class="row">
                 <div class="col-md-8 pr-xl-5">

@@ -56,7 +56,7 @@
                         <a class="btn btn-block btn-primary" href="/">Continuar comprando</a>
                     </div>
                     <div class="col-lg-6  text-right">
-                        <button type="button" class="btn btn-block btn-success" onclick="ShowDireccion()">
+                        <button type="button" class="btn btn-block btn-success " disabled id="btn_show" onclick="ShowDireccion()">
                             Continuar con el Pedido
                         </button>
 
