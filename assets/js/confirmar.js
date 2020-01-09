@@ -119,7 +119,7 @@ function BorrarInventario(id) {
         url: '/assets/tools/Confirmar/BorrarInventario.php',
         type: 'post',
         success: function (response) {
-            console.log(response);
+            //console.log(response);
             VerPedido()
         }
     });
@@ -164,7 +164,7 @@ function Pago(deviceSessionId) {
         "deviceIdHiddenFieldName": deviceSessionId,
         "description": "Prueba",
         "amount": 1,
-        
+
     }
     //alert(parametros.deviceIdHiddenFieldName)
     $.ajax({
@@ -173,14 +173,30 @@ function Pago(deviceSessionId) {
         type: 'post',
         success: function (response) {
             $(".loader").hide();
-            if(response =="completed"){
+            if (response == "completed") {
+                UpdateNota(parametros.Nota_ID);
                 alert("Pago Aceptado");
-            }
-            else {
+            } else {
                 alert(response);
                 location.reload();
             }
         }
     });
 
+}
+
+function UpdateNota(Nota_ID) {
+    var parametros = {
+        "Nota_ID": Nota_ID
+    }
+    //alert(parametros.deviceIdHiddenFieldName)
+    $.ajax({
+        data: parametros,
+        url: '/assets/tools/Confirmar/UpdateNota.php',
+        type: 'post',
+        success: function (response) {
+            console.log(response);
+            location.href='/Pedido/?Nota_ID='+ parametros.Nota_ID+'';
+        }
+    });
 }

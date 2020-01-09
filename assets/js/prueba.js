@@ -59,6 +59,7 @@ function CotizacioniVoy(LatEmp, LngEmp, LatCli, LngCli) {
 function ShowDireccion() {
     //console.log("algo");
     $("#form-carrito").hide();
+    $("#form-pedidos").hide();
     $("#form-direccion").show();
 }
 $("#target").submit(function (event) {

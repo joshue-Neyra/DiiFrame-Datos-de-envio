@@ -182,8 +182,7 @@
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/nav2.html'; ?>
     <div class="toolbar hidden-print">
         <div class="text-right">
-            <button id="printInvoice" class="btn btn-info"><i class="fa fa-print"></i> Print</button>
-            <button class="btn btn-info"><i class="fa fa-file-pdf-o"></i> Export as PDF</button>
+            <button id="printInvoice" class="btn btn-info"><i class="fa fa-print"></i> Imprimir</button>
         </div>
         <hr>
     </div>
@@ -195,32 +194,33 @@
                     <header>
                         <div class="row">
                             <div class="col">
-                                <a target="_blank" href="https://lobianijs.com">
-                                    <img src="http://lobianijs.com/lobiadmin/version/1.0/ajax/img/logo/lobiadmin-logo-text-64.png" data-holder-rendered="true" />
-                                </a>
+                                <img class="p-3 img-fluid" src="/assets/img/logo.png" alt="DiiFrame" data-holder-rendered="true" />
+
                             </div>
                             <div class="col company-details">
                                 <h2 class="name">
                                     <a target="_blank" href="https://lobianijs.com">
-                                        Arboshiki
+                                        Mas Arte de Mexico S.A.
                                     </a>
                                 </h2>
                                 <div>455 Foggy Heights, AZ 85004, US</div>
                                 <div>(123) 456-789</div>
-                                <div>company@example.com</div>
+                                <div>ventas@diiframe.com.mx</div>
                             </div>
                         </div>
                     </header>
                     <main>
                         <div class="row contacts">
                             <div class="col invoice-to">
-                                <div class="text-gray-light">INVOICE TO:</div>
+                                <div class="text-gray-light">Cliente:</div>
                                 <h2 class="to">John Doe</h2>
                                 <div class="address">796 Silver Harbour, TX 79273, US</div>
-                                <div class="email"><a href="mailto:john@example.com">john@example.com</a></div>
+                                <div class="email"></div>
+                                <div class="celular"></div>
                             </div>
                             <div class="col invoice-details">
-                                <h1 class="invoice-id">INVOICE 3-2-1</h1>
+                                <h1 class="invoice-id">Pedido No. <?php echo $_GET['Nota_ID'];?></h1>
+                                <input id="Nota_ID" class="d-none" value="<?php echo $_GET['Nota_ID'];?>">
                                 <div class="date">Date of Invoice: 01/10/2018</div>
                                 <div class="date">Due Date: 30/10/2018</div>
                             </div>
@@ -229,13 +229,13 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th class="text-left">DESCRIPTION</th>
-                                    <th class="text-right">HOUR PRICE</th>
-                                    <th class="text-right">HOURS</th>
-                                    <th class="text-right">TOTAL</th>
+                                    <th class="text-left">Producto</th>
+                                    <th class="text-right">Tamaño</th>
+                                    <th class="text-right">Cantidad</th>
+                                    <th class="text-right">Precio</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="tbl_Pedido">
                                 <tr>
                                     <td class="no">04</td>
                                     <td class="text-left">
@@ -253,60 +253,35 @@
                                     <td class="qty">100</td>
                                     <td class="total">$0.00</td>
                                 </tr>
-                                <tr>
-                                    <td class="no">01</td>
-                                    <td class="text-left">
-                                        <h3>Website Design</h3>Creating a recognizable design solution based on the company's existing visual identity
-                                    </td>
-                                    <td class="unit">$40.00</td>
-                                    <td class="qty">30</td>
-                                    <td class="total">$1,200.00</td>
-                                </tr>
-                                <tr>
-                                    <td class="no">02</td>
-                                    <td class="text-left">
-                                        <h3>Website Development</h3>Developing a Content Management System-based Website
-                                    </td>
-                                    <td class="unit">$40.00</td>
-                                    <td class="qty">80</td>
-                                    <td class="total">$3,200.00</td>
-                                </tr>
-                                <tr>
-                                    <td class="no">03</td>
-                                    <td class="text-left">
-                                        <h3>Search Engines Optimization</h3>Optimize the site for search engines (SEO)
-                                    </td>
-                                    <td class="unit">$40.00</td>
-                                    <td class="qty">20</td>
-                                    <td class="total">$800.00</td>
-                                </tr>
                             </tbody>
                             <tfoot>
                                 <tr>
                                     <td colspan="2"></td>
                                     <td colspan="2">SUBTOTAL</td>
-                                    <td>$5,200.00</td>
+                                    <td id="subtotal"></td>
                                 </tr>
                                 <tr>
                                     <td colspan="2"></td>
-                                    <td colspan="2">TAX 25%</td>
-                                    <td>$1,300.00</td>
+                                    <td colspan="2">I.V.A. 16%</td>
+                                    <td id="impuestos"></td>
                                 </tr>
                                 <tr>
                                     <td colspan="2"></td>
-                                    <td colspan="2">GRAND TOTAL</td>
-                                    <td>$6,500.00</td>
+                                    <td colspan="2"> TOTAL</td>
+                                    <td id="total">$6,500.00</td>
                                 </tr>
                             </tfoot>
                         </table>
-                        <div class="thanks">Thank you!</div>
+                        <div class="thanks">¡Gracias!</div>
                         <div class="notices">
-                            <div>NOTICE:</div>
-                            <div class="notice">A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>
+                            <div class="notice">
+                                <p class="text-muted">Transacciones realizadas vía:</p>
+                                <center><img src="/assets/img/openpay/openpay.png"><img src="/assets/img/openpay/radio_on.png"></center>
+                            </div>
                         </div>
                     </main>
                     <footer>
-                        Invoice was created on a computer and is valid without the signature and seal.
+                        Tus pagos se realizaron de forma segura con encriptación de 256 bits.
                     </footer>
                 </div>
                 <!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->
@@ -317,22 +292,7 @@
 
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/footer.html'; ?>
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/scripts.html'; ?>
-    <script>
-        var doc = new jsPDF();
-        var specialElementHandlers = {
-            '#editor': function(element, renderer) {
-                return true;
-            }
-        };
-        $('#printInvoice').click(function() {
-            doc.fromHTML($('#invoice').html(), 15, 15, {
-                'width': 170,
-                'elementHandlers': specialElementHandlers
-            });
-            doc.save('sample-file.pdf');
-        });
-
-    </script>
+    <script type="text/javascript" src="/assets/js/pedido.js"></script>
 </body>
 
 </html>

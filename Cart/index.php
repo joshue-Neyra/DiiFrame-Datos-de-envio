@@ -12,11 +12,9 @@
          * element that contains the map. */
         #map {
             width: 100%;
-          height: 350px;
+            height: 350px;
         }
-        
-        
-        
+
     </style>
 </head>
 
@@ -71,6 +69,30 @@
 
         </div>
     </div>
+    <div class="container mb-4 my-5" id="form-pedidos">
+        <div class="card row">
+            <div class="col-md-12">
+                <h3 class="mb-3 my-3 text-center text-danger">Tus pedidos</h3>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">No. Nota </th>
+                                <th scope="col">Producto</th>
+                                <th scope="col">Estatus</th>
+                                <th scope="col">Precio</th>
+                                <th scope="col"> Detalle </th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbl_pedidos">
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container mb-4 my-5" id="form-direccion">
         <div class="card mx-auto ">
             <div class="card-body">
@@ -117,8 +139,8 @@
                         <tr>
                             <td class="label">Country</td>
                             <td class="wideField" colspan="3"><input class="field" id="country" disabled="true" />
-                            <input  id="lat" value="" disabled="true" />
-                            <input  id="long" value="" disabled="true" /></td>
+                                <input id="lat" value="" disabled="true" />
+                                <input id="long" value="" disabled="true" /></td>
                         </tr>
                     </table>
                     <div class="pac-card" id="pac-card">
