@@ -14,11 +14,9 @@ $('#printInvoice').click(function () {
 });
 
 function DatosCliente() {
-
     var parametros = {
         "Nota_ID": document.getElementById("Nota_ID").value
     }
-
     $.ajax({
         data: parametros,
         url: '/assets/tools/Pedido/DatosCliente.php',
@@ -43,7 +41,6 @@ function VerPedido() {
     var parametros = {
         "id": document.getElementById("Nota_ID").value
     }
-
     $.ajax({
         data: parametros,
         url: '/assets/tools/Confirmar/VerPedido.php',
@@ -58,7 +55,6 @@ function VerPedido() {
             var nombre = "";
             var tamano = "";
             $("#tbl_Pedido").text("");
-
             for (i = 0; i < DatosJson.length; i++) {
                 if (DatosJson[i].PrdMeta_ID == "Marialuisa") {
                     nombre = 'Marialuisa ';
@@ -71,7 +67,7 @@ function VerPedido() {
                     tamano = DatosJson[i].Tamano;
                 }
                 $("#tbl_Pedido").append('<tr>' +
-                    '<td class="no"> 01 </td>' +
+                    '<td class="no"> 0'+(parseInt(i)+1)+' </td>' +
                     '<td class="text-left"><h3>' + nombre + '</h3> </td>' +
                     '<td class = "unit" > ' +  tamano+ ' </td>' +
                     '<td class = "qty" > ' + DatosJson[i].Inv_cant + ' </td> ' +

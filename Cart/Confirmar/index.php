@@ -79,8 +79,8 @@
                 <div class="col-md-4">
                     <div class="card mb-5">
                         <div class="card-header">
-                            <h6 class="mb-0">
-                                Resumen de pedido</h6>
+                            <h4 class="mb-0">
+                                Resumen de pedido</h4>
                         </div>
                         <div class="card-body py-4">
                             <p class="text-muted text-sm"><small>
@@ -90,6 +90,7 @@
                                     <tr>
                                         <th class="py-4">Subtotal </th>
                                         <td class="py-4 text-right text-muted" id="subtotal">$</td>
+                                        <input type="text" class="d-none" id="inp_subtotal">
                                     </tr>
                                     <tr>
                                         <th class="py-4">Envio</th>
@@ -98,15 +99,17 @@
                                     <tr>
                                         <th class="py-4">I.V.A</th>
                                         <td class="py-4 text-right text-muted" id="iva">$</td>
+                                        <input type="text" class="d-none" id="inp_iva">
                                     </tr>
                                     <tr>
                                         <th class="pt-4">Total</th>
                                         <td class="pt-4 text-right h3 font-weight-normal" id="total">$</td>
+                                        <input type="text" class="d-none" id="inp_total">
                                     </tr>
                                 </tbody>
 
                             </table>
-                            <center><a class="btn btn-lg text-light btn-danger" id="btn_resumen">Continuar</a></center>
+                            <center><a class="btn btn-lg text-light btn-warning" id="btn_resumen">Continuar</a></center>
                         </div>
                     </div>
                 </div>
@@ -117,7 +120,7 @@
 
     <div class="container mb-4 my-5" id="form_pago">
         <div class="card">
-            <div class="card-header bg-danger">
+            <div class="card-header bg-warning">
                 <h2 class="text-white text-center">Tarjeta de crédito o débito</h2>
             </div>
             <div class="card-body">
@@ -198,7 +201,7 @@
                                     <div class="col-md-auto"><img class="img-fluid" src="/assets/img/openpay/security.png"> Tus pagos se realizan de forma segura con encriptación de 256 bits.</div>
                                 </div>
                                 <div class="row justify-content-md-center m-5">
-                                    <button class="btn btn-lg text-light btn-danger" type="submit" id="pay-button">Pagar</button>
+                                    <button class="btn btn-lg text-light btn-secondary" type="submit" id="pay-button">Pagar</button>
                                 </div>
                             </div>
                         </div>

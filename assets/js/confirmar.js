@@ -45,11 +45,14 @@ function VerPedido() {
             }
             sumaprod = Math.round10(sumaprod, -2);
             $("#subtotal").html("$" + sumaprod);
+            $("#inp_subtotal").val(sumaprod);
             var iva = suma * 0.16;
             var total = suma * 1.16;
             total = Math.round10(total, -2);
             $("#iva").html("$" + iva);
+            $("#inp_iva").val(iva);
             $("#total").html("$" + total);
+            $("#inp_total").val(total);
             if (exit == 1) {
                 location.href = "/cart/";
             }
@@ -187,7 +190,10 @@ function Pago(deviceSessionId) {
 
 function UpdateNota(Nota_ID) {
     var parametros = {
-        "Nota_ID": Nota_ID
+        "Nota_ID": Nota_ID,
+        "subtotal": document.getElementById("inp_subtotal").value,
+        "impuestos": document.getElementById("inp_iva").value,
+        "total": document.getElementById("inp_total").value,
     }
     //alert(parametros.deviceIdHiddenFieldName)
     $.ajax({

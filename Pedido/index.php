@@ -49,10 +49,6 @@
             text-align: right
         }
 
-        .invoice .invoice-details .invoice-id {
-            margin-top: 0;
-            color: #3989c6
-        }
 
         .invoice main {
             padding-bottom: 50px
@@ -182,7 +178,7 @@
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/nav2.html'; ?>
     <div class="toolbar hidden-print">
         <div class="text-right">
-            <button id="printInvoice" class="btn btn-info"><i class="fa fa-print"></i> Imprimir</button>
+            <button id="printInvoice" class="btn btn-warning"><i class="fa fa-print"></i> Imprimir</button>
         </div>
         <hr>
     </div>
@@ -219,7 +215,7 @@
                                 <div class="celular"></div>
                             </div>
                             <div class="col invoice-details">
-                                <h1 class="invoice-id">Pedido No. <?php echo $_GET['Nota_ID'];?></h1>
+                                <h1 class="text-warning">Pedido No. <?php echo $_GET['Nota_ID'];?></h1>
                                 <input id="Nota_ID" class="d-none" value="<?php echo $_GET['Nota_ID'];?>">
                                 <div class="date">Date of Invoice: 01/10/2018</div>
                                 <div class="date">Due Date: 30/10/2018</div>
