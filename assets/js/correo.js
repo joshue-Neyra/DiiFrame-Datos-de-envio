@@ -1,6 +1,10 @@
 function Correo() {
+    var parametros = {
+        "Nota_ID": '12345'
+    }
     $.ajax({
-        url: '/assets/tools/mail/correo.php',
+        data: parametros,
+        url: '/assets/tools/mail/correocliente.php',
         type: 'post',
         success: function (response) {
             console.log(response);

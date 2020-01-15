@@ -13,6 +13,7 @@ if( $stmt === false ) {
     die( print_r( sqlsrv_errors(), true));
 }
 else{
+    session_start();
      array_splice($_SESSION['Producto'],0);
     array_splice($_SESSION['Prod_Nombre'],0);
     array_splice($_SESSION['Imagen'],0);

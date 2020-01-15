@@ -1,6 +1,6 @@
 <!DOCTYPE html5>
 <html lang="en">
-
+<?php require $_SERVER['DOCUMENT_ROOT'].'/assets/tools/Sesion/sesion_Usuario.php'; ?>
 <head>
     <title>DiiFrame - Pedido</title>
     <meta name="description" content="">
@@ -175,6 +175,7 @@
 </head>
 
 <body id="page-top">
+     
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/nav2.html'; ?>
     <div class="toolbar hidden-print">
         <div class="text-right">

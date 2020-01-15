@@ -201,8 +201,38 @@ function UpdateNota(Nota_ID) {
         url: '/assets/tools/Confirmar/UpdateNota.php',
         type: 'post',
         success: function (response) {
-            console.log(response);
+            //console.log(response);
+            CorreoVentas(parametros.Nota_ID);
+            CorreoCliente(parametros.Nota_ID);
             location.href='/Pedido/?Nota_ID='+ parametros.Nota_ID+'';
+        }
+    });
+}
+function CorreoVentas(Nota_ID) {
+     var parametros = {
+        "Nota_ID": Nota_ID
+    }
+    $.ajax({
+        data: parametros,
+        url: '/assets/tools/mail/correoventas.php',
+        type: 'post',
+        success: function (response) {
+            console.log(response);
+            //location.href='/Pedido/?Nota_ID='+ parametros.Nota_ID+'';
+        }
+    });
+}
+function CorreoCliente(Nota_ID) {
+     var parametros = {
+        "Nota_ID": Nota_ID
+    }
+    $.ajax({
+        data: parametros,
+        url: '/assets/tools/mail/correocliente.php',
+        type: 'post',
+        success: function (response) {
+            console.log(response);
+            //location.href='/Pedido/?Nota_ID='+ parametros.Nota_ID+'';
         }
     });
 }

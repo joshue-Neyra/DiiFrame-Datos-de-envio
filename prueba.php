@@ -13,7 +13,7 @@
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/nav2.html'; ?>
 
 
-<button class="btn btn-danger" onclick="Correo();">Enviar</button>
+    <button class="btn btn-danger" onclick="Correo();">Enviar</button>
 
 
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/scripts.html'; ?>

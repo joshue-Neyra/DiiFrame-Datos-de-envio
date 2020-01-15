@@ -30,7 +30,7 @@
         <div class="card card-login mx-auto my-5">
 
             <div class="card-body">
-                <img src="http://www.vijayyadav.tk/images/avatar.png" class="avatar mb-5 ">
+                <img src="/assets/img/avatar.png" class="avatar mb-5 ">
                 <h3 class="card-title text-center my-5 text-muted">Iniciar sesión</h3>
                 <form>
                     <div class="form-group">
