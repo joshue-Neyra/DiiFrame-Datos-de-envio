@@ -26,7 +26,7 @@ function VerPedido() {
 
             for (i = 0; i < DatosJson.length; i++) {
                 if (DatosJson[i].PrdMeta_ID == 'Producto') {
-                    $("#tbl_confirmar").append('<tr>' +
+                    $("#tbl_confirmar").append('<tr class="rounded  bg-white ">' +
                         '<td>' + '<img width="50px" src="' + DatosJson[i].RutaImagen + '" />' + ' </td>' +
                         '<td>' + DatosJson[i].Prod_Nombre + '</td>' +
                         '<td>' + DatosJson[i].Tamano + '</td>' +
@@ -62,7 +62,10 @@ function VerPedido() {
 $("#btn_resumen").click(function () {
     $("#form_productos").fadeOut("slow");
     $("#form_pago").fadeIn("slow");
-
+    $("#step3").removeClass("active");
+    $("#step4").removeClass("disabled");
+    $("#step3").addClass("complete");
+    $("#step4").addClass("active");
 });
 
 (function () {

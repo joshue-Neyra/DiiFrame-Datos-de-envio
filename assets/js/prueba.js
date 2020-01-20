@@ -61,6 +61,10 @@ function ShowDireccion() {
     $("#form-carrito").hide();
     $("#form-pedidos").hide();
     $("#form-direccion").show();
+    $("#step1").removeClass("active");
+    $("#step2").removeClass("disabled");
+    $("#step1").addClass("complete");
+    $("#step2").addClass("active");
 }
 $("#target").submit(function (event) {
 

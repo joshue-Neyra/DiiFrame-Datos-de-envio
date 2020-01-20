@@ -6,6 +6,7 @@
     <meta name="description" content="">
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/head.html'; ?>
     <link href="/assets/css/sb-admin.min.css" rel="stylesheet">
+    <link href="/assets/css/proceso.min.css" rel="stylesheet">
 
     <style>
         /* Always set the map height explicitly to define the size of the div
@@ -22,9 +23,51 @@
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/tools/Sesion/sesion_Usuario.php'; ?>
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/nav2.html'; ?>
 
+    <div class="container my-5">
+        <div class="row bs-wizard" style="border-bottom:0;">
 
+            <div class="col-md-3 bs-wizard-step active" id="step1">
+                <div class="text-center bs-wizard-stepnum">Carrito</div>
+                <div class="progress">
+                    <div class="progress-bar"></div>
+                </div>
+                <a href="/Cart/" class="bs-wizard-dot"></a>
+                <div class="bs-wizard-info text-center">Revisa tu carrito.</div>
+            </div>
 
+            <div class="col-md-3 bs-wizard-step disabled" id="step2">
+                <!-- complete -->
+                <div class="text-center bs-wizard-stepnum">Entrega</div>
+                <div class="progress">
+                    <div class="progress-bar"></div>
+                </div>
+                <a href="/Cart/" class="bs-wizard-dot"></a>
+                <div class="bs-wizard-info text-center">Ingresa los datos de entrega</div>
+            </div>
+
+            <div class="col-md-3 bs-wizard-step disabled" id="step3">
+                <!-- complete -->
+                <div class="text-center bs-wizard-stepnum">Confirmación</div>
+                <div class="progress">
+                    <div class="progress-bar"></div>
+                </div>
+                <a href="#" class="bs-wizard-dot"></a>
+                <div class="bs-wizard-info text-center">Confirma todos los datos antes de realizar el pago</div>
+            </div>
+
+            <div class="col-md-3 bs-wizard-step disabled" id="step4">
+                <!-- active -->
+                <div class="text-center bs-wizard-stepnum">Pago</div>
+                <div class="progress">
+                    <div class="progress-bar"></div>
+                </div>
+                <a href="#" class="bs-wizard-dot"></a>
+                <div class="bs-wizard-info text-center">Tus pagos se realizan de forma segura con encriptación de 256 bits</div>
+            </div>
+        </div>
+    </div>
     <div class="container mb-4 my-5" id="form-carrito">
+
         <div class="card row">
             <div class="col-md-12">
                 <h3 class="mb-3 my-3 text-center text-danger">Tu carrito de compra</h3>

@@ -8,7 +8,7 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script type="text/javascript" src="https://openpay.s3.amazonaws.com/openpay.v1.min.js"></script>
     <script type='text/javascript' src="https://openpay.s3.amazonaws.com/openpay-data.v1.min.js"></script>
-
+    <link href="/assets/css/proceso.min.css" rel="stylesheet">
     <link href="/assets/css/sb-admin.min.css" rel="stylesheet">
     <style>
         .card {
@@ -19,8 +19,8 @@
         .table th {
             padding: 1.5rem;
             vertical-align: top;
-            border-top: 1px solid #dee2e6;
         }
+
         .loader {
             position: fixed;
             left: 0px;
@@ -31,23 +31,67 @@
             background: url('/assets/img/loading.gif') 50% 50% no-repeat rgb(249, 249, 249);
             opacity: .8;
         }
+
     </style>
 </head>
 
 <body id="page-top">
-     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/tools/Sesion/sesion_Usuario.php'; ?>
+    <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/tools/Sesion/sesion_Usuario.php'; ?>
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/nav2.html'; ?>
     <div class="loader"></div>
+    <div class="container my-5">
+        <div class="row bs-wizard" style="border-bottom:0;">
+
+            <div class="col-md-3 bs-wizard-step complete" id="step1">
+                <div class="text-center bs-wizard-stepnum">Carrito</div>
+                <div class="progress">
+                    <div class="progress-bar"></div>
+                </div>
+                <a href="/Cart/" class="bs-wizard-dot"></a>
+                <div class="bs-wizard-info text-center">Revisa tu carrito.</div>
+            </div>
+
+            <div class="col-md-3 bs-wizard-step complete" id="step2">
+                <!-- complete -->
+                <div class="text-center bs-wizard-stepnum">Entrega</div>
+                <div class="progress">
+                    <div class="progress-bar"></div>
+                </div>
+                <a href="/Cart/" class="bs-wizard-dot"></a>
+                <div class="bs-wizard-info text-center">Ingresa los datos de entrega</div>
+            </div>
+
+            <div class="col-md-3 bs-wizard-step active" id="step3">
+                <!-- complete -->
+                <div class="text-center bs-wizard-stepnum">Confirmación</div>
+                <div class="progress">
+                    <div class="progress-bar"></div>
+                </div>
+                <a href="#" class="bs-wizard-dot"></a>
+                <div class="bs-wizard-info text-center">Confirma todos los datos antes de realizar el pago</div>
+            </div>
+
+            <div class="col-md-3 bs-wizard-step disabled" id="step4">
+                <!-- active -->
+                <div class="text-center bs-wizard-stepnum">Pago</div>
+                <div class="progress">
+                    <div class="progress-bar"></div>
+                </div>
+                <a href="#" class="bs-wizard-dot"></a>
+                <div class="bs-wizard-info text-center">Tus pagos se realizan de forma segura con encriptación de 256 bits</div>
+            </div>
+        </div>
+    </div>
     <section id="form_productos">
         <div class="container">
             <h3 class="mb-3 my-3 text-center text-danger">Cotización No. <?php echo $_GET['Nota_ID'];?></h3>
             <input id="Nota_ID" class="d-none" value="<?php echo $_GET['Nota_ID'];?>">
             <div class="row">
-                <div class="col-md-8 pr-xl-5">
-                    <div class="table-responsive">
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
+                <div class="col-md-8  card bg-light">
+                    <div class="table-responsive my-3">
+                        <table class="table " >
+                            <thead class="thead-light">
+                                <tr class="table-borderless">
                                     <th scope="col">Imagen </th>
                                     <th scope="col">Producto</th>
                                     <th scope="col">Tamaño</th>
