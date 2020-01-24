@@ -16,7 +16,8 @@
     <input id="Producto_ID" class="d-none" value=" <?php echo $_GET['prod'];?>">
     
     <input id="Tamano_M" class="d-none" value=" <?php echo $_GET['TM'];?>">
-    <input id="Color" class="d-none" value="#<?php echo $_GET['Color'];?>">
+    <input id="Color" class="d-none" value="<?php echo $_GET['Color'];?>">
+    <input id="Vidrio" class="d-none" value="<?php echo $_GET['Vidrio'];?>">
     <div class="container">
         <div class="card-group mb-5 my-5">
             <div class="card">

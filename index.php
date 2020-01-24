@@ -374,7 +374,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Testimonial 4 -->
+                <!-- Testimonial 4 
                 <div class="col-xl-4 col-md-6 mb-4">
                     <div class="card border-0 shadow">
                         <img src="/assets/img/testimonial6.jpg" class="card-img-top" alt="Marcos">
@@ -384,7 +384,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Testimonial 5 -->
+                <!-- Testimonial 5 
                 <div class="col-xl-4 col-md-6 mb-4">
                     <div class="card border-0 shadow">
                         <img src="/assets/img/testimonial7.jpg" class="card-img-top" alt="Marcos">
@@ -394,7 +394,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Testimonial 6 -->
+                <!-- Testimonial 6 
                 <div class="col-xl-4 col-md-6 mb-4">
                     <div class="card border-0 shadow">
                         <img src="/assets/img/testimonial8.jpg" class="card-img-top" alt="Marcos">
@@ -403,7 +403,7 @@
                             <div class="card-text text-black-50">Testimonial</div>
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div>
 
 

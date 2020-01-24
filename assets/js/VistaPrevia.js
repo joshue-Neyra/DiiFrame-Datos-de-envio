@@ -65,8 +65,8 @@ function Producto() {
                     '<input type="text"  id="inp_ProdNombre" class="d-none" value="' + DatosJson[i].Prod_Nombre + '">' +
                     '</div>' +
                     '</form>' +
-
-                    '<button class="btn btn-primary btn-lg btn-block" onclick="cart(' + parametros.Producto + ')">Agregar al Carrito</button>');
+                    '<div id="btn_descripcion">' +
+                    '<button class="btn btn-primary btn-lg btn-block" onclick="cart(' + parametros.Producto + ')">Agregar al Carrito</button></div>');
             }
         }
     });
@@ -89,47 +89,90 @@ function cart(id) {
             Cantidad: document.getElementById("inp_cant").value,
         },
         success: function (response) {
+
+            document.getElementById("Cantidad_Carrito").innerHTML = response;
             Marialuisa();
+            Vidrio()
+            $("#btn_descripcion").text("");
+            $("#btn_descripcion").append('<a class="nav-link" href="/Cart/"><button class="btn btn-warning btn-lg btn-block" >Ir al Carrito</button></a>');
         }
     });
 
 }
 
 function Marialuisa() {
+    var ML = document.getElementById("Color").value;
+    if (ML != 'None') {
+        $.ajax({
+            type: 'post',
+            url: '/assets/tools/Carrito/AgregarMarialuisa.php',
+            data: {
+                Prod_Nombre: document.getElementById("Color").value,
+                Tamano_ID: document.getElementById("Tamano_M").value,
+                Precio: 0,
+                Cantidad: document.getElementById("inp_cant").value,
+            },
+            dataType: 'json',
+            success: function (response) {
+                var DatosJson = JSON.parse(JSON.stringify(response));
+                //console.log(response);
+                //console.log(DatosJson[0].Prod_Nombre);
+                $.ajax({
+                    type: 'post',
+                    url: '/assets/tools/Carrito/AgregarCarrito.php',
+                    data: {
+                        Producto: DatosJson[0].Producto_ID,
+                        Prod_Nombre: DatosJson[0].Prod_Nombre,
+                        Imagen: DatosJson[0].Imagen,
+                        Tamano_ID: DatosJson[0].Tamano_ID,
+                        Tamano: DatosJson[0].Tamano,
+                        Precio: DatosJson[0].Precio,
+                        Cantidad: DatosJson[0].Cantidad,
+                    },
+                    success: function (response) {
+                        console.log(response);
+                        $("#btn_descripcion").text("");
+                        $("#btn_descripcion").append('<a class="nav-link" href="/Cart/"><button class="btn btn-warning btn-lg btn-block" >Ir al Carrito</button></a>');
+                        document.getElementById("Cantidad_Carrito").innerHTML = response;
+                    }
+                });
+            }
+        });
+    }
 
-    $.ajax({
-        type: 'post',
-        url: '/assets/tools/Carrito/AgregarMarialuisa.php',
-        data: {
-            Prod_Nombre: document.getElementById("Color").value,
-            Tamano_ID: document.getElementById("Tamano_M").value,
-            Precio: 0,
-            Cantidad: document.getElementById("inp_cant").value,
-        },
-        dataType: 'json',
-        success: function (response) {
-            var DatosJson = JSON.parse(JSON.stringify(response));
-            //console.log(response);
-            //console.log(DatosJson[0].Prod_Nombre);
-            $.ajax({
-                type: 'post',
-                url: '/assets/tools/Carrito/AgregarCarrito.php',
-                data: {
-                    Producto: DatosJson[0].Producto_ID,
-                    Prod_Nombre: DatosJson[0].Prod_Nombre,
-                    Imagen: DatosJson[0].Imagen,
-                    Tamano_ID: DatosJson[0].Tamano_ID,
-                    Tamano: DatosJson[0].Tamano,
-                    Precio: DatosJson[0].Precio,
-                    Cantidad: DatosJson[0].Cantidad,
-                },
-                success: function (response) {
-                    console.log(response);
-                    $("#Descripcion").append('<a class="nav-link" href="/Cart/"><button class="btn btn-warning btn-lg btn-block" >Ir al Carrito</button></a>');
-                    document.getElementById("Cantidad_Carrito").innerHTML = response;
-                }
-            });
-        }
-    });
+}
+
+function Vidrio() {
+    var Vidrio = document.getElementById("Vidrio").value;
+    if (Vidrio) {
+        $.ajax({
+            type: 'post',
+            url: '/assets/tools/Carrito/AgregarVidrio.php',
+            data: {
+                Prod_Nombre: 'Vidrio'
+            },
+            dataType: 'json',
+            success: function (response) {
+                var DatosJson = JSON.parse(JSON.stringify(response));
+                console.log(DatosJson[0].Prod_Nombre);
+                $.ajax({
+                    type: 'post',
+                    url: '/assets/tools/Carrito/AgregarCarrito.php',
+                    data: {
+                        Producto: DatosJson[0].Producto_ID,
+                        Prod_Nombre: DatosJson[0].Prod_Nombre,
+                        Imagen: 'none',
+                        Tamano_ID: '0',
+                        Tamano: 0,
+                        Precio: 0,
+                        Cantidad: document.getElementById("inp_cant").value,
+                    },
+                    success: function (response) {
+                        console.log(response);
+                    }
+                });
+            }
+        });
+    }
 
 }

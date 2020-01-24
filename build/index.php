@@ -5,7 +5,8 @@
     <title>DiiFrame - Inicio</title>
     <meta name="description" content="">
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/head.html'; ?>
-    <link href="/assets/css/build.css" rel="stylesheet">
+        <link href="/assets/css/hover.min.css" rel="stylesheet">
+
 </head>
 
 <body id="page-top">
@@ -20,7 +21,7 @@
             </div>
             <div class="row text-center">
                 <a>
-                    <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="col-lg-3 col-sm-6 mb-4 hvr-float-shadow">
                         <div class="card h-100">
                             <a href="/build/digitalphoto/"><img class="card-img-top" src="/assets/img/build1.jpg" alt="build"></a>
                             <div class="card-body">
@@ -35,7 +36,7 @@
                     </div>
                 </a>
                 <a>
-                    <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="col-lg-3 col-sm-6 mb-4 hvr-float-shadow">
                         <div class="card h-100">
                             <a href="#"><img class="card-img-top" src="/assets/img/build2.jpg" alt="build"></a>
                             <div class="card-body">
@@ -48,7 +49,7 @@
                     </div>
                 </a>
                 <a>
-                    <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="col-lg-3 col-sm-6 mb-4 hvr-float-shadow">
                         <div class="card h-100">
                             <a href="#"><img class="card-img-top" src="/assets/img/build3.jpg" alt="build"></a>
                             <div class="card-body">
@@ -61,10 +62,24 @@
                         </div>
                     </div>
                 </a>
+                    <a>
+                    <div class="col-lg-3 col-sm-6 mb-4 hvr-float-shadow">
+                        <div class="card h-100">
+                            <a href="#"><img class="card-img-top" width="50%" src="/assets/img/build4.jpg" alt="build"></a>
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    <a href="#">Solo Marco</a>
+                                </h4>
+                                <p class="card-text">¿Solo requieres el marco? Escógelo y nosotros te lo enviamos
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
-    <div id="vantagens">
+   <!-- <div id="vantagens">
         <div class="container ">
             <div class="row">
                 <div class="col-md-12 text-center">
@@ -291,7 +306,7 @@
                                 </div>
                             </div>
                         </div>
-                        //-->
+                        
                         <div class="col-md-6 no-padding lib-item" data-category="view">
                             <div class="lib-panel">
                                 <div class="row box-shadow w-100">
@@ -320,7 +335,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/footer.html'; ?>
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/scripts.html'; ?>
 

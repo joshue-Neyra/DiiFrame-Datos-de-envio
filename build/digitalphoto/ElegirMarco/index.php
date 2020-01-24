@@ -16,7 +16,10 @@
             height: 100%;
             z-index: 9999;
             background: url('/assets/img/loading.gif') 50% 50% no-repeat rgb(249, 249, 249);
-            opacity: .8;
+            opacity: .8;}
+        .brillo{
+            filter:brightness(110%);
+        }
 
     </style>
 </head>
@@ -48,12 +51,20 @@
                     </div>
                     <div class="swatch-selector col-md-6" id="color-1">
                         <div class="form-group row">
-                            <label  class="col-sm-2 col-form-label">Color:</label>
+                            <label class="col-sm-2 col-form-label">Color:</label>
                             <div class="col-sm-8">
                                 <div class="row justify-content-md-center" id="form_marialuisa">
                                 </div>
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Extras:</label>
+                            <div class="custom-control align-self-center custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="switch1">
+                                <label class="custom-control-label" for="switch1"> Vidrio</label>
+                            </div>
+                        </div>
+
 
                     </div>
                     <input id="Tamano_ID" class="d-none" value=" <?php echo $size=$_GET['Tamano_ID'];?>">

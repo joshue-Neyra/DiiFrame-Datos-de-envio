@@ -88,23 +88,32 @@ function Marialuisa() {
             var bg = DatosJson[0].Prod_Nombre;
             for (i = 0; i < DatosJson.length; i++) {
                 if (sw == 1) {
-                    $("#form_marialuisa").append('<div class="swatch selected" style="background-color:' + DatosJson[i].Prod_Nombre + ';"></div>');
+                    $("#form_marialuisa").append('<div id=' + DatosJson[i].Prod_Nombre + ' class="swatch selected" style="background-color:#' + DatosJson[i].Prod_Nombre + ';"></div>');
                 } else {
-                    $("#form_marialuisa").append('<div class="swatch" style="background-color:' + DatosJson[i].Prod_Nombre + ';"></div>');
+                    $("#form_marialuisa").append('<div id=' + DatosJson[i].Prod_Nombre + ' class="swatch border border-primary text-danger text-center" style="background-color:#' + DatosJson[i].Prod_Nombre + ';"></div>');
                 }
                 sw = 0;
             }
+            $("#form_marialuisa").append('<div id="None" class="swatch border border-danger text-danger text-center" style="background-color:#fff;"><i class="align-self-center fas fa-times fa-3x"></i></div>');
+            $("#switch1").change(function () {
+                if (this.checked) {
+                    $('.screen').addClass("brillo");
+                } else {
+                    $('.screen').removeClass("brillo");
+                }
+            });
             $('.swatch-selector .swatch').click(function onClick(event) {
+                $(this).removeClass('border border-primary').siblings().addClass('border border-primary');
                 $(this).addClass('selected')
                     .siblings().removeClass('selected');
                 var colorName = $(this).data('color');
                 var color = $(this).attr('style').split(';').filter(item => item.startsWith('background-color'))[0].split(":")[1].replace(/\s/g, '');
-                var selectorId = $(this).closest('.swatch-selector').attr('id');
+                var selectorId = $(this).attr('id');
                 $('.pic-1')
                     .css({
                         backgroundColor: color
                     });
-                $("#Color").val(color);
+                $("#Color").val(selectorId);
             });
             ListaProductos(bg);
         }
@@ -115,8 +124,8 @@ function Marialuisa() {
 function Redireccion(Producto, Tamano) {
     var Tm = document.getElementById('Tamano_Marialuisa').value;
     var color = document.getElementById('Color').value;
-    var algo = color.substring(1);
-    location.href = '/VistaPrevia/?prod=' + Producto + '&tamano=' + Tamano + '&TM=' + Tm + '&Color=' + algo;
+    var Vidrio = document.getElementById('switch1').checked;
+    location.href = '/VistaPrevia/?prod=' + Producto + '&tamano=' + Tamano + '&TM=' + Tm + '&Vidrio=' + Vidrio + '&Color=' + color;
     //alert(Producto+", "+Tamano);
     //
 }
