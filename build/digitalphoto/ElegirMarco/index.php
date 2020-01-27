@@ -16,9 +16,11 @@
             height: 100%;
             z-index: 9999;
             background: url('/assets/img/loading.gif') 50% 50% no-repeat rgb(249, 249, 249);
-            opacity: .8;}
-        .brillo{
-            filter:brightness(110%);
+            opacity: .8;
+        }
+
+        .brillo {
+            filter: brightness(110%);
         }
 
     </style>
@@ -76,6 +78,15 @@
         </div>
         <div class="loader"></div>
         <div class="container">
+            <h3 class="text-center mb-3">¿Qué buscamos?</h3>
+            <ol class="breadcrumb justify-content-center">
+                <li class="breadcrumb-item active">¿Un cuadro para tu casa?
+                </li>
+                <li class="breadcrumb-item active">¿Un cuadro para tu oficina?
+                </li>
+                <li class="breadcrumb-item active"> ¿Un regalo?
+                </li>
+            </ol>
             <div class="row justify-content-md-center" id="Productos">
             </div>
         </div>

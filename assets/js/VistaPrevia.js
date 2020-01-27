@@ -133,7 +133,7 @@ function Marialuisa() {
                         console.log(response);
                         $("#btn_descripcion").text("");
                         $("#btn_descripcion").append('<a class="nav-link" href="/Cart/"><button class="btn btn-warning btn-lg btn-block" >Ir al Carrito</button></a>');
-                        document.getElementById("Cantidad_Carrito").innerHTML = response;
+                        //document.getElementById("Cantidad_Carrito").innerHTML = response;
                     }
                 });
             }
@@ -144,7 +144,7 @@ function Marialuisa() {
 
 function Vidrio() {
     var Vidrio = document.getElementById("Vidrio").value;
-    if (Vidrio) {
+    if (Vidrio =='true') {
         $.ajax({
             type: 'post',
             url: '/assets/tools/Carrito/AgregarVidrio.php',

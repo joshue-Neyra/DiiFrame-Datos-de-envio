@@ -17,7 +17,6 @@ function Carrito() {
             var suma = 0;
             $("#tbl_carrito").text("");
             for (i = 0; i < DatosJson.length; i++) {
-                if (DatosJson[i].Imagen != "MariaLuisa") {
                     $("#tbl_carrito").append('<tr id="Prd_' + i + '">' +
                         '<td><img width="50px" src="' + DatosJson[i].Imagen + '" /> </td>' +
                         '<td>' + DatosJson[i].Prod_Nombre + '</td>' +
@@ -27,7 +26,7 @@ function Carrito() {
                         '<td class="text-right"><button class="btn btn-sm btn-danger" onclick="BorrarCarrito(' + i + ')" ><i class="fa fa-trash"></i> </button>' +
                         '</td>' +
                         '</tr>');
-                } else {}
+                
                 suma = parseFloat(DatosJson[i].Precio) + suma;
             }
             if (suma > 0) {

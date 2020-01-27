@@ -56,17 +56,16 @@ function ListaProductos(bg) {
                     '<span class="product-new-label">Nuevo</span>' +
                     '</div>' +
                     '<div class="product-content">' +
-                    '<h3 class="title"><a href="#">' + DatosJson[i].Prod_Nombre + '</a></h3>' +
+                    '<h3 class="title"><a href="#">' + '</a></h3>' +
                     '<div class="price">' +
-                    '$' + DatosJson[i].Precio +
-                    '<span>$75.00</span>' +
+                    '' + DatosJson[i].Prod_Nombre +
                     '</div>' +
                     '<ul class="rating">' +
                     '<li class="fa fa-star"></li>' +
                     '<li class="fa fa-star"></li>' +
                     '<li class="fa fa-star"></li>' +
-                    '<li class="fa fa-star disable"></li>' +
-                    '<li class="fa fa-star disable"></li>' +
+                    '<li class="fa fa-star "></li>' +
+                    '<li class="fa fa-star "></li>' +
                     '</ul>' +
                     '</div>' +
                     '</div>' +
