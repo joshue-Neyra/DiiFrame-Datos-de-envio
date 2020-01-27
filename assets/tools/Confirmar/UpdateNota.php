@@ -4,9 +4,12 @@ $Nota_ID=$_POST['Nota_ID'];
 $subtotal=$_POST['subtotal'];
 $impuestos=$_POST['impuestos'];
 $total=$_POST['total'];
+$total_Pagado=$_POST['total_Pagado'];
+$proceso=$_POST['proceso'];
+$status=$_POST['status'];
 
-$sql = "EXEC UpdateNota @ID =?,@subtotal=?,@impuestos=?,@total=?";
-$params = array($Nota_ID,$subtotal,$impuestos,$total);
+$sql = "EXEC UpdateNota @ID =?,@subtotal=?,@impuestos=?,@total=?,@total_pagado=?,@proceso=?,@status=?";
+$params = array($Nota_ID,$subtotal,$impuestos,$total,$total_Pagado,$proceso,$status);
 
 $stmt = sqlsrv_query( $conn, $sql, $params);
 if( $stmt === false ) {

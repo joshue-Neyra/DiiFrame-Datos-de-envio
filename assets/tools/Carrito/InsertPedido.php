@@ -33,25 +33,25 @@ $sql = "EXEC DPedInsertPed
 $params = array(
     $fechanota,//Fecha_Recibo
     $fechanota,//Hora_Recibo
-    0,//ID_Ejecutivo_Recibe
+    3,//ID_Ejecutivo_Recibe
     $Cliente_ID,
 	1,//Status_ID
     1,//Proceso_ID
     0,//TktImpreso
     0,//Facturado
     0,//Afacturar
-    1,//TipoServicio_ID
+    3,//TipoServicio_ID
     0,//ConCorteCaja
     1,//Sucursal_ID
-    1,//MetaNotaID
+    'PedidosWeb',//MetaNotaID
     1,//Activado
     0,//Eliminado
     0,//NoReferenciaWeb
     0,//NoTicket
-    0,//Serie
+    'C',//Serie
     0,//Fecha_Entrega
     0,//Hora_Entrega
-    1,//ID_Status
+    2,//ID_Status
     'Web'//Plataforma
 );
 
@@ -105,7 +105,7 @@ else{
                     $precio_total,
                     0,//compraid
                     $fechanota,
-                    1,//tiposervicio
+                    3,//tiposervicio
                     $Cliente_ID,
                     0,//eliminado
                     1,//activado
@@ -142,7 +142,7 @@ else{
                         $CostoEnvio,
                         0,//compraid
                         $fechanota,
-                        1,//tiposervicio
+                        3,//tiposervicio
                         $Cliente_ID,
                         0,//eliminado
                         1,//activado

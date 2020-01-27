@@ -135,21 +135,23 @@
                                     <tr>
                                         <th class="py-4">Subtotal </th>
                                         <td class="py-4 text-right text-muted" id="subtotal">$</td>
-                                        <input type="text" class="d-none" id="inp_subtotal">
+                                        <input type="text" class="d-non" id="inp_subtotal">
                                     </tr>
                                     <tr>
                                         <th class="py-4">Envio</th>
                                         <td class="py-4 text-right text-muted" id="envio"> $</td>
+                                        <input type="text" class="d-non" id="inp_envio">
+                                        <input type="text" class="d-non" id="inp_monto">
                                     </tr>
                                     <tr>
                                         <th class="py-4">I.V.A</th>
                                         <td class="py-4 text-right text-muted" id="iva">$</td>
-                                        <input type="text" class="d-none" id="inp_iva">
+                                        <input type="text" class="d-non" id="inp_iva">
                                     </tr>
                                     <tr>
                                         <th class="pt-4">Total</th>
                                         <td class="pt-4 text-right h3 font-weight-normal" id="total">$</td>
-                                        <input type="text" class="d-none" id="inp_total">
+                                        <input type="text" class="d-non" id="inp_total">
                                     </tr>
                                 </tbody>
 

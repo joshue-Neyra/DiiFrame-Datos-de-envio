@@ -1,5 +1,6 @@
 $(document).ready(function () {
-    VerPedido()
+    VerPedido();
+    
     $("#form_pago").hide();
     $(".loader").hide();
 });
@@ -40,6 +41,7 @@ function VerPedido() {
                 } else if (DatosJson[i].PrdMeta_ID == 'Envio') {
                     var envio = Math.round10(DatosJson[i].Inv_pre_total, -2)
                     $("#envio").html("$" + envio);
+                    $("#inp_envio").val(envio);
                 }
                 suma = parseFloat(DatosJson[i].Inv_pre_total) + suma;
             }
@@ -48,11 +50,14 @@ function VerPedido() {
             $("#inp_subtotal").val(sumaprod);
             var iva = suma * 0.16;
             var total = suma * 1.16;
+            var monto = suma;
+            $("#inp_monto").val(monto);
             total = Math.round10(total, -2);
             $("#iva").html("$" + iva);
             $("#inp_iva").val(iva);
             $("#total").html("$" + total);
             $("#inp_total").val(total);
+            UpdateNota(parametros.id,monto,iva,total,0,0,1);
             if (exit == 1) {
                 location.href = "/cart/";
             }
@@ -125,8 +130,7 @@ function BorrarInventario(id) {
         url: '/assets/tools/Confirmar/BorrarInventario.php',
         type: 'post',
         success: function (response) {
-            //console.log(response);
-            VerPedido()
+            VerPedido();
         }
     });
 }
@@ -149,9 +153,6 @@ $(document).ready(function () {
     var sucess_callbak = function (response) {
         var token_id = response.data.id;
         $('#token_id').val(token_id);
-
-        //console.log(response);
-        //alert(response.data);
         Pago(deviceSessionId);
     };
 
@@ -164,6 +165,10 @@ $(document).ready(function () {
 });
 
 function Pago(deviceSessionId) {
+    var envio = document.getElementById("inp_envio").value;
+    var monto = document.getElementById("inp_monto").value;
+    var iva = document.getElementById("inp_iva").value;
+    var total = document.getElementById("inp_total").value;
     var parametros = {
         "token_id": document.getElementById("token_id").value,
         "Nota_ID": document.getElementById("Nota_ID").value,
@@ -179,9 +184,15 @@ function Pago(deviceSessionId) {
         type: 'post',
         success: function (response) {
             $(".loader").hide();
+            
             if (response == "completed") {
-                UpdateNota(parametros.Nota_ID);
-                alert("Pago Aceptado");
+                
+                UpdateNota(parametros.Nota_ID,monto,iva,total,total,1,3);
+                
+                CorreoVentas(parametros.Nota_ID);
+                CorreoCliente(parametros.Nota_ID);
+                location.href = '/Pedido/?Nota_ID=' + parametros.Nota_ID + '';
+                //alert("Pago Aceptado");
             } else {
                 alert(response);
                 location.reload();
@@ -191,28 +202,29 @@ function Pago(deviceSessionId) {
 
 }
 
-function UpdateNota(Nota_ID) {
+function UpdateNota(id,monto,iva,total,total_pagado,proceso,status) {
     var parametros = {
-        "Nota_ID": Nota_ID,
-        "subtotal": document.getElementById("inp_subtotal").value,
-        "impuestos": document.getElementById("inp_iva").value,
-        "total": document.getElementById("inp_total").value,
+        "Nota_ID": id,
+        "subtotal": monto,
+        "impuestos": iva,
+        "total": total,
+        "total_Pagado": total_pagado,
+        "proceso": proceso,
+        "status": status,
     }
-    //alert(parametros.deviceIdHiddenFieldName)
+    
     $.ajax({
         data: parametros,
         url: '/assets/tools/Confirmar/UpdateNota.php',
         type: 'post',
         success: function (response) {
-            //console.log(response);
-            CorreoVentas(parametros.Nota_ID);
-            CorreoCliente(parametros.Nota_ID);
-            location.href='/Pedido/?Nota_ID='+ parametros.Nota_ID+'';
+            console.log(response);
         }
     });
 }
+
 function CorreoVentas(Nota_ID) {
-     var parametros = {
+    var parametros = {
         "Nota_ID": Nota_ID
     }
     $.ajax({
@@ -225,8 +237,9 @@ function CorreoVentas(Nota_ID) {
         }
     });
 }
+
 function CorreoCliente(Nota_ID) {
-     var parametros = {
+    var parametros = {
         "Nota_ID": Nota_ID
     }
     $.ajax({

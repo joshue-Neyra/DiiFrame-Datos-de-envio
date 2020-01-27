@@ -43,7 +43,7 @@ function VerPedido() {
     }
     $.ajax({
         data: parametros,
-        url: '/assets/tools/Confirmar/VerPedido.php',
+        url: '/assets/tools/Confirmar/VerPedidoPagado.php',
         type: 'post',
         success: function (response) {
             var disabled = "";
