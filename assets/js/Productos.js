@@ -34,7 +34,7 @@ function ListaProductos(bg) {
                     '<div class="product-grid3 ">' +
                     '<div class="product-image3 ">' +
                     '<a href="#" onclick="Redireccion(' + DatosJson[i].Producto_ID + ',' + parseInt(tamano) + ');">' +
-                    '<div class="pic-1 device-container" style="background-color:' + bg + ';' +
+                    '<div class="pic-1 device-container" style="background-color:#' + bg + ';' +
                     ' id="ImagenDiv_' + DatosJson[i].Producto_ID + '"> ' +
                     '<div class="device-mockup ipad_pro ' + orientacion + ' white ">' +
                     '<div class="device" style="background-image: url(' + DatosJson[i].RutaImagen1 + ');">' +
