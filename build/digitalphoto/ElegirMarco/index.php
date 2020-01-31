@@ -79,14 +79,7 @@
         <div class="loader"></div>
         <div class="container">
             <h3 class="text-center mb-3">¿Qué buscamos?</h3>
-            <ol class="breadcrumb justify-content-center">
-                <li class="breadcrumb-item active">¿Un cuadro para tu casa?
-                </li>
-                <li class="breadcrumb-item active">¿Un cuadro para tu oficina?
-                </li>
-                <li class="breadcrumb-item active"> ¿Un regalo?
-                </li>
-            </ol>
+            <ol class="breadcrumb justify-content-center" id="Filtro_Familia"></ol>
             <div class="row justify-content-md-center" id="Productos">
             </div>
         </div>

@@ -3,6 +3,7 @@ $(document).ready(function () {
     Marialuisa();
     TamanosMarialuisa();
     $(".loader").hide();
+    ProdFamilias();
 });
 
 
@@ -139,6 +140,99 @@ function TamanosMarialuisa() {
             $("#Tamano_Marialuisa").text("");
             for (i = 0; i < DatosJson.length; i++) {
                 $("#Tamano_Marialuisa").append('<option value="' + DatosJson[i].Tamano_ID + '">' + DatosJson[i].Tamano + ' cm</option>')
+            }
+        }
+
+
+    });
+
+}
+
+function ProdFamilias() {
+    $.ajax({
+        url: '/assets/tools/Productos/ProdFamilias.php',
+        type: 'post',
+        dataType: 'json',
+        success: function (response) {
+            var DatosJson = JSON.parse(JSON.stringify(response));
+            $("#Filtro_Familia").text("");
+            for (i = 0; i < DatosJson.length; i++) {
+                $("#Filtro_Familia").append('<li class="breadcrumb-item active" onclick="FiltroFamilia(' + DatosJson[i].Familia_ID + ')">' + DatosJson[i].Familia +
+                    '</li>')
+            }
+        }
+
+
+    });
+
+}
+
+function FiltroFamilia(Familia_ID) {
+    $("#Productos").text("");
+    var parametros = {
+        "Familia_ID": Familia_ID,
+        "Tamano": document.getElementById("Tamano_ID").value
+    }
+    var bg = document.getElementById("Color").value;
+    $.ajax({
+        data: parametros,
+        url: '/assets/tools/Productos/ListaFiltro.php',
+        type: 'post',
+        dataType: 'json',
+        success: function (response) {
+            console.log(response);
+            $("#Productos").text("");
+            var DatosJson = JSON.parse(JSON.stringify(response));
+            var tamano = document.getElementById("Tamano_ID").value;
+            var orientacion = "";
+            $("#Color").val(bg);
+            for (i = 0; i < DatosJson.length; i++) {
+                //console.log(DatosJson[i].ImagenUsuario);
+                if (DatosJson[i].Orientacion == 1) {
+                    orientacion = "portrait";
+                } else {
+                    orientacion = "landscape";
+                }
+                $("#Productos").append('<div class="col-md-3 col-sm-6">' +
+                    '<div class="product-grid3 ">' +
+                    '<div class="product-image3 ">' +
+                    '<a href="#" onclick="Redireccion(' + DatosJson[i].Producto_ID + ',' + parseInt(tamano) + ');">' +
+                    '<div class="pic-1 device-container" style="background-color:#' + bg + ';' +
+                    ' id="ImagenDiv_' + DatosJson[i].Producto_ID + '"> ' +
+                    '<div class="device-mockup ipad_pro ' + orientacion + ' white ">' +
+                    '<div class="device" style="background-image: url(' + DatosJson[i].RutaImagen1 + ');">' +
+                    '<div class="screen ">' +
+                    '<img src="' + DatosJson[i].ImagenUsuario + '" class="img-fluid" width="50%" alt="img">' +
+                    '</div>' +
+                    '<div class="button">' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<img src="' + DatosJson[i].RutaImagen3 + '" class="mypic2 pic-2" alt="img">' +
+                    '</a>' +
+
+                    '<ul class="social">' +
+                    '<li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>' +
+                    '<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>' +
+                    '</ul>' +
+                    '<span class="product-new-label">Nuevo</span>' +
+                    '</div>' +
+                    '<div class="product-content">' +
+                    '<h3 class="title"><a href="#">' + '</a></h3>' +
+                    '<div class="price">' +
+                    '' + DatosJson[i].Prod_Nombre +
+                    '</div>' +
+                    '<ul class="rating">' +
+                    '<li class="fa fa-star"></li>' +
+                    '<li class="fa fa-star"></li>' +
+                    '<li class="fa fa-star"></li>' +
+                    '<li class="fa fa-star "></li>' +
+                    '<li class="fa fa-star "></li>' +
+                    '</ul>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>');
             }
         }
 

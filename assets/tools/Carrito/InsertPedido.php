@@ -35,7 +35,7 @@ $params = array(
     $fechanota,//Hora_Recibo
     3,//ID_Ejecutivo_Recibe
     $Cliente_ID,
-	1,//Status_ID
+	3,//Status_ID
     1,//Proceso_ID
     0,//TktImpreso
     0,//Facturado

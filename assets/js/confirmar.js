@@ -57,7 +57,8 @@ function VerPedido() {
             $("#inp_iva").val(iva);
             $("#total").html("$" + total);
             $("#inp_total").val(total);
-            UpdateNota(parametros.id,monto,iva,total,0,0,1);
+            //Actializar NtaMain, noata_id, monto, iva,total,total_pagado_proceso,status
+            UpdateNota(parametros.id,monto,iva,total,0,0,3);
             if (exit == 1) {
                 location.href = "/cart/";
             }
@@ -186,8 +187,8 @@ function Pago(deviceSessionId) {
             $(".loader").hide();
             
             if (response == "completed") {
-                
-                UpdateNota(parametros.Nota_ID,monto,iva,total,total,1,3);
+                //Actializar NtaMain, noata_id, monto, iva,total,total_pagado_proceso,status
+                UpdateNota(parametros.Nota_ID,monto,iva,total,total,1,1);
                 
                 CorreoVentas(parametros.Nota_ID);
                 CorreoCliente(parametros.Nota_ID);

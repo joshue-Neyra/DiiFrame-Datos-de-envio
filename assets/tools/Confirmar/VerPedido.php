@@ -8,7 +8,7 @@ FROM     Inventario INNER JOIN Productos on Prod_ID = Producto_ID
 inner join TamanosImpresion on Inventario.Tamano_ID = TamanosImpresion.Tamano_ID
 inner join NtaMain on NtaMain.Nota_ID = Inventario.Serv_ID
 where Inventario.Cliente_ID = $Cliente_ID AND Inventario.Serv_ID = $Nota_ID
-and Inventario.Activado = 'True' and  NtaMain.Status_ID  = 1";
+and Inventario.Activado = 'True' and  NtaMain.Status_ID  = 3";
 function getArraySQL($sql){
     //Creamos la conexión con la función anterior
     require $_SERVER['DOCUMENT_ROOT'].'/assets/tools/connection.php'; 
