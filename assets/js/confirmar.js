@@ -1,6 +1,6 @@
 $(document).ready(function () {
     VerPedido();
-    
+
     $("#form_pago").hide();
     $(".loader").hide();
 });
@@ -58,7 +58,7 @@ function VerPedido() {
             $("#total").html("$" + total);
             $("#inp_total").val(total);
             //Actializar NtaMain, noata_id, monto, iva,total,total_pagado_proceso,status
-            UpdateNota(parametros.id,monto,iva,total,0,0,3);
+            UpdateNota(parametros.id, monto, iva, total, 0, 0, 3);
             if (exit == 1) {
                 location.href = "/cart/";
             }
@@ -185,11 +185,11 @@ function Pago(deviceSessionId) {
         type: 'post',
         success: function (response) {
             $(".loader").hide();
-            
-            if (response == "completed") {
+
+            if (response == "debit" || response == "credit") {
                 //Actializar NtaMain, noata_id, monto, iva,total,total_pagado_proceso,status
-                UpdateNota(parametros.Nota_ID,monto,iva,total,total,1,1);
-                
+                UpdateNota(parametros.Nota_ID, monto, iva, total, total, 1, 1);
+                PagoCRM(parametros.Nota_ID, total, response),
                 CorreoVentas(parametros.Nota_ID);
                 CorreoCliente(parametros.Nota_ID);
                 location.href = '/Pedido/?Nota_ID=' + parametros.Nota_ID + '';
@@ -203,7 +203,7 @@ function Pago(deviceSessionId) {
 
 }
 
-function UpdateNota(id,monto,iva,total,total_pagado,proceso,status) {
+function UpdateNota(id, monto, iva, total, total_pagado, proceso, status) {
     var parametros = {
         "Nota_ID": id,
         "subtotal": monto,
@@ -213,7 +213,7 @@ function UpdateNota(id,monto,iva,total,total_pagado,proceso,status) {
         "proceso": proceso,
         "status": status,
     }
-    
+
     $.ajax({
         data: parametros,
         url: '/assets/tools/Confirmar/UpdateNota.php',
@@ -250,6 +250,50 @@ function CorreoCliente(Nota_ID) {
         success: function (response) {
             console.log(response);
             //location.href='/Pedido/?Nota_ID='+ parametros.Nota_ID+'';
+        }
+    });
+}
+
+function PagoCRM(Nota_ID, total, tipo) {
+    var d = new Date();
+    var dia = d.getDate();
+    var mes = d.getMonth() + 1;
+    var año = d.getFullYear();
+    var hora = d.getHours();
+    var minuto = d.getMinutes();
+    var segundos = d.getSeconds();
+    if (mes.toString().length < 2) {
+        mes = "0" + mes.toString();
+    } else {
+        mes = mes.toString();
+    }
+    if (dia.toString().length < 2) {
+        dia = "0" + dia.toString();
+    } else {
+        dia = dia.toString();
+    }
+    var fecha = dia + "-" + mes + "-" + año.toString() + " " + hora.toString() + ":" + minuto.toString() + ":" +segundos.toString();
+        if (tipo == 'credit') {
+            tipo = 2;
+        }
+    else if (tipo == 'debit') {
+        tipo = 19;
+    } else {
+        tipo = 0;
+    }
+    var parametros = {
+        "Nota_ID": Nota_ID,
+        "monto": total,
+        "tipo": tipo,
+        "fecha": fecha
+    }
+
+    $.ajax({
+        data: parametros,
+        url: '/assets/tools/Confirmar/PagoCRM.php',
+        type: 'post',
+        success: function (response) {
+            console.log(response);
         }
     });
 }

@@ -72,7 +72,8 @@ else{
     
     try {
         $charge = $openpay->charges->create($chargeData);
-        echo $charge->status;
+        //echo $charge->status;
+        echo $charge->card->type;
     } catch (Exception $e) {
         echo   $e->getMessage(), "\n";
     }
