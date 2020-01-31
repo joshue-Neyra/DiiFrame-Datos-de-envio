@@ -163,6 +163,13 @@
                             <label for="pac-input">Dirección de Entrega</label>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label for="pac-input">Referencias</label>
+                            <textarea rows="3" name="p_mensaje" class="form-control" id="inp_referencias" placeholder="Referencias" maxlength="250"required></textarea>
+                            
+                        </div>
+                    </div>
                     <table id="address" class="d-none">
                         <tr>
                             <td class="label">Street address</td>

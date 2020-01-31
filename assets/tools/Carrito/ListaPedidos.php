@@ -8,7 +8,7 @@ FROM     dbo.NtaMain left JOIN
                   dbo.Procesos ON dbo.NtaMain.Proceso_ID = dbo.Procesos.Proces_ID LEFT JOIN
                   dbo.Inventario ON dbo.NtaMain.Nota_ID = dbo.Inventario.Serv_ID LEFT JOIN
                   dbo.Productos ON dbo.Inventario.Prod_ID = dbo.Productos.Producto_ID
-Where NtaMain.ID_Status = 2 and NtaMain.Status_ID = 3  and NtaMain.Proceso_Id  !=0  and dbo.Productos.PrdMeta_ID = 'Producto'
+Where NtaMain.ID_Status = 2 and NtaMain.Status_ID != 3  and NtaMain.Proceso_Id  !=0  and dbo.Productos.PrdMeta_ID = 'Producto'
 and dbo.Inventario.Activado = 'True' and NtaMain.Cliente_ID = $Cliente_ID";
 function getArraySQL($sql){
     //Creamos la conexión con la función anterior

@@ -141,10 +141,36 @@ function InsertPedido(CostoEnvio) {
         type: 'post',
         data: parametros,
         success: function (r) {
+            CrearDireccion(r);
             location.href = "/Cart/Confirmar/?Nota_ID=" + r;
             console.log(r);
         }
     });
 
+
+}
+
+function CrearDireccion(r) {
+    var parametros = {
+        "Celular": document.getElementById("inp_cli_cel").value,
+        "Telefono": document.getElementById("inp_cli_tel").value,
+        "street_number": document.getElementById("street_number").value,
+        "Calle": document.getElementById("route").value,
+        "ciudad": document.getElementById("locality").value,
+        "estado": document.getElementById("administrative_area_level_1").value,
+        "cp": document.getElementById("postal_code").value,
+        "Country": document.getElementById("country").value,
+        "Referencia": document.getElementById("inp_referencias").value,
+        "Nota_ID":r
+
+    }
+           $.ajax({
+            data: parametros,
+            url: '/assets/tools/Carrito/CrearDirecciones.php',
+            type: 'post',
+            success: function (response) {
+                console.log(response);
+            }
+        });
 
 }

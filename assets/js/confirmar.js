@@ -175,7 +175,7 @@ function Pago(deviceSessionId) {
         "Nota_ID": document.getElementById("Nota_ID").value,
         "deviceIdHiddenFieldName": deviceSessionId,
         "description": "Prueba",
-        "amount": 1,
+        "amount": total,
 
     }
     //alert(parametros.deviceIdHiddenFieldName)
