@@ -31,7 +31,7 @@ $params = array(
     3,//,[Tipo_serv]
     $monto,//,[Entregado]
     0,//,[Cambio]
-    '',//,[Pag_TC]
+    $monto,//,[Pag_TC]
     '',//,[Pag_aut]
     $tipo,//,[Tipo_Pago_ID]
     1,//,[Activado]
