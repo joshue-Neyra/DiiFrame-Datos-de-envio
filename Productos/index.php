@@ -6,6 +6,7 @@
     <meta name="description" content="">
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/head.html'; ?>
     <link href="/assets/css/cajasproductos.min.css" rel="stylesheet">
+    <link href="/assets/device-mockups/device-mockups.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -23,6 +24,8 @@
             </div>
         </div>
         <div class="container">
+            <h3 class="text-center mb-3">¿Qué buscamos?</h3>
+            <ol class="breadcrumb justify-content-center" id="Filtro_Familia"></ol>
             <div class="row justify-content-md-center" id="Productos">
             </div>
         </div>

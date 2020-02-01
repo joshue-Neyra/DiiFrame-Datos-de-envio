@@ -65,7 +65,7 @@
                     <a>
                     <div class="col-lg-3 col-sm-6 mb-4 hvr-float-shadow">
                         <div class="card h-100">
-                            <a href="#"><img class="card-img-top" width="50%" src="/assets/img/build4.jpg" alt="build"></a>
+                            <a href="/Productos/"><img class="card-img-top" width="50%" src="/assets/img/build4.jpg" alt="build"></a>
                             <div class="card-body">
                                 <h4 class="card-title">
                                     <a href="#">Solo Marco</a>
