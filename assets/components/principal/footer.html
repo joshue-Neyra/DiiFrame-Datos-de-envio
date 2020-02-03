@@ -1,40 +1,41 @@
 <!-- Footer -->
-<section class="page-footer font-small special-color-dark pt-4 bg-dark">
+<section class="page-footer font-small special-color-dark p-5 bg-dark">
     <div class="container">
-        <div class="row">
-            <div class="col-md-8 mb-4 row align-self-center align-items-center">
-                <div class="col-md-2 mb-md-0 mb-3">
-                    <ul class="list-unstyled">
+        <div class="row align-self-center">
+            <div class="col-md-8  align-self-center justify-md-center">
+                <ul class="list-unstyled row ">
+                    <div class="col-md-2 ">
                         <li>
-                            <a class="js-scroll-trigger" href="/#howitworks">Como Funciona</a>
+                            <a class="js-scroll-trigger text-sm-left" href="/#howitworks">Como Funciona</a>
                         </li>
+
+                    </div>
+                    <div class="col-md-2">
                         <li>
                             <a class="js-scroll-trigger" href="/build/">Comprar</a>
                         </li>
-                    </ul>
-                </div>
-                <div class="col-md-2 mb-md-0 mb-3">
-                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!">Tiendas</a>
+                        </li>
+                    </div>
+                    <div class="col-md-2">
                         <li>
                             <a href="#!">Servicios</a>
                         </li>
                         <li>
                             <a href="/Productos/">Productos</a>
                         </li>
-                    </ul>
-                </div>
-                <div class="col-md-2 mb-md-0 mb-3">
-                    <ul class="list-unstyled">
+                    </div>
+                    <div class="col-md-2">
                         <li>
                             <a href="#!">FAQ</a>
                         </li>
-                        <li>
-                            <a href="#!">Tiendas</a>
-                        </li>
-                    </ul>
-                </div>
+                        
+                    </div>
+                </ul>
+                <a href="#" class="btn btn-success text-capitalize"><i class="fab fa-whatsapp"></i> Contáctanos por WhatsApp</a>
             </div>
-            <div class="col-md-4 mb-4">
+            <div class="col-md-4 align-self-center">
                 <p class="text-light">Suscribete para recibir promociones</p>
                 <form id="foo_news" class="input-group">
                     <input type="text" class="form-control form-control-sm" id="inp_news_f" placeholder="@ Correo electronico" aria-label="@ Correo electronico" aria-describedby="basic-addon2" required>
@@ -108,7 +109,7 @@
         }
         var fecha = dia + "-" + mes + "-" + año.toString() + " " + hora.toString() + ":" + minuto.toString() + ":" + segundos.toString();
         $("#date").val(fecha);
-        $("#fecha_copyright").append('© '+año+' Copyright:<strong class="text-warning">DiiFrame.com</strong>');
+        $("#fecha_copyright").append('© ' + año + ' Copyright:<strong class="text-warning">DiiFrame.com</strong>');
     });
     $("#foo_news").submit(function(event) {
 
@@ -122,7 +123,7 @@
             type: 'post',
             success: function(response) {
                 alert(response);
-                
+
                 $('#inp_news_f').val('');
                 $('#subscribeModal').modal('hide');
                 $('#news').val(response);
