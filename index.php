@@ -91,9 +91,19 @@
     </style>
 
 </head>
+<?php
+    
+    
+?>
 
 <body id="page-top">
-
+    <input class="d-none" id="news" value="<?php session_start(); 
+   try {
+   $News=$_SESSION['News'];
+    echo $News;
+} catch (Exception $e) {
+    echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+} ?>">
     <!-- Navigation -->
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/nav.html'; ?>
     <header class="masthead" style="background-image: url('/assets/img/header.jpg')">
@@ -524,53 +534,7 @@
             </div>
         </div>
     </section>
-    <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/footer.html'; ?>
-    <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/scripts.html'; ?>
-    <script>
-        $(window).on('load', function() {
-            setTimeout(function() {
-                $('#subscribeModal').modal('show');
-            }, 5000);
-        });
-        $(document).ready(function() {
-            hideall(), slide1();
-        });
 
-        function hideall() {
-            $('#slide1').removeClass(' text-primary');
-            $('#slide2').removeClass(' text-primary');
-            $('#slide3').removeClass(' text-primary');
-            $('#slide1').addClass('text-warning');
-            $('#slide2').addClass('text-warning');
-            $('#slide3').addClass('text-warning');
-        }
-
-        function slide1() {
-            $("#carouselExampleIndicators2").carousel();
-            $("#carouselExampleIndicators2").carousel(0);
-            hideall();
-            $('#slide1').removeClass('text-warning ');
-            $('#slide1').addClass('text-primary');
-
-        }
-
-        function slide2() {
-            $("#carouselExampleIndicators2").carousel();
-            $("#carouselExampleIndicators2").carousel(1);
-            hideall();
-            $('#slide2').removeClass('text-warning ');
-            $('#slide2').addClass('text-primary');
-        }
-
-        function slide3() {
-            $("#carouselExampleIndicators2").carousel();
-            $("#carouselExampleIndicators2").carousel(2);
-            hideall();
-            $('#slide3').removeClass('text-warning ');
-            $('#slide3').addClass('text-primary');
-        }
-
-    </script>
     <div class="modal fade text-center py-5 subscribeModal-lg" id="subscribeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -581,11 +545,12 @@
                     <p class="pb-1 text-muted"><small>Regístrese para enterarte de nuestras últimas noticias y productos.</small></p>
                     <form id="inp_newsletter">
                         <div class="input-group mb-3 w-75 mx-auto">
-                            <input type="email" class="form-control" placeholder="Email" aria-label="Recipient's username" aria-describedby="button-addon2" required>
+                            <input type="email" id="clie_news" class="form-control" placeholder="Email" aria-label="Recipient's username" aria-describedby="button-addon2" required>
                             <div class="input-group-append">
-                                <button class="btn btn-primary" type="button" id="button-addon2"><i class="fa fa-paper-plane"></i></button>
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-paper-plane"></i></button>
                             </div>
                         </div>
+
                     </form>
                     <p class="pb-1 text-muted"><small>
                             Su correo electrónico está seguro con nosotros. No haremos spam.</small></p>
@@ -594,6 +559,9 @@
             </div>
         </div>
     </div>
+    <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/footer.html'; ?>
+    <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/scripts.html'; ?>
+    <script src="/assets/js/main.js"></script>
 </body>
 
 </html>

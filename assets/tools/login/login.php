@@ -15,6 +15,7 @@ if(sqlsrv_has_rows($req) != 1){
 }
 else{
 	session_start();
+    $_SESSION['News'] = true;
 	$_SESSION['Usuario'] = $user;
 	$resultado=  sqlsrv_fetch_array($req);
 	$_SESSION['Id'] = $resultado['ID_Cliente'];

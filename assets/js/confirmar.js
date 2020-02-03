@@ -190,7 +190,7 @@ function Pago(deviceSessionId) {
                 //Actializar NtaMain, noata_id, monto, iva,total,total_pagado_proceso,status
                 UpdateNota(parametros.Nota_ID, monto, iva, total, total, 1, 1);
                 PagoCRM(parametros.Nota_ID, total, response),
-                CorreoVentas(parametros.Nota_ID);
+                    CorreoVentas(parametros.Nota_ID);
                 CorreoCliente(parametros.Nota_ID);
                 location.href = '/Pedido/?Nota_ID=' + parametros.Nota_ID + '';
                 //alert("Pago Aceptado");
@@ -255,28 +255,10 @@ function CorreoCliente(Nota_ID) {
 }
 
 function PagoCRM(Nota_ID, total, tipo) {
-    var d = new Date();
-    var dia = d.getDate();
-    var mes = d.getMonth() + 1;
-    var año = d.getFullYear();
-    var hora = d.getHours();
-    var minuto = d.getMinutes();
-    var segundos = d.getSeconds();
-    if (mes.toString().length < 2) {
-        mes = "0" + mes.toString();
-    } else {
-        mes = mes.toString();
-    }
-    if (dia.toString().length < 2) {
-        dia = "0" + dia.toString();
-    } else {
-        dia = dia.toString();
-    }
-    var fecha = dia + "-" + mes + "-" + año.toString() + " " + hora.toString() + ":" + minuto.toString() + ":" +segundos.toString();
-        if (tipo == 'credit') {
-            tipo = 2;
-        }
-    else if (tipo == 'debit') {
+
+    if (tipo == 'credit') {
+        tipo = 2;
+    } else if (tipo == 'debit') {
         tipo = 19;
     } else {
         tipo = 0;
@@ -285,7 +267,7 @@ function PagoCRM(Nota_ID, total, tipo) {
         "Nota_ID": Nota_ID,
         "monto": total,
         "tipo": tipo,
-        "fecha": fecha
+        "fecha": document.getElementById("date").value
     }
 
     $.ajax({

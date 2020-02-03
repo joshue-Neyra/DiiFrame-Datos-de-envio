@@ -26,7 +26,8 @@ $sql = "EXEC DCliUpdateCli
 	@param10 =?,
 	@param11 =?,
 	@param12 =?,
-    @param13 =?";
+    @param13 =?,
+    @param14 =?";
 $params = array(
     $Calle,
     $Street_number,
@@ -40,7 +41,9 @@ $params = array(
     $lat,
     $long,
     $Cliente_ID,
-    $Celular);
+    $Celular,
+    'Cliente'//Meta
+    );
 
 $stmt = sqlsrv_query( $conn, $sql, $params);
 if( $stmt === false ) {

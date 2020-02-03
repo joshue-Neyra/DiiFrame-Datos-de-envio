@@ -11,12 +11,12 @@ $FechaAlta= date_format($date, 'Y-m-d H:i:s');
 $EsVentaFacturacion=1;
 $DescuentoActivado=0;
 $EsClieLavanderiaInd=0;
-$MetaClieID=1;
+$MetaClieID='Prospecto';
 $ID_Status=2;
 $Ejecutivo_ID=1;
 
 
-$sql = "SELECT ID_Cliente FROM Clientes WHERE  Clie_email ='$Clie_email' ";
+$sql = "SELECT ID_Cliente FROM Clientes WHERE  Clie_email ='$Clie_email' and Clie_Nombre != '' ";
 $req =  sqlsrv_query($conn, $sql) or die(print_r(sqlsrv_errors(),true));
 
 if(sqlsrv_has_rows($req) != 1){
@@ -49,6 +49,7 @@ if(sqlsrv_has_rows($req) != 1){
             }
             else{
                 session_start();
+                $_SESSION['News'] = true;
                 $_SESSION['Usuario'] = $Clie_email;
                 $resultado=  sqlsrv_fetch_array($req);
                 $_SESSION['Id'] = $resultado['ID_Cliente'];
