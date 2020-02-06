@@ -32,25 +32,20 @@ $_SESSION['Nombre']="/assets/img/solomarco.jpg";?>
                                 </tr>
                             </thead>
                             <tbody id="botones" >
-                              
                             </tbody>
                         </table>
                     </div>
                 </div>
-
                 <div class="col-lg-6 col-sm-6 mb-4">
                     <input class="d-none" id="Producto_ID" value="<?php echo $_GET['Prd_ID']?>">
                     <div class="card" id="prod_imagen">
-                        
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/footer.html'; ?>
     <script type="text/javascript" src="/assets/js/TamanoProductos.js"></script>
-
 </body>
 
 </html>

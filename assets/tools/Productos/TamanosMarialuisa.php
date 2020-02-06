@@ -1,7 +1,7 @@
 
 <?php
 session_start();
-$sql = "SELECT  Tamano_ID, Tamano, Status_ID, Precio, MetaImpresion
+$sql = "SELECT  Tamano_ID, Tamano, Status_ID,  MetaImpresion
 FROM     TamanosImpresion
 WHERE MetaImpresion = 'Marialuisa'";
 function getArraySQL($sql){

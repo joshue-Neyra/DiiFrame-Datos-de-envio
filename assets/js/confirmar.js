@@ -219,7 +219,7 @@ function UpdateNota(id, monto, iva, total, total_pagado, proceso, status) {
         url: '/assets/tools/Confirmar/UpdateNota.php',
         type: 'post',
         success: function (response) {
-            console.log(response);
+            //console.log(response);
         }
     });
 }

@@ -62,10 +62,6 @@
             border-bottom: 65px solid #33d3d9;
             border-top: 10px solid #33d3d9;
         }
-
-        /**************************/
-        /****** modal-lg stips *********/
-        /**************************/
         #subscribeModal .modal-lg .top-strip {
             height: 155px;
             background: #f1d145;

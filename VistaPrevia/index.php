@@ -48,7 +48,6 @@
                 <div class="modal-body">
                     <div class="container" id="modal1">
 
-                        <img class="img-fluid" src="" alt="" />
                     </div>
                 </div>
             </div>

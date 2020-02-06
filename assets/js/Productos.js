@@ -8,7 +8,6 @@ $(document).ready(function () {
 
 
 function ListaProductos(bg) {
-
     var parametros = {
         "Tamano": document.getElementById("Tamano_ID").value
     }
@@ -21,7 +20,6 @@ function ListaProductos(bg) {
         success: function (response) {
             $("#Productos").text("");
             var DatosJson = JSON.parse(JSON.stringify(response));
-            var tamano = document.getElementById("Tamano_ID").value;
             var orientacion = "";
             $("#Color").val(bg);
             for (i = 0; i < DatosJson.length; i++) {
@@ -34,7 +32,7 @@ function ListaProductos(bg) {
                 $("#Productos").append('<div class="col-md-3 col-sm-6">' +
                     '<div class="product-grid3 ">' +
                     '<div class="product-image3 ">' +
-                    '<a href="#" onclick="Redireccion(' + DatosJson[i].Producto_ID + ',' + parseInt(tamano) + ');">' +
+                    '<a href="#" onclick="Redireccion(' + DatosJson[i].Producto_ID + ',' + DatosJson[i].Tamano_ID + ');">' +
                     '<div class="pic-1 device-container" style="background-color:#' + bg + ';' +
                     ' id="ImagenDiv_' + DatosJson[i].Producto_ID + '"> ' +
                     '<div class="device-mockup ipad_pro ' + orientacion + ' white ">' +
@@ -161,8 +159,6 @@ function ProdFamilias() {
                     '</li>')
             }
         }
-
-
     });
 
 }
@@ -183,7 +179,6 @@ function FiltroFamilia(Familia_ID) {
             console.log(response);
             $("#Productos").text("");
             var DatosJson = JSON.parse(JSON.stringify(response));
-            var tamano = document.getElementById("Tamano_ID").value;
             var orientacion = "";
             $("#Color").val(bg);
             for (i = 0; i < DatosJson.length; i++) {
@@ -196,7 +191,7 @@ function FiltroFamilia(Familia_ID) {
                 $("#Productos").append('<div class="col-md-3 col-sm-6">' +
                     '<div class="product-grid3 ">' +
                     '<div class="product-image3 ">' +
-                    '<a href="#" onclick="Redireccion(' + DatosJson[i].Producto_ID + ',' + parseInt(tamano) + ');">' +
+                    '<a href="#" onclick="Redireccion(' + DatosJson[i].Producto_ID + ',' + DatosJson[i].Tamano_ID + ');">' +
                     '<div class="pic-1 device-container" style="background-color:#' + bg + ';' +
                     ' id="ImagenDiv_' + DatosJson[i].Producto_ID + '"> ' +
                     '<div class="device-mockup ipad_pro ' + orientacion + ' white ">' +

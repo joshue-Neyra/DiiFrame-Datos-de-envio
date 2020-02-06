@@ -32,9 +32,6 @@
     <!-- Navigation -->
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/nav2.html'; ?>
 
-
-
-
     <section class="features bg-light mb-5" id="features">
         <div class="container pb-5">
             <div class="card">
