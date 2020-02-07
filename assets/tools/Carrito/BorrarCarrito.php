@@ -1,11 +1,36 @@
 <?php
 session_start();
-$i=$_POST['id'];
- array_splice($_SESSION['Producto'],$i);
-    array_splice($_SESSION['Prod_Nombre'],$i);
-    array_splice($_SESSION['Imagen'],$i);
-    array_splice($_SESSION['Tamano_ID'],$i);
-    array_splice($_SESSION['Tamano'],$i);
-    array_splice($_SESSION['Precio'],$i);
-    array_splice($_SESSION['Cantidad'],$i);
+$identificador=0;
+$contador=count($_SESSION['Producto']);
+$eliminar=$_POST['id'];
+
+for($x=0;$x<$contador;$x++){
+	if($eliminar<$x){
+    	$identificador=$identificador+1;
+	}
+    else{
+    $identificador=$identificador;}
+}
+
+if(($contador-1)==$eliminar){
+    array_splice($_SESSION['Producto'],$eliminar);
+    array_splice($_SESSION['Prod_Nombre'],$eliminar);
+    array_splice($_SESSION['Imagen'],$eliminar);
+    array_splice($_SESSION['Tamano_ID'],$eliminar);
+    array_splice($_SESSION['Tamano'],$eliminar);
+    array_splice($_SESSION['Precio'],$eliminar);
+    array_splice($_SESSION['Cantidad'],$eliminar);
+    array_splice($_SESSION['Meta'],$eliminar);
+}
+else{
+    array_splice($_SESSION['Producto'],$eliminar,-($identificador));
+    array_splice($_SESSION['Prod_Nombre'],$eliminar,-($identificador));
+    array_splice($_SESSION['Imagen'],$eliminar,-($identificador));
+    array_splice($_SESSION['Tamano_ID'],$eliminar,-($identificador));
+    array_splice($_SESSION['Tamano'],$eliminar,-($identificador));
+    array_splice($_SESSION['Precio'],$eliminar,-($identificador));
+    array_splice($_SESSION['Cantidad'],$eliminar,-($identificador));
+    array_splice($_SESSION['Meta'],$eliminar,-($identificador));
+}
+ 
   

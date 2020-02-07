@@ -87,10 +87,11 @@ function cart(id) {
             Tamano: document.getElementById("inp_Tamano").value,
             Precio: document.getElementById("inp_precio").value,
             Cantidad: document.getElementById("inp_cant").value,
+            Meta: document.getElementById("Meta").value,
         },
         success: function (response) {
 
-            document.getElementById("Cantidad_Carrito").innerHTML = response;
+            $("#Cantidad_Carrito").html(response);
             Marialuisa();
             Vidrio()
             $("#btn_descripcion").text("");
@@ -128,6 +129,7 @@ function Marialuisa() {
                         Tamano: DatosJson[0].Tamano,
                         Precio: DatosJson[0].Precio,
                         Cantidad: DatosJson[0].Cantidad,
+                        Meta: 'Marialuisa',
                     },
                     success: function (response) {
                         console.log(response);

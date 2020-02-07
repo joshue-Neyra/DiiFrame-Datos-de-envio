@@ -11,8 +11,9 @@ try {
             $cantidad = $_SESSION['Cantidad'][$i];
             $precio = $_SESSION['Precio'][$i];
             $imagen = $_SESSION['Imagen'][$i];
+            $Meta = $_SESSION['Meta'][$i];
 
-            $lista[] = array('Producto' => $producto, 'Prod_Nombre' => $productonombre, 'Tamano' => $tamano, 'Tamano_ID' => $tamanoID, 'Cantidad' => $cantidad, 'Precio' => $precio, 'Imagen' => $imagen);
+            $lista[] = array('Producto' => $producto, 'Prod_Nombre' => $productonombre, 'Tamano' => $tamano, 'Tamano_ID' => $tamanoID, 'Cantidad' => $cantidad, 'Precio' => $precio, 'Imagen' => $imagen, 'Meta' => $Meta);
         }
         else{
             array_splice($_SESSION['Producto'],0);

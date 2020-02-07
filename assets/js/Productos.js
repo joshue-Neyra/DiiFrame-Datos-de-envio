@@ -123,7 +123,7 @@ function Redireccion(Producto, Tamano) {
     var Tm = document.getElementById('Tamano_Marialuisa').value;
     var color = document.getElementById('Color').value;
     var Vidrio = document.getElementById('switch1').checked;
-    location.href = '/VistaPrevia/?prod=' + Producto + '&tamano=' + Tamano + '&TM=' + Tm + '&Vidrio=' + Vidrio + '&Color=' + color;
+    location.href = '/VistaPrevia/?prod=' + Producto + '&tamano=' + Tamano + '&TM=' + Tm + '&Vidrio=' + Vidrio + '&Color=' + color+'&Meta=Impresion';
     //alert(Producto+", "+Tamano);
     //
 }
@@ -206,7 +206,6 @@ function FiltroFamilia(Familia_ID) {
                     '</div>' +
                     '<img src="' + DatosJson[i].RutaImagen3 + '" class="mypic2 pic-2" alt="img">' +
                     '</a>' +
-
                     '<ul class="social">' +
                     '<li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>' +
                     '<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>' +

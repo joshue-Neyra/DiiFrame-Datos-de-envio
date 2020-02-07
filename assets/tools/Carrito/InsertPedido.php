@@ -79,6 +79,7 @@ else{
                 $cantidad = $_SESSION['Cantidad'][$i];
                 $precio = $_SESSION['Precio'][$i];
                 $imglocal=$_SESSION['Imagen'][$i];
+                $Meta=$_SESSION['Meta'][$i];
                 $imagen = "$imglocal";
                 $precio_total= $cantidad * $precio;
 
@@ -96,7 +97,8 @@ else{
                     @Inv_descuento =?,
                     @Tamano_ID =?,
                     @Tarifa_ID =?,
-                    @RutaImagen=?";
+                    @RutaImagen=?,
+                    @Meta=?";
                 $params = array(
                     $Nota_ID,
                     $producto,
@@ -112,7 +114,8 @@ else{
                     0,//descuento
                     $tamanoID,
                     0,
-                    $imagen);
+                    $imagen,
+                    $Meta);
 
                 $stmt = sqlsrv_query( $conn, $sql, $params);
                 if( $stmt === false ) {
@@ -133,7 +136,8 @@ else{
                         @Inv_descuento =?,
                         @Tamano_ID =?,
                         @Tarifa_ID =?,
-                        @RutaImagen=?";
+                        @RutaImagen=?,
+                        @Meta=?";
                     $params = array(
                         $Nota_ID,
                         $Envio,
@@ -149,7 +153,8 @@ else{
                         0,//descuento
                         1,//tamano
                         0,
-                        '/assets/img/envio.jpg');
+                        '/assets/img/envio.jpg',
+                        'Envio');
 
                     $stmt = sqlsrv_query( $conn, $sql, $params);
                     if( $stmt === false ) {
