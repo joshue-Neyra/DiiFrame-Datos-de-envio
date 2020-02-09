@@ -206,6 +206,7 @@ function FiltroFamilia(Familia_ID) {
                     '</div>' +
                     '<img src="' + DatosJson[i].RutaImagen3 + '" class="mypic2 pic-2" alt="img">' +
                     '</a>' +
+
                     '<ul class="social">' +
                     '<li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>' +
                     '<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>' +

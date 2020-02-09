@@ -1,6 +1,6 @@
 <?php
 
-$sql = "SELECT  Producto_ID, Prod_Nombre, RutaImagen1, RutaImagen2, RutaImagen3,(select Precio from TamanosImpresion where Tamano_ID=1) as Precio
+$sql = "SELECT  Producto_ID, Prod_Nombre, RutaImagen1, RutaImagen2, RutaImagen3
 FROM     Productos
 WHERE   ID_Status = 2 and PrdMeta_ID = 'Producto'";
 function getArraySQL($sql){

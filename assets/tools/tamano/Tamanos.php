@@ -1,6 +1,6 @@
 <?php
 
-$sql = "SELECT dbo.TamanosImpresion.Tamano_ID,  dbo.TamanosImpresion.Tamano, dbo.TamanosImpresion.Precio  
+$sql = "SELECT dbo.TamanosImpresion.Tamano_ID,  dbo.TamanosImpresion.Tamano 
 FROM     dbo.TamanosImpresion 
 				  where dbo.TamanosImpresion.Status_ID = 2 and MetaImpresion = 'Impresion'";
 function getArraySQL($sql){

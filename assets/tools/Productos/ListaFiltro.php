@@ -4,9 +4,11 @@ $imagen = $_SESSION['Nombre'];
 $Tamano=$_POST['Tamano'];
 $Familia_ID=$_POST['Familia_ID'];
 $Orientacion = $_SESSION['Orientacion'];
-$sql = "SELECT  Producto_ID, Prod_Nombre, PrdMeta_ID, ID_Status, RutaImagen1, RutaImagen2, RutaImagen3, '$imagen' as ImagenUsuario,$Orientacion as Orientacion
-FROM     Productos
-WHERE   ID_Status = 2 and PrdMeta_ID = 'Producto' and Familia_ID = $Familia_ID";
+$sql = "SELECT dbo.TamanoRelProducto.Tamano_ID, dbo.Productos.Producto_ID, dbo.Productos.Prod_Nombre, dbo.TamanoRelProducto.Precio, dbo.Productos.Familia_ID, dbo.Productos.PrdMeta_ID, dbo.Productos.ID_Status,  '$imagen' as ImagenUsuario,$Orientacion as Orientacion, 
+dbo.Productos.RutaImagen1, dbo.Productos.RutaImagen2, dbo.Productos.RutaImagen3, dbo.Productos.RutaImagenHorizontal
+FROM  dbo.TamanoRelProducto
+INNER JOIN dbo.Productos ON dbo.TamanoRelProducto.Producto_ID = dbo.Productos.Producto_ID
+WHERE    dbo.Productos.ID_Status = 2 and  dbo.Productos.PrdMeta_ID = 'Producto' and Tamano_ID = '$Tamano' and Familia_ID = $Familia_ID";
 function getArraySQL($sql){
     //Creamos la conexión con la función anterior
     require $_SERVER['DOCUMENT_ROOT'].'/assets/tools/connection.php'; 
