@@ -2,6 +2,12 @@ $(document).ready(function () {
     Producto();
 });
 
+function dosDecimales(n) {
+    let t = n.toString();
+    let regex = /(\d*.\d{0,2})/;
+    return t.match(regex)[0];
+}
+
 function Producto() {
     var parametros = {
         "Tamano": document.getElementById("Tamano_ID").value,
@@ -50,7 +56,7 @@ function Producto() {
                     '<img class="img-fluid" src="' + DatosJson[i].RutaImagen3 + '" alt="img">');
                 $("#Descripcion").append('<p class="last-sold text-muted"><small>145 articulos vendidos</small></p>' +
                     '<h4 class="product-title mb-2">' + DatosJson[i].Prod_Nombre + ' - ' + DatosJson[i].Prod_Descripcion + ' - ' + DatosJson[i].Tamano + '"' + '</h4>' +
-                    '<h2 class="product-price display-4">$ ' + DatosJson[i].Precio + '</h2>' +
+                    '<h2 class="product-price display-4">$ ' + dosDecimales(DatosJson[i].Precio) + ' MXN </h2>' +
                     '<p class="text-success"><i class="fab fa-cc-mastercard"></i> <i class="fab fa-cc-visa"></i> <i class="fab fa-cc-paypal"></i></p>' +
                     '<p class="mb-0"><i class="fa fa-truck"></i> Envios solo a CDMX</p>' +
                     //'<div class="text-muted mb-2"><small>Aplica restricciones</small></div>' +
