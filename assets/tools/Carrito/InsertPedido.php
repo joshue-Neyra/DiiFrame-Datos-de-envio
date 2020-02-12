@@ -3,6 +3,7 @@ require $_SERVER['DOCUMENT_ROOT'].'/assets/tools/connection.php';
 session_start();
 $Cliente_ID=$_SESSION['Id'];
 $CostoEnvio=$_POST['CostoEnvio'];
+$Direccion_ID=$_POST['Direccion_ID'];
 $fecha=$_POST['fecha'];
 $date = date_create($fecha);
 $fechanota= date_format($date, 'Y-m-d H:i:s');
@@ -29,7 +30,9 @@ $sql = "EXEC DPedInsertPed
 	@param19 =?,
 	@param20 =?,
 	@param21 =?,
-    @param22 =?";
+    @param22 =?,
+    @param23 =?
+    ";
 $params = array(
     $fechanota,//Fecha_Recibo
     $fechanota,//Hora_Recibo
@@ -52,7 +55,8 @@ $params = array(
     0,//Fecha_Entrega
     0,//Hora_Entrega
     2,//ID_Status
-    'Web'//Plataforma
+    'Web',//Plataforma,
+    $Direccion_ID
 );
 
 $stmt = sqlsrv_query( $conn, $sql, $params);

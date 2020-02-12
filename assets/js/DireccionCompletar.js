@@ -83,6 +83,7 @@
          route: 'long_name',
          locality: 'long_name',
          administrative_area_level_1: 'short_name',
+         administrative_area_level_2: 'long_name',
          country: 'long_name',
          postal_code: 'short_name'
      };
@@ -91,7 +92,6 @@
 
          for (var component in componentForm) {
              document.getElementById(component).value = '';
-             document.getElementById(component).disabled = false;
          }
          // Get each component of the address from the place details,
          // and then fill-in the corresponding field on the form.
@@ -108,6 +108,9 @@
          var place = autocomplete.getPlace();
          var direccion = " ";
          for (var i = 0; i < place.address_components.length; i++) {
+             if(i==2){
+                 $("#administrative_area_level_2").val(place.address_components[i].long_name);
+             }
             direccion = direccion + place.address_components[i].long_name + " ";
          } 
          //alert (direccion);
@@ -118,6 +121,8 @@
                  var cor=r.results[0].geometry.location;
                  $("#lat").val(cor.lat);
                  $("#long").val(cor.lng);
+                 $("#address").show();
+                 
                  //console.log(cor.lat);
                  //console.log(cor.lng);
              }

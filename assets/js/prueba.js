@@ -1,4 +1,4 @@
-function CotizacioniVoy(LatEmp, LngEmp, LatCli, LngCli) {
+function CotizacioniVoy(LatEmp, LngEmp, LatCli, LngCli,Direccion_ID) {
     var data = {
         "data": {
             "bOrder": {
@@ -49,7 +49,7 @@ function CotizacioniVoy(LatEmp, LngEmp, LatCli, LngCli) {
         success: function (r) {
             var precio = r.data.price;
             //console.log(precio);
-            InsertPedido(precio);
+            InsertPedido(precio,Direccion_ID);
 
         }
     });
@@ -79,6 +79,8 @@ $("#target").submit(function (event) {
         "Country": document.getElementById("country").value,
         "lat": document.getElementById("lat").value,
         "long": document.getElementById("long").value,
+        "Colonia": document.getElementById("administrative_area_level_2").value,
+        "Referencia": document.getElementById("inp_referencias").value,
 
     }
     if (parametros.estado != "CDMX") {
@@ -90,33 +92,42 @@ $("#target").submit(function (event) {
             type: 'post',
             success: function (response) {
                 if (response == "Registro exitoso") {
-                    GetCoordenadasEmpresa(parametros.lat, parametros.long);
+                    ListaDirecciones();
+                    $("#ClienteDirecciones").fadeIn("slow");
+                    $("#CrearDireccion").hide();
+                   
                 } else {
                     alert(response);
                 }
             }
         });
     }
-
     event.preventDefault();
 });
 
-function GetCoordenadasEmpresa(LatCli, LngCli) {
+$("#reset").click(function (event) {
+    $("#ClienteDirecciones").fadeIn("slow");
+    $("#CrearDireccion").hide();
+    event.preventDefault();
+});
+
+function GetCoordenadasEmpresa(Direccion_ID,LatCli, LngCli) {
     $.ajax({
         url: '/assets/tools/Carrito/CoordenadasEmp.php',
         type: 'post',
         dataType: 'json',
         success: function (r) {
-            CotizacioniVoy(r.Lat, r.Long, LatCli, LngCli);
+            CotizacioniVoy(r.Lat, r.Long, LatCli, LngCli, Direccion_ID);
         }
     });
 }
 
-function InsertPedido(CostoEnvio) {
-   
+function InsertPedido(CostoEnvio,Direccion_ID) {
+
     var parametros = {
         "CostoEnvio": CostoEnvio,
-        "fecha": document.getElementById("date").value
+        "fecha": document.getElementById("date").value,
+        "Direccion_ID":Direccion_ID
 
     }
     $.ajax({
@@ -124,36 +135,10 @@ function InsertPedido(CostoEnvio) {
         type: 'post',
         data: parametros,
         success: function (r) {
-            CrearDireccion(r);
             location.href = "/Cart/Confirmar/?Nota_ID=" + r;
             console.log(r);
         }
     });
 
-
-}
-
-function CrearDireccion(r) {
-    var parametros = {
-        "Celular": document.getElementById("inp_cli_cel").value,
-        "Telefono": document.getElementById("inp_cli_tel").value,
-        "street_number": document.getElementById("street_number").value,
-        "Calle": document.getElementById("route").value,
-        "ciudad": document.getElementById("locality").value,
-        "estado": document.getElementById("administrative_area_level_1").value,
-        "cp": document.getElementById("postal_code").value,
-        "Country": document.getElementById("country").value,
-        "Referencia": document.getElementById("inp_referencias").value,
-        "Nota_ID":r
-
-    }
-           $.ajax({
-            data: parametros,
-            url: '/assets/tools/Carrito/CrearDirecciones.php',
-            type: 'post',
-            success: function (response) {
-                console.log(response);
-            }
-        });
 
 }

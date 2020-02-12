@@ -16,6 +16,10 @@
             height: 350px;
         }
 
+        .border-left-warning {
+            border-left: .25rem solid #f6c23e !important;
+        }
+
     </style>
 </head>
 
@@ -136,8 +140,11 @@
             </div>
         </div>
     </div>
+
     <div class="container mb-4 my-5" id="form-direccion">
-        <div class="card mx-auto ">
+        <div class="row justify-content-md-center" id="ClienteDirecciones">
+        </div>
+        <div class="card mx-auto" id="CrearDireccion">
             <div class="card-body">
                 <h3 class="mb-3 my-3 text-center text-danger">Datos de envio</h3>
                 <form id="target">
@@ -166,33 +173,43 @@
                     <div class="form-group">
                         <div class="form-group">
                             <label for="pac-input">Referencias</label>
-                            <textarea rows="3" name="p_mensaje" class="form-control" id="inp_referencias" placeholder="Referencias" maxlength="250"required></textarea>
-                            
+                            <textarea rows="3" name="p_mensaje" class="form-control" id="inp_referencias" placeholder="Referencias" maxlength="250" required></textarea>
+
                         </div>
                     </div>
-                    <table id="address" class="d-none">
-                        <tr>
-                            <td class="label">Street address</td>
-                            <td class="slimField"><input class="field" id="street_number" disabled="true" /></td>
-                            <td class="wideField" colspan="2"><input class="field" id="route" disabled="true" /></td>
-                        </tr>
-                        <tr>
-                            <td class="label">City</td>
-                            <td class="wideField" colspan="3"><input class="field" id="locality" disabled="true" /></td>
-                        </tr>
-                        <tr>
-                            <td class="label">State</td>
-                            <td class="slimField"><input class="field" id="administrative_area_level_1" disabled="true" /></td>
-                            <td class="label">Zip code</td>
-                            <td class="wideField"><input class="field" id="postal_code" disabled="true" /></td>
-                        </tr>
-                        <tr>
-                            <td class="label">Country</td>
-                            <td class="wideField" colspan="3"><input class="field" id="country" disabled="true" />
-                                <input id="lat" value="" disabled="true" />
-                                <input id="long" value="" disabled="true" /></td>
-                        </tr>
-                    </table>
+                    <div class="container mx-auto">
+                        <table id="address" class="table disabled">
+                            <tr>
+                                <td class="label">Calle y número</td>
+                                <td class="slimField"><input class="form-control" required id="street_number" disabled="true" /></td>
+                                <td class="wideField" colspan="2"><input class="form-control" id="route" disabled="true" /></td>
+                            </tr>
+                            <tr>
+                                <td class="label">Ciudad</td>
+                                <td class="wideField" colspan="3"><input class="form-control" id="locality" disabled="true" /></td>
+                            </tr>
+                            <tr>
+
+
+                            </tr>
+                            <tr>
+                                <td class="label">Estado</td>
+                                <td class="slimField"><input class="form-control" id="administrative_area_level_1" disabled="true" /></td>
+                            </tr>
+                            <tr>
+                                <td class="label">Colonia</td>
+                                <td class="wideField"><input class="form-control" id="administrative_area_level_2" disabled="true" /></td>
+                                <td class="label">Codigo Postal</td>
+                                <td class="wideField"><input class="form-control" id="postal_code" disabled="true" /></td>
+                            </tr>
+                            <tr>
+                                <td class="label">País</td>
+                                <td class="wideField" colspan="3"><input class="form-control" id="country" disabled="true" />
+                                    <input class="d-none" id="lat" value="" disabled="true" />
+                                    <input class="d-none" id="long" value="" disabled="true" /></td>
+                            </tr>
+                        </table>
+                    </div>
                     <div class="pac-card" id="pac-card">
                         <div>
                             <div id="type-selector" class="pac-controls d-none">
@@ -201,14 +218,18 @@
                         </div>
                     </div>
                     <div id="map"></div>
-                    <div id="infowindow-content">
+                    <div class="" id="infowindow-content">
                         <img src="" width="16" height="16" id="place-icon">
                         <span id="place-name" class="title"></span><br>
                         <span id="place-address"></span>
                     </div>
-                    <button type="submit" class="btn btn-block btn-success">
-                        Continuar
-                    </button>
+                    <div class="mx-auto my-4">
+                        <button type="submit" class="btn  btn-success">
+                            Continuar
+                        </button>
+                        <button id="reset" type="reset" class="btn  btn-danger">
+                            Cancelar
+                        </button></div>
                 </form>
 
 

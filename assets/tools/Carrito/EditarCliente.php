@@ -12,6 +12,8 @@ $Cp=$_POST['cp'];
 $Country=$_POST['Country'];
 $lat=$_POST['lat'];
 $long=$_POST['long'];
+$Colonia=$_POST['Colonia'];
+$Referencia=$_POST['Referencia'];
 
 $sql = "EXEC DCliUpdateCli 
 @param1 =?,
@@ -33,7 +35,7 @@ $params = array(
     $Street_number,
     0,
     $Cp,
-    $Ciudad,
+    $Colonia,
 	$Ciudad,
     $Estado,
     $Country,
@@ -50,5 +52,46 @@ if( $stmt === false ) {
      die( print_r( sqlsrv_errors(), true));
 }
 else{
-    echo "Registro exitoso";
+        $sql = "EXEC InsertCliDirecciones 
+    @param1 =?,
+        @param3 =?,
+        @param4 =?,
+        @param5 =?,
+        @param6 =?,
+        @param7 =?,
+        @param8 =?,
+        @param9 =?,
+        @param10 =?,
+        @param11 =?,
+        @param12 =?,
+        @param13 =?,
+        @param14 =?,
+        @param15 =?,
+        @param16 =?
+        ";
+    $params = array(
+        $Cliente_ID,
+        $Calle,
+        $Street_number,
+        0,//EXTERIOR
+        $Cp,
+        $Colonia,
+        $Ciudad,
+        $Estado,
+        $Country,
+        $Referencia,
+        $Celular,
+        $Telefono,
+        2,
+        $lat,
+        $long,//ESTATUS
+        );
+
+    $stmt = sqlsrv_query( $conn, $sql, $params);
+    if( $stmt === false ) {
+         die( print_r( sqlsrv_errors(), true));
+    }
+    else{
+        echo "Registro exitoso";
+    }
 }
