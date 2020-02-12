@@ -44,9 +44,7 @@
                                     <label class="custom-file-label" for="imagen">Buscar desde Ordenador</label>
                                 </div>
 
-                                <button id="btn_instagram" onclick="instagramLogin()" class="btn btn-warning">Cargar imagen desde instagram</button>
-                                <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-                                </fb:login-button>
+                                <button id="btn_instagram" class="btn btn-warning">Cargar imagen desde instagram</button>
                             </div>
                             <div class="card-footer container">
                                 <button id="btn_submit" data-setclass="jcrop-light" onclick="crop();" class="btn btn-warning d-none">Elegir</button>
@@ -60,7 +58,6 @@
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/footer.html'; ?>
     <script src="/assets/crop/jquery-3.3.1.min.js"></script>
     <script src="/assets/crop/cropper.js"></script>
-    <script src="/assets/js/instagram.js"></script>
     <script type="text/javascript" src="/assets/js/crop_digital.js"></script>
     <style>
         .cropper-crop {

@@ -112,6 +112,14 @@ function Marialuisa() {
                         backgroundColor: color
                     });
                 $("#Color").val(selectorId);
+                if(selectorId=='None'){
+                    $(".device-mockup").removeClass("ipad_pro");
+                    $(".device-mockup").addClass("galaxy_s5");
+                }
+                else{
+                      $(".device-mockup").removeClass("galaxy_s5");
+                    $(".device-mockup").addClass("ipad_pro");
+                }
             });
             ListaProductos(bg);
         }

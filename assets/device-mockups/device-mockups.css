@@ -37,7 +37,7 @@
 
 /* DEVICES */
 
-
+/* iPad Pro */
 .device-mockup.ipad_pro,
 .device-mockup.ipad_pro.portrait {
     padding-bottom: 138.63%;
@@ -68,4 +68,21 @@
 
 
 
+/* Galaxy S5 */
+.device-mockup.galaxy_s5,
+.device-mockup.galaxy_s5.portrait {
+  padding-bottom: 120%;
+}
 
+.device-mockup.galaxy_s5.landscape {
+  padding-bottom: 53%;
+}
+
+.device-mockup.galaxy_s5 > .device > .screen,
+.device-mockup.galaxy_s5.portrait > .device > .screen {
+  top: 16.2%; bottom: 0%; left: -11%; right: -11%;
+}
+
+.device-mockup.galaxy_s5.landscape > .device > .screen {
+  top: 17.6%; bottom: 0%; left: -11.15%; right: -11%;
+}
