@@ -3,6 +3,7 @@ $(document).ready(function () {
     $("#form-pedidos").hide();
     $("#address").hide();
     $("#CrearDireccion").hide();
+    $(".loader").hide();
     ListaDirecciones();
     Carrito(), ListaPedidos()
 });

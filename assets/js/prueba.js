@@ -112,6 +112,7 @@ $("#reset").click(function (event) {
 });
 
 function GetCoordenadasEmpresa(Direccion_ID,LatCli, LngCli) {
+    $(".loader").show();
     $.ajax({
         url: '/assets/tools/Carrito/CoordenadasEmp.php',
         type: 'post',
