@@ -89,7 +89,7 @@
             <div class="row">
                 <div class="col-md-8  card bg-light">
                     <div class="table-responsive my-3">
-                        <table class="table " >
+                        <table class="table ">
                             <thead class="thead-light">
                                 <tr class="table-borderless">
                                     <th scope="col">Imagen </th>
@@ -135,28 +135,35 @@
                                     <tr>
                                         <th class="py-4">Subtotal </th>
                                         <td class="py-4 text-right text-muted" id="subtotal">$</td>
-                                        <input type="text" class="d-none" id="inp_subtotal">
                                     </tr>
                                     <tr>
                                         <th class="py-4">Envio</th>
                                         <td class="py-4 text-right text-muted" id="envio"> $</td>
-                                        <input type="text" class="d-none" id="inp_envio">
-                                        <input type="text" class="d-none" id="inp_monto">
                                     </tr>
                                     <tr>
                                         <th class="py-4">I.V.A</th>
                                         <td class="py-4 text-right text-muted" id="iva">$</td>
-                                        <input type="text" class="d-none" id="inp_iva">
                                     </tr>
                                     <tr>
                                         <th class="pt-4">Total</th>
-                                        <td class="pt-4 text-right h3 font-weight-normal" id="total">$</td>
-                                        <input type="text" class="d-none" id="inp_total">
+                                        <td class="pt-4 text-right h5 font-weight-normal" id="total">$</td>
                                     </tr>
                                 </tbody>
 
                             </table>
-                            <center><a class="btn btn-lg text-light btn-warning" id="btn_resumen">Continuar</a></center>
+                            <form id="Pay">
+                                <input type="text" class="d-none" required id="inp_subtotal">
+                                <input type="text" class="d-none" required id="inp_envio">
+                                <input type="text" class="d-none" required id="inp_monto">
+                                <input type="text" class="d-none" required id="inp_iva">
+                                <input type="text" class="d-none" required id="inp_total">
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" required class="custom-control-input" id="customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">Acepto los<a href="/Terminos/"> terminos y condiciones</a></label>
+                                </div>
+                                <center><button type="submit" class="btn btn-lg text-light btn-warning" >Continuar</button></center>
+                            </form>
+
                         </div>
                     </div>
                 </div>
