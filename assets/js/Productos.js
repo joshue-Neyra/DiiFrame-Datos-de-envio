@@ -115,10 +115,12 @@ function Marialuisa() {
                 if(selectorId=='None'){
                     $(".device-mockup").removeClass("ipad_pro");
                     $(".device-mockup").addClass("galaxy_s5");
+                    $(".img-fluid").width("80%");
                 }
                 else{
                       $(".device-mockup").removeClass("galaxy_s5");
                     $(".device-mockup").addClass("ipad_pro");
+                    $(".img-fluid").width("50%");
                 }
             });
             ListaProductos(bg);
