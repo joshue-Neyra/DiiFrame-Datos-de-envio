@@ -159,6 +159,10 @@
                                     <input type="checkbox" required class="custom-control-input" id="customCheck1">
                                     <label class="custom-control-label" for="customCheck1">Acepto los<a href="/Terminos/"> términos y condiciones</a></label>
                                 </div>
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" required class="custom-control-input" id="customCheck2">
+                                    <label class="custom-control-label" for="customCheck2">He leído y estoy de acurerdo con la<a href="/PrivacyPolicy/"> Politica de privacidad</a></label>
+                                </div>
                                 <center><button type="submit" class="btn btn-lg text-light btn-warning" >Continuar</button></center>
                             </form>
 

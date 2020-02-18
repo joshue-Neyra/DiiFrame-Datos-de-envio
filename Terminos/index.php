@@ -27,68 +27,45 @@
 <body>
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/nav2.html'; ?>
     <div class="container card my-5 mb-5">
-        <p>What information do we collect? </p>
+        <H1>Términos y Condiciones de Uso</H1>
 
-        <p>We collect information from you when you register on our site or subscribe to our newsletter. </p>
+        <p>Es requisito necesario para la adquisición de los productos que se ofrecen en este sitio, que lea y acepte los siguientes Términos y Condiciones que a continuación se redactan. El uso de nuestros servicios así como la compra de nuestros productos implicará que usted ha leído y aceptado los Términos y Condiciones de Uso en el presente documento. Todas los productos que son ofrecidos por nuestro sitio web pudieran ser creadas, cobradas, enviadas o presentadas por una página web tercera y en tal caso estarían sujetas a sus propios Términos y Condiciones. En algunos casos, para adquirir un producto, será necesario el registro por parte del usuario, con ingreso de datos personales fidedignos y definición de una contraseña.. </p>
 
-        <p>When ordering or registering on our site, as appropriate, you may be asked to enter your: name or e-mail address. You may, however, visit our site anonymously.</p>
+        <p>El usuario puede elegir y cambiar la clave para su acceso de administración de la cuenta en cualquier momento, en caso de que se haya registrado y que sea necesario para la compra de alguno de nuestros productos. https://diiframe.com.mx/ no asume la responsabilidad en caso de que entregue dicha clave a terceros.</p>
 
-        <p>What do we use your information for? </p>
+        <p>Todas las compras y transacciones que se lleven a cabo por medio de este sitio web, están sujetas a un proceso de confirmación y verificación, el cual podría incluir la verificación del stock y disponibilidad de producto, validación de la forma de pago, validación de la factura (en caso de existir) y el cumplimiento de las condiciones requeridas por el medio de pago seleccionado. En algunos casos puede que se requiera una verificación por medio de correo electrónico.</p>
 
-        <p>Any of the information we collect from you may be used in one of the following ways: </p>
+        <p>Los precios de los productos ofrecidos en esta Tienda Online es válido solamente en las compras realizadas en este sitio web.</p>
 
-        <p>; To personalize your experience</p>
+        <H2>LICENCIA</H2>
 
-        <p>(your information helps us to better respond to your individual needs)</p>
+        <p>Diiframe S.A. DE C.V. a través de su sitio web concede una licencia para que los usuarios utilicen los productos que son vendidos en este sitio web de acuerdo a los Términos y Condiciones que se describen en este documento</p>
 
-        <p>; To improve our website</p>
+        <H2>USO NO AUTORIZADO</H2>
 
-        <p>(we continually strive to improve our website offerings based on the information and feedback we receive from you)</p>
+        <p>En caso de que aplique (para venta de software, templetes, u otro producto de diseño y programación) usted no puede colocar uno de nuestros productos, modificado o sin modificar, en un CD, sitio web o ningún otro medio y ofrecerlos para la redistribución o la reventa de ningún tipo.</p>
 
-        <p>; To administer a contest, promotion, survey or other site feature</p>
+        <H2>PROPIEDAD</H2>
 
-        <p>; To send periodic emails</p>
+        <p>Usted no puede declarar propiedad intelectual o exclusiva a ninguno de nuestros productos, modificado o sin modificar. Todos los productos son propiedad de los proveedores del contenido. En caso de que no se especifique lo contrario, nuestros productos se proporcionan sin ningún tipo de garantía, expresa o implícita. En ningún esta compañía será responsables de ningún daño incluyendo, pero no limitado a, daños directos, indirectos, especiales, fortuitos o consecuentes u otras pérdidas resultantes del uso o de la imposibilidad de utilizar nuestros productos.</p>
 
-        <p>The email address you provide for order processing, may be used to send you information and updates pertaining to your order, in addition to receiving occasional company news, updates, related product or service information, etc.</p>
+        <H2>POLÍTICA DE REEMBOLSO Y GARANTÍA</H2>
 
-        <p>Note: If at any time you would like to unsubscribe from receiving future emails, we include detailed unsubscribe instructions at the bottom of each email.</p>
-
-        <p>Do we use cookies? </p>
-
-        <p>Yes (Cookies are small files that a site or its service provider transfers to your computers hard drive through your Web browser (if you allow) that enables the sites or service providers systems to recognize your browser and capture and remember
-            certain information</p>
-
-        <p>We use cookies to understand and save your preferences for future visits.</p>
-
-        <p>Do we disclose any information to outside parties? </p>
-
-        <p>We do not sell, trade, or otherwise transfer to outside parties your personally identifiable information. This does not include trusted third parties who assist us in operating our website, conducting our business, or servicing you, so long as
-            those parties agree to keep this information confidential. We may also release your information when we believe release is appropriate to comply with the law, enforce our site policies, or protect ours or others rights, property, or safety.
-            However, non-personally identifiable visitor information may be provided to other parties for marketing, advertising, or other uses.</p>
-
-        <p>Third party links </p>
-
-        <p>Occasionally, at our discretion, we may include or offer third party products or services on our website. These third party sites have separate and independent privacy policies. We therefore have no responsibility or liability for the content
-            and activities of these linked sites. Nonetheless, we seek to protect the integrity of our site and welcome any feedback about these sites.</p>
-
-        <p>Childrens Online Privacy Protection Act Compliance </p>
-
-        <p>We are in compliance with the requirements of COPPA (Childrens Online Privacy Protection Act), we do not collect any information from anyone under 13 years of age. Our website, products and services are all directed to people who are at least
-            13 years old or older.</p>
-
-        <p>Your Consent </p>
-
-        <p>By using our site, you consent to our privacy policy.</p>
-
-        <p>Changes to our Privacy Policy </p>
-
-        <p>If we decide to change our privacy policy, we will post those changes on this page, and/or send an email notifying you of any changes. </p>
-
-        <p>This policy was last modified on 9/11/2012</p>
-
-        <p>Contacting Us </p>
-
-        <p>If there are any questions regarding this privacy policy you may contact us using the information below. </p>
+        <p>En el caso de productos que sean mercancías irrevocables no-tangibles, no realizamos reembolsos después de que se envíe el producto, usted tiene la responsabilidad de entender antes de comprarlo. Le pedimos que lea cuidadosamente antes de comprarlo. Hacemos solamente excepciones con esta regla cuando la descripción no se ajusta al producto. Hay algunos productos que pudieran tener garantía y posibilidad de reembolso pero este será especificado al comprar el producto. En tales casos la garantía solo cubrirá fallas de fábrica y sólo se hará efectiva cuando el producto se haya usado correctamente. La garantía no cubre averías o daños ocasionados por uso indebido. Los términos de la garantía están asociados a fallas de fabricación y funcionamiento en condiciones normales de los productos y sólo se harán efectivos estos términos si el equipo ha sido usado correctamente. Esto incluye:</p>
+        <li>De acuerdo a las especificaciones técnicas indicadas para cada producto.</li>
+        <li> En condiciones ambientales acorde con las especificaciones indicadas por el fabricante.</li>
+        <li> En uso específico para la función con que fue diseñado de fábrica.</li>
+        <li> En condiciones de operación eléctricas acorde con las especificaciones y tolerancias indicadas.</li>
+        
+        <h2>COMPROBACIÓN ANTIFRAUDE</h2>
+        <p>La compra del cliente puede ser aplazada para la comprobación antifraude. También puede ser suspendida por más tiempo para una investigación más rigurosa, para evitar transacciones fraudulentas.</p>
+        
+        <h2>PRIVACIDAD</h2>
+        <p>Este sitio web https://diiframe.com.mx/ garantiza que la información personal que usted envía cuenta con la seguridad necesaria. Los datos ingresados por usuario o en el caso de requerir una validación de los pedidos no serán entregados a terceros, salvo que deba ser revelada en cumplimiento a una orden judicial o requerimientos legales.</p>
+        
+        <p>La suscripción a boletines de correos electrónicos publicitarios es voluntaria y podría ser seleccionada al momento de crear su cuenta.</p>
+        <p>Diiframe S.A. DE C.V. reserva los derechos de cambiar o de modificar estos términos sin previo aviso.</p>
+        <p class="text-muted">Ultima modificación: 18 de Febrero, 2020</p>
     </div>
 
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/footer.html'; ?>
