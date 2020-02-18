@@ -26,19 +26,26 @@ function Carrito() {
             //console.log(response);
             var DatosJson = JSON.parse(response);
             var suma = 0;
+            var imagen = "";
             $("#tbl_carrito").text("");
             for (i = 0; i < DatosJson.length; i++) {
-                $("#tbl_carrito").append('<tr id="Prd_' + i + '">' +
-                    '<td><img width="50px" src="' + DatosJson[i].Imagen + '" /> </td>' +
+                if (DatosJson[i].Meta == 'Marialuisa') {
+                    imagen = '<i width="50px" class="fas fa-3x text-warning fa-portrait"></i>';
+                } else {
+                    imagen = '<img width="50px" src="' + DatosJson[i].Imagen + '" />'
+                }
+                var precio = DatosJson[i].Cantidad *DatosJson[i].Precio;
+                $("#tbl_carrito").append('<tr>' +
+                    '<td>' + imagen + ' </td>' +
                     '<td>' + DatosJson[i].Prod_Nombre + '</td>' +
                     '<td>' + DatosJson[i].Tamano + '</td>' +
-                    '<td><input class="form-control" type="number" value="' + DatosJson[i].Cantidad + '" /></td>' +
-                    '<td class="text-right">$ ' + dosDecimales(DatosJson[i].Precio) + ' MXN</td>' +
+                    '<td><input class="form-control" id="Prd_' + i + '" type="number" value="' + DatosJson[i].Cantidad + '" onchange="UpdateCantidad(' + i + ')" /></td>' +
+                    '<td class="text-right">$ ' + dosDecimales(precio) + ' MXN</td>' +
                     '<td class="text-right"><button class="btn btn-sm btn-danger" onclick="BorrarCarrito(' + i + ')" ><i class="fa fa-trash"></i> </button>' +
                     '</td>' +
                     '</tr>');
 
-                suma = parseFloat(DatosJson[i].Precio) + suma;
+                suma = parseFloat(precio) + suma;
             }
             if (suma > 0) {
                 $("#btn_show").prop("disabled", false);
@@ -53,6 +60,22 @@ function Carrito() {
                 '<td>Sub-Total</td>' +
                 '<td class="text-right">$' + suma.toFixed(2) + ' MXN</td>' +
                 '</tr>');
+        }
+    });
+}
+
+function UpdateCantidad(i) {
+    var parametros = {
+        cantidad: document.getElementById("Prd_" + i).value,
+        i: i
+    }
+    $.ajax({
+        data: parametros,
+        url: '/assets/tools/Carrito/UpdateCantidad.php',
+        type: 'post',
+        success: function (response) {
+            Carrito()
+
         }
     });
 }
