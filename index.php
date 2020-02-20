@@ -7,90 +7,8 @@
     <meta name="description" content="">
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/head.html'; ?>
     <link href="/assets/css/hover.min.css" rel="stylesheet">
-    <style>
-        #subscribeModal .modal-content {
-            overflow: hidden;
-        }
-
-        a.h2 {
-            color: #f1d145;
-            margin-bottom: 0;
-            text-decoration: none;
-        }
-
-        #subscribeModal .form-control {
-            height: 56px;
-            border-top-left-radius: 30px;
-            border-bottom-left-radius: 30px;
-            padding-left: 30px;
-        }
-
-        #subscribeModal .btn {
-            border-top-right-radius: 30px;
-            border-bottom-right-radius: 30px;
-            padding-right: 20px;
-            background: #f1d145;
-            border-color: #f1d145;
-        }
-
-        #subscribeModal .form-control:focus {
-            color: #495057;
-            background-color: #fff;
-            border-color: #f1d145;
-            outline: 0;
-            box-shadow: none;
-        }
-
-        #subscribeModal .top-strip {
-            height: 155px;
-            background: #f1d145;
-            transform: rotate(141deg);
-            margin-top: -94px;
-            margin-right: 190px;
-            margin-left: -130px;
-            border-bottom: 65px solid #33d3d9;
-            border-top: 10px solid #33d3d9;
-        }
-
-        #subscribeModal .bottom-strip {
-            height: 155px;
-            background: #f1d145;
-            transform: rotate(112deg);
-            margin-top: -110px;
-            margin-right: -215px;
-            margin-left: 300px;
-            border-bottom: 65px solid #33d3d9;
-            border-top: 10px solid #33d3d9;
-        }
-        #subscribeModal .modal-lg .top-strip {
-            height: 155px;
-            background: #f1d145;
-            transform: rotate(141deg);
-            margin-top: -106px;
-            margin-right: 457px;
-            margin-left: -130px;
-            border-bottom: 65px solid #33d3d9;
-            border-top: 10px solid #33d3d9;
-        }
-
-        #subscribeModal .modal-lg .bottom-strip {
-            height: 155px;
-            background: #f1d145;
-            transform: rotate(135deg);
-            margin-top: -115px;
-            margin-right: -339px;
-            margin-left: 421px;
-            border-bottom: 65px solid #33d3d9;
-            border-top: 10px solid #33d3d9;
-        }
-
-    </style>
-
+    <link href="/assets/css/newsletter.min.css" rel="stylesheet">
 </head>
-<?php
-    
-    
-?>
 
 <body id="page-top">
     <input class="d-none" id="news" value="<?php session_start(); 
@@ -300,8 +218,8 @@
                     <div class="card border-0 shadow">
                         <img src="/assets/img/testimonial4.jpg" class="card-img-top" alt="Ideas para utilizar tu marco">
                         <div class="card-body text-center">
-                            <h5 class="card-title mb-0">Ideas para utilizar un marco</h5>
-                            <div class="card-text text-black-50">Los marcos no sólo sirven para enmarcar fotos bonitas sino que son un elemento mucho más versátil de lo que creemos</div>
+                            <h5 class="card-title mb-0">Ventajas de tener un cuadro en casa </h5>
+                            <div class="card-text text-black-50">Los cuadros son el centro de atención cuando se entra a una habitación</div>
                         </div>
                     </div>
                 </div>
@@ -310,7 +228,7 @@
                         <div class="modal-content">
                             <div class="modal-header bg-warning">
                                 <center>
-                                    <h5 class="modal-title text-white text-center" id="exampleModalLabel">Ideas para utilizar un marco</h5>
+                                    <h5 class="modal-title text-white text-center" id="exampleModalLabel">Ventajas de tener un cuadro en casa</h5>
                                 </center>
                             </div>
                             <div class="modal-body">
@@ -318,16 +236,13 @@
                                     <div class="row">
                                         <div class="col-md-4 align-self-center"><img class="img-fluid" src="/assets/img/testimonial4.jpg"></div>
                                         <div class="col-md-8">
-                                            <p>Con el propósito de mostrarte todo lo que puedes hacer con un marco, aquí te dejo estas ideas!
+                                            <p>Los cuadros generan armonía en la decoración de nuestro hogar. Es por eso, que queremos que conozca todo lo que un buen cuadro puede hacer por el ambiente de su hogar, una de las cosas que pueden lograr son:
                                             </p>
-
-                                            <p>Marcos para Fotos : El uso más común de un marco es enmarcar las fotos, pero para darle un toque diferente usa marcos de diferentes tamaños para crear una galería de marcos y se ven geniales en cualquier rincón de tu casa. Usa marcos para enmarcar fotos de pareja, de familia, de viajes, de estrellas del cine, o fotos vintage: el resultado nunca decepciona.
-                                            </p>
-
-                                            <p>Marcos para objetos: Una idea creativa por insólita que parezca es la de enmarcar objetos. Los objetos a enmarcar pueden ser muy variados, aunque generalmente se enmarcan para capturar recuerdos o colecciones. Pero hacerlo convierte al objeto en algo mágico.
-                                            </p>
-
-                                            <p>Marcos para letras o frases: Otra idea a la hora de usar marcos para decorar es utilizarlos para enmarcar letras y frases. Las letras pueden significar algo o haber sido escogidas al azar; pueden mostrarse todas juntas bajo un mismo marco o por separado; y pueden estar solas o acompañar a otros marcos con mensajes más largos. </p>
+                                            <li>Dar color a la habitación</li>
+                                            <li>Lograr sensación de amplitud espacial</li>
+                                            <li>Funciona como recurso visual de amplitud cubrir un espacio con pequeños cuadros para lograr un efecto aleatorio</li>
+                                            <li>Mantiene  un estilo personal</li>
+                                            
                                         </div>
                                     </div>
                                 </div>

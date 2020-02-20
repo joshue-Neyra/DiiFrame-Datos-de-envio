@@ -247,10 +247,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                   <div class="custom-control custom-checkbox mb-3">
-                                    <input type="checkbox" required class="custom-control-input" id="inp_Facturar">
-                                    <label class="custom-control-label" for="inp_Facturar">Requiero una factura</label>
-                                </div>
                                 <div class="row justify-content-md-center">
                                     <div class="col-md-auto">
                                         <p class="text-muted">Transacciones realizadas vía:</p>

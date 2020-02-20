@@ -68,7 +68,7 @@
                             <a href="/Productos/"><img class="card-img-top" width="50%" src="/assets/img/build4.jpg" alt="build"></a>
                             <div class="card-body">
                                 <h4 class="card-title">
-                                    <a href="#">Solo Marco</a>
+                                    <a href="/Productos/">Solo Marco</a>
                                 </h4>
                                 <p class="card-text">¿Solo requieres el marco? Escógelo y nosotros te lo enviamos
                                 </p>

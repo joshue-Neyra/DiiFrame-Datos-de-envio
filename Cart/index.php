@@ -192,8 +192,8 @@
                         <table id="address" class="table disabled">
                             <tr>
                                 <td class="label">Calle y número</td>
-                                <td class="slimField"><input class="form-control" required id="street_number" disabled="true" /></td>
-                                <td class="wideField" colspan="2"><input class="form-control" id="route" disabled="true" /></td>
+                                <td class="slimField"><input class="form-control" id="route" disabled="true" /></td>
+                                <td class="wideField" colspan="2"><input class="form-control" required id="street_number" disabled="true" /></td>
                             </tr>
                             <tr>
                                 <td class="label">Ciudad</td>

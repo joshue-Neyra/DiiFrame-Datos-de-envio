@@ -57,10 +57,9 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Extras:</label>
                             <div class="custom-control align-self-center custom-switch">
                                 <input type="checkbox" class="custom-control-input" id="switch1">
-                                <label class="custom-control-label" for="switch1"> Vidrio</label>
+                                <label class="custom-control-label" for="switch1"> Entre vidrios</label>
                             </div>
                         </div>
 
@@ -75,8 +74,6 @@
         </div>
         <div class="loader"></div>
         <div class="container">
-            <h3 class="text-center mb-3">¿Qué buscamos?</h3>
-            <ol class="breadcrumb justify-content-center" id="Filtro_Familia"></ol>
             <div class="row justify-content-md-center" id="Productos">
             </div>
         </div>
