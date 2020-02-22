@@ -194,24 +194,20 @@
                                 <img class="p-3 img-fluid" src="/assets/img/logo.png" alt="DiiFrame" data-holder-rendered="true" />
 
                             </div>
-                            <div class="col company-details">
-                                <h2 class="name">
-                                    <a target="_blank" href="https://lobianijs.com">
-                                        Mas Arte de Mexico S.A.
-                                    </a>
-                                </h2>
-                                <div>455 Foggy Heights, AZ 85004, US</div>
-                                <div>(123) 456-789</div>
-                                <div>ventas@diiframe.com.mx</div>
+                            <div class="col company-details align-self-center">
+                                <h2 class="name text-warning"></h2>
+                                <div id="Address"></div>
+                                <div id="phonenumber"></div>
+                                <div id="email"></div>
                             </div>
                         </div>
                     </header>
                     <main>
                         <div class="row contacts">
                             <div class="col invoice-to">
-                                <div class="text-gray-light">Cliente:</div>
-                                <h2 class="to">John Doe</h2>
-                                <div class="address">796 Silver Harbour, TX 79273, US</div>
+                                <div class="text-gray-light"></div>
+                                <h2 class="to"></h2>
+                                <div class="address"></div>
                                 <div class="email"></div>
                                 <div class="celular"></div>
                             </div>

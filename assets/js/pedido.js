@@ -1,5 +1,6 @@
 $(document).ready(function () {
     DatosCliente();
+    DatosEmpresa();
     VerPedido();
 });
 
@@ -26,10 +27,28 @@ function DatosCliente() {
             var DatosJson = JSON.parse(response);
             for (i = 0; i < DatosJson.length; i++) {
                 $(".to").text(DatosJson[i].Clie_Nombre + ' ' + DatosJson[i].Clie_Apellidos);
-                $(".address").text(DatosJson[i].Clie_Calle + ' ' + DatosJson[i].Clie_Num_ext + ', ' + DatosJson[i].Clie_Estado +
-                    ' ' + DatosJson[i].CP + ', ' + DatosJson[i].Clie_Pais);
+                $(".address").text(DatosJson[i].Clie_Calle + ' ' + DatosJson[i].Clie_Num_Ext + ', ' + DatosJson[i].CP +
+                    ' ' + DatosJson[i].Clie_Estado + ', ' + DatosJson[i].Clie_Pais);
                 $(".email").text(DatosJson[i].Clie_email);
                 $(".celular").text(DatosJson[i].Celular);
+            }
+        }
+
+    });
+}
+
+function DatosEmpresa() {
+    $.ajax({
+        url: '/assets/tools/Pedido/DatosEmpresa.php',
+        type: 'post',
+        success: function (response) {
+            console.log(response);
+            var DatosJson = JSON.parse(response);
+            for (i = 0; i < DatosJson.length; i++) {
+                $(".name").text(DatosJson[i].RazonSocial);
+                $("#phonenumber").text(DatosJson[i].Telefono1);
+                $("#email").text(DatosJson[i].Email);
+                $("#Address").text(DatosJson[i].Calle + ' '+DatosJson[i].NoExt+ ', C.P. '+ DatosJson[i].CP+', '+ DatosJson[i].Estado+', '+DatosJson[i].Pais);
             }
         }
 
