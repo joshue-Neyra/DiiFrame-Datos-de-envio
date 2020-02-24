@@ -8,16 +8,51 @@
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/head.html'; ?>
     <link href="/assets/css/hover.min.css" rel="stylesheet">
     <link href="/assets/css/newsletter.min.css" rel="stylesheet">
+    <style>
+        .scroll-top-wrapper {
+            position: fixed;
+            opacity: 0;
+            visibility: hidden;
+            overflow: hidden;
+            text-align: center;
+            z-index: 99999999;
+            color: #eeeeee;
+            width: 200px;
+            height: 50px;
+
+            line-height: 50px;
+            right: 30px;
+            bottom: 30px;
+
+            -webkit-transition: all 0.5s ease-in-out;
+            -moz-transition: all 0.5s ease-in-out;
+            -ms-transition: all 0.5s ease-in-out;
+            -o-transition: all 0.5s ease-in-out;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .scroll-top-wrapper.show {
+            visibility: visible;
+            cursor: pointer;
+            opacity: 1.0;
+        }
+
+        .scroll-top-wrapper i.fa {
+            line-height: inherit;
+        }
+
+    </style>
 </head>
 
 <body id="page-top">
-    <input class="d-none" id="news" value="<?php session_start(); 
-   try {
-   $News=$_SESSION['News'];
-    echo $News;
-} catch (Exception $e) {
-    echo 'Excepción capturada: ',  $e->getMessage(), "\n";
-} ?>">
+    <input class="d-none" id="news" value="
+    <?php session_start(); 
+    try {
+       $News=$_SESSION['News'];
+        echo $News;
+    } catch (Exception $e) {
+        echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+    } ?>">
     <!-- Navigation -->
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/nav.html'; ?>
     <header class="masthead" style="background-image: url('/assets/img/header.jpg')">
@@ -27,12 +62,20 @@
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <div class="site-heading">
                         <h1>Un marco es el toque final perfecto </h1>
-                        <span class="subheading">Verdaderos Marcos persinalizados</span>
+                        <span class="subheading">Verdaderos Marcos personalizados</span>
                     </div>
                 </div>
             </div>
         </div>
     </header>
+
+    <a href="#" class="scroll-top-wrapper text-decoration-none rounded-pill bg-success">
+        <p class="d-inline text-white">Contactanos<span class="fa-stack">
+                <i class="fa fa-circle fa-stack-2x text-white"></i>
+                <i class="fab fa-whatsapp fa-stack-1x text-success fa-inverse"></i>
+            </span></p>
+
+    </a>
     <!-- Navigation 
     <div class="container-fluid  bg-light">
         <div class="row no-gutter">
@@ -94,7 +137,7 @@
                                     <i class="fas  fa-stack-1x fa-inverse text-white">1</i>
                                 </a>
                             </div>
-                            <h3 class="text-center">Subir foto o envíanos tu arte</h3>
+                            <h3 class="text-center">Sube tu foto o envíanos tu arte</h3>
                         </div>
                     </div>
                     <div class="col-lg-12">
@@ -116,8 +159,8 @@
                                     <i class="fas  fa-stack-1x fa-inverse">3</i>
                                 </a>
                             </div>
-                            <h3 class="text-center">Construimos tu marco y enviamos a tu domicilio</h3>
-                            <p class="lead mb-0 text-muted text-center">(Construimos y ensamblamos a mano y enviamos)</p>
+                            <h3 class="text-center">Fabricamos tu marco y lo enviamos a tu domicilio
+                            </h3>
                         </div>
                     </div>
                 </div>
@@ -150,8 +193,8 @@
                 <div class="col-xl-4 col-lg-5">
                     <div class="featured-text text-center text-lg-left">
                         <h4>Ponlo en perspectiva</h4>
-                        <p class="text-black-50 mb-0">Hay algo satisfactorio en enmarcar una imagen. En dii frame es rápido, fácil y es la mejor manera de hacer que sus
-                            fotos se destaquen.</p>
+                        <p class="text-black-50 mb-0">Hay algo satisfactorio en enmarcar una imagen. En dii frame es rápido, fácil y es la mejor manera de hacer que tus fotos destaquen.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -160,8 +203,8 @@
                 <div class="col-xl-4 col-lg-5">
                     <div class="featured-text text-center text-lg-left">
                         <h4>Potencial ilimitado</h4>
-                        <p class="text-black-50 mb-0">Por que creemos en las opciones, ofrecemos una amplia gama de marcos para elegir. Ya sea que desee un marco
-                            clásico o moderno, contamos con diferentes modelos para que elijas con el que más se identifique tu arte.</p>
+                        <p class="text-black-50 mb-0">Por que creemos en las opciones, ofrecemos una amplia gama de marcos para elegir. Ya sea que desees un marco clásico o moderno, contamos con diferentes modelos para que elijas con el que más se identifique tu arte.
+                        </p>
                     </div>
                 </div>
                 <div class="col-xl-8 col-lg-7 align-items-center">
@@ -196,7 +239,7 @@
                                             <p>Con el propósito de mostrarte todo lo que puedes hacer con un marco, aquí te dejo estas ideas!
                                             </p>
 
-                                            <p>Marcos para Fotos : El uso más común de un marco es enmarcar las fotos, pero para darle un toque diferente usa marcos de diferentes tamaños para crear una galería de marcos y se ven geniales en cualquier rincón de tu casa. Usa marcos para enmarcar fotos de pareja, de familia, de viajes, de estrellas del cine, o fotos vintage: el resultado nunca decepciona.
+                                            <p>Marcos para Fotos : El uso más común de un marco es enmarcar las fotos, pero para darle un toque diferente usa marcos de diferentes tamaños para crear una galería de marcos y se ven geniales en cualquier rincón de tu casa. Usa marcos para enmarcar fotos de pareja, familia, viajes, estrellas de cine o fotos vintage: el resultado nunca decepciona.
                                             </p>
 
                                             <p>Marcos para objetos: Una idea creativa por insólita que parezca es la de enmarcar objetos. Los objetos a enmarcar pueden ser muy variados, aunque generalmente se enmarcan para capturar recuerdos o colecciones. Pero hacerlo convierte al objeto en algo mágico.
@@ -236,13 +279,13 @@
                                     <div class="row">
                                         <div class="col-md-4 align-self-center"><img class="img-fluid" src="/assets/img/testimonial4.jpg"></div>
                                         <div class="col-md-8">
-                                            <p>Los cuadros generan armonía en la decoración de nuestro hogar. Es por eso, que queremos que conozca todo lo que un buen cuadro puede hacer por el ambiente de su hogar, una de las cosas que pueden lograr son:
-                                            </p>
+                                            Los cuadros generan armonía en la decoración de nuestro hogar. Es por eso, que queremos que conozcas todo lo que un buen cuadro puede hacer por el ambiente de tu hogar, una de las cosas que pueden lograr son:
+
                                             <li>Dar color a la habitación</li>
-                                            <li>Lograr sensación de amplitud espacial</li>
-                                            <li>Funciona como recurso visual de amplitud cubrir un espacio con pequeños cuadros para lograr un efecto aleatorio</li>
-                                            <li>Mantiene  un estilo personal</li>
-                                            
+                                            <li>Lograr sensación de amplitud de espacio</li>
+                                            <li>Funciona como recurso visual de amplitud para cubrir un espacio con pequeños cuadros y lograr un efecto aleatorio</li>
+                                            <li>Mantiene un estilo personal</li>
+
                                         </div>
                                     </div>
                                 </div>
@@ -258,7 +301,7 @@
                     <div class="card border-0 shadow">
                         <img src="/assets/img/testimonial5.jpg" class="card-img-top" alt="Como escoger tu marco">
                         <div class="card-body text-center">
-                            <h5 class="card-title mb-0">¿Como escoger tu marco?</h5>
+                            <h5 class="card-title mb-0">¿Cómo escoger tu marco?</h5>
                             <div class="card-text text-black-50">Aquí podrás encontrar algunos consejos para elegir el marco de acuerdo a tu foto o arte</div>
 
                         </div>
@@ -269,7 +312,7 @@
                         <div class="modal-content">
                             <div class="modal-header bg-warning">
                                 <center>
-                                    <h5 class="modal-title text-white text-center" id="exampleModalLabel">¿Como escoger tu marco?</h5>
+                                    <h5 class="modal-title text-white text-center" id="exampleModalLabel">¿Cómo escoger tu marco?</h5>
                                 </center>
                             </div>
                             <div class="modal-body">
@@ -279,12 +322,12 @@
                                         <div class="col-md-8">
                                             <p>Existen muchas opciones de enmarcado por lo que te recomiendo lo siguiente:</p>
 
-                                            <p>Utiliza un marco si tienes una pared grande y una foto pequeña que te gusta mucho, puedes jugar con los contrastes y elegir un marco mucho más grande que tu foto.
-                                                En mi opinión, si tu foto o tu arte tiene mucho protagonismo, optaría por marcos finos y de colores sobrios como blanco, negro o madera clara.</p>
+                                            <p>Utiliza un marco si tienes una pared grande y una foto pequeña que te guste mucho, puedes jugar con los contrastes y elegir un marco mucho más grande que tu foto. En mi opinión, si tu foto o tu arte tiene mucho protagonismo, optaría por marcos finos y de colores sobrios como blanco, negro o madera clara.
+                                            </p>
 
                                             <p>Marcos con o sin maría luisa, en general la maría luisa ayuda a resaltar más el cuadro.</p>
-
-                                            <p>Optar por marcos iguales o marcos diferentes? Si quieres organizar un caos con cierto orden, utilizar marcos diferentes puede dar como resultado un conjunto muy original. Si lo contrario quieres optar por un resultado más sobrio o minimalista, opta por marcos del mismo color y ancho aunque puedan ser de distinto tamaño.</p>
+                                            <p>¿Optar por marcos iguales o marcos diferentes? Si quieres organizar un caos con cierto orden, utilizar marcos diferentes puede dar como resultado un conjunto muy original. Si de lo contrario quieres optar por un resultado más sobrio o minimalista, opta por marcos del mismo color y ancho aunque puedan ser de distinto tamaño.
+                                            </p>
                                         </div>
                                     </div>
                                 </div>

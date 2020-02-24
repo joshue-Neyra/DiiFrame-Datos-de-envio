@@ -32,6 +32,27 @@
  $(document).ready(function () {
      hideall(), slide1();
  });
+ $(document).ready(function () {
+
+     $(function () {
+
+         $(document).on('scroll', function () {
+
+             if ($(window).scrollTop() > 100) {
+                 $('.scroll-top-wrapper').addClass('show');
+             } else {
+                 $('.scroll-top-wrapper').removeClass('show');
+             }
+         });
+
+         $('.scroll-top-wrapper').on('click', scrollToTop);
+     });
+
+     function scrollToTop() {
+         alert("algo");
+     }
+
+ });
 
  function hideall() {
      $('#slide1').removeClass(' text-primary');

@@ -41,7 +41,7 @@ if(sqlsrv_has_rows($req) != 1){
         else{
             session_start();
             $_SESSION['News'] = true;
-            echo "Registro exitoso";
+            require $_SERVER['DOCUMENT_ROOT'].'/assets/tools/mail/correobienvenido.php'; 
         }
 }
 else{
