@@ -44,13 +44,7 @@
                  $('.scroll-top-wrapper').removeClass('show');
              }
          });
-
-         $('.scroll-top-wrapper').on('click', scrollToTop);
      });
-
-     function scrollToTop() {
-         alert("algo");
-     }
 
  });
 
