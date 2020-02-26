@@ -1,12 +1,12 @@
 <?php
 $Prod_Nombre=$_POST['Prod_Nombre'];
 $Tamano_ID=$_POST['Tamano_ID'];
-$Precio=$_POST['Precio'];
-$Cantidad=$_POST['Cantidad'];
-$sql = "SELECT  Producto_ID, 'MariaLuisa' as Prod_Nombre,('MariaLuisa') as Imagen,$Tamano_ID as Tamano_ID,
-(SELECT  Tamano FROM  TamanosImpresion where Tamano_ID = '$Tamano_ID') as Tamano, $Precio as Precio, $Cantidad as Cantidad
-From Productos
-where Prod_Nombre = '$Prod_Nombre' AND ID_Status =2";
+
+$sql = "SELECT dbo.TamanoRelProducto.Tamano_ID,dbo.TamanosImpresion.Tamano, dbo.Productos.Producto_ID, dbo.Productos.Prod_Nombre, dbo.TamanoRelProducto.Precio, dbo.Productos.PrdMeta_ID, dbo.Productos.ID_Status,   dbo.Productos.Prod_Descripcion, 'Vidrio' as Imagen
+FROM  dbo.TamanoRelProducto
+INNER JOIN dbo.Productos ON dbo.TamanoRelProducto.Producto_ID = dbo.Productos.Producto_ID 
+INNER JOIN dbo.TamanosImpresion on dbo.TamanoRelProducto.Tamano_ID = dbo.TamanosImpresion.Tamano_ID
+WHERE    dbo.Productos.ID_Status = 2 and  dbo.Productos.PrdMeta_ID = 'Vidrio' and TamanoRelProducto.Tamano_ID = '$Tamano_ID' and Productos.Prod_Nombre = '$Prod_Nombre'";
 function getArraySQL($sql){
     //Creamos la conexión con la función anterior
     require $_SERVER['DOCUMENT_ROOT'].'/assets/tools/connection.php'; 

@@ -56,17 +56,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <div class="custom-control align-self-center custom-switch">
-                                <input type="checkbox" class="custom-control-input" id="switch1">
-                                <label class="custom-control-label" for="switch1"> Entre vidrios</label>
-                            </div>
-                        </div>
 
 
                     </div>
-                    <input id="Tamano_ID" class="d-none" value=" <?php echo $size=$_GET['Tamano_ID'];?>">
-                    <input id="Color" class="d-none" value="">
+                    <input id="Tamano_ID" class="d-non" value=" <?php echo $size=$_GET['Tamano_ID'];?>">
+                    <input id="Color" class="d-non" value="0">
+                    <input id="input_vidrio" class="d-non" value="false">
                 </div>
             </div>
 

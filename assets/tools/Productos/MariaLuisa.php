@@ -1,7 +1,7 @@
 <?php
 $sql = "SELECT  Producto_ID, Prod_Nombre
 FROM     Productos
-WHERE   ID_Status = 2 and PrdMeta_ID = 'Marialuisa'";
+WHERE   ID_Status = 2 and (PrdMeta_ID = 'Marialuisa' or PrdMeta_ID = 'Vidrio')";
 function getArraySQL($sql){
     //Creamos la conexión con la función anterior
     require $_SERVER['DOCUMENT_ROOT'].'/assets/tools/connection.php'; 

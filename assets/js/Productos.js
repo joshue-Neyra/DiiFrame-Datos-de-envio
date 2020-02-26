@@ -1,13 +1,14 @@
 var myVar;
 $(document).ready(function () {
+    ListaProductos();
     Marialuisa();
     TamanosMarialuisa();
     $(".loader").hide();
-     
-});
-   
 
-function ListaProductos(bg) {
+});
+
+
+function ListaProductos() {
     var parametros = {
         "Tamano": document.getElementById("Tamano_ID").value
     }
@@ -21,7 +22,6 @@ function ListaProductos(bg) {
             $("#Productos").text("");
             var DatosJson = JSON.parse(JSON.stringify(response));
             var orientacion = "";
-            $("#Color").val(bg);
             for (i = 0; i < DatosJson.length; i++) {
                 //console.log(DatosJson[i].ImagenUsuario);
                 if (DatosJson[i].Orientacion == 1) {
@@ -33,12 +33,12 @@ function ListaProductos(bg) {
                     '<div class="product-grid3 ">' +
                     '<div class="product-image3 ">' +
                     '<a href="#" onclick="Redireccion(' + DatosJson[i].Producto_ID + ',' + DatosJson[i].Tamano_ID + ');">' +
-                    '<div class="pic-1 device-container" style="background-color:#' + bg + ';' +
+                    '<div class="pic-1 device-container" style="background-color:#' + ';' +
                     ' id="ImagenDiv_' + DatosJson[i].Producto_ID + '"> ' +
                     '<div class="device-mockup ipad_pro ' + orientacion + ' white ">' +
                     '<div class="device" style="background-image: url(' + DatosJson[i].RutaImagen1 + ');">' +
                     '<div class="screen ">' +
-                    '<img src="' + DatosJson[i].ImagenUsuario + '" class="img-fluid" width="50%" alt="img">' +
+                    '<img src="' + DatosJson[i].ImagenUsuario + '" class="img-fluid foto" width="50%" alt="img">' +
                     '</div>' +
                     '<div class="button">' +
                     '</div>' +
@@ -83,48 +83,63 @@ function Marialuisa() {
             var DatosJson = JSON.parse(JSON.stringify(response));
             $("#form_marialuisa").text("");
             var sw = 1;
-            var bg = DatosJson[0].Prod_Nombre;
             for (i = 0; i < DatosJson.length; i++) {
-                if (sw == 1) {
-                    $("#form_marialuisa").append('<div id=' + DatosJson[i].Prod_Nombre + ' class="swatch selected" style="background-color:#' + DatosJson[i].Prod_Nombre + ';"></div>');
-                } else {
-                    $("#form_marialuisa").append('<div id=' + DatosJson[i].Prod_Nombre + ' class="swatch border border-primary text-danger text-center" style="background-color:#' + DatosJson[i].Prod_Nombre + ';"></div>');
-                }
-                sw = 0;
-            }
-            $("#form_marialuisa").append('<div id="None" title="Sin Marialuisa" data-toggle="popover" data-trigger="hover" data-content="Esta opcion elimina la Marialuisa" class="swatch border border-danger text-danger text-center" style="background-color:#fff;"><i class="align-self-center fas fa-times fa-3x"></i></div>');
-            $('#None').popover({container: 'body'});   
-            $("#switch1").change(function () {
-                if (this.checked) {
-                    $('.screen').addClass("brillo");
-                } else {
-                    $('.screen').removeClass("brillo");
-                }
-            });
-            $('.swatch-selector .swatch').click(function onClick(event) {
-                $(this).removeClass('border border-primary').siblings().addClass('border border-primary');
-                $(this).addClass('selected')
-                    .siblings().removeClass('selected');
-                var colorName = $(this).data('color');
-                var color = $(this).attr('style').split(';').filter(item => item.startsWith('background-color'))[0].split(":")[1].replace(/\s/g, '');
-                var selectorId = $(this).attr('id');
-                $('.pic-1')
-                    .css({
-                        backgroundColor: color
+                if (DatosJson[i].Prod_Nombre == "Vidrio") {
+                    $("#form_marialuisa").append('<div id="Vidrio" title="Vidrio" data-toggle="popover" data-trigger="hover" data-content="Entre Vidrios" class="swatch border border-primary text-center" style="background-color:#fff;"><img class="img-fluid" src="/assets/img/vidrio.png"></div>');
+                    $('#Vidrio').popover({
+                        container: 'body'
                     });
-                $("#Color").val(selectorId);
-                if(selectorId=='None'){
-                    $(".device-mockup").removeClass("ipad_pro");
-                    $(".device-mockup").addClass("galaxy_s5");
-                    $(".img-fluid").width("80%");
+                    $('#Vidrio').click(function onClick(event) {
+                        var input_vidrio = document.getElementById("input_vidrio").value;
+                        if (input_vidrio == 'true') {
+                            $('#Vidrio').removeClass('selected');
+                            $('#Vidrio').addClass('border border-primary');
+                            $('.screen').removeClass("brillo");
+                            $("#input_vidrio").val('false');
+                        } else {
+                            $('#Vidrio').removeClass('border border-primary');
+                            $('#Vidrio').addClass('selected');
+
+                            $('.screen').addClass("brillo");
+                            $("#input_vidrio").val('true');
+                        }
+
+                    });
+                } else {
+                    $("#form_marialuisa").append('<div id=' + DatosJson[i].Producto_ID + ' class="swatch ml border border-primary" style="background-color:#' + DatosJson[i].Prod_Nombre + ';"></div>');
                 }
-                else{
-                      $(".device-mockup").removeClass("galaxy_s5");
-                    $(".device-mockup").addClass("ipad_pro");
-                    $(".img-fluid").width("50%");
+
+            }
+
+            $('.ml').click(function onClick(event) {
+                var selectorId = $(this).attr('id');
+                var color = document.getElementById("Color").value;
+
+                var x1 = color.toString();
+                var x2 = selectorId.toString();
+                if (x1 == x2) {
+                    $("#Color").val('0');
+                    $(this).removeClass('selected');
+                    $(this).addClass('border border-primary');
+                    ListaProductos();
+                } else {
+                    var colorName = $(this).data('color');
+                    var color = $(this).attr('style').split(';').filter(item => item.startsWith('background-color'))[0].split(":")[1].replace(/\s/g, '');
+                    $('.ml').removeClass('selected');
+                    $('.ml').addClass('border border-primary');
+
+                    $(this).removeClass('border border-primary').addClass('selected');
+                    $('.pic-1')
+                        .css({
+                            backgroundColor: color
+                        });
+                    $("#Color").val(selectorId);
                 }
+
+
             });
-            ListaProductos(bg);
+
+
         }
     });
 
@@ -133,8 +148,8 @@ function Marialuisa() {
 function Redireccion(Producto, Tamano) {
     var Tm = document.getElementById('Tamano_Marialuisa').value;
     var color = document.getElementById('Color').value;
-    var Vidrio = document.getElementById('switch1').checked;
-    location.href = '/VistaPrevia/?prod=' + Producto + '&tamano=' + Tamano + '&TM=' + Tm + '&Vidrio=' + Vidrio + '&Color=' + color+'&Meta=Impresion';
+    var Vidrio = document.getElementById('input_vidrio').value;
+    location.href = '/VistaPrevia/?prod=' + Producto + '&tamano=' + Tamano + '&TM=' + Tm + '&Vidrio=' + Vidrio + '&Color=' + color + '&Meta=Impresion';
     //alert(Producto+", "+Tamano);
     //
 }
@@ -148,15 +163,29 @@ function TamanosMarialuisa() {
             var DatosJson = JSON.parse(JSON.stringify(response));
             $("#Tamano_Marialuisa").text("");
             for (i = 0; i < DatosJson.length; i++) {
-                $("#Tamano_Marialuisa").append('<option value="' + DatosJson[i].Tamano_ID + '">' + DatosJson[i].Tamano + ' cm</option>')
+                $("#Tamano_Marialuisa").append('<option id="' + DatosJson[i].Tamano + '" value="' + DatosJson[i].Tamano_ID + '">' + DatosJson[i].Tamano + ' </option>')
             }
         }
-
-
     });
-
 }
 
+$("#Tamano_Marialuisa").change(function () {
+    $("select option:selected").each(function () {
+        var selectorId = $(this).attr('id');
+        if (selectorId == 'SinMarialuisa') {
+            $(".device-mockup").removeClass("ipad_pro");
+            $(".device-mockup").addClass("galaxy_s5");
+            $(".foto").width("80%");
+            $(".ml").hide();
+            $("#Color").val('0');
+        } else {
+            $(".device-mockup").removeClass("galaxy_s5");
+            $(".device-mockup").addClass("ipad_pro");
+            $(".foto").width("50%");
+            Marialuisa();
+            $(".ml").show();
 
+        }
+    });
 
-
+}).trigger("change");
