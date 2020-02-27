@@ -10,6 +10,7 @@ session_start();
     $_SESSION['Precio'][]=$_POST['Precio'];
     $_SESSION['Cantidad'][]=$_POST['Cantidad'];
     $_SESSION['Meta'][]=$_POST['Meta'];
+    $_SESSION['inv_descripcion'][]=$_POST['inv_descripcion'];
     echo count($_SESSION['Producto']);
     exit();
   }

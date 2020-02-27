@@ -12,8 +12,9 @@ try {
             $precio = $_SESSION['Precio'][$i];
             $imagen = $_SESSION['Imagen'][$i];
             $Meta = $_SESSION['Meta'][$i];
+            $Descripcion = $_SESSION['inv_descripcion'][$i];
 
-            $lista[] = array('Producto' => $producto, 'Prod_Nombre' => $productonombre, 'Tamano' => $tamano, 'Tamano_ID' => $tamanoID, 'Cantidad' => $cantidad, 'Precio' => $precio, 'Imagen' => $imagen, 'Meta' => $Meta);
+            $lista[] = array('Producto' => $producto, 'Prod_Nombre' => $productonombre, 'Tamano' => $tamano, 'Tamano_ID' => $tamanoID, 'Cantidad' => $cantidad, 'Precio' => $precio, 'Imagen' => $imagen, 'Meta' => $Meta, 'Descripcion' => $Descripcion);
         }
         else{
             array_splice($_SESSION['Producto'],0);
@@ -23,6 +24,8 @@ try {
             array_splice($_SESSION['Tamano'],0);
             array_splice($_SESSION['Precio'],0);
             array_splice($_SESSION['Cantidad'],0);
+            array_splice($_SESSION['Meta'],0);
+            array_splice($_SESSION['inv_descripcion'],0);
         }
     }
     echo json_encode($lista);

@@ -29,23 +29,21 @@ function Carrito() {
             var imagen = "";
             $("#tbl_carrito").text("");
             for (i = 0; i < DatosJson.length; i++) {
-                if (DatosJson[i].Meta == 'Marialuisa') {
-                    imagen = '<i width="50px" class="fas fa-3x text-warning fa-portrait"></i>';
-                } else {
+                if (DatosJson[i].Meta != 'Marialuisa' && DatosJson[i].Meta != 'Vidrio') {
                     imagen = '<img width="50px" src="' + DatosJson[i].Imagen + '" />'
-                }
-                var precio = DatosJson[i].Cantidad *DatosJson[i].Precio;
-                $("#tbl_carrito").append('<tr>' +
-                    '<td>' + imagen + ' </td>' +
-                    '<td>' + DatosJson[i].Prod_Nombre + '</td>' +
-                    '<td>' + DatosJson[i].Tamano + '</td>' +
-                    '<td><input class="form-control" id="Prd_' + i + '" type="number" value="' + DatosJson[i].Cantidad + '" onchange="UpdateCantidad(' + i + ')" /></td>' +
-                    '<td class="text-right">$ ' + dosDecimales(precio) + ' MXN</td>' +
-                    '<td class="text-right"><button class="btn btn-sm btn-danger" onclick="BorrarCarrito(' + i + ')" ><i class="fa fa-trash"></i> </button>' +
-                    '</td>' +
-                    '</tr>');
+                    var precio = DatosJson[i].Cantidad * DatosJson[i].Precio;
+                    $("#tbl_carrito").append('<tr>' +
+                        '<td>' + imagen + ' </td>' +
+                        '<td>' + DatosJson[i].Prod_Nombre + ' ' + DatosJson[i].Descripcion + '</td>' +
+                        '<td><input class="form-control" id="Prd_' + i + '" type="number" value="' + DatosJson[i].Cantidad + '" onchange="UpdateCantidad(' + i + ')" /></td>' +
+                        '<td class="text-right">$ ' + dosDecimales(precio.toFixed(2)) + ' MXN</td>' +
+                        '<td class="text-right"><button class="btn btn-sm btn-danger" onclick="BorrarCarrito(' + i + ')" ><i class="fa fa-trash"></i> </button>' +
+                        '</td>' +
+                        '</tr>');
 
-                suma = parseFloat(precio) + suma;
+                    suma = parseFloat(precio) + suma;
+                }
+
             }
             if (suma > 0) {
                 $("#btn_show").prop("disabled", false);
@@ -53,7 +51,6 @@ function Carrito() {
                 $("#btn_show").prop("disabled", true);
             }
             $("#tbl_carrito").append('<tr>' +
-                '<td></td>' +
                 '<td></td>' +
                 '<td></td>' +
                 '<td></td>' +
@@ -155,6 +152,26 @@ function BorrarCarrito(id) {
     $.ajax({
         data: parametros,
         url: '/assets/tools/Carrito/BorrarCarrito.php',
+        type: 'post',
+        success: function (response) {
+            //console.log(response);
+            var x_id = parametros.id;
+            for(var x=0;x<2;x++){
+                BorrarExtras(x_id) 
+            }
+            Carrito();
+        }
+    });
+}
+
+function BorrarExtras(id) {
+    var parametros = {
+        "id": id
+    }
+
+    $.ajax({
+        data: parametros,
+        url: '/assets/tools/Carrito/BorrarExtras.php',
         type: 'post',
         success: function (response) {
             console.log(response);

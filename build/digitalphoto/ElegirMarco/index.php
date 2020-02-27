@@ -59,9 +59,9 @@
 
 
                     </div>
-                    <input id="Tamano_ID" class="d-non" value=" <?php echo $size=$_GET['Tamano_ID'];?>">
-                    <input id="Color" class="d-non" value="0">
-                    <input id="input_vidrio" class="d-non" value="false">
+                    <input id="Tamano_ID" class="d-none" value=" <?php echo $size=$_GET['Tamano_ID'];?>">
+                    <input id="Color" class="d-none" value="0">
+                    <input id="input_vidrio" class="d-none" value="false">
                 </div>
             </div>
 

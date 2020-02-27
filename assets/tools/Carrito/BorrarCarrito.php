@@ -21,6 +21,8 @@ if(($contador-1)==$eliminar){
     array_splice($_SESSION['Precio'],$eliminar);
     array_splice($_SESSION['Cantidad'],$eliminar);
     array_splice($_SESSION['Meta'],$eliminar);
+    array_splice($_SESSION['inv_descripcion'],$eliminar);
+
 }
 else{
     array_splice($_SESSION['Producto'],$eliminar,-($identificador));
@@ -31,6 +33,12 @@ else{
     array_splice($_SESSION['Precio'],$eliminar,-($identificador));
     array_splice($_SESSION['Cantidad'],$eliminar,-($identificador));
     array_splice($_SESSION['Meta'],$eliminar,-($identificador));
+    array_splice($_SESSION['inv_descripcion'],$eliminar,-($identificador));
+    
 }
- 
+
+
+
+
+
   

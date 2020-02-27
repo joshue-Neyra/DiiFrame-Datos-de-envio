@@ -172,7 +172,7 @@ function TamanosMarialuisa() {
 $("#Tamano_Marialuisa").change(function () {
     $("select option:selected").each(function () {
         var selectorId = $(this).attr('id');
-        if (selectorId == 'SinMarialuisa') {
+        if (selectorId == 'Ninguna Opcion') {
             $(".device-mockup").removeClass("ipad_pro");
             $(".device-mockup").addClass("galaxy_s5");
             $(".foto").width("80%");
