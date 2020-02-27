@@ -112,8 +112,10 @@ function ListaDirecciones() {
         success: function (response) {
             var DatosJson = JSON.parse(response);
             $("#ClienteDirecciones").text("");
+            $("#ClienteDirecciones").append('<h2 class="mb-4">¿Donde quieres recibir tu compra?</h2>');
             for (i = 0; i < DatosJson.length; i++) {
-                $("#ClienteDirecciones").append('<h2 class="mb-4">¿Donde quieres recibir tu compra?</h2>' +
+                var estado = "'"+DatosJson[i].Clie_Estado+"'";
+                $("#ClienteDirecciones").append(
                     '<div class="col-xl-8 col-md-6 mb-4">' +
                     '<div class = "card border-left-warning shadow h-100 py-2">' +
                     '<div class = "card-body">' +
@@ -128,7 +130,7 @@ function ListaDirecciones() {
                     DatosJson[i].Clie_Calle + ' ' + DatosJson[i].Clie_Num_Ext + '</div>' +
                     '<div class = " mb-0 font-weight-bold text-muted"> C.P. ' + DatosJson[i].CP + ', ' + DatosJson[i].Clie_Colonia + ', ' + DatosJson[i].Clie_Estado + ', ' + DatosJson[i].Clie_Pais + ', Cel. ' + DatosJson[i].Celular + '</div>' +
                     '</div> <div class = "col-auto">' +
-                    '<btn class = "btn btn-sm btn-primary" onclick="GetCoordenadasEmpresa(' + DatosJson[i].Direccion_ID + ',' + DatosJson[i].Lat + ',' + DatosJson[i].Long + ')"> Elegir </btn>' +
+                    '<btn class = "btn btn-sm btn-primary" onclick="GetCoordenadasEmpresa(' + DatosJson[i].Direccion_ID + ',' + estado + ',' + DatosJson[i].Lat + ',' + DatosJson[i].Long + ')"> Elegir </btn>' +
                     '</div></div></div> </div> </div>');
             }
             $("#ClienteDirecciones").append('<div class="col-xl-8 mb-4">' +
@@ -156,8 +158,8 @@ function BorrarCarrito(id) {
         success: function (response) {
             //console.log(response);
             var x_id = parametros.id;
-            for(var x=0;x<2;x++){
-                BorrarExtras(x_id) 
+            for (var x = 0; x < 2; x++) {
+                BorrarExtras(x_id)
             }
             Carrito();
         }

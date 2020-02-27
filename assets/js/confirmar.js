@@ -29,8 +29,7 @@ function VerPedido() {
                 if (DatosJson[i].PrdMeta_ID == 'Producto') {
                     $("#tbl_confirmar").append('<tr class="rounded  bg-white ">' +
                         '<td>' + '<img width="50px" src="' + DatosJson[i].RutaImagen + '" />' + ' </td>' +
-                        '<td>' + DatosJson[i].Prod_Nombre + '</td>' +
-                        '<td>' + DatosJson[i].Tamano + '"</td>' +
+                        '<td>' + DatosJson[i].Prod_Nombre+' - '+ DatosJson[i].Descripcion + '</td>' +
                         '<td><input class="form-control" ' + disabled + ' type="number" value="' + DatosJson[i].Inv_cant + '" /></td>' +
                         '<td class="text-right">$' + Math.round10(DatosJson[i].Inv_pre_total, -2).toFixed(2) + '</td>' +
                         '<td class="text-right"><button class="btn btn-sm btn-danger" onclick="BorrarInventario(' + DatosJson[i].Inv_ID + ')"><i class="fa fa-trash"></i> </button>' +

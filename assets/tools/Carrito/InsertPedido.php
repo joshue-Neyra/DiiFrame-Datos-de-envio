@@ -75,7 +75,6 @@ else{
             $Nota_ID = $resultado['Nota_ID'];
             $Envio = $resultado['Envio'];
             for($i=0;$i<count($_SESSION['Producto']);$i++){
-                
                 $producto = $_SESSION['Producto'][$i];
                 $productonombre = $_SESSION['Prod_Nombre'][$i];
                 $tamano = $_SESSION['Tamano'][$i];
@@ -84,6 +83,7 @@ else{
                 $precio = $_SESSION['Precio'][$i];
                 $imglocal=$_SESSION['Imagen'][$i];
                 $Meta=$_SESSION['Meta'][$i];
+                $inv_descripcion=$_SESSION['inv_descripcion'][$i];
                 $imagen = "$imglocal";
                 $precio_total= $cantidad * $precio;
 
@@ -124,6 +124,41 @@ else{
                 $stmt = sqlsrv_query( $conn, $sql, $params);
                 if( $stmt === false ) {
                      die( print_r( sqlsrv_errors(), true));
+                }
+                else{
+                    if ($Meta != 'Marialuisa' &&  $Meta != 'Vidrio'){
+                        $sql = "SELECT Inv_ID FROM Inventario WHERE Prod_ID = $producto AND Serv_ID = $Nota_ID AND  InventarioMeta_ID = '$Meta'";
+                        $req =  sqlsrv_query($conn, $sql) or die(print_r(sqlsrv_errors(),true));
+                        if(sqlsrv_has_rows($req) != 1){
+                            echo "Error";
+                        }
+                        else{
+                                $resultado=  sqlsrv_fetch_array($req);
+                                $inv_ID = $resultado['Inv_ID'];
+                                $sql = "EXEC NuevoInventarioDescripcion @Inv_ID =?,
+                                @inv_descripcion =?,
+                                @merma =?,
+                                @MedidaL =?,
+                                @MedidaA =?,
+                                @TipoUnidad =?,
+                                @Activado =?,
+                                @Eliminado =?";
+                                $params = array(
+                                $inv_ID,
+                                $inv_descripcion,
+                                0,//merma
+                                0,//MedidaL
+                                0,//MedidaA
+                                0,//TipoUnidad
+                                1,//Activado
+                                0//eliminado
+                                );
+                            $stmt = sqlsrv_query( $conn, $sql, $params);
+                            if( $stmt === false ) {
+                                 die( print_r( sqlsrv_errors(), true));
+                            }
+                        }
+                    }
                 }
             }
             $sql = "EXEC NuevoInventario @Serv_ID =?,

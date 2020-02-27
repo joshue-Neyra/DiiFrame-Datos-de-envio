@@ -1,4 +1,4 @@
-function CotizacioniVoy(LatEmp, LngEmp, LatCli, LngCli,Direccion_ID) {
+function CotizacioniVoy(LatEmp, LngEmp, LatCli, LngCli, Direccion_ID) {
     var data = {
         "data": {
             "bOrder": {
@@ -49,7 +49,7 @@ function CotizacioniVoy(LatEmp, LngEmp, LatCli, LngCli,Direccion_ID) {
         success: function (r) {
             var precio = r.data.price;
             //console.log(precio);
-            InsertPedido(precio,Direccion_ID);
+            InsertPedido(precio, Direccion_ID);
 
         }
     });
@@ -83,25 +83,21 @@ $("#target").submit(function (event) {
         "Referencia": document.getElementById("inp_referencias").value,
 
     }
-    if (parametros.estado != "CDMX") {
-        alert("Lo sentimos, por el momento los envios fuera de CDMX no estan disponibles");
-    } else {
-        $.ajax({
-            data: parametros,
-            url: '/assets/tools/Carrito/EditarCliente.php',
-            type: 'post',
-            success: function (response) {
-                if (response == "Registro exitoso") {
-                    ListaDirecciones();
-                    $("#ClienteDirecciones").fadeIn("slow");
-                    $("#CrearDireccion").hide();
-                   
-                } else {
-                    alert(response);
-                }
+    $.ajax({
+        data: parametros,
+        url: '/assets/tools/Carrito/EditarCliente.php',
+        type: 'post',
+        success: function (response) {
+            if (response == "Registro exitoso") {
+                ListaDirecciones();
+                $("#ClienteDirecciones").fadeIn("slow");
+                $("#CrearDireccion").hide();
+
+            } else {
+                alert(response);
             }
-        });
-    }
+        }
+    });
     event.preventDefault();
 });
 
@@ -111,24 +107,30 @@ $("#reset").click(function (event) {
     event.preventDefault();
 });
 
-function GetCoordenadasEmpresa(Direccion_ID,LatCli, LngCli) {
+function GetCoordenadasEmpresa(Direccion_ID,Clie_Estado,LatCli,LngCli) {
     $(".loader").show();
     $.ajax({
         url: '/assets/tools/Carrito/CoordenadasEmp.php',
         type: 'post',
         dataType: 'json',
         success: function (r) {
-            CotizacioniVoy(r.Lat, r.Long, LatCli, LngCli, Direccion_ID);
+            if (Clie_Estado == "CDMX") {
+                CotizacioniVoy(r.Lat, r.Long, LatCli, LngCli, Direccion_ID);
+            }
+            else{
+                var precio = 200;
+                InsertPedido(precio, Direccion_ID);
+            }
         }
     });
 }
 
-function InsertPedido(CostoEnvio,Direccion_ID) {
+function InsertPedido(CostoEnvio, Direccion_ID) {
 
     var parametros = {
         "CostoEnvio": CostoEnvio,
         "fecha": document.getElementById("date").value,
-        "Direccion_ID":Direccion_ID
+        "Direccion_ID": Direccion_ID
 
     }
     $.ajax({

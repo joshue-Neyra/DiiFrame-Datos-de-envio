@@ -91,7 +91,6 @@
                                 <tr class="table-borderless">
                                     <th scope="col">Imagen </th>
                                     <th scope="col">Producto</th>
-                                    <th scope="col">Tamaño</th>
                                     <th scope="col" class="text-center">Cantidad</th>
                                     <th scope="col" class="text-right">Precio</th>
                                     <th> Opcion </th>

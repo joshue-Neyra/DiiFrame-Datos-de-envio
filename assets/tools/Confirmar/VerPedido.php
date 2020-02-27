@@ -3,10 +3,11 @@ session_start();
 $Cliente_ID=$_SESSION['Id'];
 $Nota_ID = $_POST['id'];
 
-$sql = "SELECT  Inventario.Inv_ID, Inventario.Serv_ID, Inventario.Prod_ID, Inventario.Inv_cant, Inventario.Inv_pre_unit, Inventario.Inv_pre_total,   Inventario.Tamano_ID,  Inventario.RutaImagen, Productos.PrdMeta_ID,Productos.Prod_Nombre ,TamanosImpresion.Tamano
+$sql = "SELECT  Inventario.Inv_ID, Inventario.Serv_ID, Inventario.Prod_ID, Inventario.Inv_cant, Inventario.Inv_pre_unit, Inventario.Inv_pre_total,   Inventario.Tamano_ID,  Inventario.RutaImagen, Productos.PrdMeta_ID,Productos.Prod_Nombre ,TamanosImpresion.Tamano, InvInventarioDetalle.Descripcion
 FROM     Inventario INNER JOIN Productos on Prod_ID = Producto_ID
 inner join TamanosImpresion on Inventario.Tamano_ID = TamanosImpresion.Tamano_ID
 inner join NtaMain on NtaMain.Nota_ID = Inventario.Serv_ID
+left join InvInventarioDetalle on Inventario. Inv_ID = InvInventarioDetalle.Inv_ID
 where Inventario.Cliente_ID = $Cliente_ID AND Inventario.Serv_ID = $Nota_ID
 and Inventario.Activado = 'True' and  NtaMain.Status_ID  = 3";
 function getArraySQL($sql){
