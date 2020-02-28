@@ -138,6 +138,7 @@
                                 <th scope="col">Producto</th>
                                 <th scope="col">Estatus</th>
                                 <th scope="col">Precio</th>
+                                <th scope="col">Proceso</th>
                                 <th scope="col"> Detalle </th>
                             </tr>
                         </thead>

@@ -94,6 +94,7 @@ function ListaPedidos() {
                     '<td>' + DatosJson[i].Prod_Nombre + '</td>' +
                     '<td>' + DatosJson[i].Status + '</td>' +
                     '<td>' + DatosJson[i].Nota_Total + '</td>' +
+                    '<td>' + DatosJson[i].Proceso_clave + '</td>' +
                     '<td><a class="btn btn-sm btn-primary text-white" href="/Pedido/?Nota_ID=' + DatosJson[i].Nota_ID + '" >Ver <i class="fas fa-eye"></i></a>' +
                     '</td>' +
                     '</tr>');
