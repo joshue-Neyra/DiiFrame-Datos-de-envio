@@ -1,5 +1,5 @@
 <?php
-$sql = "SELECT  Producto_ID, Prod_Nombre
+$sql = "SELECT  Producto_ID, Prod_Nombre,Prod_Descripcion
 FROM     Productos
 WHERE   ID_Status = 2 and (PrdMeta_ID = 'Marialuisa' or PrdMeta_ID = 'Vidrio')";
 function getArraySQL($sql){

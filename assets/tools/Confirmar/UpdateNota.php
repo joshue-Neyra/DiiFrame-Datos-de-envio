@@ -24,6 +24,8 @@ else{
     array_splice($_SESSION['Tamano'],0);
     array_splice($_SESSION['Precio'],0);
     array_splice($_SESSION['Cantidad'],0);
+    array_splice($_SESSION['Meta'],0);
+    array_splice($_SESSION['inv_descripcion'],0);
     echo "Exito";
 }
 

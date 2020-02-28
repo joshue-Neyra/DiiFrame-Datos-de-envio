@@ -106,7 +106,7 @@ function Marialuisa() {
 
                     });
                 } else {
-                    $("#form_marialuisa").append('<div id=' + DatosJson[i].Producto_ID + ' class="swatch ml border border-primary" style="background-color:#' + DatosJson[i].Prod_Nombre + ';"></div>');
+                    $("#form_marialuisa").append('<div id=' + DatosJson[i].Producto_ID + ' class="swatch ml border border-primary" style="background-color:#' + DatosJson[i].Prod_Descripcion + ';"></div>');
                 }
 
             }

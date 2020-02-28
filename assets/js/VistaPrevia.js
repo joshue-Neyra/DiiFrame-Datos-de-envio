@@ -158,9 +158,9 @@ function DetalleMarialuisa() {
                     '<input id="inp_ml_Tamano" class="d-none" value="' + DatosJson[0].Tamano + '" >' +
                     '<input id="inp_ml_Precio" class="d-none" value="' + DatosJson[0].Precio + '" >' +
                     '');
-                $(".product-title").append('<br>Marialuisa Color: ' + DatosJson[0].Prod_Nombre + '<br> Tamaño Marialuisa: ' + DatosJson[0].Tamano);
+                $(".product-title").append('<br>' + DatosJson[0].Prod_Nombre + '<br> Tamaño Marialuisa: ' + DatosJson[0].Tamano);
                 var descripcion = document.getElementById("inp_inv_descripcion").value;
-                $("#inp_inv_descripcion").val(descripcion + ' Marialuisa Color: ' + DatosJson[0].Prod_Nombre + ' Tamaño Marialuisa: ' + DatosJson[0].Tamano);
+                $("#inp_inv_descripcion").val(descripcion + ' ' + DatosJson[0].Prod_Nombre + ' Tamaño Marialuisa: ' + DatosJson[0].Tamano);
                 Precio(DatosJson[0].Precio);
             }
         });

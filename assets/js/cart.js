@@ -23,7 +23,7 @@ function Carrito() {
         url: '/assets/tools/Carrito/VerCarrito.php',
         type: 'post',
         success: function (response) {
-            //console.log(response);
+            console.log(response);
             var DatosJson = JSON.parse(response);
             var suma = 0;
             var imagen = "";
@@ -31,7 +31,7 @@ function Carrito() {
             for (i = 0; i < DatosJson.length; i++) {
                 if (DatosJson[i].Meta != 'Marialuisa' && DatosJson[i].Meta != 'Vidrio') {
                     imagen = '<img width="50px" src="' + DatosJson[i].Imagen + '" />'
-                    var precio = DatosJson[i].Cantidad * DatosJson[i].Precio;
+                    var precio = (DatosJson[i].Cantidad * DatosJson[i].Precio)*1.16;
                     $("#tbl_carrito").append('<tr>' +
                         '<td>' + imagen + ' </td>' +
                         '<td>' + DatosJson[i].Prod_Nombre + ' ' + DatosJson[i].Descripcion + '</td>' +
@@ -50,6 +50,7 @@ function Carrito() {
             } else {
                 $("#btn_show").prop("disabled", true);
             }
+            suma = suma *1.16;
             $("#tbl_carrito").append('<tr>' +
                 '<td></td>' +
                 '<td></td>' +
@@ -72,7 +73,6 @@ function UpdateCantidad(i) {
         type: 'post',
         success: function (response) {
             Carrito()
-
         }
     });
 }
