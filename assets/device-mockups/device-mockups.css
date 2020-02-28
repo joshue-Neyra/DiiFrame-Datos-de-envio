@@ -124,19 +124,9 @@
 
 
 
-.device-mockup.ambiente1 > .device > .screen,
-.device-mockup.ambiente1.portrait > .device > .screen {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    top: 25%;
-    left: 25%;
-    bottom: 25%;
-    right: 25%;
-}
 
-.device-mockup.ambiente1.landscape > .device > .screen {
+
+.device-mockup.ambiente1.landscape > .device > .screen.landscape {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -144,6 +134,16 @@
     top: -20.822449%;
     bottom: 5.177551%;
     left: 35%;
+    right: 74%;
+}
+.device-mockup.ambiente1.landscape > .device > .screen.portrait {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 15%;
+    top: -20.822449%;
+    bottom: 5.177551%;
+    left: 42%;
     right: 74%;
 }
 

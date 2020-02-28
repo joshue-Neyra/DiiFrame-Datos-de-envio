@@ -61,7 +61,7 @@ function DetalleProducto() {
                     '<div class="col-md-12 border border-warning">' +
                         '<div class="device-mockup ambiente1 landscape white">' +
                         '<div class="device" style="background-image: url(/assets/img/ambiente1.jpg);">' +
-                        '<div class="screen " >' +
+                        '<div class="screen ' + orientacion + '" >' +
                             '<div style="background-color:#' + DatosJson[i].Color + ';" class="device-mockup ipad_pro ' + orientacion + ' white ">' +
                             '<div class="device" style="background-image: url(' + DatosJson[i].RutaImagen1 + ');">' +
                             '<div class="screen " >' +
