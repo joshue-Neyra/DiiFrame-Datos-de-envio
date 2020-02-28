@@ -7,6 +7,7 @@
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/head.html'; ?>
     <link href="/assets/css/pedido.css" rel="stylesheet">
     <link href="/assets/device-mockups/device-mockups.css" rel="stylesheet">
+
 </head>
 
 <body id="page-top">
@@ -42,7 +43,7 @@
             </div>
         </div>
     </div>
-    <div id="lightbox1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div id="lightbox_1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <button type="button" class="close hidden" data-dismiss="modal" aria-hidden="true">×</button>
             <div class="modal-content">
@@ -54,23 +55,6 @@
             </div>
         </div>
     </div>
-    <div id="lightbox2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <button type="button" class="close hidden" data-dismiss="modal" aria-hidden="true">×</button>
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="container" id="modal2">
-
-                        <img class="img-fluid" src="" alt="" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/footer.html'; ?>
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/scripts.html'; ?>
 

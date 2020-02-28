@@ -48,20 +48,31 @@ function DetalleProducto() {
                 }
                 //console.log(DatosJson[i].RutaImagen2);
                 $("#carrusel_zoom").append(
-                    '<div class="col-md-4 border border-warning">' +
+                    '<div class="col-md-6 border border-warning">' +
                     '<a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox1">' +
                     '<img class="img-fluid" src="' + DatosJson[i].RutaImagen2 + '" alt="">' +
                     '</a>' +
                     '</div>' +
-                    '<div class="col-md-4 border border-warning">' +
+                    '<div class="col-md-6 border border-warning">' +
                     '<a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox2">' +
                     '<img class="img-fluid" src="' + DatosJson[i].RutaImagen3 + '" alt="">' +
                     '</a>' +
+                    '</div>'+
+                    '<div class="col-md-12 border border-warning">' +
+                        '<div class="device-mockup ambiente1 landscape white">' +
+                        '<div class="device" style="background-image: url(/assets/img/ambiente1.jpg);">' +
+                        '<div class="screen " >' +
+                            '<div style="background-color:#' + DatosJson[i].Color + ';" class="device-mockup ipad_pro ' + orientacion + ' white ">' +
+                            '<div class="device" style="background-image: url(' + DatosJson[i].RutaImagen1 + ');">' +
+                            '<div class="screen " >' +
+                            '<img src="' + DatosJson[i].ImagenUsuario + '" class="img-fluid" width="50%" alt="img">' +
+                            '</div>'+
+                        '</div>'+
                     '</div>');
-                $("#modal1").append(
-                    '<img class="img-fluid" src="' + DatosJson[i].RutaImagen2 + '" alt="img">');
-                $("#modal2").append(
-                    '<img class="img-fluid" src="' + DatosJson[i].RutaImagen3 + '" alt="img">');
+                ////$("#modal1").append(
+                 //   '<img class="img-fluid" src="' + DatosJson[i].RutaImagen2 + '" alt="img">');
+                //$("#modal2").append(
+                 //   '<img class="img-fluid" src="' + DatosJson[i].RutaImagen3 + '" alt="img">');
                 var PrecioTotal = DatosJson[i].Precio * 1.16;
                 $("#Descripcion").append('<p class="last-sold text-muted"><strong>Detalles del projecto:</strong></p>' +
                     '<h4 class="product-title mb-2"> Marco: ' + DatosJson[i].Prod_Nombre + '<br> Tamaño de impresión: ' + DatosJson[i].Tamano + '"' + '</h4>' +
@@ -74,12 +85,12 @@ function DetalleProducto() {
                     '<label for="quant">Cantidad:  </label>' +
                     '<input type="number" min="1" id="inp_cant" class="form-control input-lg" value="1" placeholder="1">' +
                     '<input type="number"  id="inp_precioproducto" class="d-none" value="' + DatosJson[i].Precio + '">' +
-                    '<input type="number"  id="inp_precio" class="d-non" value="' + DatosJson[i].Precio + '">' +
+                    '<input type="number"  id="inp_precio" class="d-none" value="' + DatosJson[i].Precio + '">' +
                     '<input type="text"  id="inp_imagen" class="d-none" value="' + imagenusuario + '">' +
                     '<input type="number"  id="inp_Tamano_ID" class="d-none" value="' + DatosJson[i].Tamano_ID + '">' +
                     '<input type="text"  id="inp_Tamano" class="d-none" value="' + DatosJson[i].Tamano + '">' +
                     '<input type="text"  id="inp_ProdNombre" class="d-none" value="' + DatosJson[i].Prod_Nombre + '">' +
-                    '<input type="text"  id="inp_inv_descripcion" class="d-non">' +
+                    '<input type="text"  id="inp_inv_descripcion" class="d-none">' +
                     '</div>' +
                     '</form>' +
                     '<div id="btn_descripcion">' +

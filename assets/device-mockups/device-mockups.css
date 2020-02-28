@@ -111,3 +111,39 @@
     right: -11%;
     z-index: -1;
 }
+
+/* ambiente1 */
+.device-mockup.ambiente1,
+.device-mockup.ambiente1.portrait {
+    padding-bottom: 138.63%;
+}
+
+.device-mockup.ambiente1.landscape {
+    padding-bottom: 72.14%;
+}
+
+
+
+.device-mockup.ambiente1 > .device > .screen,
+.device-mockup.ambiente1.portrait > .device > .screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    top: 25%;
+    left: 25%;
+    bottom: 25%;
+    right: 25%;
+}
+
+.device-mockup.ambiente1.landscape > .device > .screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 28%;
+    top: -20.822449%;
+    bottom: 5.177551%;
+    left: 35%;
+    right: 74%;
+}
+

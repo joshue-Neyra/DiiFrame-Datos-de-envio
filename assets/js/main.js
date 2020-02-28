@@ -38,9 +38,14 @@
 
          $(document).on('scroll', function () {
 
-             if ($(window).scrollTop() > 100) {
+             if ($(window).scrollTop() > 100 && $(window).scrollTop() < 3500) {
                  $('.scroll-top-wrapper').addClass('show');
-             } else {
+                 //console.log($(window).scrollTop());
+             }
+             else if ($(window).scrollTop() > 3500) {
+                 $('.scroll-top-wrapper').removeClass('show');
+             }
+             else {
                  $('.scroll-top-wrapper').removeClass('show');
              }
          });
