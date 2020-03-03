@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,26 +30,18 @@
 
             <div class="card-body">
                 <img src="/assets/img/avatar.png" class="avatar mb-5 ">
-                <h3 class="card-title text-center my-5 text-muted">Iniciar sesión</h3>
-                <form>
+                <h3 class="card-title text-center my-5 text-muted">Recuperar Contraseña</h3>
+                <p class="text-muted text-center">Ingresa el correo con el que registraste tu cuenta</p>
+                <form id="form_recuperar">
                     <div class="form-group">
                         <div class="form-label-group">
-                            <input type="email" id="inp_usuario" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
-                            <label for="inp_usuario">Usuario</label>
+                            <input type="email" id="inp_correo" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
+                            <label for="inp_correo">Correo</label>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="form-label-group">
-                            <input type="password" id="inp_contrasena" class="form-control" placeholder="Password" required="required">
-                            <label for="inp_contrasena">Contraseña</label>
-                        </div>
-                    </div>
-                    <a class="btn btn-primary btn-block text-white" onclick="login();">Iniciar</a>
+                    <center><button class="btn btn-primary" type="submit">Enviar</button></center>
                 </form>
-                <p class="text-center my-3 font-weight-lighter"><a class="text-danger text-decoration-none" href="/RecuperarPsw/">¿Olvidaste tu contraseña?</a></p>
-                <hr class="my-4">
-                <p class="text-muted text-center">¿Aún no tienes una cuenta?</p>
-                <a class="nav-link" href="/Signin/"><button class="btn btn-lg btn-danger btn-block text-uppercase" type="submit">Crear Cuenta</button></a>
+
             </div>
         </div>
     </div>
@@ -61,7 +52,7 @@
 
     <!-- Core plugin JavaScript-->
     <script src="/assets/vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="/assets/js/login.js"></script>
+    <script src="/assets/js/recuperar.js"></script>
 
 </body>
 

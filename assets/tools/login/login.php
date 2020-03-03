@@ -2,7 +2,7 @@
 require $_SERVER['DOCUMENT_ROOT'].'/assets/tools/connection.php'; 
 
 $user=$_POST['usuario'];
-$psw=$_POST['contrasena'];
+$psw=sha1($_POST['contrasena']);
 
 
 $sql = "SELECT ID_Cliente, Clie_Nombre, Clie_Apellidos, Clie_Calle, Clie_Num_ext, Clie_Num_int, CP, Clie_Colonia, Clie_Delegacion, Clie_Estado, Clie_Pais, Clie_email,  PasswordInternet

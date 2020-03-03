@@ -3,7 +3,7 @@ require $_SERVER['DOCUMENT_ROOT'].'/assets/tools/connection.php';
 $Clie_Nombre=$_POST['nombre'];
 $Clie_Apellidos=$_POST['apellido'];
 $Clie_email=$_POST['email'];
-$PasswordInternet=$_POST['contrasena'];
+$PasswordInternet=sha1($_POST['contrasena']);
 $fecha=$_POST['fecha'];
 $date = date_create($fecha);
 $FechaAlta= date_format($date, 'Y-m-d H:i:s');
