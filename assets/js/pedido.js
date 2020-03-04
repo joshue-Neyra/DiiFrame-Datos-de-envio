@@ -74,6 +74,11 @@ function VerPedido() {
             var nombre = "";
             var tamano = "";
             $("#tbl_Pedido").text("");
+            var d = new Date(DatosJson[0].Fecha_Recibo.date);
+            var d2 = new Date(DatosJson[0].Fecha_Entrega.date);
+            $("#date1").text("Fecha de recibo: "+ d);
+            $("#date2").text("Fecha de entrega: "+ d2);
+            
             for (i = 0; i < DatosJson.length; i++) {
                 if (DatosJson[i].PrdMeta_ID == "Marialuisa") {
                     nombre = 'Marialuisa ';

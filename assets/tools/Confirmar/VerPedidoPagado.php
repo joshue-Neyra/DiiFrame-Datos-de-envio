@@ -3,7 +3,7 @@ session_start();
 $Cliente_ID=$_SESSION['Id'];
 $Nota_ID = $_POST['id'];
 
-$sql = "SELECT  Inventario.Inv_ID, Inventario.Serv_ID, Inventario.Prod_ID, Inventario.Inv_cant, Inventario.Inv_pre_unit, Inventario.Inv_pre_total,   Inventario.Tamano_ID,  Inventario.RutaImagen, Productos.PrdMeta_ID,Productos.Prod_Nombre ,TamanosImpresion.Tamano
+$sql = "SELECT  Inventario.Inv_ID, Inventario.Serv_ID, Inventario.Prod_ID, Inventario.Inv_cant, Inventario.Inv_pre_unit, Inventario.Inv_pre_total,   Inventario.Tamano_ID,NtaMain.Fecha_Recibo,NtaMain.Fecha_Entrega,  Inventario.RutaImagen, Productos.PrdMeta_ID,Productos.Prod_Nombre ,TamanosImpresion.Tamano
 FROM     Inventario INNER JOIN Productos on Prod_ID = Producto_ID
 inner join TamanosImpresion on Inventario.Tamano_ID = TamanosImpresion.Tamano_ID
 inner join NtaMain on NtaMain.Nota_ID = Inventario.Serv_ID

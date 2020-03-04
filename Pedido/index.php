@@ -214,8 +214,8 @@
                             <div class="col invoice-details">
                                 <h1 class="text-warning">Pedido No. <?php echo $_GET['Nota_ID'];?></h1>
                                 <input id="Nota_ID" class="d-none" value="<?php echo $_GET['Nota_ID'];?>">
-                                <div class="date">Date of Invoice: 01/10/2018</div>
-                                <div class="date">Due Date: 30/10/2018</div>
+                                <div id="date1" class="date">Date of Invoice: 01/10/2018</div>
+                                <div id="date2" class="date">Due Date: 30/10/2018</div>
                             </div>
                         </div>
                         <table border="0" cellspacing="0" cellpadding="0">
