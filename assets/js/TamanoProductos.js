@@ -21,7 +21,7 @@ function size() {
                 $("#botones").append('<tr>' +
                     '<th scope="row">' + DatosJson[i].Tamano + ' ´´</th>' +
                     '<td>' + contenido + '</td>' +
-                    '<td><a href="/VistaPrevia/?prod='+producto+'&tamano='+DatosJson[i].Tamano_ID+'&TM=12&Vidrio=false&Color=0&Meta=SoloMarco"><button class="btn btn-primary m-1">' +
+                    '<td><a href="/VistaPrevia/?prod='+producto+'&tamano='+DatosJson[i].Tamano_ID+'&TM=0&VT=false&VF=0&Color=0&Meta=SoloMarco"><button class="btn btn-primary m-1">' +
                     'Elegir </button></a></td>' +
                     '</tr>');
 

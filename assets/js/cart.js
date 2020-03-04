@@ -50,7 +50,6 @@ function Carrito() {
             } else {
                 $("#btn_show").prop("disabled", true);
             }
-            suma = suma *1.16;
             $("#tbl_carrito").append('<tr>' +
                 '<td></td>' +
                 '<td></td>' +

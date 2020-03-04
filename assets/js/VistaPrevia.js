@@ -33,16 +33,24 @@ function DetalleProducto() {
                 } else {
                     orientacion = "landscape";
                 }
+                var ml = document.getElementById("Tamano_M").value;
+                if (ml == 15) {
+                    var device = "galaxy_s5";
+                    var width = "80%";
+                } else {
+                    var device = "ipad_pro";
+                    var width = "50%";
+                }
                 if (Meta == "SoloMarco") {
                     $("#carrusel_zoom2").append('<div class="border border-warning   ">' +
                         '<img src="' + DatosJson[i].RutaImagen2 + '" class="img-fluid" alt="img">' +
                         '</div>');
                     var imagenusuario = DatosJson[i].RutaImagen2;
                 } else {
-                    $("#carrusel_zoom2").append('<div style="background-color:#' + DatosJson[i].Color + ';" class="border border-warning device-mockup ipad_pro ' + orientacion + ' white ">' +
+                    $("#carrusel_zoom2").append('<div style="background-color:#' + DatosJson[i].Color + ';" class="border border-warning device-mockup ' + device + ' ' + orientacion + ' white ">' +
                         '<div class="device" style="background-image: url(' + DatosJson[i].RutaImagen1 + ');">' +
                         '<div class="screen " >' +
-                        '<img src="' + DatosJson[i].ImagenUsuario + '" class="img-fluid" width="50%" alt="img">' +
+                        '<img src="' + DatosJson[i].ImagenUsuario + '" class="img-fluid foto" width="' + width + '" alt="img">' +
                         '</div>');
                     var imagenusuario = DatosJson[i].ImagenUsuario;
                 }
@@ -57,22 +65,22 @@ function DetalleProducto() {
                     '<a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox2">' +
                     '<img class="img-fluid" src="' + DatosJson[i].RutaImagen3 + '" alt="">' +
                     '</a>' +
-                    '</div>'+
+                    '</div>' +
                     '<div class="col-md-12 border border-warning">' +
-                        '<div class="device-mockup ambiente1 landscape white">' +
-                        '<div class="device" style="background-image: url(/assets/img/ambiente1.jpg);">' +
-                        '<div class="screen ' + orientacion + '" >' +
-                            '<div style="background-color:#' + DatosJson[i].Color + ';" class="device-mockup ipad_pro ' + orientacion + ' white ">' +
-                            '<div class="device" style="background-image: url(' + DatosJson[i].RutaImagen1 + ');">' +
-                            '<div class="screen " >' +
-                            '<img src="' + DatosJson[i].ImagenUsuario + '" class="img-fluid" width="50%" alt="img">' +
-                            '</div>'+
-                        '</div>'+
+                    '<div class="device-mockup ambiente1 landscape white">' +
+                    '<div class="device" style="background-image: url(/assets/img/ambiente1.jpg);">' +
+                    '<div class="screen ' + orientacion + '" >' +
+                    '<div style="background-color:#' + DatosJson[i].Color + ';" class="device-mockup ' + device + ' ' + orientacion + ' white ">' +
+                    '<div class="device" style="background-image: url(' + DatosJson[i].RutaImagen1 + ');">' +
+                    '<div class="screen " >' +
+                    '<img src="' + DatosJson[i].ImagenUsuario + '" class="img-fluid" width="' + width + '" alt="img">' +
+                    '</div>' +
+                    '</div>' +
                     '</div>');
                 ////$("#modal1").append(
-                 //   '<img class="img-fluid" src="' + DatosJson[i].RutaImagen2 + '" alt="img">');
+                //   '<img class="img-fluid" src="' + DatosJson[i].RutaImagen2 + '" alt="img">');
                 //$("#modal2").append(
-                 //   '<img class="img-fluid" src="' + DatosJson[i].RutaImagen3 + '" alt="img">');
+                //   '<img class="img-fluid" src="' + DatosJson[i].RutaImagen3 + '" alt="img">');
                 var PrecioTotal = DatosJson[i].Precio * 1.16;
                 $("#Descripcion").append('<p class="last-sold text-muted"><strong>Detalles del projecto:</strong></p>' +
                     '<h4 class="product-title mb-2"> Marco: ' + DatosJson[i].Prod_Nombre + '<br> Tamaño de impresión: ' + DatosJson[i].Tamano + '"' + '</h4>' +
@@ -122,7 +130,6 @@ function Precio(valor) {
 
 
 function cart(id) {
-
     $.ajax({
         type: 'post',
         url: '/assets/tools/Carrito/AgregarCarrito.php',
@@ -139,8 +146,12 @@ function cart(id) {
         },
         success: function (response) {
             $("#Cantidad_Carrito").html(response);
-            Marialuisa();
-            Vidrio()
+            var solomarco = document.getElementById("Meta").value;
+            if (solomarco != "SoloMarco") {
+                Marialuisa();
+                Vidrio()
+            }
+
             $("#btn_descripcion").text("");
             $("#btn_descripcion").append('<a class="nav-link" href="/Cart/"><button class="btn btn-warning btn-lg btn-block" >Ir al Carrito</button></a>');
         }
@@ -180,35 +191,32 @@ function DetalleMarialuisa() {
 }
 
 function DetalleVidrio() {
-    var Vidrio = document.getElementById("Vidrio").value;
-    if (Vidrio == 'true') {
-        $.ajax({
-            type: 'post',
-            url: '/assets/tools/Carrito/DetalleVidrio.php',
-            data: {
-                Prod_Nombre: 'Vidrio',
-                Tamano_ID: document.getElementById("Tamano_M").value,
-            },
-            dataType: 'json',
-            success: function (response) {
-                var DatosJson = JSON.parse(JSON.stringify(response));
-                $("#Descripcion").append('' +
-                    '<input id="inp_vidrio_Nombre" class="d-none" value="' + DatosJson[0].Prod_Nombre + '" >' +
-                    '<input id="inp_vidrio_id" class="d-none" value="' + DatosJson[0].Producto_ID + '" >' +
-                    '<input id="inp_vidrio_imagen" class="d-none" value="' + DatosJson[0].Imagen + '" >' +
-                    '<input id="inp_vidrio_Tamano_ID" class="d-none" value="' + DatosJson[0].Tamano_ID + '" >' +
-                    '<input id="inp_vidrio_Tamano" class="d-none" value="' + DatosJson[0].Tamano + '" >' +
-                    '<input id="inp_vidrio_Precio" class="d-none" value="' + DatosJson[0].Precio + '" >' +
-                    '');
-                $(".product-title").append('<br>' + DatosJson[0].Prod_Nombre + ', Tamaño Vidrio: ' + DatosJson[0].Tamano);
-                Precio(DatosJson[0].Precio);
-                var descripcion = document.getElementById("inp_inv_descripcion").value;
-                //alert(descripcion);
-                $("#inp_inv_descripcion").val(descripcion + ' ' + DatosJson[0].Prod_Nombre + ', Tamaño Vidrio: ' + DatosJson[0].Tamano);
-            }
-        });
-    }
-
+    var Producto_ID = document.getElementById("Vidrio_F").value;
+    $.ajax({
+        type: 'post',
+        url: '/assets/tools/Carrito/DetalleVidrio.php',
+        data: {
+            Producto_ID: Producto_ID,
+            Tamano_ID: document.getElementById("Tamano_M").value,
+        },
+        dataType: 'json',
+        success: function (response) {
+            var DatosJson = JSON.parse(JSON.stringify(response));
+            $("#Descripcion").append('' +
+                '<input id="inp_vidrio_Nombre" class="d-none" value="' + DatosJson[0].Prod_Nombre + '" >' +
+                '<input id="inp_vidrio_id" class="d-none" value="' + DatosJson[0].Producto_ID + '" >' +
+                '<input id="inp_vidrio_imagen" class="d-none" value="' + DatosJson[0].Imagen + '" >' +
+                '<input id="inp_vidrio_Tamano_ID" class="d-none" value="' + DatosJson[0].Tamano_ID + '" >' +
+                '<input id="inp_vidrio_Tamano" class="d-none" value="' + DatosJson[0].Tamano + '" >' +
+                '<input id="inp_vidrio_Precio" class="d-none" value="' + DatosJson[0].Precio + '" >' +
+                '');
+            $(".product-title").append('<br>' + DatosJson[0].Prod_Nombre + ', Tamaño Vidrio: ' + DatosJson[0].Tamano);
+            Precio(DatosJson[0].Precio);
+            var descripcion = document.getElementById("inp_inv_descripcion").value;
+            //alert(descripcion);
+            $("#inp_inv_descripcion").val(descripcion + ' ' + DatosJson[0].Prod_Nombre + ', Tamaño Vidrio: ' + DatosJson[0].Tamano);
+        }
+    });
 }
 
 function Marialuisa() {
@@ -251,39 +259,36 @@ function Marialuisa() {
 }
 
 function Vidrio() {
-    var Vidrio = document.getElementById("Vidrio").value;
-    if (Vidrio == 'true') {
-        $.ajax({
-            type: 'post',
-            url: '/assets/tools/Carrito/DetalleVidrio.php',
-            data: {
-                Prod_Nombre: 'Vidrio',
-                Tamano_ID: document.getElementById("Tamano_M").value,
-            },
-            dataType: 'json',
-            success: function (response) {
-                var DatosJson = JSON.parse(JSON.stringify(response));
-                console.log(DatosJson[0].Prod_Nombre);
-                $.ajax({
-                    type: 'post',
-                    url: '/assets/tools/Carrito/AgregarCarrito.php',
-                    data: {
-                        Producto: DatosJson[0].Producto_ID,
-                        Prod_Nombre: DatosJson[0].Prod_Nombre,
-                        Imagen: DatosJson[0].Imagen,
-                        Tamano_ID: DatosJson[0].Tamano_ID,
-                        Tamano: DatosJson[0].Tamano,
-                        Precio: 0,
-                        Cantidad: document.getElementById("inp_cant").value,
-                        Meta: 'Vidrio',
-                        inv_descripcion: document.getElementById("inp_inv_descripcion").value,
-                    },
-                    success: function (response) {
-                        console.log(response);
-                    }
-                });
-            }
-        });
-    }
+    $.ajax({
+        type: 'post',
+        url: '/assets/tools/Carrito/DetalleVidrio.php',
+        data: {
+            Producto_ID: document.getElementById("Vidrio_F").value,
+            Tamano_ID: document.getElementById("Tamano_M").value,
+        },
+        dataType: 'json',
+        success: function (response) {
+            var DatosJson = JSON.parse(JSON.stringify(response));
+            console.log(DatosJson[0].Prod_Nombre);
+            $.ajax({
+                type: 'post',
+                url: '/assets/tools/Carrito/AgregarCarrito.php',
+                data: {
+                    Producto: DatosJson[0].Producto_ID,
+                    Prod_Nombre: DatosJson[0].Prod_Nombre,
+                    Imagen: DatosJson[0].Imagen,
+                    Tamano_ID: DatosJson[0].Tamano_ID,
+                    Tamano: DatosJson[0].Tamano,
+                    Precio: 0,
+                    Cantidad: document.getElementById("inp_cant").value,
+                    Meta: 'Vidrio',
+                    inv_descripcion: document.getElementById("inp_inv_descripcion").value,
+                },
+                success: function (response) {
+                    console.log(response);
+                }
+            });
+        }
+    });
 
 }

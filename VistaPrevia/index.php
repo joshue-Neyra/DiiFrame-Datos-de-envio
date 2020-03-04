@@ -18,7 +18,8 @@
     
     <input id="Tamano_M" class="d-none" value=" <?php echo $_GET['TM'];?>">
     <input id="Marialuisa_ID" class="d-none" value="<?php echo $_GET['Color'];?>">
-    <input id="Vidrio" class="d-none" value="<?php echo $_GET['Vidrio'];?>">
+    <input id="Vidrio_T" class="d-none" value="<?php echo $_GET['VT'];?>">
+    <input id="Vidrio_F" class="d-none" value="<?php echo $_GET['VF'];?>">
     <input id="Meta" class="d-none" value="<?php echo $_GET['Meta'];?>">
     <div class="container">
         <div class="card-group mb-5 my-5">
