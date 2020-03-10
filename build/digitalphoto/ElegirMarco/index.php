@@ -41,20 +41,31 @@
                 <div class="card-body row justify-content-md-center">
                     <div class=" col-md-6">
                         <div class="form-group">
-                            <h4 class="text-primary text-center">a) Tamaño marialuisa:</h4>
+                            <h4 class="text-primary text-center">1) Tamaño marialuisa:</h4>
                             <select class="form-control" id="Tamano_Marialuisa">
                             </select>
                         </div>
                     </div>
                     <div class="swatch-selector col-md-6" id="color-1">
+                        <h4 class="text-primary text-left">2) Elegir</h4>
                         <div class="form-group ">
-                            <h4 class="text-primary text-center">b) Color marialuisa:</h4>
-                            <div class="row justify-content-md-center" id="form_marialuisa">
+
+                            <div class="row justify-content-md-center my-3" id="form_marialuisa2">
+                                <div class="col-md-4">
+                                    <h5 class="text-warning">a)color:</h5>
+                                </div>
+                                <div class="col-md-8" id="form_marialuisa"></div>
+                            </div>
+                            <div class="row justify-content-md-center my-3">
+                                <div class="col-md-4">
+                                    <h5 class="text-warning">b)Entre vidrios:</h5>
+                                </div>
+                                <div class="col-md-8" id="form_entrevidrios"></div>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-8">
-                        <h4 class="text-primary text-center">c) Vidrio Frontal:</h4>
+                        <h4 class="text-primary text-center">3) Vidrio Frontal:</h4>
                         <div class="row justify-content-md-center" id="form_vidrios">
                         </div>
                     </div>

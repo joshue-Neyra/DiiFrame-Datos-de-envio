@@ -83,7 +83,7 @@ function DetalleProducto() {
                 //   '<img class="img-fluid" src="' + DatosJson[i].RutaImagen3 + '" alt="img">');
                 var PrecioTotal = DatosJson[i].Precio * 1.16;
                 $("#Descripcion").append('<p class="last-sold text-muted"><strong>Detalles del projecto:</strong></p>' +
-                    '<h4 class="product-title mb-2"> Marco: ' + DatosJson[i].Prod_Nombre + '<br> Tamaño de impresión: ' + DatosJson[i].Tamano + '"' + '</h4>' +
+                    '<h4 class="product-title mb-2"> Marco: ' + DatosJson[i].Prod_Nombre + '<br> Tamaño de impresión: ' + DatosJson[i].Tamano +  '</h4>' +
                     '<h2 class="product-price display-4">$ ' + PrecioTotal.toFixed(2) + ' MXN </h2>' +
                     '<p class="text-success"><i class="fab fa-cc-mastercard"></i> <i class="fab fa-cc-visa"></i> <i class="fab fa-cc-paypal"></i></p>' +
                     '<p class="mb-0"><i class="fa fa-truck"></i> Envios a todo México</p>' +
@@ -180,9 +180,9 @@ function DetalleMarialuisa() {
                     '<input id="inp_ml_Tamano" class="d-none" value="' + DatosJson[0].Tamano + '" >' +
                     '<input id="inp_ml_Precio" class="d-none" value="' + DatosJson[0].Precio + '" >' +
                     '');
-                $(".product-title").append('<br>' + DatosJson[0].Prod_Nombre + '<br> Tamaño Marialuisa: ' + DatosJson[0].Tamano);
+                $(".product-title").append('<br>' + DatosJson[0].Prod_Nombre);
                 var descripcion = document.getElementById("inp_inv_descripcion").value;
-                $("#inp_inv_descripcion").val(descripcion + ' ' + DatosJson[0].Prod_Nombre + ' Tamaño Marialuisa: ' + DatosJson[0].Tamano);
+                $("#inp_inv_descripcion").val(descripcion + ' ' + DatosJson[0].Prod_Nombre);
                 Precio(DatosJson[0].Precio);
             }
         });
@@ -210,11 +210,11 @@ function DetalleVidrio() {
                 '<input id="inp_vidrio_Tamano" class="d-none" value="' + DatosJson[0].Tamano + '" >' +
                 '<input id="inp_vidrio_Precio" class="d-none" value="' + DatosJson[0].Precio + '" >' +
                 '');
-            $(".product-title").append('<br>' + DatosJson[0].Prod_Nombre + ', Tamaño Vidrio: ' + DatosJson[0].Tamano);
+            $(".product-title").append('<br>Marialuisa: ' + DatosJson[0].Tamano + '<br>' + DatosJson[0].Prod_Nombre);
             Precio(DatosJson[0].Precio);
             var descripcion = document.getElementById("inp_inv_descripcion").value;
             //alert(descripcion);
-            $("#inp_inv_descripcion").val(descripcion + ' ' + DatosJson[0].Prod_Nombre + ', Tamaño Vidrio: ' + DatosJson[0].Tamano);
+            $("#inp_inv_descripcion").val(descripcion + ' ' + ',  Marialuisa: ' + DatosJson[0].Tamano + ' ' + DatosJson[0].Prod_Nombre);
         }
     });
 }

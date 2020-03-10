@@ -83,6 +83,7 @@ function Marialuisa() {
             var DatosJson = JSON.parse(JSON.stringify(response));
             $("#form_marialuisa").text("");
             $("#form_vidrios").text("");
+            $("#form_entrevidrios").text("");
             var sw = 1;
             var bg = DatosJson[0].Prod_Descripcion;
             $("#Color").val(DatosJson[0].Producto_ID);
@@ -113,7 +114,7 @@ function Marialuisa() {
 
 
             }
-            $("#form_marialuisa").append('<div id="Vidrio" title="Vidrio" data-toggle="popover" data-trigger="hover" data-content="Entre Vidrios" class="swatch border border-primary text-center" style="background-color:#fff;"><img class="img-fluid" src="/assets/img/vidrio.png"></div>');
+            $("#form_entrevidrios").append('<div id="Vidrio" title="Vidrio" data-toggle="popover" data-trigger="hover" data-content="Entre Vidrios" class="swatch border border-primary text-center" style="background-color:#fff;"><img class="img-fluid" src="/assets/img/vidrio.png"></div>');
             $('#Vidrio').popover({
                 container: 'body'
             });
@@ -128,15 +129,18 @@ function Marialuisa() {
                 //alert("algo");
                 $('#input_vidrio_t').val('true');
                 $("#Color").val(0);
+                $(".ml").removeClass('selected').addClass('border border-primary');
+                $(this).removeClass('border border-primary').addClass('selected');
                 $('.pic-1')
                         .css({
                             backgroundColor: ''
                         });
             });
-            $('.swatch-selector .swatch').click(function onClick(event) {
+            $('.ml').click(function onClick(event) {
                 $(this).removeClass('border border-primary').siblings().addClass('border border-primary');
                 $(this).addClass('selected')
                     .siblings().removeClass('selected');
+                $('#Vidrio').addClass('border border-primary').removeClass('selected');
                 var colorName = $(this).data('color');
                 var color = $(this).attr('style').split(';').filter(item => item.startsWith('background-color'))[0].split(":")[1].replace(/\s/g, '');
                 var selectorId = $(this).attr('id');
@@ -185,11 +189,12 @@ function TamanosMarialuisa() {
 $("#Tamano_Marialuisa").change(function () {
     $("select option:selected").each(function () {
         var selectorId = $(this).attr('id');
-        if (selectorId == 'Ninguna Opcion') {
+        if (selectorId == 'Sin Marialuisa') {
             $(".device-mockup").removeClass("ipad_pro");
             $(".device-mockup").addClass("galaxy_s5");
             $(".foto").width("80%");
             $(".ml").hide();
+            $("#form_marialuisa2").hide();
             $('#Vidrio').click();
         } else {
             $(".device-mockup").removeClass("galaxy_s5");
@@ -197,6 +202,7 @@ $("#Tamano_Marialuisa").change(function () {
             $(".foto").width("50%");
             Marialuisa();
             $(".ml").show();
+            $("#form_marialuisa2").show();
 
         }
     });
