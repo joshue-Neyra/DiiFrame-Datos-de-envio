@@ -82,6 +82,7 @@ function Marialuisa() {
         success: function (response) {
             var DatosJson = JSON.parse(JSON.stringify(response));
             $("#form_marialuisa").text("");
+            $("#form_vidrios").text("");
             var sw = 1;
             var bg = DatosJson[0].Prod_Descripcion;
             $("#Color").val(DatosJson[0].Producto_ID);

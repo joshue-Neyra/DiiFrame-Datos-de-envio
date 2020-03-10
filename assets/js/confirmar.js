@@ -29,7 +29,7 @@ function VerPedido() {
                 if (DatosJson[i].PrdMeta_ID == 'Producto') {
                     $("#tbl_confirmar").append('<tr class="rounded  bg-white ">' +
                         '<td>' + '<img width="50px" src="' + DatosJson[i].RutaImagen + '" />' + ' </td>' +
-                        '<td>' + DatosJson[i].Prod_Nombre+' - '+ DatosJson[i].Descripcion + '</td>' +
+                        '<td>' + DatosJson[i].Prod_Nombre + ' - ' + DatosJson[i].Descripcion + '</td>' +
                         '<td><input class="form-control" ' + disabled + ' type="number" value="' + DatosJson[i].Inv_cant + '" /></td>' +
                         '<td class="text-right">$' + Math.round10(DatosJson[i].Inv_pre_total, -2).toFixed(2) + '</td>' +
                         '<td class="text-right"><button class="btn btn-sm btn-danger" onclick="BorrarInventario(' + DatosJson[i].Inv_ID + ')"><i class="fa fa-trash"></i> </button>' +
@@ -54,7 +54,7 @@ function VerPedido() {
             total = Math.round10(total, -2);
             $("#iva").html("$" + iva);
             $("#inp_iva").val(iva);
-            $("#total").html("$" + total+' (MXN)');
+            $("#total").html("$" + total + ' (MXN)');
             $("#inp_total").val(total);
             //Actializar NtaMain, noata_id, monto, iva,total,total_pagado_proceso,status
             UpdateNota(parametros.id, monto, iva, total, 0, 0, 3);
@@ -199,6 +199,12 @@ function Pago(deviceSessionId) {
                 PagoCRM(parametros.Nota_ID, total, response),
                     CorreoVentas(parametros.Nota_ID);
                 CorreoCliente(parametros.Nota_ID);
+                var factura = document.getElementById("inp_factura").checked;
+                if (factura == true) {
+
+                    facturar(parametros.Nota_ID);
+                }
+
                 location.href = '/Pedido/?Nota_ID=' + parametros.Nota_ID + '';
                 //alert("Pago Aceptado");
             } else {
@@ -240,7 +246,7 @@ function CorreoVentas(Nota_ID) {
         url: '/assets/tools/mail/correoventas.php',
         type: 'post',
         success: function (response) {
-            console.log(response);
+            //console.log(response);
             //location.href='/Pedido/?Nota_ID='+ parametros.Nota_ID+'';
         }
     });
@@ -255,7 +261,22 @@ function CorreoCliente(Nota_ID) {
         url: '/assets/tools/mail/correocliente.php',
         type: 'post',
         success: function (response) {
-            console.log(response);
+            //console.log(response);
+            //location.href='/Pedido/?Nota_ID='+ parametros.Nota_ID+'';
+        }
+    });
+}
+
+function facturar(Nota_ID) {
+    var parametros = {
+        "Nota_ID": Nota_ID
+    }
+    $.ajax({
+        data: parametros,
+        url: '/assets/tools/Confirmar/UpdateNotaFactura.php',
+        type: 'post',
+        success: function (response) {
+            //console.log(response);
             //location.href='/Pedido/?Nota_ID='+ parametros.Nota_ID+'';
         }
     });
@@ -282,7 +303,7 @@ function PagoCRM(Nota_ID, total, tipo) {
         url: '/assets/tools/Confirmar/PagoCRM.php',
         type: 'post',
         success: function (response) {
-            console.log(response);
+            //console.log(response);
         }
     });
 }

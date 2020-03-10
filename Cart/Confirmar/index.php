@@ -14,11 +14,13 @@
         .card {
             box-shadow: 0 2px 1rem rgba(0, 0, 0, 0.15);
         }
+
         .table td,
         .table th {
             padding: 1.5rem;
             vertical-align: top;
         }
+
         .loader {
             position: fixed;
             left: 0px;
@@ -29,6 +31,7 @@
             background: url('/assets/img/loading.gif') 50% 50% no-repeat rgb(249, 249, 249);
             opacity: .8;
         }
+
     </style>
 </head>
 
@@ -153,7 +156,7 @@
                                 <input type="text" class="d-none" required id="inp_monto">
                                 <input type="text" class="d-none" required id="inp_iva">
                                 <input type="text" class="d-none" required id="inp_total">
-                             
+
                                 <div class="custom-control custom-checkbox mb-3">
                                     <input type="checkbox" required class="custom-control-input" id="customCheck1">
                                     <label class="custom-control-label" for="customCheck1">Acepto los<a href="/Terminos/"> términos y condiciones</a></label>
@@ -162,7 +165,7 @@
                                     <input type="checkbox" required class="custom-control-input" id="customCheck2">
                                     <label class="custom-control-label" for="customCheck2">He leído y estoy de acurerdo con la<a href="/PrivacyPolicy/"> Politica de privacidad</a></label>
                                 </div>
-                                <center><button type="submit" class="btn btn-lg text-light btn-warning" >Continuar</button></center>
+                                <center><button type="submit" class="btn btn-lg text-light btn-warning">Continuar</button></center>
                             </form>
 
                         </div>
@@ -244,6 +247,10 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="custom-control custom-checkbox mb-3">
+                                        <input type="checkbox" class="custom-control-input" id="inp_factura" name="inp_factura">
+                                        <label class="custom-control-label" for="inp_factura">Requiero Factura</label>
                                     </div>
                                 </div>
                                 <div class="row justify-content-md-center">
