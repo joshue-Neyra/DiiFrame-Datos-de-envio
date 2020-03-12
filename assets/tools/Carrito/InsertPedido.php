@@ -5,8 +5,13 @@ $Cliente_ID=$_SESSION['Id'];
 $CostoEnvio=$_POST['CostoEnvio'];
 $Direccion_ID=$_POST['Direccion_ID'];
 $fecha=$_POST['fecha'];
+$fechaEntrega= date('Y-m-d', strtotime($fecha. ' + 2 days'));
 $date = date_create($fecha);
 $fechanota= date_format($date, 'Y-m-d H:i:s');
+
+$date2 = date_create($fechaEntrega);
+$fechaentrega= date_format($date2, 'Y-m-d H:i:s');
+
 
 $sql = "EXEC DPedInsertPed 
 @param1 =?,
@@ -52,7 +57,7 @@ $params = array(
     0,//NoReferenciaWeb
     0,//NoTicket
     'C',//Serie
-    0,//Fecha_Entrega
+    $fechaentrega,//Fecha_Entrega
     0,//Hora_Entrega
     2,//ID_Status
     'Web',//Plataforma,

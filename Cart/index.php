@@ -92,7 +92,7 @@
                         <thead>
                             <tr>
                                 <th scope="col">Imagen </th>
-                                <th scope="col">Projecto</th>
+                                <th scope="col">Proyecto</th>
                                 <th scope="col" class="text-center">Cantidad</th>
                                 <th scope="col" class="text-right">Precio</th>
                                 <th> Opcion </th>

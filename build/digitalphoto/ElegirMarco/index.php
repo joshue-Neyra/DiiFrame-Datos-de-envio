@@ -46,13 +46,13 @@
                             </select>
                         </div>
                     </div>
-                    <div class="swatch-selector col-md-6" id="color-1">
-                        <h4 class="text-primary text-left">2) Elegir</h4>
+                    <div class="swatch-selector col-md-6" id="form_marialuisa2">
+                        <h4 class="text-primary text-left">2) Elegir tipo de marialuisa</h4>
                         <div class="form-group ">
 
-                            <div class="row justify-content-md-center my-3" id="form_marialuisa2">
+                            <div class="row justify-content-md-center my-3" >
                                 <div class="col-md-4">
-                                    <h5 class="text-warning">a)color:</h5>
+                                    <h5 class="text-warning">a)Color cartulina:</h5>
                                 </div>
                                 <div class="col-md-8" id="form_marialuisa"></div>
                             </div>
