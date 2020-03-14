@@ -118,11 +118,29 @@ function GetCoordenadasEmpresa(Direccion_ID,Clie_Estado,LatCli,LngCli) {
                 CotizacioniVoy(r.Lat, r.Long, LatCli, LngCli, Direccion_ID);
             }
             else{
-                var precio = 200;
-                InsertPedido(precio, Direccion_ID);
+                CostoEnvio(Direccion_ID)
+                //InsertPedido(precio, Direccion_ID);
             }
         }
     });
+}
+
+function CostoEnvio(Direccion_ID) {
+    var parametros = {
+        'Direccion_ID':Direccion_ID
+    }
+    $.ajax({
+        url: '/assets/tools/Carrito/CostoEnvio.php',
+        type: 'post',
+        data: parametros,
+        success: function (response) {
+            var DatosJson = JSON.parse(response);
+            var CostoEnvio = DatosJson[0].Prod_Precio;
+            InsertPedido(CostoEnvio, parametros.Direccion_ID);
+        }
+    });
+
+
 }
 
 function InsertPedido(CostoEnvio, Direccion_ID) {
