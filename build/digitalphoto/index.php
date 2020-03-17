@@ -27,6 +27,15 @@
     <!-- Navigation -->
     <!-- Navigation -->
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/nav2.html'; ?>
+    <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/tools/instagram/instagram_basic_display_api.php'; ?>
+  <?php
+	$accessToken = 'ACCESS-TOKEN';
+
+	$params = array(
+		'get_code' => isset( $_GET['code'] ) ? $_GET['code'] : ''
+	);
+	$ig = new instagram_basic_display_api( $params );
+    ?>
     <div class="loader"></div>
     <section class="features" id="features">
         <div class="container">
@@ -44,7 +53,7 @@
                                     <label class="custom-file-label" for="imagen">Buscar desde Ordenador</label>
                                 </div>
 
-                                <button id="btn_instagram" class="btn btn-warning">Cargar imagen desde instagram</button>
+                                <a href="<?php echo $ig->authorizationUrl; ?>" id="btn_instagram" class="btn btn-warning">Cargar imagen desde instagram</a>
                             </div>
                             <div class="card-footer container">
                                 <button id="btn_submit" data-setclass="jcrop-light" onclick="crop();" class="btn btn-warning d-none">Elegir</button>
