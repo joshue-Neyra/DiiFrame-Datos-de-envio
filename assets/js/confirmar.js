@@ -145,8 +145,8 @@ function BorrarInventario(id) {
 
 $(document).ready(function () {
 
-    OpenPay.setId('mtqyjqyjlbynx1od78wq');
-    OpenPay.setApiKey('pk_00c7c01143a44c0c9a136cc26a83ce75');
+    OpenPay.setId('mw8d97ek1oeitzkxg8cm');
+    OpenPay.setApiKey('pk_6e0269d2baea4b78a48c9b12e7edd7a0');
     OpenPay.setSandboxMode(true);
     //Se genera el id de dispositivo
     var deviceSessionId = OpenPay.deviceData.setup("payment-form", "deviceIdHiddenFieldName");
