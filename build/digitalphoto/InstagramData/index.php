@@ -61,7 +61,9 @@
                 <h2>Elige una foto</h2>
                 <?php if ( $ig->hasUserAccessToken ) : ?>
                 <hr />
-                <input id="ig_access_token" value="<?php echo $ig->getUserAccessToken(); ?>">
+                <input id="ig_access_token" class="d-none" value="<?php echo $ig->getUserAccessToken(); ?>">
+                <?php else : ?>
+                <?php header('Location: /build/digitalphoto/'); ?>
                 <?php endif; ?>
             </div>
             <div class="row text-center justify-content-md-center" id="Instagram_feed">

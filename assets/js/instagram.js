@@ -19,17 +19,36 @@ function InstagramGetMedia() {
             console.log(algo[0].media_url);
             for (i = 0; i < algo.length; i++) {
                 if (algo[i].media_type != "VIDEO") {
-                    $("#Instagram_feed").append(' <div class="col-lg-3 gallery-item hvr-float-shadow">' +
-                        '<a href="/build/digitalphoto/InstagramData/ElegirTamano/?Nombre='+algo[i].media_url+'" class="d-block mb-4 h-100 ">' +
-                        
-                        '<img class="img-fluid" src="' + algo[i].media_url + '" alt="Diiframe">' +
-                        '</a>' +
-                        '</div>');
+                    var url ="'"+algo[i].media_url.toString()+"'";
+                        $("#Instagram_feed").append(' <div class="col-lg-3 gallery-item hvr-float-shadow"' +
+                            ' onclick="sesion('+url+')">' +
+                            '<a class="d-block mb-4 h-100 ">' +
+                            '<img class="img-fluid" src="' + algo[i].media_url + '" alt="Diiframe">' +
+                            '</a>' +
+                            '</div>');
                 }
             }
-
             $(".loader").hide();
+        }
+    });
 
+}
+
+function sesion(url) {
+    var parametros = {
+        url: url
+    }
+    //alert(parametros.url);
+    $.ajax({
+        "url": '/assets/tools/Sesion/sesioninstagram.php',
+        "method": "post",
+        "data": parametros,
+        "success": function (response) {
+            if (response == "ok") {
+                location.href = "/build/digitalphoto/InstagramData/ElegirTamano/";
+            } else {
+                console.log(response);
+            }
 
         }
     });
