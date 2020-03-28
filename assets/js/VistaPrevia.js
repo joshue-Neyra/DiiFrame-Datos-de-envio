@@ -47,27 +47,41 @@ function DetalleProducto() {
                         '</div>');
                     var imagenusuario = DatosJson[i].RutaImagen2;
                 } else {
-                    $("#carrusel_zoom2").append('<div style="background-color:#' + DatosJson[i].Color + ';" class="border border-warning device-mockup ' + device + ' ' + orientacion + ' white ">' +
+                    $("#carrusel_zoom2").append('<div style="background-color:#' + DatosJson[i].Color + ';" class="border border-warning device-mockup ' + device + ' ' + orientacion + ' white box4" href="#" data-toggle="modal" data-target="#lightbox1">' +
                         '<div class="device" style="background-image: url(' + DatosJson[i].RutaImagen1 + ');">' +
                         '<div class="screen " >' +
                         '<img src="' + DatosJson[i].ImagenUsuario + '" class="img-fluid foto" width="' + width + '" alt="img">' +
-                        '</div>');
+                        '</div><div class="box-content ">' +
+                        '<h3 class = "text-center text-warning" ><i class = "fa fa-search fa-2x" > </i> </h3>' +
+                        '</div >');
                     var imagenusuario = DatosJson[i].ImagenUsuario;
+
+                    $("#modal1").append('<div style="background-color:#' + DatosJson[i].Color + ';" class="border border-warning device-mockup ' + device + ' ' + orientacion + ' white" >' +
+                        '<div class="device" style="background-image: url(' + DatosJson[i].RutaImagen1 + ');">' +
+                        '<div class="screen " >' +
+                        '<img src="' + DatosJson[i].ImagenUsuario + '" class="img-fluid foto" width="' + width + '" alt="img">' +
+                        '</div> ');
                 }
                 //console.log(DatosJson[i].RutaImagen2);
                 $("#carrusel_zoom").append(
                     '<div class="col-md-6 border border-warning">' +
-                    '<a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox1">' +
-                    '<img class="img-fluid" src="' + DatosJson[i].RutaImagen2 + '" alt="">' +
-                    '</a>' +
+                    '<div href="#" class="thumbnail box4" data-toggle="modal" data-target="#lightbox2">' +
+                    '<img class="img-fluid img-zoom" src="' + DatosJson[i].RutaImagen2 + '" alt="">' +
+                    '<div class="box-content ">' +
+                    '<h3 class = "text-center text-warning" ><i class = "fa fa-search fa-2x" > </i> </h3>' +
+                    '</div >' +
+                    '</div>' +
                     '</div>' +
                     '<div class="col-md-6 border border-warning">' +
-                    '<a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox2">' +
-                    '<img class="img-fluid" src="' + DatosJson[i].RutaImagen3 + '" alt="">' +
-                    '</a>' +
+                    '<div href="#" class="thumbnail box4" data-toggle="modal" data-target="#lightbox3">' +
+                    '<img class="img-fluid img-zoom" src="' + DatosJson[i].RutaImagen3 + '" alt="">' +
+                    '<div class="box-content ">' +
+                    '<h3 class = "text-center text-warning" ><i class = "fa fa-search fa-2x" > </i> </h3>' +
+                    '</div >' +
+                    '</div>' +
                     '</div>' +
                     '<div class="col-md-12 border border-warning">' +
-                    '<div class="device-mockup ambiente1 landscape white">' +
+                    '<div class="device-mockup ambiente1 landscape white" data-toggle="modal" data-target="#lightbox4">' +
                     '<div class="device" style="background-image: url(/assets/img/ambiente1.jpg);">' +
                     '<div class="screen ' + orientacion + '" >' +
                     '<div style="background-color:#' + DatosJson[i].Color + ';" class="device-mockup ' + device + ' ' + orientacion + ' white ">' +
@@ -77,13 +91,24 @@ function DetalleProducto() {
                     '</div>' +
                     '</div>' +
                     '</div>');
-                ////$("#modal1").append(
-                //   '<img class="img-fluid" src="' + DatosJson[i].RutaImagen2 + '" alt="img">');
-                //$("#modal2").append(
-                //   '<img class="img-fluid" src="' + DatosJson[i].RutaImagen3 + '" alt="img">');
+
+                $("#modal2").append(
+                   '<img class="img-fluid" src="' + DatosJson[i].RutaImagen2 + '" alt="img">');
+                 $("#modal3").append(
+                   '<img class="img-fluid" src="' + DatosJson[i].RutaImagen3 + '" alt="img">');
+                $("#modal4").append(
+                   '<div class="device-mockup ambiente1 landscape white">' +
+                    '<div class="device" style="background-image: url(/assets/img/ambiente1.jpg);">' +
+                    '<div class="screen ' + orientacion + '" >' +
+                    '<div style="background-color:#' + DatosJson[i].Color + ';" class="device-mockup ' + device + ' ' + orientacion + ' white ">' +
+                    '<div class="device" style="background-image: url(' + DatosJson[i].RutaImagen1 + ');">' +
+                    '<div class="screen " >' +
+                    '<img src="' + DatosJson[i].ImagenUsuario + '" class="img-fluid" width="' + width + '" alt="img">' +
+                    '</div>' +
+                    '</div>');
                 var PrecioTotal = DatosJson[i].Precio * 1.16;
                 $("#Descripcion").append('<p class="last-sold text-muted"><strong>Detalles del projecto:</strong></p>' +
-                    '<h4 class="product-title mb-2"> Marco: ' + DatosJson[i].Prod_Nombre + '<br> Tamaño de impresión: ' + DatosJson[i].Tamano +  '</h4>' +
+                    '<h4 class="product-title mb-2"> Marco: ' + DatosJson[i].Prod_Nombre + '<br> Tamaño de impresión: ' + DatosJson[i].Tamano + '</h4>' +
                     '<h2 class="product-price display-4">$ ' + PrecioTotal.toFixed(2) + ' MXN </h2>' +
                     '<p class="text-success"><i class="fab fa-cc-mastercard"></i> <i class="fab fa-cc-visa"></i> <i class="fab fa-cc-paypal"></i></p>' +
                     '<p class="mb-0"><i class="fa fa-truck"></i> Envios a todo México</p>' +

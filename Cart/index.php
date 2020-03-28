@@ -143,8 +143,6 @@
                             </tr>
                         </thead>
                         <tbody id="tbl_pedidos">
-
-
                         </tbody>
                     </table>
                 </div>
@@ -169,7 +167,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-label-group">
-                                    <input type="tel" pattern="[0-9]{8}" title="Ten digits code" id="inp_cli_tel" class="form-control" placeholder="Teléfono" required="required">
+                                    <input type="tel" pattern="[0-9]{10}" title="Ten digits code" id="inp_cli_tel" class="form-control" placeholder="Teléfono" required="required">
                                     <label for="inp_cli_tel">Teléfono</label>
                                 </div>
                             </div>
@@ -192,8 +190,8 @@
                         <table id="address" class="table disabled">
                             <tr>
                                 <td class="label">Calle y número</td>
-                                <td class="slimField"><input class="form-control" id="route" disabled="true" /></td>
-                                <td class="wideField" colspan="2"><input class="form-control" required id="street_number" disabled="true" /></td>
+                                <td class="slimField"><input class="form-control" id="route" required="true" disabled="true" /></td>
+                                <td class="wideField" colspan="2"><input class="form-control disabled" required="true" id="street_number"  /></td>
                             </tr>
                             <tr>
                                 <td class="label">Ciudad</td>
