@@ -191,7 +191,7 @@
                             <tr>
                                 <td class="label">Calle y número</td>
                                 <td class="slimField"><input class="form-control" id="route" required="true" disabled="true" /></td>
-                                <td class="wideField" colspan="2"><input class="form-control disabled" required="true"  disabled="true" id="street_number"  /></td>
+                                <td class="wideField" colspan="2"><input class="form-control disabled" required="true" id="street_number"  /></td>
                             </tr>
                             <tr>
                                 <td class="label">Ciudad</td>
@@ -265,9 +265,9 @@
         </div>
     </div>
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/scripts.html'; ?>
-    <script type="text/javascript" src="/assets/js/Carrito/cart.js"></script>
-    <script type="text/javascript" src="/assets/js/Carrito/pedido.js"></script>
-    <script type="text/javascript" src="/assets/js/Principal/DireccionCompletar.js"></script>
+    <script type="text/javascript" src="/assets/js/cart.js"></script>
+    <script type="text/javascript" src="/assets/js/prueba.js"></script>
+    <script type="text/javascript" src="/assets/js/DireccionCompletar.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZUUeX_yN1WG82W6v4ZyqF9UeygP0gSME&libraries=places&callback=initMap" async defer></script>
 
 

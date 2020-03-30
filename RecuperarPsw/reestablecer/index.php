@@ -60,7 +60,7 @@
 
     <!-- Core plugin JavaScript-->
     <script src="/assets/vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="/assets/js//Login/recuperar.js"></script>
+    <script src="/assets/js/recuperar.js"></script>
 
 </body>
 
