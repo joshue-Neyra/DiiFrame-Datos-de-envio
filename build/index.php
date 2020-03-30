@@ -23,10 +23,10 @@
                 <a>
                     <div class="col-lg-3 col-sm-6 mb-4 hvr-float-shadow">
                         <div class="card h-100">
-                            <a href="/build/digitalphoto/"><img class="card-img-top" src="/assets/img/build1.jpg" alt="build"></a>
+                            <a href="/build/ImpresionDigital/"><img class="card-img-top" src="/assets/img/build1.jpg" alt="build"></a>
                             <div class="card-body">
                                 <h4 class="card-title">
-                                    <a href="/build/digitalphoto/">Impresión Digital</a>
+                                    <a href="/build/ImpresionDigital/">Impresión Digital</a>
                                 </h4>
                                 <p class="card-text">
                                     Sube tu foto digital y nosotros nos encargamos de lo demás
@@ -51,10 +51,10 @@
                 <a>
                     <div class="col-lg-3 col-sm-6 mb-4 hvr-float-shadow">
                         <div class="card h-100">
-                            <a href="#"><img class="card-img-top" src="/assets/img/build3.jpg" alt="build"></a>
+                            <a href="/build/ArteOriginal/"><img class="card-img-top" src="/assets/img/build3.jpg" alt="build"></a>
                             <div class="card-body">
                                 <h4 class="card-title">
-                                    <a href="#">Arte Original</a>
+                                    <a href="/build/ArteOriginal/">Arte Original</a>
                                 </h4>
                                 <p class="card-text">Envíanos tu arte y nos encargamos de lo demás
                                 </p>
