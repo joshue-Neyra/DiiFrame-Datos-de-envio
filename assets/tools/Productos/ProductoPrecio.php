@@ -6,7 +6,7 @@ $Producto=$_POST['Producto'];
 $Marialuisa_ID=$_POST['Marialuisa_ID'];
 $Orientacion = $_SESSION['Orientacion'];
 $sql = "SELECT dbo.TamanoRelProducto.Tamano_ID,dbo.TamanosImpresion.Tamano, dbo.Productos.Producto_ID, dbo.Productos.Prod_Nombre, dbo.TamanoRelProducto.Precio, dbo.Productos.Familia_ID, dbo.Productos.PrdMeta_ID, dbo.Productos.ID_Status,  '$imagen' as ImagenUsuario,$Orientacion as Orientacion, dbo.Productos.Prod_Descripcion,
-dbo.Productos.RutaImagen1, dbo.Productos.RutaImagen2, dbo.Productos.RutaImagen3, dbo.Productos.RutaImagenHorizontal,
+dbo.Productos.RutaImagen1, dbo.Productos.RutaImagen2, dbo.Productos.RutaImagen3, dbo.Productos.RutaImagen4,
 (select Productos.Prod_Descripcion from Productos where Producto_ID = $Marialuisa_ID) as Color
 FROM  dbo.TamanoRelProducto
 INNER JOIN dbo.Productos ON dbo.TamanoRelProducto.Producto_ID = dbo.Productos.Producto_ID 
