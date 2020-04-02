@@ -41,31 +41,31 @@
 
 /* DEVICES */
 
-/* iPad Pro */
-.device-mockup.ipad_pro,
-.device-mockup.ipad_pro.portrait {
+/* tamañomarialuisa_3.5cm */
+.device-mockup.tm_35cm,
+.device-mockup.tm_35cm.portrait {
     padding-bottom: 138.63%;
 }
 
-.device-mockup.ipad_pro.landscape {
+.device-mockup.tm_35cm.landscape {
     padding-bottom: 72.14%;
 }
 
 
 
-.device-mockup.ipad_pro > .device > .screen,
-.device-mockup.ipad_pro.portrait > .device > .screen {
+.device-mockup.tm_35cm > .device > .screen,
+.device-mockup.tm_35cm.portrait > .device > .screen {
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    top: 25%;
+    top: 21%;
     left: 25%;
-    bottom: 25%;
+    bottom: 21%;
     right: 25%;
 }
 
-.device-mockup.ipad_pro.landscape > .device > .screen {
+.device-mockup.tm_35cm.landscape > .device > .screen {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -76,6 +76,70 @@
     right: 25%;
 }
 
+/* tamañomarialuisa_5cm */
+.device-mockup.tm_5cm,
+.device-mockup.tm_5cm.portrait {
+    padding-bottom: 138.63%;
+}
+
+.device-mockup.tm_5cm.landscape {
+    padding-bottom: 72.14%;
+}
+
+.device-mockup.tm_5cm > .device > .screen,
+.device-mockup.tm_5cm.portrait > .device > .screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    top: 21%;
+    left: 29.5%;
+    bottom: 21%;
+    right: 25%;
+}
+
+.device-mockup.tm_5cm.landscape > .device > .screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    top: 5.177551%;
+    bottom: 5.177551%;
+    left: 30%;
+    right: 25%;
+}
+
+/* tamañomarialuisa_10cm */
+.device-mockup.tm_10cm,
+.device-mockup.tm_10cm.portrait {
+    padding-bottom: 138.63%;
+}
+
+.device-mockup.tm_10cm.landscape {
+    padding-bottom: 72.14%;
+}
+.device-mockup.tm_10cm > .device > .screen,
+.device-mockup.tm_10cm.portrait > .device > .screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    top: 21%;
+    left: 34.5%;
+    bottom: 21%;
+    right: 25%;
+}
+
+.device-mockup.tm_10cm.landscape > .device > .screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    top: 5.177551%;
+    bottom: 5.177551%;
+    left: 35%;
+    right: 25%;
+}
 
 
 /* Galaxy S5 */
@@ -123,9 +187,6 @@
 }
 
 
-
-
-
 .device-mockup.ambiente1.landscape > .device > .screen.landscape {
     display: flex;
     flex-direction: column;
@@ -147,3 +208,16 @@
     right: 74%;
 }
 
+/* FOTO1 */
+.foto1{
+    width: 40%;
+}
+.foto2{
+    width: 45%;
+}
+.foto3{
+    width: 50%;
+}
+.foto4{
+    width: 80%;
+}

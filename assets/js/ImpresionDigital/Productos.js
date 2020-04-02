@@ -35,12 +35,10 @@ function ListaProductos(bg) {
                     '<a href="#" onclick="Redireccion(' + DatosJson[i].Producto_ID + ',' + DatosJson[i].Tamano_ID + ');">' +
                     '<div class="pic-1 device-container" style="background-color:#' + bg + ';' +
                     ' id="ImagenDiv_' + DatosJson[i].Producto_ID + '"> ' +
-                    '<div class="device-mockup ipad_pro ' + orientacion + ' white ">' +
+                    '<div class="device-mockup tm_35cm ' + orientacion + ' white ">' +
                     '<div class="device" style="background-image: url(' + DatosJson[i].RutaImagen1 + ');">' +
                     '<div class="screen ">' +
                     '<img src="' + DatosJson[i].ImagenUsuario + '" class="img-fluid foto" width="50%" alt="img">' +
-                    '</div>' +
-                    '<div class="button">' +
                     '</div>' +
                     '</div>' +
                     '</div>' +
@@ -132,9 +130,9 @@ function Marialuisa() {
                 $(".ml").removeClass('selected').addClass('border border-primary');
                 $(this).removeClass('border border-primary').addClass('selected');
                 $('.pic-1')
-                        .css({
-                            backgroundColor: ''
-                        });
+                    .css({
+                        backgroundColor: ''
+                    });
             });
             $('.ml').click(function onClick(event) {
                 $(this).removeClass('border border-primary').siblings().addClass('border border-primary');
@@ -190,17 +188,49 @@ $("#Tamano_Marialuisa").change(function () {
     $("select option:selected").each(function () {
         var selectorId = $(this).attr('id');
         if (selectorId == 'Sin Marialuisa') {
-            $(".device-mockup").removeClass("ipad_pro");
+            //alert(selectorId);
+            $(".device-mockup").removeClass(" tm_35cm tm_5cm tm_10cm");
             $(".device-mockup").addClass("galaxy_s5");
             $(".foto").width("80%");
             $(".ml").hide();
             $("#form_marialuisa2").hide();
             $('#Vidrio').click();
-        } else {
-            $(".device-mockup").removeClass("galaxy_s5");
-            $(".device-mockup").addClass("ipad_pro");
+        } else if (selectorId == '10 cm') {
+            //alert(selectorId);
+            $(".device-mockup").removeClass("galaxy_s5 tm_35cm tm_5cm tm_10cm");
+            $(".device-mockup").addClass("tm_10cm");
+            $(".foto").width("30%");
+            //Marialuisa();
+            $(".ml").show();
+            $("#form_marialuisa2").show();
+
+
+        } else if (selectorId == '5 cm') {
+            //alert(selectorId);
+            $(".device-mockup").removeClass("galaxy_s5 tm_35cm tm_5cm tm_10cm");
+            $(".device-mockup").addClass("tm_5cm");
+            $(".foto").width("40%");
+            //Marialuisa();
+            $(".ml").show();
+            $("#form_marialuisa2").show();
+
+
+        } else if (selectorId == '3.5 cm') {
+            //alert(selectorId);
+            $(".device-mockup").removeClass("galaxy_s5 tm_35cm tm_5cm tm_10cm");
+            $(".device-mockup").addClass("tm_35cm");
             $(".foto").width("50%");
-            Marialuisa();
+            //Marialuisa();
+            $(".ml").show();
+            $("#form_marialuisa2").show();
+
+
+        } else {
+            //alert(selectorId);
+            $(".device-mockup").removeClass("galaxy_s5 tm_35cm tm_5cm tm_10cm");
+            $(".device-mockup").addClass("tm_35cm");
+            $(".foto").width("50%");
+            //Marialuisa();
             $(".ml").show();
             $("#form_marialuisa2").show();
 
