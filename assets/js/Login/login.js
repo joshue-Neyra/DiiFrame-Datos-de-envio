@@ -10,8 +10,8 @@ function login() {
 		type: 'post',
 		success: function (response) {
 			if (response != "Usuario o contraseña incorrectos") {
-				console.log(response);
-				location.href = "/Cart/";
+				//console.log(response);
+				window.history.back();
 			} else {
 				alert("Error! Usuario o contraseña incorrectos");
 			}

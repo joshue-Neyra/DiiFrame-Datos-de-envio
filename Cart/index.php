@@ -177,6 +177,7 @@
                         <div class="form-label-group">
                             <input type="text" id="pac-input" class="form-control" placeholder="Dirección de Entrega" required="required">
                             <label for="pac-input">Dirección de Entrega</label>
+                            <span id="error_direccion" class=" d-none text-danger"></span>
                         </div>
                     </div>
                     <div class="form-group">

@@ -72,7 +72,7 @@
         </div>
     </section>
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/footer.html'; ?>
-    <script type="text/javascript" src="/assets/js/instagram.js"></script>
+    <script type="text/javascript" src="/assets/js/Instagram/instagram.js"></script>
 </body>
 
 </html>

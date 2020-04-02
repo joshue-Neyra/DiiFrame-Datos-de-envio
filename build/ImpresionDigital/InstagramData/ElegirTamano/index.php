@@ -67,7 +67,7 @@
         </div>
     </section>
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/footer.html'; ?>
-    <script type="text/javascript" src="/assets/js/instagrammediaid.js"></script>
+    <script type="text/javascript" src="/assets/js/Instagram/instagrammediaid.js"></script>
 
 </body>
 

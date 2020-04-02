@@ -85,6 +85,9 @@ $("#target").submit(function (event) {
     }
     if (parametros.Calle == "" || parametros.street_number == "") {
         alert("La direccion no es valida");
+        $("#error_direccion").removeClass("d-none");
+        $("#error_direccion").text("Error, falto Calle y Numero");
+        $("#pac-input").focus();
     } else {
         $.ajax({
             data: parametros,
