@@ -199,7 +199,7 @@ $("#Tamano_Marialuisa").change(function () {
             //alert(selectorId);
             $(".device-mockup").removeClass("galaxy_s5 tm_35cm tm_5cm tm_10cm");
             $(".device-mockup").addClass("tm_10cm");
-            $(".foto").width("30%");
+            $(".foto").width("40%");
             //Marialuisa();
             $(".ml").show();
             $("#form_marialuisa2").show();
@@ -209,7 +209,7 @@ $("#Tamano_Marialuisa").change(function () {
             //alert(selectorId);
             $(".device-mockup").removeClass("galaxy_s5 tm_35cm tm_5cm tm_10cm");
             $(".device-mockup").addClass("tm_5cm");
-            $(".foto").width("40%");
+            $(".foto").width("45%");
             //Marialuisa();
             $(".ml").show();
             $("#form_marialuisa2").show();

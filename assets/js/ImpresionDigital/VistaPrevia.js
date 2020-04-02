@@ -38,7 +38,7 @@ function DetalleProducto() {
                     var device = "galaxy_s5";
                     var width = "80%";
                 } else {
-                    var device = "ipad_pro";
+                    var device = "tm_35cm";
                     var width = "50%";
                 }
 

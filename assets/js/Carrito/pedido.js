@@ -88,7 +88,7 @@ $("#target").submit(function (event) {
     } else {
         $.ajax({
             data: parametros,
-            url: '/assets/tools/Carrito/EditarCliente.php',
+            url: '/assets/tools/Usuario/CrearDirecciones.php',
             type: 'post',
             success: function (response) {
                 if (response == "Registro exitoso") {
