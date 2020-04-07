@@ -54,6 +54,7 @@ if(sqlsrv_has_rows($req) != 1){
                 $resultado=  sqlsrv_fetch_array($req);
                 $_SESSION['Id'] = $resultado['ID_Cliente'];
                 $_SESSION['Nombre_Cliente'] = $resultado['Clie_Nombre'];
+                $Clie_Nombre = $resultado['Clie_Nombre'];
                 require $_SERVER['DOCUMENT_ROOT'].'/assets/tools/mail/correobienvenido.php'; 
             }
             

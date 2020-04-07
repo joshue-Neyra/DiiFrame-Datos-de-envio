@@ -1,45 +1,4 @@
-<?php
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-require 'PHPMailer/Exception.php';
-require 'PHPMailer/PHPMailer.php';
-require 'PHPMailer/SMTP.php';
-// Instantiation and passing `true` enables exceptions
-$mail = new PHPMailer(true);
-
-try {
-    //Server settings
-    $mail->SMTPDebug = 0;                      // Enable verbose debug output
-    $mail->isSMTP();          
-    $mail->SMTPOptions = array(
-            'ssl' => array(
-            'verify_peer' => false,
-            'verify_peer_name' => false,
-            'allow_self_signed' => true));// Send using SMTP
-    $mail->Host       = 'mail.diiframe.com.mx';                    // Set the SMTP server to send through
-    $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-    $mail->Username   = 'soporte@diiframe.com.mx';                     // SMTP username
-    $mail->Password   = '14Acquatronix';                               // SMTP password
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
-    $mail->Port       = 2525;                                    // TCP port to connect to
-
-    //Recipients
-    $mail->setFrom('ventas@diiframe.com.mx', 'DiiFrame');
-    $mail->addAddress($Clie_email);     // Add a recipient
-    //$mail->addAddress('ellen@example.com');               // Name is optional
-    //$mail->addReplyTo('info@example.com', 'Information');
-    //$mail->addCC('ventas@acquatronix.com');
-    //$mail->addBCC('soporte2@acquatronix.com');
-
-    // Attachments
-    //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-    //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-
-    // Content
-    $mail->isHTML(true);                                  // Set email format to HTML
-    $mail->Subject = 'Bienvenido a DiiFrame';
-    $mail->Body = '<!doctype html>
+<!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
     <head>
         <!--[if gte mso 15]>
@@ -421,7 +380,9 @@ try {
 
 }</style></head>
     <body style="height: 100%;margin: 0;padding: 0;width: 100%;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
-        
+        <!--*|IF:MC_PREVIEW_TEXT|*-->
+        <!--[if !gte mso 9]><!----><span class="mcnPreviewText" style="display:none; font-size:0px; line-height:0px; max-height:0px; max-width:0px; opacity:0; overflow:hidden; visibility:hidden; mso-hide:all;">*|MC_PREVIEW_TEXT|*</span><!--<![endif]-->
+        <!--*|END:IF|*-->
         <center>
             <table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;height: 100%;margin: 0;padding: 0;width: 100%;">
                 <tr>
@@ -527,12 +488,16 @@ try {
                         
                         <td valign="top" class="mcnTextContent" style="padding: 0px 18px 9px;font-size: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;word-break: break-word;color: #757575;font-family: Helvetica;line-height: 150%;text-align: left;">
                         
-                            <h3 style="text-align: center;display: block;margin: 0;padding: 0;color: #444444;font-family: Helvetica;font-size: 22px;font-style: normal;font-weight: bold;line-height: 150%;letter-spacing: normal;"><span style="font-size:32px">¡Bienvenido '.$Clie_Nombre.'!</span></h3>
+                            <h3 style="text-align: center;display: block;margin: 0;padding: 0;color: #444444;font-family: Helvetica;font-size: 22px;font-style: normal;font-weight: bold;line-height: 150%;letter-spacing: normal;"><span style="font-size:32px">¡Bienvenido!</span></h3>
 &nbsp;
-
-<p style="text-align: center;font-size: 9px;margin: 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #757575;font-family: Helvetica;line-height: 150%;"><span style="font-size:17px">Has activado tu cuenta de cliente. La próxima vez que compres con nosotros, inicia tu sesión para comprar más rápido.</span><br><br>
+                            
+                            <p style="text-align: center;font-size: 9px;margin: 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #757575;font-family: Helvetica;line-height: 150%;"><span style="font-size:17px">Pedido: [número de pedido]                                Estatus: [estatus del pedido]</span><br><br><br></p>
+                            
+<p style="text-align: center;font-size: 9px;margin: 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #757575;font-family: Helvetica;line-height: 150%;"><span style="font-size:17px">Gracias por tu compra, hemos recibido tu pedido por lo que lo empezaremos a trabajar.</span><br>
 <br>
-<span style="font-size:17px">Si tienes alguna duda contáctanos al correo <a href="mailto:contacto@diiframe.com.mx" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">contacto@diiframe.com.mx</a> o vía <a href="https://api.whatsapp.com/send?phone=525518467498&amp;text=Buen%20d%C3%ADa,%20quiero%20recibir%20m%C3%A1s%20informaci%C3%B3n%20acerca%20de%20DiiFrame.com" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">whatsapp</a></span><br><br>
+<span style="font-size:17px">
+Para el seguimiento de tu pedido lo puedes consultar en la sección de tu carrito o bien nos puedes mandar un mensaje vía <a href="https://api.whatsapp.com/send?phone=525518467498&amp;text=Buen%20d%C3%ADa,%20quiero%20recibir%20m%C3%A1s%20informaci%C3%B3n%20acerca%20de%20DiiFrame.com" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">whatsapp</a> o al correo electrónico
+ <a href="mailto:contacto@diiframe.com.mx" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">contacto@diiframe.com.mx</a> </span><br>
 <br>
 <span style="font-size:17px"><strong>Diiframe.com.mx</strong></span></p>
 
@@ -604,7 +569,15 @@ try {
     <tbody class="mcnButtonBlockOuter">
         <tr>
             <td style="padding-top: 0;padding-right: 18px;padding-bottom: 18px;padding-left: 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" valign="top" align="center" class="mcnButtonBlockInner">
-    
+                <table border="0" cellpadding="0" cellspacing="0" class="mcnButtonContentContainer" style="border-collapse: separate !important;border: 1px none;border-radius: 8px;background-color: #2BAADF;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                    <tbody>
+                        <tr>
+                            <td align="center" valign="middle" class="mcnButtonContent" style="font-family: Arial;font-size: 18px;padding: 20px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                <a class="mcnButton " title="VER PEDIDO" href="https://diiframe.com.mx/Pedido/?Nota_ID=1045" target="_blank" style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;display: block;">VER PEDIDO</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </td>
         </tr>
     </tbody>
@@ -847,12 +820,3 @@ try {
         </center>
 </body>
 </html>
-
-';
-    //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
-    $mail->send();
-    //echo 'Message has been sent';
-} catch (Exception $e) {
-    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-}

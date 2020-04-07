@@ -2,6 +2,8 @@
 require $_SERVER['DOCUMENT_ROOT'].'/assets/tools/connection.php'; 
 session_start();
 $Cliente_ID=$_SESSION['Id'];
+$Nota_ID=$_GET['Nota_ID'];
+$Contenido=$_GET['Contenido'];
 
 $sql = "SELECT ID_Cliente, Clie_Nombre, Clie_Apellidos, Clie_Calle, Clie_Num_ext, Clie_Num_int, CP, Clie_Colonia, Clie_Delegacion, Clie_Estado, Clie_Pais, Clie_email, Clie_RFC, Clie_Tel, Celular, Lat, Lng
 FROM     Clientes
@@ -16,8 +18,23 @@ else{
     $Clie_email=$resultado['Clie_email'];
 	
 }
+$sql = "SELECT  dbo.NtaMain.Nota_ID,  dbo.Procesos.Proceso_clave, dbo.NtaMain.Nota_Total,dbo.NtaMain.Proceso_ID,dbo.Clientes.Clie_Nombre
+FROM     dbo.NtaMain
+left JOIN dbo.Procesos ON dbo.NtaMain.Proceso_ID = dbo.Procesos.Proces_ID 
+left JOIN dbo.Clientes ON dbo.NtaMain.Cliente_ID = dbo.Clientes.ID_Cliente
+Where NtaMain.Nota_ID = $Nota_ID";
+$req =  sqlsrv_query($conn, $sql) or die(print_r(sqlsrv_errors(),true));
 
-$Nota_ID=$_POST['Nota_ID'];
+if(sqlsrv_has_rows($req) != 1){
+    echo "error";
+}
+else{
+	$resultado=  sqlsrv_fetch_array($req);
+    $Proceso_clave=$resultado['Proceso_clave'];
+    $Clie_Nombre=$resultado['Clie_Nombre'];
+}
+
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -55,10 +72,8 @@ try {
     $mail->isHTML(true);                                  // Set email format to HTML
     $mail->Subject = 'DiiFrame - Pedido'.$Nota_ID.'.';
     $mail->Body = '<!doctype html>
-
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
     <head>
-        <!-- NAME: SELL PRODUCTS -->
         <!--[if gte mso 15]>
         <xml>
             <o:OfficeDocumentSettings>
@@ -68,9 +83,10 @@ try {
         </xml>
         <![endif]-->
         <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>*|MC:SUBJECT|*</title>
+        <title>Bienvenido a Diiframe</title>
         
     <style type="text/css">
 		p{
@@ -543,16 +559,18 @@ try {
                         
                         <td valign="top" class="mcnTextContent" style="padding: 0px 18px 9px;font-size: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;word-break: break-word;color: #757575;font-family: Helvetica;line-height: 150%;text-align: left;">
                         
-                            <h3 style="text-align: center;display: block;margin: 0;padding: 0;color: #444444;font-family: Helvetica;font-size: 22px;font-style: normal;font-weight: bold;line-height: 150%;letter-spacing: normal;"><span style="font-size:32px">¡Gracias por tu compra!</span></h3>
+                            <h3 style="text-align: center;display: block;margin: 0;padding: 0;color: #444444;font-family: Helvetica;font-size: 22px;font-style: normal;font-weight: bold;line-height: 150%;letter-spacing: normal;"><span style="font-size:32px">¡Bienvenido '.$Clie_Nombre.'!</span></h3>
 &nbsp;
-
-<p style="text-align: center;font-size: 9px;margin: 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #757575;font-family: Helvetica;line-height: 150%;"><span style="font-size:17px">Gracias por comprar con nosotros.<br>
+                            
+                            <p style="text-align: center;font-size: 9px;margin: 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #757575;font-family: Helvetica;line-height: 150%;"><span style="font-size:17px">Pedido: '.$Nota_ID.'                                Estatus: '.$Proceso_clave.'</span><br><br><br></p>
+                            <center>'.$Contenido.'</center>
+<p style="text-align: center;font-size: 9px;margin: 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #757575;font-family: Helvetica;line-height: 150%;"><span style="font-size:17px">Gracias por tu compra, hemos recibido tu pedido por lo que lo empezaremos a trabajar.</span><br>
 <br>
-Pensamos que le gustaria saber que sus articulos se estan procesando<br>
+<span style="font-size:17px">
+Para el seguimiento de tu pedido lo puedes consultar en la sección de tu carrito o bien nos puedes mandar un mensaje vía <a href="https://api.whatsapp.com/send?phone=525518467498&amp;text=Buen%20d%C3%ADa,%20quiero%20recibir%20m%C3%A1s%20informaci%C3%B3n%20acerca%20de%20DiiFrame.com" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">whatsapp</a> o al correo electrónico
+ <a href="mailto:contacto@diiframe.com.mx" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">contacto@diiframe.com.mx</a> </span><br>
 <br>
-Si necesita ver o administrar este pedido, visite sus pedidos en<br>
-<br>
-<strong>Diiframe.com.mx</strong></span></p>
+<span style="font-size:17px"><strong>Diiframe.com.mx</strong></span></p>
 
                         </td>
                     </tr>
@@ -722,7 +740,7 @@ Si necesita ver o administrar este pedido, visite sus pedidos en<br>
                                                                         <tbody><tr>
                                                                             
                                                                                 <td align="center" valign="middle" width="24" class="mcnFollowIconContent" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
-                                                                                    <a href="http://www.facebook.com" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><img src="https://cdn-images.mailchimp.com/icons/social-block-v2/outline-light-facebook-48.png" alt="Facebook" style="display: block;border: 0;height: auto;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;" height="24" width="24" class=""></a>
+                                                                                    <a href="https://www.facebook.com/diiframe/" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><img src="https://cdn-images.mailchimp.com/icons/social-block-v2/outline-light-facebook-48.png" alt="Facebook" style="display: block;border: 0;height: auto;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;" height="24" width="24" class=""></a>
                                                                                 </td>
                                                                             
                                                                             
@@ -754,39 +772,7 @@ Si necesita ver o administrar este pedido, visite sus pedidos en<br>
                                                                         <tbody><tr>
                                                                             
                                                                                 <td align="center" valign="middle" width="24" class="mcnFollowIconContent" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
-                                                                                    <a href="http://www.twitter.com/" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><img src="https://cdn-images.mailchimp.com/icons/social-block-v2/outline-light-twitter-48.png" alt="Twitter" style="display: block;border: 0;height: auto;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;" height="24" width="24" class=""></a>
-                                                                                </td>
-                                                                            
-                                                                            
-                                                                        </tr>
-                                                                    </tbody></table>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody></table>
-                                                    </td>
-                                                </tr>
-                                            </tbody></table>
-                                        
-                                        <!--[if mso]>
-                                        </td>
-                                        <![endif]-->
-                                    
-                                        <!--[if mso]>
-                                        <td align="center" valign="top">
-                                        <![endif]-->
-                                        
-                                        
-                                            <table align="left" border="0" cellpadding="0" cellspacing="0" style="display: inline;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
-                                                <tbody><tr>
-                                                    <td valign="top" style="padding-right: 10px;padding-bottom: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" class="mcnFollowContentItemContainer">
-                                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnFollowContentItem" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
-                                                            <tbody><tr>
-                                                                <td align="left" valign="middle" style="padding-top: 5px;padding-right: 10px;padding-bottom: 5px;padding-left: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
-                                                                    <table align="left" border="0" cellpadding="0" cellspacing="0" width="" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
-                                                                        <tbody><tr>
-                                                                            
-                                                                                <td align="center" valign="middle" width="24" class="mcnFollowIconContent" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
-                                                                                    <a href="http://www.instagram.com/" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><img src="https://cdn-images.mailchimp.com/icons/social-block-v2/outline-light-instagram-48.png" alt="Link" style="display: block;border: 0;height: auto;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;" height="24" width="24" class=""></a>
+                                                                                    <a href="https://www.instagram.com/diiframe/" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><img src="https://cdn-images.mailchimp.com/icons/social-block-v2/outline-light-instagram-48.png" alt="Link" style="display: block;border: 0;height: auto;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;" height="24" width="24" class=""></a>
                                                                                 </td>
                                                                             
                                                                             
@@ -869,7 +855,10 @@ Si necesita ver o administrar este pedido, visite sus pedidos en<br>
                         
                         <td valign="top" class="mcnTextContent" style="padding-top: 0;padding-right: 18px;padding-bottom: 9px;padding-left: 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;word-break: break-word;color: #FFFFFF;font-family: Helvetica;font-size: 12px;line-height: 150%;text-align: center;">
                         
-                            <em>Copyright 2019 | Diiframe.com.mx | Todos los derechos reservados.</em><br>
+                            <em>Copyright ©2020 DiiFrame, Todos los derechos reservados.</em><br>
+<a href="https://diiframe.com.mx/Terminos/" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #FFFFFF;font-weight: normal;text-decoration: underline;">Términos y condiciones</a>&nbsp;|&nbsp;<a href="https://diiframe.com.mx/PrivacyPolicy/" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #FFFFFF;font-weight: normal;text-decoration: underline;"> Aviso de privacidad</a><br>
+<br>
+&nbsp;
                         </td>
                     </tr>
                 </tbody></table>
@@ -900,8 +889,9 @@ Si necesita ver o administrar este pedido, visite sus pedidos en<br>
                 </tr>
             </table>
         </center>
-    </body>
+</body>
 </html>
+
 ';
     //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 

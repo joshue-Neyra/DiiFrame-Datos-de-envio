@@ -3,6 +3,7 @@ $(document).ready(function () {
 
     $("#form_pago").hide();
     $(".loader").hide();
+
 });
 
 function VerPedido() {
@@ -24,9 +25,9 @@ function VerPedido() {
             var sumaprod = 0;
             var exit = 1;
             $("#tbl_confirmar").text("");
-            
+
             for (i = 0; i < DatosJson.length; i++) {
-                alert(DatosJson[i].PrdMeta_ID);
+                //alert(DatosJson[i].PrdMeta_ID);
                 if (DatosJson[i].PrdMeta_ID == 'Producto' || DatosJson[i].PrdMeta_ID == 'ArteOriginal') {
                     $("#tbl_confirmar").append('<tr class="rounded  bg-white ">' +
                         '<td>' + '<img width="50px" src="' + DatosJson[i].RutaImagen + '" />' + ' </td>' +
@@ -62,6 +63,7 @@ function VerPedido() {
             if (exit == 1) {
                 location.href = "/cart/";
             }
+
         }
     });
 }
@@ -254,8 +256,24 @@ function CorreoVentas(Nota_ID) {
 }
 
 function CorreoCliente(Nota_ID) {
+    var tables = document.getElementsByTagName("table");
+    var firstTable = tables[0];
+    var tableAttr = firstTable.attributes;
+    // get the tag name 'table'
+    var tableString = "<" + firstTable.nodeName.toLowerCase();
+    // get the tag attributes
+    for (var i = 0; i < tableAttr.length; i++) {
+        tableString += " " + tableAttr[i].name + "='" + tableAttr[i].value + "'";
+    }
+
+    // use innerHTML to get the contents of the table, then close the tag
+    tableString += ">" + firstTable.innerHTML + "</" + firstTable.nodeName.toLowerCase() + ">";
+
+    //alert(tableString);
     var parametros = {
-        "Nota_ID": Nota_ID
+        "Nota_ID": Nota_ID,
+        "Contenido": tableString
+        
     }
     $.ajax({
         data: parametros,
