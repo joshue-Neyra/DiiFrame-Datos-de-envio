@@ -10,10 +10,10 @@
 </head>
 
 <body id="page-top">
-<?php
-session_start();
-$_SESSION['Orientacion']='1';
-$_SESSION['Nombre']="/assets/img/solomarco.jpg";?>
+    <?php
+    session_start();
+    $_SESSION['Orientacion']='1';
+    $_SESSION['Nombre']="/assets/img/solomarco.jpg";?>
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/nav2.html'; ?>
 
 
