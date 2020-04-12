@@ -83,12 +83,13 @@ function Marialuisa() {
             $("#form_vidrios").text("");
             $("#form_entrevidrios").text("");
             var sw = 1;
-            var bg = DatosJson[0].Prod_Descripcion;
+            
             $("#Color").val(DatosJson[0].Producto_ID);
             for (i = 0; i < DatosJson.length; i++) {
                 if (DatosJson[i].PrdMeta_ID != 'Vidrio') {
                     if (sw == 1) {
                         $("#form_marialuisa").append('<div id=' + DatosJson[i].Producto_ID + ' class="swatch ml selected" style="background-color:#' + DatosJson[i].Prod_Descripcion + ';"></div>');
+                        var bg = DatosJson[i].Prod_Descripcion;
                         sw = 0;
                     } else {
                         $("#form_marialuisa").append('<div id=' + DatosJson[i].Producto_ID + ' class="swatch ml  border border-primary" style="background-color:#' + DatosJson[i].Prod_Descripcion + ';"></div>');
@@ -112,10 +113,8 @@ function Marialuisa() {
 
 
             }
-            $("#form_entrevidrios").append('<div id="Vidrio" title="Vidrio" data-toggle="popover" data-trigger="hover" data-content="Entre Vidrios" class="swatch border border-primary text-center" style="background-color:#fff;"><img class="img-fluid" src="/assets/img/vidrio.png"></div>');
-            $('#Vidrio').popover({
-                container: 'body'
-            });
+            $("#form_entrevidrios").append('<div id="Vidrio" class="swatch border border-primary text-center" style="background-color:#fff;"><img class="img-fluid" src="/assets/img/vidrio.png"></div>');
+         
             $('.custom-control-input').click(function onClick(event) {
                 //alert("algo");
                 $('.custom-control-input').prop("checked", false);

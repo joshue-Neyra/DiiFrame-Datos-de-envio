@@ -17,7 +17,7 @@ $_SESSION['Nombre']="/assets/img/solomarco.jpg";?>
     <section class="features" id="features">
         <div class="container">
             <div class="section-heading text-center">
-                <h2>Elige el tamaño de impresión</h2>
+                <h2>Elige el tamaño de tu marco</h2>
             </div>
             <div class="row text-center justify-content-md-center">
                 <div class="col-lg-6 col-sm-6 mb-4">
@@ -40,6 +40,7 @@ $_SESSION['Nombre']="/assets/img/solomarco.jpg";?>
                     <input class="d-none" id="Producto_ID" value="<?php echo $_GET['Prd_ID']?>">
                     <div class="card" id="prod_imagen">
                     </div>
+                    <p class="text-muted">*La imagen central es únicamente ilustrativa</p>
                 </div>
             </div>
         </div>

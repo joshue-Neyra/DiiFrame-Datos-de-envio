@@ -5,8 +5,7 @@
     <title>DiiFrame - Inicio</title>
     <meta name="description" content="">
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/head.html'; ?>
-        <link href="/assets/css/hover.min.css" rel="stylesheet">
-
+    <link href="/assets/css/hover.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -54,9 +53,9 @@
                             <a href="/build/ArteOriginal/"><img class="card-img-top" src="/assets/img/build3.jpg" alt="build"></a>
                             <div class="card-body">
                                 <h4 class="card-title">
-                                    <a href="/build/ArteOriginal/">Arte Original</a>
+                                    <a href="/build/ArteOriginal/">Arte</a>
                                 </h4>
-                                <p class="card-text">Envíanos tu arte y nos encargamos de lo demás
+                                <p class="card-text">Cuadros terminados listos para envio
                                 </p>
                             </div>
                         </div>
