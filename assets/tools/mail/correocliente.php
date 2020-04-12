@@ -2,8 +2,8 @@
 require $_SERVER['DOCUMENT_ROOT'].'/assets/tools/connection.php'; 
 session_start();
 $Cliente_ID=$_SESSION['Id'];
-$Nota_ID=$_GET['Nota_ID'];
-$Contenido=$_GET['Contenido'];
+$Nota_ID=$_POST['Nota_ID'];
+$Contenido=$_POST['Contenido'];
 
 $sql = "SELECT ID_Cliente, Clie_Nombre, Clie_Apellidos, Clie_Calle, Clie_Num_ext, Clie_Num_int, CP, Clie_Colonia, Clie_Delegacion, Clie_Estado, Clie_Pais, Clie_email, Clie_RFC, Clie_Tel, Celular, Lat, Lng
 FROM     Clientes

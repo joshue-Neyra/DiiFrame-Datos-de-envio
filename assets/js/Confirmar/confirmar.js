@@ -194,17 +194,16 @@ function Pago(deviceSessionId) {
         url: '/assets/tools/Confirmar/CargoTarjeta.php',
         type: 'post',
         success: function (response) {
+            CorreoCliente(parametros.Nota_ID)
             $(".loader").hide();
-
+            
             if (response == "debit" || response == "credit") {
                 //Actializar NtaMain, noata_id, monto, iva,total,total_pagado_proceso,status
                 UpdateNota(parametros.Nota_ID, monto, iva, total, total, 1, 1);
                 PagoCRM(parametros.Nota_ID, total, response),
-                    CorreoVentas(parametros.Nota_ID);
-                CorreoCliente(parametros.Nota_ID);
+                CorreoVentas(parametros.Nota_ID);
                 var factura = document.getElementById("inp_factura").checked;
                 if (factura == true) {
-
                     facturar(parametros.Nota_ID);
                 }
 
@@ -249,11 +248,14 @@ function CorreoVentas(Nota_ID) {
         url: '/assets/tools/mail/correoventas.php',
         type: 'post',
         success: function (response) {
-            //console.log(response);
-            //location.href='/Pedido/?Nota_ID='+ parametros.Nota_ID+'';
         }
     });
 }
+
+$("#MyButton").click(function() {
+    var Nota_ID = document.getElementById("Nota_ID").value;
+    CorreoCliente(Nota_ID)
+});
 
 function CorreoCliente(Nota_ID) {
     var tables = document.getElementsByTagName("table");
@@ -271,17 +273,15 @@ function CorreoCliente(Nota_ID) {
 
     //alert(tableString);
     var parametros = {
-        "Nota_ID": Nota_ID,
-        "Contenido": tableString
-        
+        Nota_ID: Nota_ID,
+        Contenido: tableString
     }
     $.ajax({
         data: parametros,
         url: '/assets/tools/mail/correocliente.php',
-        type: 'post',
+        type: 'POST',
         success: function (response) {
-            //console.log(response);
-            //location.href='/Pedido/?Nota_ID='+ parametros.Nota_ID+'';
+            //alert(response);
         }
     });
 }

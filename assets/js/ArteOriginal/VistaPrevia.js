@@ -79,7 +79,7 @@ function DetalleProducto() {
                     '</div>' +
                     '</div>');
                 var PrecioTotal = DatosJson[i].Prod_Precio * 1.16;
-                $("#Descripcion").append('<p class="last-sold text-muted"><strong>Detalles del projecto:</strong></p>' +
+                $("#Descripcion").append('<p class="last-sold text-muted"><strong>Detalles del proyecto:</strong></p>' +
                     '<h4 class="product-title mb-2"> Marco: ' + DatosJson[i].Prod_Nombre + '</h4>' +
                     '<h2 class="product-price display-4">$ ' + PrecioTotal.toFixed(2) + ' MXN </h2>' +
                     '<p class="text-success"><i class="fab fa-cc-mastercard"></i> <i class="fab fa-cc-visa"></i> <i class="fab fa-cc-paypal"></i></p>' +
