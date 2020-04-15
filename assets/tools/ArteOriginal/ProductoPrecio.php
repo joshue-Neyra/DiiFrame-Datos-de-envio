@@ -1,6 +1,6 @@
 <?php
 $ID = $_POST["Producto"];
-$sql = "SELECT  Producto_ID, Prod_Nombre, RutaImagen1, RutaImagen2, RutaImagen3,Prod_Precio,RutaImagen4
+$sql = "SELECT  Producto_ID, Prod_Nombre,Prod_Descripcion, RutaImagen1, RutaImagen2, RutaImagen3,Prod_Precio,RutaImagen4
 FROM     Productos
 WHERE   ID_Status = 2 and Producto_ID = $ID";
 function getArraySQL($sql){

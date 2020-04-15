@@ -48,7 +48,7 @@ function DatosEmpresa() {
                 $(".name").text(DatosJson[i].RazonSocial);
                 $("#phonenumber").text(DatosJson[i].Telefono1);
                 $("#email").text(DatosJson[i].Email);
-                $("#Address").text(DatosJson[i].Calle + ' '+DatosJson[i].NoExt+ ', C.P. '+ DatosJson[i].CP+', '+ DatosJson[i].Estado+', '+DatosJson[i].Pais);
+                $("#Address").text(DatosJson[i].Calle + ' ' + DatosJson[i].NoExt + ', C.P. ' + DatosJson[i].CP + ', ' + DatosJson[i].Estado + ', ' + DatosJson[i].Pais);
             }
         }
 
@@ -75,10 +75,16 @@ function VerPedido() {
             var tamano = "";
             $("#tbl_Pedido").text("");
             var d = new Date(DatosJson[0].Fecha_Recibo.date);
+            var Dia1 = d.getDate();
+            var Mes1 = d.getMonth();
+            var Año1 = d.getFullYear();
             var d2 = new Date(DatosJson[0].Fecha_Entrega.date);
-            $("#date1").text("Fecha de recibo: "+ d);
-            $("#date2").text("Fecha de entrega: "+ d2);
-            
+            var Dia2 = d2.getDate();
+            var Mes2 = d2.getMonth();
+            var Año2 = d2.getFullYear();
+            $("#date1").text("Fecha de recibo: " + Dia1 + '/' + Mes1 + '/' + Año1);
+            $("#date2").text("Fecha estimada de entrega: " + Dia2 + '/' + Mes2 + '/' + Año2);
+
             for (i = 0; i < DatosJson.length; i++) {
                 if (DatosJson[i].PrdMeta_ID == "Marialuisa") {
                     nombre = 'Marialuisa ';
@@ -91,9 +97,9 @@ function VerPedido() {
                     tamano = DatosJson[i].Tamano;
                 }
                 $("#tbl_Pedido").append('<tr>' +
-                    '<td class="no"> 0'+(parseInt(i)+1)+' </td>' +
+                    '<td class="no"> 0' + (parseInt(i) + 1) + ' </td>' +
                     '<td class="text-left"><h3>' + nombre + '</h3> </td>' +
-                    '<td class = "unit" > ' +  tamano+ ' </td>' +
+                    '<td class = "unit" > ' + tamano + ' </td>' +
                     '<td class = "qty" > ' + DatosJson[i].Inv_cant + ' </td> ' +
                     '<td class = "total" > $' + Math.round10(DatosJson[i].Inv_pre_total, -2) + ' </td>' +
                     '</tr > ');

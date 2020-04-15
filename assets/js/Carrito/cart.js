@@ -33,11 +33,11 @@ function Carrito() {
                     imagen = '<img width="50px" src="' + DatosJson[i].Imagen + '" />'
                     var precio = (DatosJson[i].Cantidad * DatosJson[i].Precio)*1.16;
                     $("#tbl_carrito").append('<tr>' +
-                        '<td>' + imagen + ' </td>' +
-                        '<td>' + DatosJson[i].Prod_Nombre + ' ' + DatosJson[i].Descripcion + '</td>' +
-                        '<td><input class="form-control" id="Prd_' + i + '" type="number" value="' + DatosJson[i].Cantidad + '" onchange="UpdateCantidad(' + i + ')" /></td>' +
-                        '<td class="text-right">$ ' + dosDecimales(precio.toFixed(2)) + ' MXN</td>' +
-                        '<td class="text-right"><button class="btn btn-sm btn-danger" onclick="BorrarCarrito(' + i + ')" ><i class="fa fa-trash"></i> </button>' +
+                        '<td class="text-center">' + imagen + ' </td>' +
+                        '<td class="text-center">' + DatosJson[i].Prod_Nombre + ' ' + DatosJson[i].Descripcion + '</td>' +
+                        '<td class="text-center"><input class="form-control form-control-sm" id="Prd_' + i + '" type="number" value="' + DatosJson[i].Cantidad + '" onchange="UpdateCantidad(' + i + ')" /></td>' +
+                        '<td class="text-center">$ ' + dosDecimales(precio.toFixed(2)) + ' MXN</td>' +
+                        '<td class="text-center"><button class="btn btn-sm btn-danger" onclick="BorrarCarrito(' + i + ')" ><i class="fa fa-trash"></i> </button>' +
                         '</td>' +
                         '</tr>');
 

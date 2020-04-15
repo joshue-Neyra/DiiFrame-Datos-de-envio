@@ -24,34 +24,63 @@ function ListaProductos() {
 
             for (i = 0; i < DatosJson.length; i++) {
                 var precio = DatosJson[i].Prod_Precio;
-                $("#Productos").append('<div class="col-md-3 col-sm-6">' +
-                    '<div class="product-grid3">' +
-                    '<div class="product-image3">' +
-                    '<a href="/build/ArteOriginal/VistaPrevia/?Prd_ID='+DatosJson[i].Producto_ID +'&Meta=ArteOriginal">' +
-                    '<img class="pic-1 img-fluid foto" src="' + DatosJson[i].RutaImagen2 +'">' +
-                    '<img class="mypic2 pic-2"  src="' + DatosJson[i].RutaImagen3 +'">' +
-                    '</a>' +
-                    '<ul class="social">' +
-                    '<li class=""><a href="/build/ArteOriginal/VistaPrevia/?Prd_ID='+DatosJson[i].Producto_ID +'&Meta=ArteOriginal"><i class="fa fa-shopping-bag"></i></a></li>' +
-                    '</ul>' +
-                    '<span class="product-new-label">Nuevo</span>' +
-                    '</div>' +
-                    '<div class="product-content">' +
-                    '<h3 class="title"><a href="/build/ArteOriginal/VistaPrevia/?Prd_ID='+DatosJson[i].Producto_ID +'&Meta=ArteOriginal">'+DatosJson[i].Prod_Nombre+'</a></h3>' +
-                    '<div class="price">' +
-                    '$' + dosDecimales(precio)  +
-                    '<span></span>' +
-                    '</div>' +
-                    '<ul class="rating">' +
-                    '<li class="fa fa-star"></li>' +
-                    '<li class="fa fa-star"></li>' +
-                    '<li class="fa fa-star"></li>' +
-                    '<li class="fa fa-star"></li>' +
-                    '<li class="fa fa-star "></li>' +
-                    '</ul>' +
-                    '</div>' +
-                    '</div>' +
-                    '</div>');
+                if (DatosJson[i].Existencia > 0) {
+                    $("#Productos").append('<div class="col-md-3 col-sm-6 my-3">' +
+                        '<div class="product-grid3 disabled">' +
+                        '<div class="product-image3">' +
+                        '<a disabled href="/build/ArteOriginal/VistaPrevia/?Prd_ID=' + DatosJson[i].Producto_ID + '&Meta=ArteOriginal">' +
+                        '<img class="pic-1 img-fluid foto" src="' + DatosJson[i].RutaImagen2 + '">' +
+                        '<img class="mypic2 pic-2"  src="' + DatosJson[i].RutaImagen3 + '">' +
+                        '</a>' +
+                        '<ul class="social">' +
+                        '<li class=""><a href="/build/ArteOriginal/VistaPrevia/?Prd_ID=' + DatosJson[i].Producto_ID + '&Meta=ArteOriginal"><i class="fa fa-shopping-bag"></i></a></li>' +
+                        '</ul>' +
+                        '<span class="product-new-label">Nuevo</span>' +
+                        '</div>' +
+                        '<div class="product-content">' +
+                        '<h3 class="title"><a href="/build/ArteOriginal/VistaPrevia/?Prd_ID=' + DatosJson[i].Producto_ID + '&Meta=ArteOriginal">' + DatosJson[i].Prod_Nombre + '</a></h3>' +
+                        '<div class="price">' +
+                        '$' + dosDecimales(precio * 1.16) +
+                        '<span></span>' +
+                        '</div>' +
+                        '<ul class="rating">' +
+                        '<li class="fa fa-star"></li>' +
+                        '<li class="fa fa-star"></li>' +
+                        '<li class="fa fa-star"></li>' +
+                        '<li class="fa fa-star"></li>' +
+                        '<li class="fa fa-star "></li>' +
+                        '</ul>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>');
+                } else {
+                    $("#Productos").append('<div class="col-md-3 col-sm-6 my-3 disabled">' +
+                        '<div class="product-grid3">' +
+                        '<div class="product-image3">' +
+                        '<a  >' +
+                        '<img class="pic-1 img-fluid foto" src="' + DatosJson[i].RutaImagen2 + '">' +
+                        '<img class="mypic2 pic-2"  src="' + DatosJson[i].RutaImagen3 + '">' +
+                        '</a>' +
+                        '<span class="product-agotado-label">Agotado</span>' +
+                        '</div>' +
+                        '<div class="product-content">' +
+                        '<h3 class="title"><a>' + DatosJson[i].Prod_Nombre + '</a></h3>' +
+                        '<div class="price">' +
+                        '$' + dosDecimales(precio * 1.16) +
+                        '<span></span>' +
+                        '</div>' +
+                        '<ul class="rating">' +
+                        '<li class="fa fa-star"></li>' +
+                        '<li class="fa fa-star"></li>' +
+                        '<li class="fa fa-star"></li>' +
+                        '<li class="fa fa-star"></li>' +
+                        '<li class="fa fa-star "></li>' +
+                        '</ul>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>');
+                }
+
             }
         }
     });
@@ -92,20 +121,20 @@ function FiltroFamilia(Familia_ID) {
             var DatosJson = JSON.parse(JSON.stringify(response));
             for (i = 0; i < DatosJson.length; i++) {
                 //console.log(DatosJson[i].ImagenUsuario);
-               $("#Productos").append('<div class="col-md-3 col-sm-6">' +
+                $("#Productos").append('<div class="col-md-3 col-sm-6">' +
                     '<div class="product-grid3">' +
                     '<div class="product-image3">' +
-                    '<a href="/Productos/ElegirTamano/?Prd_ID='+DatosJson[i].Producto_ID +'">' +
-                    '<img class="pic-1" src="' + DatosJson[i].RutaImagen2 +'">' +
-                    '<img class="pic-2" src="' + DatosJson[i].RutaImagen3 +'">' +
+                    '<a href="/Productos/ElegirTamano/?Prd_ID=' + DatosJson[i].Producto_ID + '">' +
+                    '<img class="pic-1" src="' + DatosJson[i].RutaImagen2 + '">' +
+                    '<img class="pic-2" src="' + DatosJson[i].RutaImagen3 + '">' +
                     '</a>' +
                     '<ul class="social">' +
-                    '<li><a href="/Productos/ElegirTamano/?Prd_ID='+DatosJson[i].Producto_ID +'"><i class="fa fa-shopping-bag"></i></a></li>' +
+                    '<li><a href="/Productos/ElegirTamano/?Prd_ID=' + DatosJson[i].Producto_ID + '"><i class="fa fa-shopping-bag"></i></a></li>' +
                     '</ul>' +
                     '<span class="product-new-label">Nuevo</span>' +
                     '</div>' +
                     '<div class="product-content">' +
-                    '<h3 class="title"><a href="/Productos/ElegirTamano/?Prd_ID='+DatosJson[i].Producto_ID +'"></a></h3>' +
+                    '<h3 class="title"><a href="/Productos/ElegirTamano/?Prd_ID=' + DatosJson[i].Producto_ID + '"></a></h3>' +
                     '<div class="price">' +
                     '' + DatosJson[i].Prod_Nombre +
                     '<span></span>' +

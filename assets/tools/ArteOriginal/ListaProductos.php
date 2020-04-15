@@ -1,8 +1,8 @@
 <?php
 
-$sql = "SELECT  Producto_ID, Prod_Nombre, RutaImagen1, RutaImagen2, RutaImagen3,Prod_Precio
+$sql = "SELECT  Producto_ID, Prod_Nombre, RutaImagen1, RutaImagen2, RutaImagen3,Prod_Precio,Existencia
 FROM     Productos
-WHERE   ID_Status = 2 and PrdMeta_ID = 'ArteOriginal' and Existencia !=0";
+WHERE   ID_Status = 2 and PrdMeta_ID = 'ArteOriginal' and Activo = 'true'";
 function getArraySQL($sql){
     //Creamos la conexión con la función anterior
     require $_SERVER['DOCUMENT_ROOT'].'/assets/tools/connection.php'; 
