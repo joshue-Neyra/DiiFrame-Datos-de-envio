@@ -5,7 +5,7 @@ $Cliente_ID=$_SESSION['Id'];
 $CostoEnvio=$_POST['CostoEnvio'];
 $Direccion_ID=$_POST['Direccion_ID'];
 $fecha=$_POST['fecha'];
-$fechaEntrega= date('Y-m-d', strtotime($fecha. ' + 2 days'));
+$fechaEntrega= date('Y-m-d', strtotime($fecha. ' + 7 days'));
 $date = date_create($fecha);
 $fechanota= date_format($date, 'Y-m-d H:i:s');
 
