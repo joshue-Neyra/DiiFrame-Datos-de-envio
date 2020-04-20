@@ -23,11 +23,9 @@ $_SESSION['Nombre']="/assets/img/solomarco.jpg";?>
                 <div class="col-lg-6 col-sm-6 mb-4">
                     <div class="table-responsive">
                         <table class="table table-light  table-striped">
-                            <caption>La calidad de impresión es proporcional al número de estrellas</caption>
                             <thead class="table-primary">
                                 <tr>
                                     <th scope="col">Tamaño</th>
-                                    <th scope="col">Calidad</th>
                                     <th scope="col">Elegir</th>
                                 </tr>
                             </thead>

@@ -15,12 +15,9 @@ function size() {
             //console.log(DatosJson.length);
             for (i = 0; i < DatosJson.length; i++) {
                 var contenido = '';
-                for (var c = 0; c < 5; c++) {
-                    contenido = contenido + '<i class="fas fa-star text-warning"></i>';
-                }
+               
                 $("#botones").append('<tr>' +
-                    '<th scope="row">' + DatosJson[i].Tamano + ' ´´</th>' +
-                    '<td>' + contenido + '</td>' +
+                    '<th scope="row">' + DatosJson[i].Tamano + ' </th>' +
                     '<td><a href="/Productos/VistaPrevia/?prod='+producto+'&tamano='+DatosJson[i].Tamano_ID+'&Meta=SoloMarco"><button class="btn btn-primary m-1">' +
                     'Elegir </button></a></td>' +
                     '</tr>');
