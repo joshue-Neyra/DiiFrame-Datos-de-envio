@@ -88,7 +88,14 @@ else{
                 $precio = $_SESSION['Precio'][$i];
                 $imglocal=$_SESSION['Imagen'][$i];
                 $Meta=$_SESSION['Meta'][$i];
-                $inv_descripcion=$_SESSION['inv_descripcion'][$i];
+                if ($Meta != 'Marialuisa' &&  $Meta != 'Vidrio'){
+                    $inv_descripcion=$_SESSION['inv_descripcion'][$i];
+                }
+                else {
+                    $inv_descripcion='';
+                }
+
+                
                 $imagen = "$imglocal";
                 $precio_total= $cantidad * $precio;
 
@@ -107,6 +114,7 @@ else{
                     @Tamano_ID =?,
                     @Tarifa_ID =?,
                     @RutaImagen=?,
+                    @inv_descripcion=?,
                     @Meta=?";
                 $params = array(
                     $Nota_ID,
@@ -124,46 +132,12 @@ else{
                     $tamanoID,
                     0,
                     $imagen,
+                    $inv_descripcion,
                     $Meta);
 
                 $stmt = sqlsrv_query( $conn, $sql, $params);
                 if( $stmt === false ) {
                      die( print_r( sqlsrv_errors(), true));
-                }
-                else{
-                    if ($Meta != 'Marialuisa' &&  $Meta != 'Vidrio'){
-                        $sql = "SELECT Inv_ID FROM Inventario WHERE Prod_ID = $producto AND Serv_ID = $Nota_ID AND  InventarioMeta_ID = '$Meta'";
-                        $req =  sqlsrv_query($conn, $sql) or die(print_r(sqlsrv_errors(),true));
-                        if(sqlsrv_has_rows($req) != 1){
-                            echo "Error";
-                        }
-                        else{
-                                $resultado=  sqlsrv_fetch_array($req);
-                                $inv_ID = $resultado['Inv_ID'];
-                                $sql = "EXEC NuevoInventarioDescripcion @Inv_ID =?,
-                                @inv_descripcion =?,
-                                @merma =?,
-                                @MedidaL =?,
-                                @MedidaA =?,
-                                @TipoUnidad =?,
-                                @Activado =?,
-                                @Eliminado =?";
-                                $params = array(
-                                $inv_ID,
-                                $inv_descripcion,
-                                0,//merma
-                                0,//MedidaL
-                                0,//MedidaA
-                                0,//TipoUnidad
-                                1,//Activado
-                                0//eliminado
-                                );
-                            $stmt = sqlsrv_query( $conn, $sql, $params);
-                            if( $stmt === false ) {
-                                 die( print_r( sqlsrv_errors(), true));
-                            }
-                        }
-                    }
                 }
             }
             $sql = "EXEC NuevoInventario @Serv_ID =?,
@@ -181,6 +155,7 @@ else{
                         @Tamano_ID =?,
                         @Tarifa_ID =?,
                         @RutaImagen=?,
+                        @inv_descripcion=?,
                         @Meta=?";
                     $params = array(
                         $Nota_ID,
@@ -198,6 +173,7 @@ else{
                         1,//tamano
                         0,
                         '/assets/img/envio.jpg',
+                        '',
                         'Envio');
 
                     $stmt = sqlsrv_query( $conn, $sql, $params);
