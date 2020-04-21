@@ -88,13 +88,6 @@
                 <h3 class="mb-3 my-3 text-center text-danger">Tu carrito de compra</h3>
                 <div class="table-responsive">
                     <table class="table table-striped">
-                        <colgroup>
-                            <col class="col-md-2 text-center">
-                            <col class="col-md-4 text-center">
-                            <col class="col-md-2 text-center">
-                            <col class="col-md-2 text-center">
-                            <col class="col-md-2 text-center">
-                        </colgroup>
                         <thead>
                             <tr>
                                 <th class="text-center">Imagen </th>
