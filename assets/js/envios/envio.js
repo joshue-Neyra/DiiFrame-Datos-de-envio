@@ -1,7 +1,14 @@
 $(document).ready(function () {
+    
     DatosEnvioCliente();
+    VerPedido();
 });
 
+function dosDecimales(n) {
+    let t = n.toString();
+    let regex = /(\d*.\d{0,2})/;
+    return t.match(regex)[0];
+}
 function DatosEnvioCliente() {
     var parametros = {
         Nota_ID: document.getElementById("inp_Nota_ID").value
@@ -25,8 +32,7 @@ function DatosEnvioCliente() {
                 $("#Cli_Calle").val(DatosJson[0].Clie_Calle);
                 $("#Cli_CP").val(DatosJson[0].CP);
                 DatosEnvioEmpresa();
-            }
-            else{
+            } else {
                 alert("Esta nota ya cuenta con una orden generada");
             }
         }
@@ -145,6 +151,8 @@ function Orden_Put(accesstoken) {
         "data": JSON.stringify(data),
         success: function (r) {
             console.log(r);
+            var Nota_ID = document.getElementById("inp_Nota_ID").value;
+            CorreoCliente(Nota_ID);
             var Orden_ID = r.data.idOrder;
             alert("Se genero la orden: " + Orden_ID);
             $("#OrdenID").val(Orden_ID);
@@ -166,6 +174,71 @@ function UpdateNtaMain(Orden_ID) {
         data: parametros,
         success: function (response) {
             alert(response);
+        }
+    });
+}
+
+function CorreoCliente(Nota_ID) {
+    var tables = document.getElementsByTagName("table");
+    var firstTable = tables[0];
+    var tableAttr = firstTable.attributes;
+    // get the tag name 'table'
+    var tableString = "<" + firstTable.nodeName.toLowerCase();
+    // get the tag attributes
+    for (var i = 0; i < tableAttr.length; i++) {
+        tableString += " " + tableAttr[i].name + "='" + tableAttr[i].value + "'";
+    }
+
+    // use innerHTML to get the contents of the table, then close the tag
+    tableString += ">" + firstTable.innerHTML + "</" + firstTable.nodeName.toLowerCase() + ">";
+
+    //alert(tableString);
+    var parametros = {
+        Nota_ID: Nota_ID,
+        Contenido: tableString
+    }
+    $.ajax({
+        data: parametros,
+        url: '/assets/tools/mail/correocliente_envio.php',
+        type: 'POST',
+        success: function (response) {
+            //alert(response);
+        }
+    });
+}
+
+function VerPedido() {
+    var parametros = {
+        "id": document.getElementById("inp_Nota_ID").value
+    }
+
+    $.ajax({
+        data: parametros,
+        url: '/assets/tools/Confirmar/VerPedido.php',
+        type: 'post',
+        success: function (response) {
+
+
+            var DatosJson = JSON.parse(response);
+            var suma = 0;
+            var sumaprod = 0;
+            var exit = 1;
+            $("#tbl_correo").text("");
+
+            for (i = 0; i < DatosJson.length; i++) {
+                //alert(DatosJson[i].PrdMeta_ID);
+                if (DatosJson[i].PrdMeta_ID == 'Producto' || DatosJson[i].PrdMeta_ID == 'ArteOriginal') {
+                    $("#tbl_correo").append('<tr class="rounded  bg-white ">' +
+                        '<td>' + '<img width="50px" src="' + DatosJson[i].RutaImagen + '" />' + ' </td>' +
+                        '<td>' + DatosJson[i].Prod_Nombre + ' - ' + DatosJson[i].Descripcion + '</td>' +
+                        '<td>' + DatosJson[i].Inv_cant + '</td>' +
+                        '<td class="text-right">$' + dosDecimales(DatosJson[i].Inv_pre_total) + '</td>' +
+                        '</tr>');
+                    sumaprod = parseFloat(sumaprod) + parseFloat(DatosJson[i].Inv_pre_total);
+                }
+
+                suma = parseFloat(DatosJson[i].Inv_pre_total) + suma;
+            }
         }
     });
 }

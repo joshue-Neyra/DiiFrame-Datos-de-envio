@@ -86,7 +86,7 @@ try {
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Pedidos Diiframe</title>
+        <title>Bienvenido a Diiframe</title>
         
     <style type="text/css">
 		p{
@@ -562,9 +562,9 @@ try {
                             <h3 style="text-align: center;display: block;margin: 0;padding: 0;color: #444444;font-family: Helvetica;font-size: 22px;font-style: normal;font-weight: bold;line-height: 150%;letter-spacing: normal;"><span style="font-size:32px">¡Hola '.$Clie_Nombre.'!</span></h3>
 &nbsp;
                             
-                            <p style="text-align: center;font-size: 9px;margin: 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #757575;font-family: Helvetica;line-height: 150%;"><span style="font-size:17px">Pedido: '.$Nota_ID.'                                Estatus: '.$Proceso_clave.'</span><br><br><br></p>
+                            <p style="text-align: center;font-size: 9px;margin: 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #757575;font-family: Helvetica;line-height: 150%;"><span style="font-size:17px">Tu pedido '.$Nota_ID.'  va en camino, ¡Espéralo! </span><br><br><br></p>
                             <center>'.$Contenido.'</center>
-<p style="text-align: center;font-size: 9px;margin: 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #757575;font-family: Helvetica;line-height: 150%;"><span style="font-size:17px">Gracias por tu compra, hemos recibido tu pedido por lo que lo empezaremos a trabajar.</span><br>
+
 <br>
 <span style="font-size:17px">
 Para el seguimiento de tu pedido lo puedes consultar en la sección de tu carrito o bien nos puedes mandar un mensaje vía <a href="https://api.whatsapp.com/send?phone=525518467498&amp;text=Buen%20d%C3%ADa,%20quiero%20recibir%20m%C3%A1s%20informaci%C3%B3n%20acerca%20de%20DiiFrame.com" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">whatsapp</a> o al correo electrónico

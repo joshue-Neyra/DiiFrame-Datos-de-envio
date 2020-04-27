@@ -16,7 +16,7 @@ function VerPedido() {
         url: '/assets/tools/Confirmar/VerPedido.php',
         type: 'post',
         success: function (response) {
-            var disabled = "";
+            var disabled = "disabled";
             var btnDel = "";
             var Tamaño = "";
 
@@ -25,9 +25,21 @@ function VerPedido() {
             var sumaprod = 0;
             var exit = 1;
             $("#tbl_confirmar").text("");
+            $("#tbl_correo").text("");
 
             for (i = 0; i < DatosJson.length; i++) {
                 //alert(DatosJson[i].PrdMeta_ID);
+                if (DatosJson[i].PrdMeta_ID == 'Producto' || DatosJson[i].PrdMeta_ID == 'ArteOriginal') {
+                    $("#tbl_correo").append('<tr class="rounded  bg-white ">' +
+                        '<td>' + '<img width="50px" src="' + DatosJson[i].RutaImagen + '" />' + ' </td>' +
+                        '<td>' + DatosJson[i].Prod_Nombre + ' - ' + DatosJson[i].Descripcion + '</td>' +
+                        '<td>' + DatosJson[i].Inv_cant + '</td>' +
+                        '<td class="text-right">$' + Math.round10(DatosJson[i].Inv_pre_total, -2).toFixed(2) + '</td>' +
+                        
+                        '</tr>');
+                    exit = 0;
+                    sumaprod = parseFloat(sumaprod) + parseFloat(DatosJson[i].Inv_pre_total);
+                }
                 if (DatosJson[i].PrdMeta_ID == 'Producto' || DatosJson[i].PrdMeta_ID == 'ArteOriginal') {
                     $("#tbl_confirmar").append('<tr class="rounded  bg-white ">' +
                         '<td>' + '<img width="50px" src="' + DatosJson[i].RutaImagen + '" />' + ' </td>' +
@@ -196,12 +208,12 @@ function Pago(deviceSessionId) {
         success: function (response) {
             CorreoCliente(parametros.Nota_ID)
             $(".loader").hide();
-            
+
             if (response == "debit" || response == "credit") {
                 //Actializar NtaMain, noata_id, monto, iva,total,total_pagado_proceso,status
                 UpdateNota(parametros.Nota_ID, monto, iva, total, total, 1, 1);
                 PagoCRM(parametros.Nota_ID, total, response),
-                CorreoVentas(parametros.Nota_ID);
+                    CorreoVentas(parametros.Nota_ID);
                 var factura = document.getElementById("inp_factura").checked;
                 if (factura == true) {
                     facturar(parametros.Nota_ID);
@@ -247,19 +259,18 @@ function CorreoVentas(Nota_ID) {
         data: parametros,
         url: '/assets/tools/mail/correoventas.php',
         type: 'post',
-        success: function (response) {
-        }
+        success: function (response) {}
     });
 }
 
-$("#MyButton").click(function() {
+$("#MyButton").click(function () {
     var Nota_ID = document.getElementById("Nota_ID").value;
     CorreoCliente(Nota_ID)
 });
 
 function CorreoCliente(Nota_ID) {
     var tables = document.getElementsByTagName("table");
-    var firstTable = tables[0];
+    var firstTable = tables[1];
     var tableAttr = firstTable.attributes;
     // get the tag name 'table'
     var tableString = "<" + firstTable.nodeName.toLowerCase();

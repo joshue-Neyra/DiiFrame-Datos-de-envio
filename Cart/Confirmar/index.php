@@ -101,6 +101,17 @@
                             </thead>
                             <tbody id="tbl_confirmar"></tbody>
                         </table>
+                        <table id="table_correo" class="table d-none">
+                            <thead class="thead-light">
+                                <tr class="table-borderless">
+                                    <th scope="col">Imagen </th>
+                                    <th scope="col">Producto</th>
+                                    <th scope="col" class="text-center">Cantidad</th>
+                                    <th scope="col" class="text-right">Precio</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbl_correo"></tbody>
+                        </table>
                     </div>
                 </div>
                 <div class="col-md-8 pr-xl-5 d-none">
@@ -216,7 +227,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="form-label-group">
-                                                    <input required id="card_number" class="form-control" type="text" data-openpay-card="card_number" placeholder="Número de tarjeta">
+                                                    <input required id="card_number" maxlength="16" class="form-control" type="text" data-openpay-card="card_number" placeholder="Número de tarjeta">
                                                     <label for="card_number">Número de tarjeta</label>
                                                 </div>
                                             </div>

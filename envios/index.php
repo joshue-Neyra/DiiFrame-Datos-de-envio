@@ -38,10 +38,21 @@
                         <label class="form-label">Nota_ID</label>
                         <input type="text" id="inp_Nota_ID" class="form-control" placeholder="Nota_ID" required="required" value="<?php echo $_GET['Nota_ID']; ?>">
                         <label class="form-label">Orden Ivoy ID</label>
-                        <input type="text" id="OrdenID" class="form-control"required="required">
+                        <input type="text" id="OrdenID" class="form-control" required="required">
                     </div>
+                    <table id="table_correo" class="table ">
+                        <thead class="thead-light">
+                            <tr class="table-borderless">
+                                <th scope="col">Imagen </th>
+                                <th scope="col">Producto</th>
+                                <th scope="col" class="text-center">Cantidad</th>
+                                <th scope="col" class="text-right">Precio</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbl_correo"></tbody>
+                    </table>
                     <div class="form-group d-none">
-                        
+
                         <label class="form-label">Indicaciones Cliente</label>
                         <input type="text" id="Cli_Indicaciones" class="form-control">
                         <label class="form-label">Nombre Cliente</label>
