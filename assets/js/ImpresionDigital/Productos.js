@@ -83,6 +83,7 @@ function Marialuisa() {
             $("#form_vidrios").text("");
             $("#form_entrevidrios").text("");
             var sw = 1;
+            var sw2 = 0;
             
             $("#Color").val(DatosJson[0].Producto_ID);
             for (i = 0; i < DatosJson.length; i++) {
@@ -95,7 +96,7 @@ function Marialuisa() {
                         $("#form_marialuisa").append('<div id=' + DatosJson[i].Producto_ID + ' class="swatch ml  border border-primary" style="background-color:#' + DatosJson[i].Prod_Descripcion + ';"></div>');
                     }
                 } else {
-                    if (sw == 1) {
+                    if (sw2 == 1) {
                         $("#form_vidrios").append('<div class="custom-control custom-switch m-3">' +
                             '<input type="checkbox" class="custom-control-input" id=' + DatosJson[i].Producto_ID + '>' +
                             '<label class="custom-control-label" for=' + DatosJson[i].Producto_ID + '>' + DatosJson[i].Prod_Descripcion + '</label>' +
@@ -106,7 +107,7 @@ function Marialuisa() {
                             '<input type="checkbox" class="custom-control-input" checked id=' + DatosJson[i].Producto_ID + '>' +
                             '<label class="custom-control-label" for=' + DatosJson[i].Producto_ID + '>' + DatosJson[i].Prod_Descripcion + '</label>' +
                             '</div>');
-                        sw = 1;
+                        sw2 = 1;
                         $("#input_vidrio_f").val(DatosJson[i].Producto_ID);
                     }
                 }
@@ -202,8 +203,8 @@ $("#Tamano_Marialuisa").change(function () {
             //Marialuisa();
             $(".ml").show();
             $("#form_marialuisa2").show();
-
-
+            $('.ml').first().click();
+            
         } else if (selectorId == '5 cm') {
             //alert(selectorId);
             $(".device-mockup").removeClass("galaxy_s5 tm_35cm tm_5cm tm_10cm");
@@ -212,7 +213,7 @@ $("#Tamano_Marialuisa").change(function () {
             //Marialuisa();
             $(".ml").show();
             $("#form_marialuisa2").show();
-
+            $('.ml').first().click();
 
         } else if (selectorId == '3.5 cm') {
             //alert(selectorId);
@@ -222,7 +223,7 @@ $("#Tamano_Marialuisa").change(function () {
             //Marialuisa();
             $(".ml").show();
             $("#form_marialuisa2").show();
-
+            $('.ml').first().click();
 
         } else {
             //alert(selectorId);
@@ -232,7 +233,7 @@ $("#Tamano_Marialuisa").change(function () {
             //Marialuisa();
             $(".ml").show();
             $("#form_marialuisa2").show();
-
+            $('.ml').first().click();
         }
     });
 
