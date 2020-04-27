@@ -6,7 +6,7 @@ $(document).ready(function () {
 function InstagramGetMedia() {
 
     var at = document.getElementById("ig_access_token").value;
-    alert(at);
+    //alert(at);
     $.ajax({
         "url": 'https://graph.instagram.com/me/media?fields=id,caption,media_url,media_type&access_token=' + at,
         "method": "GET",
