@@ -1,8 +1,21 @@
 $(document).ready(function () {
+    GetIVA();
     DatosCliente();
     DatosEmpresa();
     VerPedido();
 });
+
+function GetIVA() {
+    $.ajax({
+        type: 'post',
+        url: '/assets/tools/Productos/GetIva.php',
+        dataType: "json",
+        success: function (response) {
+            var DatosJson = JSON.parse(JSON.stringify(response));
+            $("#inp_iva").val(DatosJson[0].TasaOCuota);
+        }
+    });
+}
 
 $('#printInvoice').click(function () {
     $(".toolbar").hide();
@@ -106,8 +119,10 @@ function VerPedido() {
                 subtotal = parseFloat(subtotal) + parseFloat(DatosJson[i].Inv_pre_total);
             }
             $("#subtotal").text('$' + subtotal);
-            $("#impuestos").text('$' + (subtotal * .16));
-            var total = Math.round10((subtotal * 1.16), -2);
+            var iva_porcentaje = document.getElementById("inp_iva").value;
+            var iva = parseFloat(1) + parseFloat(iva_porcentaje);
+            $("#impuestos").text('$' + (subtotal * iva_porcentaje));
+            var total = Math.round10((subtotal * iva), -2);
             $("#total").text('$' + total);
 
         }

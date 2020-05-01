@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    GetIVA();
     $("#form-direccion").hide();
     $("#form-pedidos").hide();
     $("#address").hide();
@@ -7,6 +8,18 @@ $(document).ready(function () {
     ListaDirecciones();
     Carrito(), ListaPedidos()
 });
+
+function GetIVA() {
+    $.ajax({
+        type: 'post',
+        url: '/assets/tools/Productos/GetIva.php',
+        dataType: "json",
+        success: function (response) {
+            var DatosJson = JSON.parse(JSON.stringify(response));
+            $("#inp_iva").val(DatosJson[0].TasaOCuota);
+        }
+    });
+}
 
 function dosDecimales(n) {
     let t = n.toString();
@@ -25,13 +38,15 @@ function Carrito() {
         success: function (response) {
             console.log(response);
             var DatosJson = JSON.parse(response);
+            var iva_porcentaje = document.getElementById("inp_iva").value;
+            var iva = parseFloat(1) + parseFloat(iva_porcentaje);
             var suma = 0;
             var imagen = "";
             $("#tbl_carrito").text("");
             for (i = 0; i < DatosJson.length; i++) {
                 if (DatosJson[i].Meta != 'Marialuisa' && DatosJson[i].Meta != 'Vidrio') {
                     imagen = '<img width="50px" src="' + DatosJson[i].Imagen + '" />'
-                    var precio = (DatosJson[i].Cantidad * DatosJson[i].Precio)*1.16;
+                    var precio = (DatosJson[i].Cantidad * DatosJson[i].Precio) * iva;
                     $("#tbl_carrito").append('<tr>' +
                         '<td class="text-center">' + imagen + ' </td>' +
                         '<td class="text-center">' + DatosJson[i].Prod_Nombre + ' ' + DatosJson[i].Descripcion + '</td>' +
@@ -114,7 +129,7 @@ function ListaDirecciones() {
             $("#ClienteDirecciones").text("");
             $("#ClienteDirecciones").append('<h2 class="mb-4">¿Donde quieres recibir tu compra?</h2>');
             for (i = 0; i < DatosJson.length; i++) {
-                var estado = "'"+DatosJson[i].Clie_Estado+"'";
+                var estado = "'" + DatosJson[i].Clie_Estado + "'";
                 $("#ClienteDirecciones").append(
                     '<div class="col-xl-8 col-md-6 mb-4">' +
                     '<div class = "card border-left-warning shadow h-100 py-2">' +

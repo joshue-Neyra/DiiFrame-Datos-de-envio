@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    GetIVA();
     DetalleProducto();
 
 });
@@ -22,11 +23,11 @@ function DetalleProducto() {
         type: 'post',
         dataType: 'json',
         success: function (response) {
-            console.log(response);
             var DatosJson = JSON.parse(JSON.stringify(response));
             var orientacion = "";
             var Meta = document.getElementById("Meta").value;
-
+            var iva_porcentaje = document.getElementById("inp_iva").value;
+            var iva = parseFloat(1) + parseFloat(iva_porcentaje);
             for (i = 0; i < DatosJson.length; i++) {
                 if (DatosJson[i].Orientacion == 1) {
                     orientacion = "portrait";
@@ -61,7 +62,7 @@ function DetalleProducto() {
                     '<div class="col-md-12 border border-warning">' +
                     '<div class="device-mockup ambiente1 landscape white" data-toggle="modal" data-target="#lightbox4">' +
                     '<div class="device" style="background-image: url(/assets/img/ambiente1.jpg);">' +
-                    '<div class="screen ' + orientacion + '" >' +//orientacion
+                    '<div class="screen ' + orientacion + '" >' + //orientacion
                     '<img src="' + DatosJson[i].RutaImagen1 + '" class="img-fluid" alt="img">' +
                     '</div>' +
                     '</div>' +
@@ -75,12 +76,12 @@ function DetalleProducto() {
                 $("#modal4").append(
                     '<div class="device-mockup ambiente1 landscape white" data-toggle="modal" data-target="#lightbox4">' +
                     '<div class="device" style="background-image: url(/assets/img/ambiente1.jpg);">' +
-                    '<div class="screen ' + orientacion + '" >' +//orientacion
+                    '<div class="screen ' + orientacion + '" >' + //orientacion
                     '<img src="' + DatosJson[i].RutaImagen1 + '" class="img-fluid" alt="img">' +
                     '</div>' +
                     '</div>' +
                     '</div>');
-                var PrecioTotal = DatosJson[i].Precio * 1.16;
+                var PrecioTotal = DatosJson[i].Precio * iva;
                 $("#Descripcion").append('<p class="last-sold text-muted"><strong>Detalles del proyecto:</strong></p>' +
                     '<h4 class="product-title mb-2"> Marco: ' + DatosJson[i].Prod_Nombre + '<br> Tamaño de impresión: ' + DatosJson[i].Tamano + '</h4>' +
                     '<h2 class="product-price display-4">$ ' + PrecioTotal.toFixed(2) + ' MXN </h2>' +
@@ -111,8 +112,22 @@ function Precio(valor) {
     var PrecioProducto = document.getElementById("inp_precio").value;
     var PrecioSuma = parseFloat(PrecioProducto) + parseFloat(valor);
     $("#inp_precio").val(PrecioSuma);
-    var PrecioTotal = PrecioSuma * 1.16;
+    var iva_porcentaje = document.getElementById("inp_iva").value;
+    var iva = parseFloat(1) + parseFloat(iva_porcentaje);
+    var PrecioTotal = PrecioSuma * iva;
     $(".product-price").text('$ ' + PrecioTotal.toFixed(2) + ' MXN ');
+}
+
+function GetIVA() {
+    $.ajax({
+        type: 'post',
+        url: '/assets/tools/Productos/GetIva.php',
+        dataType:"json",
+        success: function (response) {
+            var DatosJson = JSON.parse(JSON.stringify(response));
+             $("#inp_iva").val(DatosJson[0].TasaOCuota);
+        }
+    });
 }
 
 function cart(id) {

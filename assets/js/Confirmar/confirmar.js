@@ -1,10 +1,22 @@
 $(document).ready(function () {
+    GetIVA();
     VerPedido();
-
     $("#form_pago").hide();
     $(".loader").hide();
 
 });
+
+function GetIVA() {
+    $.ajax({
+        type: 'post',
+        url: '/assets/tools/Productos/GetIva.php',
+        dataType: "json",
+        success: function (response) {
+            var DatosJson = JSON.parse(JSON.stringify(response));
+            $("#inp_iva").val(DatosJson[0].TasaOCuota);
+        }
+    });
+}
 
 function VerPedido() {
     var parametros = {
@@ -37,8 +49,6 @@ function VerPedido() {
                         '<td class="text-right">$' + Math.round10(DatosJson[i].Inv_pre_total, -2).toFixed(2) + '</td>' +
 
                         '</tr>');
-                    exit = 0;
-                    sumaprod = parseFloat(sumaprod) + parseFloat(DatosJson[i].Inv_pre_total);
                 }
                 if (DatosJson[i].PrdMeta_ID == 'Producto' || DatosJson[i].PrdMeta_ID == 'ArteOriginal') {
                     $("#tbl_confirmar").append('<tr class="rounded  bg-white ">' +
@@ -61,8 +71,10 @@ function VerPedido() {
             sumaprod = Math.round10(sumaprod, -2);
             $("#subtotal").html("$" + sumaprod.toFixed(2));
             $("#inp_subtotal").val(sumaprod);
-            var iva = suma * 0.16;
-            var total = suma * 1.16;
+            var iva_porcentaje = document.getElementById("inp_iva").value;
+            var iva_116 = parseFloat(1) + parseFloat(iva_porcentaje);
+            var iva = suma * iva_porcentaje;
+            var total = suma * iva_116;
             var monto = suma;
             $("#inp_monto").val(monto);
             total = Math.round10(total, -2);

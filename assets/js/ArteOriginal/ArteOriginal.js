@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    GetIVA();
     ListaProductos();
     //ProdFamilias();
 });
@@ -8,6 +9,19 @@ function dosDecimales(n) {
     let regex = /(\d*.\d{0,2})/;
     return t.match(regex)[0];
 }
+
+function GetIVA() {
+    $.ajax({
+        type: 'post',
+        url: '/assets/tools/Productos/GetIva.php',
+        dataType:"json",
+        success: function (response) {
+            var DatosJson = JSON.parse(JSON.stringify(response));
+             $("#inp_iva").val(DatosJson[0].TasaOCuota);
+        }
+    });
+}
+
 
 function ListaProductos() {
     var parametros = "";
@@ -21,9 +35,10 @@ function ListaProductos() {
             //console.log(response);
             var DatosJson = JSON.parse(JSON.stringify(response));
             console.log(DatosJson.length);
-
+            var iva_porcentaje = document.getElementById("inp_iva").value;
+            var iva = parseFloat(1) + parseFloat(iva_porcentaje);
             for (i = 0; i < DatosJson.length; i++) {
-                var precio = DatosJson[i].Prod_Precio;
+                var precio = parseFloat(DatosJson[i].Prod_Precio)*parseFloat(iva);
                 if (DatosJson[i].Existencia > 0) {
                     $("#Productos").append('<div class="col-md-3 col-sm-6 my-3">' +
                         '<div class="product-grid3 disabled">' +
@@ -40,7 +55,7 @@ function ListaProductos() {
                         '<div class="product-content">' +
                         '<h3 class="title"><a href="/build/ArteOriginal/VistaPrevia/?Prd_ID=' + DatosJson[i].Producto_ID + '&Meta=ArteOriginal">' + DatosJson[i].Prod_Nombre + '</a></h3>' +
                         '<div class="price">' +
-                        '$' + dosDecimales(precio * 1.16) +
+                        '$' + precio.toFixed(2) +
                         '<span></span>' +
                         '</div>' +
                         '<ul class="rating">' +
@@ -66,7 +81,7 @@ function ListaProductos() {
                         '<div class="product-content">' +
                         '<h3 class="title"><a>' + DatosJson[i].Prod_Nombre + '</a></h3>' +
                         '<div class="price">' +
-                        '$' + dosDecimales(precio * 1.16) +
+                        '$' + precio.toFixed(2) +
                         '<span></span>' +
                         '</div>' +
                         '<ul class="rating">' +
