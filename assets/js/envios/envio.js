@@ -9,6 +9,7 @@ function dosDecimales(n) {
     let regex = /(\d*.\d{0,2})/;
     return t.match(regex)[0];
 }
+
 function DatosEnvioCliente() {
     var parametros = {
         Nota_ID: document.getElementById("inp_Nota_ID").value

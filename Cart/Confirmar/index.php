@@ -286,6 +286,35 @@
         </div>
     </div>
 
+    <div class="modal fade" id="ModalFacturacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Confirmar datos de facturación</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="form_facturacion">
+                        <div class="form-group">
+                            <label for="inp_razon_social">Razón social</label>
+                            <input type="text" class="form-control" id="inp_razon_social" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="inp_rfc">R.F.C.</label>
+                            <input type="text" class="form-control" id="inp_rfc" required >
+                        </div>
+                        <button type="submit" class="btn btn-primary">Confirmar</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="cancelar_facturacion" class="btn btn-secondary" >Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/footer.html'; ?>
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/scripts.html'; ?>
     <script type="text/javascript" src="/assets/js/Confirmar/confirmar.js"></script>

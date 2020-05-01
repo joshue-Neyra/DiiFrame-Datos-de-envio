@@ -35,7 +35,7 @@ function VerPedido() {
                         '<td>' + DatosJson[i].Prod_Nombre + ' - ' + DatosJson[i].Descripcion + '</td>' +
                         '<td>' + DatosJson[i].Inv_cant + '</td>' +
                         '<td class="text-right">$' + Math.round10(DatosJson[i].Inv_pre_total, -2).toFixed(2) + '</td>' +
-                        
+
                         '</tr>');
                     exit = 0;
                     sumaprod = parseFloat(sumaprod) + parseFloat(DatosJson[i].Inv_pre_total);
@@ -263,9 +263,46 @@ function CorreoVentas(Nota_ID) {
     });
 }
 
-$("#MyButton").click(function () {
-    var Nota_ID = document.getElementById("Nota_ID").value;
-    CorreoCliente(Nota_ID)
+$("#inp_factura").click(function () {
+    if ($('#inp_factura').is(':checked')) {
+        $('#ModalFacturacion').modal('show');
+        $.ajax({
+            url: '/assets/tools/Confirmar/BuscarFacturacion.php',
+            type: 'post',
+            success: function (response) {
+                var DatosJson = JSON.parse(response);
+                $("#inp_razon_social").val(DatosJson[0].RazonSocial);
+                $("#inp_rfc").val(DatosJson[0].Clie_RFC);
+            }
+        });
+    } else {
+        $('#ModalFacturacion').modal('hide');
+        $('#inp_factura').prop("checked", false);
+    }
+});
+
+$("#cancelar_facturacion").click(function () {
+    $('#inp_factura').prop("checked", false);
+    $('#ModalFacturacion').modal('hide');
+
+
+});
+
+$('#form_facturacion').submit(function (event) {
+    var parametros = {
+        rfc: document.getElementById("inp_rfc").value,
+        razonsocial: document.getElementById("inp_razon_social").value
+    }
+    $.ajax({
+        data: parametros,
+        url: '/assets/tools/Confirmar/UpdateFacturacion.php',
+        type: 'post',
+        success: function (response) {
+            $('#ModalFacturacion').modal('hide');
+            alert(response);
+        }
+    });
+    event.preventDefault();
 });
 
 function CorreoCliente(Nota_ID) {
@@ -298,18 +335,26 @@ function CorreoCliente(Nota_ID) {
 }
 
 function facturar(Nota_ID) {
-    var parametros = {
-        "Nota_ID": Nota_ID
-    }
-    $.ajax({
-        data: parametros,
-        url: '/assets/tools/Confirmar/UpdateNotaFactura.php',
-        type: 'post',
-        success: function (response) {
-            //console.log(response);
-            //location.href='/Pedido/?Nota_ID='+ parametros.Nota_ID+'';
+    var rfc = document.getElementById("inp_rfc").value;
+    var razonsocial = document.getElementById("inp_razon_social").value;
+    if (rfc == "" || razonsocial == "") {
+        $('#ModalFacturacion').modal('show');
+    } else {
+        var parametros = {
+            "Nota_ID": Nota_ID
         }
-    });
+        $.ajax({
+            data: parametros,
+            url: '/assets/tools/Confirmar/UpdateNotaFactura.php',
+            type: 'post',
+            success: function (response) {
+                //console.log(response);
+                //location.href='/Pedido/?Nota_ID='+ parametros.Nota_ID+'';
+            }
+        });
+    }
+
+
 }
 
 function PagoCRM(Nota_ID, total, tipo) {
