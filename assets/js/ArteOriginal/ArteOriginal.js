@@ -1,6 +1,6 @@
 $(document).ready(function () {
     GetIVA();
-    ListaProductos();
+
     //ProdFamilias();
 });
 
@@ -14,10 +14,11 @@ function GetIVA() {
     $.ajax({
         type: 'post',
         url: '/assets/tools/Productos/GetIva.php',
-        dataType:"json",
+        dataType: "json",
         success: function (response) {
             var DatosJson = JSON.parse(JSON.stringify(response));
-             $("#inp_iva").val(DatosJson[0].TasaOCuota);
+            $("#inp_iva").val(DatosJson[0].TasaOCuota);
+            ListaProductos();
         }
     });
 }
@@ -38,7 +39,7 @@ function ListaProductos() {
             var iva_porcentaje = document.getElementById("inp_iva").value;
             var iva = parseFloat(1) + parseFloat(iva_porcentaje);
             for (i = 0; i < DatosJson.length; i++) {
-                var precio = parseFloat(DatosJson[i].Prod_Precio)*parseFloat(iva);
+                var precio = parseFloat(DatosJson[i].Prod_Precio) * parseFloat(iva);
                 if (DatosJson[i].Existencia > 0) {
                     $("#Productos").append('<div class="col-md-3 col-sm-6 my-3">' +
                         '<div class="product-grid3 disabled">' +

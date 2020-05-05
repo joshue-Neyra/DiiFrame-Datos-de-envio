@@ -121,7 +121,7 @@ function VerPedido() {
             $("#subtotal").text('$' + subtotal);
             var iva_porcentaje = document.getElementById("inp_iva").value;
             var iva = parseFloat(1) + parseFloat(iva_porcentaje);
-            $("#impuestos").text('$' + (subtotal * iva_porcentaje));
+            $("#impuestos").text('$' + Math.round10((subtotal * iva_porcentaje),-2));
             var total = Math.round10((subtotal * iva), -2);
             $("#total").text('$' + total);
 

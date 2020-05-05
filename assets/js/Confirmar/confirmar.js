@@ -78,7 +78,7 @@ function VerPedido() {
             var monto = suma;
             $("#inp_monto").val(monto);
             total = Math.round10(total, -2);
-            $("#iva").html("$" + iva);
+            $("#iva").html("$" + Math.round10(iva,-2));
             $("#inp_iva").val(iva);
             $("#total").html("$" + total + ' (MXN)');
             $("#inp_total").val(total);
