@@ -210,6 +210,10 @@ function DetalleMarialuisa() {
                 Precio(DatosJson[0].Precio);
             }
         });
+    } else {
+        $(".product-title").append('<br>Entre vidrios' );
+        var descripcion = document.getElementById("inp_inv_descripcion").value;
+        $("#inp_inv_descripcion").val(descripcion + ' Entre vidrios');
     }
 
 }
