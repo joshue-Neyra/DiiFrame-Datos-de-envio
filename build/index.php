@@ -37,10 +37,10 @@
                 <a>
                     <div class="col-lg-3 col-sm-6 mb-4 hvr-float-shadow">
                         <div class="card h-100">
-                            <a href="#"><img class="card-img-top" src="/assets/img/build2.jpg" alt="build"></a>
+                            <a href="/build/GaleriaFotos/"><img class="card-img-top" src="/assets/img/build2.jpg" alt="build"></a>
                             <div class="card-body">
                                 <h4 class="card-title">
-                                    <a href="#">Galería de Fotos</a>
+                                    <a href="/build/GaleriaFotos/">Galería de Fotos</a>
                                 </h4>
                                 <p class="card-text">Crea increíbles muros galería con tus fotos, en pasos simples</p>
                             </div>
