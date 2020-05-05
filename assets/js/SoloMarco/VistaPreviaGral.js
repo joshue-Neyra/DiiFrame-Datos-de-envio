@@ -83,7 +83,7 @@ function DetalleProducto() {
                     '</div>');
                 var PrecioTotal = DatosJson[i].Precio * iva;
                 $("#Descripcion").append('<p class="last-sold text-muted"><strong>Detalles del proyecto:</strong></p>' +
-                    '<h4 class="product-title mb-2"> Marco: ' + DatosJson[i].Prod_Nombre + '<br> Tamaño de impresión: ' + DatosJson[i].Tamano + '</h4>' +
+                    '<h4 class="product-title mb-2"> Marco: ' + DatosJson[i].Prod_Nombre +'<br>'+ DatosJson[i].Prod_Descripcion + '<br> Tamaño de marco: ' + DatosJson[i].Tamano + '</h4>' +
                     '<h2 class="product-price display-4">$ ' + PrecioTotal.toFixed(2) + ' MXN </h2>' +
                     '<p class="text-success"><i class="fab fa-cc-mastercard"></i> <i class="fab fa-cc-visa"></i></p>' +
                     '<p class="mb-0"><i class="fa fa-truck"></i> Envios a todo México</p>' +
@@ -98,7 +98,7 @@ function DetalleProducto() {
                     '<input type="number"  id="inp_Tamano_ID" class="d-none" value="' + DatosJson[i].Tamano_ID + '">' +
                     '<input type="text"  id="inp_Tamano" class="d-none" value="' + DatosJson[i].Tamano + '">' +
                     '<input type="text"  id="inp_ProdNombre" class="d-none" value="' + DatosJson[i].Prod_Nombre + '">' +
-                    '<input type="text"  id="inp_inv_descripcion" class="d-none">' +
+                    '<input type="text"  id="inp_inv_descripcion" class="d-none" value="' + DatosJson[i].Tamano + '">' +
                     '</div>' +
                     '</form>' +
                     '<div id="btn_descripcion">' +
