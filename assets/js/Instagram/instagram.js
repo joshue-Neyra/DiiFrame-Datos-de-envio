@@ -20,8 +20,9 @@ function InstagramGetMedia() {
             for (i = 0; i < algo.length; i++) {
                 if (algo[i].media_type != "VIDEO") {
                     var url = "'" + algo[i].media_url.toString() + "'";
+                    var name = "'" + algo[i].id.toString() + ".jpg'";
                     $("#Instagram_feed").append(' <div class="col-lg-3 gallery-item hvr-float-shadow"' +
-                        ' onclick="sesion(' + url + ')">' +
+                        ' onclick="sesion(' + url + ','+name +')">' +
                         '<a class="d-block mb-4 h-100 ">' +
                         '<img class="img-fluid" src="' + algo[i].media_url + '" alt="Diiframe">' +
                         '</a>' +
@@ -34,18 +35,19 @@ function InstagramGetMedia() {
 
 }
 
-function sesion(url) {
+function sesion(url,name) {
     var parametros = {
-        url: url
+        url: url,
+        name:name
     }
-    //alert(parametros.url);
+    //alert(parametros.name);
     $.ajax({
-        "url": '/assets/tools/Sesion/sesioninstagram.php',
+        "url": '/assets/tools/imageupload/instagram_images/upload.php',
         "method": "post",
         "data": parametros,
         "success": function (response) {
             if (response == "ok") {
-                location.href = "/build/ImpresionDigital/InstagramData/ElegirTamano/";
+                location.href = "/build/ImpresionDigital/InstagramData/ElegirTamano";
             } else {
                 console.log(response);
             }
