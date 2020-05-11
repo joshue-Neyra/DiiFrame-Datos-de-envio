@@ -5,7 +5,7 @@ $sql = "SELECT dbo.TamanoRelProducto.Tamano_ID,dbo.TamanosImpresion.Tamano, dbo.
 FROM  dbo.TamanoRelProducto
 INNER JOIN dbo.Productos ON dbo.TamanoRelProducto.Producto_ID = dbo.Productos.Producto_ID 
 INNER JOIN dbo.TamanosImpresion on dbo.TamanoRelProducto.Tamano_ID = dbo.TamanosImpresion.Tamano_ID
-WHERE    dbo.Productos.ID_Status = 2 and  dbo.Productos.PrdMeta_ID = 'Marialuisa' and TamanoRelProducto.Tamano_ID = '$Tamano_ID' and Productos.Producto_ID = $Producto";
+WHERE    dbo.Productos.ID_Status = 2 and  (dbo.Productos.PrdMeta_ID = 'Marialuisa' OR dbo.Productos.PrdMeta_ID = 'Vidrio') and TamanoRelProducto.Tamano_ID = '$Tamano_ID' and Productos.Producto_ID = $Producto";
 function getArraySQL($sql){
     //Creamos la conexión con la función anterior
     require $_SERVER['DOCUMENT_ROOT'].'/assets/tools/connection.php'; 

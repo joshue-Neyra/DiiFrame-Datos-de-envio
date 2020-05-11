@@ -13,14 +13,50 @@
 <body id="page-top">
     <!-- Navigation -->
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/nav2.html'; ?>
-    <input id="Tamano_ID" class="d-none" value=" <?php echo $_GET['tamano'];?>">
-    <input id="Producto_ID" class="d-none" value=" <?php echo $_GET['prod'];?>">
+    <div class="d-none">
+        <label>Tamaño Impresion</label>
+        <input id="Tamano_ID" class="d-none" value=" <?php echo $_GET['tamano'];?>">
+        <br>
+        <label>Producto_ID</label>
+        <input id="Producto_ID" class="d-none" value=" <?php echo $_GET['prod'];?>">
+        <br>
+        <label>Tamano_Marialuisa</label>
+        <input id="Tamano_Marialuisa" class="d-none" value=" <?php echo $_GET['TM'];?>">
+        <br>
+        <label>Marialuisa_ID</label>
+        <input id="Marialuisa_ID" class="d-none" value="<?php echo $_GET['Color'];?>">
+        <br>
+        <label>Vidrio_Trasero</label>
+        <input id="Vidrio_T" class="d-none" value="<?php echo $_GET['VT'];?>">
+        <br>
+        <label>Vidrio_Frontal</label>
+        <input id="Vidrio_F" class="d-none" value="<?php echo $_GET['VF'];?>">
+        <input id="Meta" class="d-none" value="<?php echo $_GET['Meta'];?>">
 
-    <input id="Tamano_M" class="d-none" value=" <?php echo $_GET['TM'];?>">
-    <input id="Marialuisa_ID" class="d-none" value="<?php echo $_GET['Color'];?>">
-    <input id="Vidrio_T" class="d-none" value="<?php echo $_GET['VT'];?>">
-    <input id="Vidrio_F" class="d-none" value="<?php echo $_GET['VF'];?>">
-    <input id="Meta" class="d-none" value="<?php echo $_GET['Meta'];?>">
+        <br>
+        <br>
+        <label>Precio Marco</label>
+        <input id="Precio_Marco" class="d-none">
+        <br>
+        <label>Precio Marialuisa</label>
+        <input id="Precio_Marialuisa" class="d-none">
+        <br>
+        <label>Precio Vidrio_Frontal</label>
+        <input id="Precio_Vidrio_Frontal" class="d-none">
+        <br>
+        <label>Subtotal</label>
+        <input id="Subtotal" class="d-none">
+        <br>
+        <label>Nombre Marialuisa</label>
+        <input id="Nombre_Marialuisa" type="text" class="d-none">
+        <br>
+        <label>Nombre Vidrio</label>
+        <input id="Nombre_Vidrio" type="text" class="d-none">
+        <br>
+        <label>Nombre Tamaño Marialuisa</label>
+        <input id="Nombre_Tamano_Marialuisa" type="text" class="d-none">
+        <br>
+    </div>
     <div class="container">
         <div class="card-group mb-5 my-5">
             <div class="card">
@@ -74,7 +110,7 @@
             </div>
         </div>
     </div>
-      <div id="lightbox4" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div id="lightbox4" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
