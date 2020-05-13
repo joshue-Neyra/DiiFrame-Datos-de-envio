@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     ListaDirecciones();
-    DatosCliente(); 
+    DatosCliente();
     ListaPedidos();
 });
 
@@ -110,12 +110,12 @@ function ListaDirecciones() {
             $("#tbl_direcciones").text("");
             for (i = 0; i < DatosJson.length; i++) {
                 $("#tbl_direcciones").append('<tr>' +
-                    '<th scope="row">'+DatosJson[i].Direccion_ID+'</th>' +
-                    '<td>'+DatosJson[i].Clie_Calle+' '+DatosJson[i].Clie_Num_Ext+' int: '+DatosJson[i].Clie_Num_Int+'</td>' +
-                    '<td> C.P. '+DatosJson[i].CP+', '+DatosJson[i].Clie_Colonia+', '+DatosJson[i].Clie_Estado+' '+DatosJson[i].Clie_Pais+'</td>' +
-                    '<td>'+DatosJson[i].Celular+'</td>' +
+                    '<th scope="row">' + DatosJson[i].Direccion_ID + '</th>' +
+                    '<td>' + DatosJson[i].Clie_Calle + ' ' + DatosJson[i].Clie_Num_Ext + ' int: ' + DatosJson[i].Clie_Num_Int + '</td>' +
+                    '<td> C.P. ' + DatosJson[i].CP + ', ' + DatosJson[i].Clie_Colonia + ', ' + DatosJson[i].Clie_Estado + ' ' + DatosJson[i].Clie_Pais + '</td>' +
+                    '<td>' + DatosJson[i].Celular + '</td>' +
                     //'<td><span class="badge badge-pill badge-success">Ended</span></td>' +
-                    '<td><button class="btn btn-danger btn-sm"> Eliminar </button> | <button class="btn btn-primary btn-sm"> Editar </button></td>' +
+                    '<td><button onclick="EliminarDireccion(' + DatosJson[i].Direccion_ID + ')" class="btn btn-danger btn-sm"> Eliminar </button> </td>' +
                     '</tr>'
                 );
             }
@@ -124,8 +124,22 @@ function ListaDirecciones() {
     });
 }
 
+function EliminarDireccion(Id) {
+    var parametros = {
+        Direccion_ID: Id
+    }
+    $.ajax({
+        data: parametros,
+        url: '/assets/tools/Usuario/EliminarDireccion.php',
+        type: 'post',
+        success: function (response) {
+            alert(response);
+            ListaDirecciones();
+        }
+    });
+}
+
 function ShowFormCrear() {
     $("#ClienteDirecciones").hide();
     $("#CrearDireccion").fadeIn("slow");
 }
-

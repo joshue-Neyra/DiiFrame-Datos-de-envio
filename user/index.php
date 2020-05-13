@@ -43,6 +43,10 @@
     <div class="container mb-5 my-5">
 
         <div class="row">
+            <div class="col-lg-8 my-3"><button type="button" class="btn btn-warning btn-small text-white" data-toggle="modal" data-target="#logoutModal">
+                        Cerrar Sesion
+                    </button>
+            </div>
             <div class="col-md-12">
                 <div style="height: 2em"></div>
                 <div class="card">
@@ -100,7 +104,7 @@
                                                 <div class="col-lg-12">
                                                     <div class="form-group focused">
                                                         <label class="form-control-label" for="inp_cli_razonsocial">Razón Social</label>
-                                                        <input type="email" id="inp_cli_razonsocial" class="form-control form-control-alternative" placeholder="Razon Social">
+                                                        <input type="text" id="inp_cli_razonsocial" class="form-control form-control-alternative" placeholder="Razon Social">
                                                     </div>
                                                 </div>
                                             </div>
@@ -237,7 +241,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">CERRAR SESION?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">¿Cerrar Sesión?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
