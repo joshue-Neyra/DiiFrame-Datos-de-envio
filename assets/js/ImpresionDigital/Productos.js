@@ -68,6 +68,7 @@ function ListaProductos(bg) {
                     '</div>' +
                     '</div>');
             }
+            $('.ml').first().click();
         }
     });
 }

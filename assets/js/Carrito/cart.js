@@ -1,12 +1,6 @@
 $(document).ready(function () {
     GetIVA();
-    $("#form-direccion").hide();
-    $("#form-pedidos").hide();
-    $("#address").hide();
-    $("#CrearDireccion").hide();
-    $(".loader").hide();
-    ListaDirecciones();
-    Carrito(), ListaPedidos()
+
 });
 
 function GetIVA() {
@@ -17,6 +11,13 @@ function GetIVA() {
         success: function (response) {
             var DatosJson = JSON.parse(JSON.stringify(response));
             $("#inp_iva").val(DatosJson[0].TasaOCuota);
+            $("#form-direccion").hide();
+            $("#form-pedidos").hide();
+            $("#address").hide();
+            $("#CrearDireccion").hide();
+            $(".loader").hide();
+            ListaDirecciones();
+            Carrito(); ListaPedidos();
         }
     });
 }

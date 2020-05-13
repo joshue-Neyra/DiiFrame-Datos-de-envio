@@ -88,7 +88,7 @@ else{
                 $precio = $_SESSION['Precio'][$i];
                 $imglocal=$_SESSION['Imagen'][$i];
                 $Meta=$_SESSION['Meta'][$i];
-                if ($Meta != 'Marialuisa' &&  $Meta != 'Vidrio'){
+                if ($Meta != 'Marialuisa' &&  $Meta != 'Vidrio'&&  $Meta != 'ArteOriginal'){
                     $inv_descripcion=$_SESSION['inv_descripcion'][$i];
                 }
                 else {
