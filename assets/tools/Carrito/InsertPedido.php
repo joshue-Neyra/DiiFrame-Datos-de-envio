@@ -94,9 +94,22 @@ else{
                 else {
                     $inv_descripcion='';
                 }
-
+                if ($_SESSION['Imagen'][$i] != 'Marialuisa' &&  $_SESSION['Imagen'][$i] != 'Vidrio' &&  $_SESSION['Imagen'][$i] != 'ArteOriginal'){
                 
-                $imagen = "$imglocal";
+                    $srcfile = $_SERVER['DOCUMENT_ROOT'].'/assets/tools/imageupload/'.$_SESSION['Imagen'][$i]; 
+                    $destfile =$_SERVER['DOCUMENT_ROOT'].'/assets/tools/imageupload/ImagenesPedidos/'.$Nota_ID.$_SESSION['Imagen'][$i];
+                    $nuevo_nombre = '/assets/tools/imageupload/ImagenesPedidos/'.$Nota_ID.$_SESSION['Imagen'][$i];
+                    if (!copy($srcfile, $destfile)) { 
+                    echo "File cannot be copied! \n"; 
+                        $errors= error_get_last();
+                    echo "COPY ERROR: ".$errors['type'];
+                    echo "<br />\n".$errors['message'];
+                    }
+                    $imagen = "$nuevo_nombre";
+                }
+                else{
+                    $imagen = "";
+                }
                 $precio_total= $cantidad * $precio;
 
                 $sql = "EXEC NuevoInventario @Serv_ID =?,

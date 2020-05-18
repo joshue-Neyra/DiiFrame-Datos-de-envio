@@ -55,7 +55,7 @@ function DetalleProducto() {
             $("#carrusel_zoom2").append('<div style="background-color:#' + DatosJson[0].Color + ';" class="border border-warning device-mockup ' + device + ' ' + orientacion + ' white box4" href="#" data-toggle="modal" data-target="#lightbox1">' +
                 '<div class="device" style="background-image: url(' + DatosJson[0].RutaImagen1 + ');">' +
                 '<div class="screen " >' +
-                '<img src="' + DatosJson[0].ImagenUsuario + '" class="img-fluid foto" width="' + width + '" alt="img">' +
+                '<img src="/assets/tools/imageupload/' + DatosJson[0].ImagenUsuario + '" class="img-fluid foto" width="' + width + '" alt="img">' +
                 '</div><div class="box-content ">' +
                 '<h3 class = "text-center text-warning" ><i class = "fa fa-search fa-2x" > </i> </h3>' +
                 '</div >');
@@ -64,7 +64,7 @@ function DetalleProducto() {
             $("#modal1").append('<div style="background-color:#' + DatosJson[0].Color + ';" class="border border-warning device-mockup ' + device + ' ' + orientacion + ' white" >' +
                 '<div class="device" style="background-image: url(' + DatosJson[0].RutaImagen1 + ');">' +
                 '<div class="screen " >' +
-                '<img src="' + DatosJson[0].ImagenUsuario + '" class="img-fluid foto" width="' + width + '" alt="img">' +
+                '<img src="/assets/tools/imageupload/' + DatosJson[0].ImagenUsuario + '" class="img-fluid foto" width="' + width + '" alt="img">' +
                 '</div> ');
 
             $("#carrusel_zoom").append(
@@ -91,7 +91,7 @@ function DetalleProducto() {
                 '<div style="background-color:#' + DatosJson[0].Color + ';" class="device-mockup ' + device + ' ' + orientacion + ' white ">' +
                 '<div class="device" style="background-image: url(' + DatosJson[0].RutaImagen1 + ');">' +
                 '<div class="screen " >' +
-                '<img src="' + DatosJson[0].ImagenUsuario + '" class="img-fluid" width="' + width + '" alt="img">' +
+                '<img src="/assets/tools/imageupload/' + DatosJson[0].ImagenUsuario + '" class="img-fluid" width="' + width + '" alt="img">' +
                 '</div>' +
                 '</div>' +
                 '</div>');
@@ -107,7 +107,7 @@ function DetalleProducto() {
                 '<div style="background-color:#' + DatosJson[0].Color + ';" class="device-mockup ' + device + ' ' + orientacion + ' white ">' +
                 '<div class="device" style="background-image: url(' + DatosJson[0].RutaImagen1 + ');">' +
                 '<div class="screen " >' +
-                '<img src="' + DatosJson[0].ImagenUsuario + '" class="img-fluid" width="' + width + '" alt="img">' +
+                '<img src="/assets/tools/imageupload/' + DatosJson[0].ImagenUsuario + '" class="img-fluid" width="' + width + '" alt="img">' +
                 '</div>' +
                 '</div>');
             $("#Descripcion").append('<p class="last-sold text-muted"><strong>Detalles del proyecto:</strong></p>' +

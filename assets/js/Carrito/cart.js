@@ -46,7 +46,7 @@ function Carrito() {
             $("#tbl_carrito").text("");
             for (i = 0; i < DatosJson.length; i++) {
                 if (DatosJson[i].Meta != 'Marialuisa' && DatosJson[i].Meta != 'Vidrio') {
-                    imagen = '<img width="50px" src="' + DatosJson[i].Imagen + '" />'
+                    imagen = '<img width="50px" src="/assets/tools/imageupload/' + DatosJson[i].Imagen + '" />'
                     var precio = (DatosJson[i].Cantidad * DatosJson[i].Precio) * iva;
                     $("#tbl_carrito").append('<tr>' +
                         '<td class="text-center">' + imagen + ' </td>' +

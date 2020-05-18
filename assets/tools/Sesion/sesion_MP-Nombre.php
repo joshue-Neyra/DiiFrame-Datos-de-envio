@@ -5,4 +5,4 @@ $Ori=$_GET['Ori'];
 $nombre=$_GET['Nombre'];
 $_SESSION['Mp']=$Mp;
 $_SESSION['Orientacion']=$Ori;
-$_SESSION['Nombre']="/assets/tools/imageupload/$nombre";
+$_SESSION['Nombre']="$nombre";

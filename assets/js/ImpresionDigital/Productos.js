@@ -38,7 +38,7 @@ function ListaProductos(bg) {
                     '<div class="device-mockup tm_35cm ' + orientacion + ' white ">' +
                     '<div class="device" style="background-image: url(' + DatosJson[i].RutaImagen1 + ');">' +
                     '<div class="screen ">' +
-                    '<img src="' + DatosJson[i].ImagenUsuario + '" class="img-fluid foto" width="50%" alt="img">' +
+                    '<img src="/assets/tools/imageupload/' + DatosJson[i].ImagenUsuario + '" class="img-fluid foto" width="50%" alt="img">' +
                     '</div>' +
                     '</div>' +
                     '</div>' +
