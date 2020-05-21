@@ -259,7 +259,7 @@ function DetalleMarialuisa() {
         success: function (response) {
             console.log(response);
             var DatosJson = JSON.parse(JSON.stringify(response));
-            if (DatosJson[0].Prod_Nombre == "Vidrio Frontal Normal") {
+            if (DatosJson[0].Prod_Nombre == "Vidrio Normal") {
                 $(".product-title").append('<br>Entre Vidrios <br>' + DatosJson[0].Tamano);
                 var descripcion = document.getElementById("inp_inv_descripcion").value;
                 //alert(descripcion);
@@ -304,8 +304,10 @@ function Marialuisa() {
     var x = document.getElementById("Marialuisa_ID").value;
     if (x != 0) {
         var Id = document.getElementById("Marialuisa_ID").value;
+        var meta ='Marialuisa';
     } else {
         var Id = 2;
+        var meta = "Vidrio";
     }
     $.ajax({
         type: 'post',
@@ -318,7 +320,7 @@ function Marialuisa() {
             Tamano: document.getElementById("Nombre_Tamano_Marialuisa").value,
             Precio: 0,
             Cantidad: document.getElementById("inp_cant").value,
-            Meta: 'Marialuisa',
+            Meta: meta,
             inv_descripcion: document.getElementById("inp_inv_descripcion").value,
         },
         success: function (response) {
