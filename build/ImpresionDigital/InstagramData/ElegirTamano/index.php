@@ -26,7 +26,7 @@
     <!-- Navigation -->
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/nav2.html'; ?>
     <div class="loader"></div>
-    <img id="media_id"  class="" src="<?php echo $_SESSION['Nombre']; ?>" alt="build">
+    <img id="media_id"  class="" src="/assets/tools/imageupload/<?php echo $_SESSION['Nombre']; ?>" alt="build">
 
     <section class="features" id="features">
         <div class="container">
@@ -56,7 +56,7 @@
 
                 <div class="col-lg-6 col-sm-6 mb-4">
                     <div class="card">
-                        <a ><img  class="img-fluid" src="<?php echo $_SESSION['Nombre']; ?>" alt="build"></a>
+                        <a ><img  class="img-fluid" src="/assets/tools/imageupload/<?php echo $_SESSION['Nombre']; ?>" alt="build"></a>
                         <div class="card-footer container">
                                 <p></p>
                         </div>

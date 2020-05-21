@@ -42,7 +42,7 @@ function sesion(url,name) {
     }
     //alert(parametros.name);
     $.ajax({
-        "url": '/assets/tools/imageupload/instagram_images/upload.php',
+        "url": '/assets/tools/imageupload/InstagramUpload.php',
         "method": "post",
         "data": parametros,
         "success": function (response) {
