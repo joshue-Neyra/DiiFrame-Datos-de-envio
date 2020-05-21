@@ -117,6 +117,8 @@
                             </div>
                             <h3 class="text-center">Fabricamos tu marco y lo enviamos a tu domicilio
                             </h3>
+                            <div class="row justify-content-md-center">
+                            <a href="/build/" class="text-center btn btn-primary my-5">Iniciemos</a></div>
                         </div>
                     </div>
                 </div>
