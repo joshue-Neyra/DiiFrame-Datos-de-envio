@@ -22,11 +22,25 @@
 
  $(window).on('load', function () {
      var news = document.getElementById("news").value;
-     if (news != '1') {
-         setTimeout(function () {
-             $('#subscribeModal').modal('show');
-         }, 5000);
-     }
+     
+    $.ajax({
+        type: 'post',
+        url: '/assets/tools/signin/GetNewsletter.php',
+        dataType: "json",
+        success: function (response) {
+            
+            var DatosJson = JSON.parse(JSON.stringify(response));
+            var Activado = DatosJson[0].Activado;
+            if (news != '1' && Activado) {
+                setTimeout(function () {
+                $('#subscribeModal').modal('show');
+                }, 5000);
+            }
+            
+        }
+    });
+
+    
 
  });
  $(document).ready(function () {
