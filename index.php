@@ -79,64 +79,66 @@
 
     <div class="container-fluid" id="howitworks">
         <div class="no-gutter">
-        <div class="row ">
-            <div class="col-lg-6 my-auto showcase-text">
-                <div class="row align-self-center">
-                    <div class="col-lg-12 mb-5">
-                        <h1 class="text-center text-uppercase font-weight-bold"><strong>Como trabajamos</strong></h1>
-                    </div>
-                    <div class="col-lg-12 ">
-                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                            <div class="features-icons-icon d-flex">
-                                <a class="fa-stack fa-2x m-auto " onmouseover="slide1()" id="slide1" data-target="#carouselExampleIndicators2" data-slide-to="0">
-                                    <i class="fas fa-circle fa-stack-2x "></i>
-                                    <i class="fas  fa-stack-1x fa-inverse text-white">1</i>
-                                </a>
+            <div class="row ">
+                <div class="col-lg-6 my-auto showcase-text">
+                    <div class="row align-self-center justify-content-md-center">
+                        <div class="col-lg-12 mb-5">
+                            <h1 class="text-center text-uppercase font-weight-bold"><strong>Como trabajamos</strong></h1>
+                        </div>
+                        <div class="col-lg-12 ">
+                            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                                <div class="features-icons-icon d-flex">
+                                    <a class="fa-stack fa-2x m-auto " onmouseover="slide1()" id="slide1" data-target="#carouselExampleIndicators2" data-slide-to="0">
+                                        <i class="fas fa-circle fa-stack-2x "></i>
+                                        <i class="fas  fa-stack-1x fa-inverse text-white">1</i>
+                                    </a>
+                                </div>
+                                <h3 class="text-center">Sube tu foto o envíanos tu arte</h3>
                             </div>
-                            <h3 class="text-center">Sube tu foto o envíanos tu arte</h3>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                                <div class="features-icons-icon d-flex">
+                                    <a class="fa-stack fa-2x m-auto" onmouseover="slide2()" id="slide2" data-target="#carouselExampleIndicators2" data-slide-to="1">
+                                        <i class="fas fa-circle fa-stack-2x "></i>
+                                        <i class="fas  fa-stack-1x fa-inverse">2</i>
+                                    </a>
+                                </div>
+                                <h3 class="text-center">Selecciona tu marco favorito</h3>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+                                <div class="features-icons-icon d-flex">
+                                    <a class="fa-stack fa-2x m-auto" onmouseover="slide3()" id="slide3" data-target="#carouselExampleIndicators2" data-slide-to="2">
+                                        <i class="fas fa-circle fa-stack-2x "></i>
+                                        <i class="fas  fa-stack-1x fa-inverse">3</i>
+                                    </a>
+                                </div>
+                                <h3 class="text-center">Fabricamos tu marco y lo enviamos a tu domicilio
+                                </h3>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-2 d-flex justify-content-center">
+                            <center><a href="/build/" class="text-center btn btn-primary my-5">Iniciemos</a></center>
                         </div>
                     </div>
-                    <div class="col-lg-12">
-                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                            <div class="features-icons-icon d-flex">
-                                <a class="fa-stack fa-2x m-auto" onmouseover="slide2()" id="slide2" data-target="#carouselExampleIndicators2" data-slide-to="1">
-                                    <i class="fas fa-circle fa-stack-2x "></i>
-                                    <i class="fas  fa-stack-1x fa-inverse">2</i>
-                                </a>
-                            </div>
-                            <h3 class="text-center">Selecciona tu marco favorito</h3>
+                </div>
+                <div id="carouselExampleIndicators2" class="carousel slide col-lg-6" data-ride="carousel">
+                    <div class="carousel-inner" role="listbox">
+                        <!-- Slide One - Set the background image for this slide in the line below -->
+                        <div class="carousel-item active" style="background-image: url('/assets/img/2-1.jpg')">
                         </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="features-icons-item mx-auto mb-0 mb-lg-3">
-                            <div class="features-icons-icon d-flex">
-                                <a class="fa-stack fa-2x m-auto" onmouseover="slide3()" id="slide3" data-target="#carouselExampleIndicators2" data-slide-to="2">
-                                    <i class="fas fa-circle fa-stack-2x "></i>
-                                    <i class="fas  fa-stack-1x fa-inverse">3</i>
-                                </a>
-                            </div>
-                            <h3 class="text-center">Fabricamos tu marco y lo enviamos a tu domicilio
-                            </h3>
-                            <div class="row justify-content-md-center">
-                            <a href="/build/" class="text-center btn btn-primary my-5">Iniciemos</a></div>
+                        <!-- Slide Two - Set the background image for this slide in the line below -->
+                        <div class="carousel-item" style="background-image: url('/assets/img/2-2.jpg')">
+                        </div>
+                        <!-- Slide Three - Set the background image for this slide in the line below -->
+                        <div class="carousel-item" style="background-image: url('/assets/img/2-3.jpg')">
                         </div>
                     </div>
                 </div>
             </div>
-            <div id="carouselExampleIndicators2" class="carousel slide col-lg-6" data-ride="carousel">
-                <div class="carousel-inner" role="listbox">
-                    <!-- Slide One - Set the background image for this slide in the line below -->
-                    <div class="carousel-item active" style="background-image: url('/assets/img/2-1.jpg')">
-                    </div>
-                    <!-- Slide Two - Set the background image for this slide in the line below -->
-                    <div class="carousel-item" style="background-image: url('/assets/img/2-2.jpg')">
-                    </div>
-                    <!-- Slide Three - Set the background image for this slide in the line below -->
-                    <div class="carousel-item" style="background-image: url('/assets/img/2-3.jpg')">
-                    </div>
-                </div>
-            </div>
-        </div>
         </div>
     </div>
 

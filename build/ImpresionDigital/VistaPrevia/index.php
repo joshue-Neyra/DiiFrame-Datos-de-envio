@@ -5,6 +5,10 @@
     <title>Impresion Digital - Vista Previa</title>
     <meta name="description" content="">
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/head.html'; ?>
+    <?php session_start();
+    $imagen = $_SESSION['Nombre']; 
+    $Orientacion = $_SESSION['Orientacion'];
+    ?>
     <link href="/assets/css/pedido.css" rel="stylesheet">
     <link href="/assets/device-mockups/device-mockups.css" rel="stylesheet">
     <link href="/assets/device-mockups/device-mockups_antiguo.css" rel="stylesheet">
@@ -14,12 +18,8 @@
 <body id="page-top">
     <!-- Navigation -->
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/nav2.html'; ?>
-    <?php session_start();
-    $imagen = $_SESSION['Nombre']; 
-    $Orientacion = $_SESSION['Orientacion'];
-    ?>
-    <input class="d-none" id="Imagen_Orientacion" value="<?php echo $Orientacion;?>">
     
+    <input class="d-none" id="Imagen_Orientacion" value="<?php echo $Orientacion;?>">
     <input class="d-none" id="Imagen_Usuario" value="<?php echo $imagen;?>">
     <div class="d-none">
         <label>Tamaño Impresion</label>
