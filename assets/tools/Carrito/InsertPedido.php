@@ -94,8 +94,7 @@ else{
                 else {
                     $inv_descripcion='';
                 }
-                if ($_SESSION['Imagen'][$i] != 'Marialuisa' &&  $_SESSION['Imagen'][$i] != 'Vidrio' &&  $_SESSION['Imagen'][$i] != 'ArteOriginal'){
-                
+                if ($Meta == 'Impresion'){
                     $srcfile = $_SERVER['DOCUMENT_ROOT'].'/assets/tools/imageupload/'.$_SESSION['Imagen'][$i]; 
                     $destfile =$_SERVER['DOCUMENT_ROOT'].'/assets/tools/imageupload/ImagenesPedidos/'.$Nota_ID.$_SESSION['Imagen'][$i];
                     $nuevo_nombre = '/assets/tools/imageupload/ImagenesPedidos/'.$Nota_ID.$_SESSION['Imagen'][$i];
@@ -107,9 +106,12 @@ else{
                     }
                     $imagen = "$nuevo_nombre";
                 }
-                else{
-                    $imagen = "";
-                }
+                    else if($Meta == 'ArteOriginal' || $Meta == 'SoloMarco'){
+                        $imagen =$imglocal;
+                    }
+                    else{
+                        $imagen = "";
+                    }
                 $precio_total= $cantidad * $precio;
 
                 $sql = "EXEC NuevoInventario @Serv_ID =?,

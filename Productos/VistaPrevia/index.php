@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/head.html'; ?>
     <link href="/assets/css/pedido.css" rel="stylesheet">
-    <link href="/assets/device-mockups/device-mockups.css" rel="stylesheet">
+    <link href="/assets/device-mockups/device-mockups_antiguo.css" rel="stylesheet">
 
 </head>
 

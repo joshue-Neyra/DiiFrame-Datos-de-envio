@@ -7,12 +7,20 @@
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/head.html'; ?>
     <link href="/assets/css/pedido.css" rel="stylesheet">
     <link href="/assets/device-mockups/device-mockups.css" rel="stylesheet">
+    <link href="/assets/device-mockups/device-mockups_antiguo.css" rel="stylesheet">
 
 </head>
 
 <body id="page-top">
     <!-- Navigation -->
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/nav2.html'; ?>
+    <?php session_start();
+    $imagen = $_SESSION['Nombre']; 
+    $Orientacion = $_SESSION['Orientacion'];
+    ?>
+    <input class="d-none" id="Imagen_Orientacion" value="<?php echo $Orientacion;?>">
+    
+    <input class="d-none" id="Imagen_Usuario" value="<?php echo $imagen;?>">
     <div class="d-none">
         <label>Tamaño Impresion</label>
         <input id="Tamano_ID" class="d-none" value=" <?php echo $_GET['tamano'];?>">
@@ -65,7 +73,7 @@
                 <div class="card-body">
 
                     <div class="row justify-content-md-center">
-                        <div class="col col-lg-10" id="carrusel_zoom2"> </div>
+                        <div class="col col-lg-10 row justify-content-md-center" id="carrusel_zoom2"> </div>
                         <div class="col col-lg-10 row justify-content-md-center" id="carrusel_zoom"> </div>
                     </div>
                 </div>

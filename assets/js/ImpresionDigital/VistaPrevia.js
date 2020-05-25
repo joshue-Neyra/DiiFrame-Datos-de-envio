@@ -34,15 +34,13 @@ function DetalleProducto() {
         type: 'post',
         dataType: 'json',
         success: function (response) {
+
             //console.log(response);
             var DatosJson = JSON.parse(JSON.stringify(response));
             var orientacion = "";
             var Meta = document.getElementById("Meta").value;
-            if (DatosJson[0].Orientacion == 1) {
-                orientacion = "portrait";
-            } else {
-                orientacion = "landscape";
-            }
+
+            var imagenusuario = document.getElementById("Imagen_Usuario").value;
             var ml = document.getElementById("Tamano_Marialuisa").value;
             if (ml == 15) {
                 var device = "galaxy_s5";
@@ -51,21 +49,86 @@ function DetalleProducto() {
                 var device = "tm_35cm";
                 var width = "50%";
             }
-            $("#Precio_Marco").val(DatosJson[0].Precio);
-            $("#carrusel_zoom2").append('<div style="background-color:#' + DatosJson[0].Color + ';" class="border border-warning device-mockup ' + device + ' ' + orientacion + ' white box4" href="#" data-toggle="modal" data-target="#lightbox1">' +
-                '<div class="device" style="background-image: url(' + DatosJson[0].RutaImagen1 + ');">' +
-                '<div class="screen " >' +
-                '<img src="/assets/tools/imageupload/' + DatosJson[0].ImagenUsuario + '" class="img-fluid foto" width="' + width + '" alt="img">' +
-                '</div><div class="box-content ">' +
-                '<h3 class = "text-center text-warning" ><i class = "fa fa-search fa-2x" > </i> </h3>' +
-                '</div >');
-            var imagenusuario = DatosJson[0].ImagenUsuario;
+            if (DatosJson[0].Orientacion == 1) {
+                orientacion_marco = "marco_portrait";
+                rotar = "";
 
-            $("#modal1").append('<div style="background-color:#' + DatosJson[0].Color + ';" class="border border-warning device-mockup ' + device + ' ' + orientacion + ' white" >' +
-                '<div class="device" style="background-image: url(' + DatosJson[0].RutaImagen1 + ');">' +
-                '<div class="screen " >' +
-                '<img src="/assets/tools/imageupload/' + DatosJson[0].ImagenUsuario + '" class="img-fluid foto" width="' + width + '" alt="img">' +
-                '</div> ');
+                if (ml == 15) {
+                    orientacion_foto = "foto_portrait_SM";
+                    $('.cartulina')
+                        .css({
+                            backgroundColor: ''
+                        });
+                } else if (ml == 14) {
+                    orientacion_foto = "foto_portrait_10cm";
+
+                } else if (ml == 13) {
+                    //alert(ml);
+                    orientacion_foto = "foto_portrait_5cm";
+
+                } else if (ml == 12) {
+                    orientacion_foto = "foto_portrait_3cm";
+
+                } else {
+                    orientacion_foto = "foto_portrait_3cm";
+                }
+            } else if (DatosJson[0].Orientacion == 2) {
+                if (ml == 15) {
+                    orientacion_foto = "foto_landscape_SM";
+                    $('.cartulina')
+                        .css({
+                            backgroundColor: ''
+                        });
+                } else if (ml == 14) {
+                    orientacion_foto = "foto_landscape_10cm";
+
+                } else if (ml == 13) {
+                    //alert(ml);
+                    orientacion_foto = "foto_landscape_5cm";
+
+                } else if (ml == 12) {
+                    orientacion_foto = "foto_landscape_3cm";
+
+                } else {
+                    orientacion_foto = "foto_landscape_3cm";
+                }
+                orientacion_marco = "marco_landscape";
+                rotar = "transform: rotate(90deg);"
+            } else {
+                if (ml == 15) {
+                    orientacion_foto = "foto_square_SM";
+                    $('.cartulina')
+                        .css({
+                            backgroundColor: ''
+                        });
+                } else if (ml == 14) {
+                    orientacion_foto = "foto_square_10cm";
+
+                } else if (ml == 13) {
+                    //alert(ml);
+                    orientacion_foto = "foto_square_5cm";
+
+                } else if (ml == 12) {
+                    orientacion_foto = "foto_square_3cm";
+
+                } else {
+                    orientacion_foto = "foto_square_3cm";
+                }
+                orientacion_marco = "marco_square";
+                rotar = ""
+            }
+            $("#Precio_Marco").val(DatosJson[0].Precio);
+            $("#carrusel_zoom2").append(
+                '<div class="thumbnail box4"  id="ImagenDiv_' + DatosJson[0].Producto_ID + '" data-toggle="modal" data-target="#lightbox1">' +
+                '<img src="/assets/tools/imageupload/' + imagenusuario + '" class="foto ' + orientacion_foto + '" style="z-index: 1;" />' +
+                '<img src="' + DatosJson[0].RutaImagen1 + '" class="' + orientacion_marco + ' cartulina" style="background-color:#' + DatosJson[0].Color + ';' + rotar + ' "/>' +
+               
+                '</div>');
+
+            $("#modal1").append('<div class= "pic-1" id="ImagenDiv_' + DatosJson[0].Producto_ID + '">' +
+                '<img src="/assets/tools/imageupload/' + imagenusuario + '" class="foto ' + orientacion_foto + '" style="z-index: 1;" />' +
+                '<img src="' + DatosJson[0].RutaImagen1 + '" class="' + orientacion_marco + ' cartulina" style="background-color:#' + DatosJson[0].Color + ';' + rotar + ' "/>' +
+                '</div>' );
 
             $("#carrusel_zoom").append(
                 '<div class="col-md-6 border border-warning">' +
@@ -83,33 +146,15 @@ function DetalleProducto() {
                 '<h3 class = "text-center text-warning" ><i class = "fa fa-search fa-2x" > </i> </h3>' +
                 '</div >' +
                 '</div>' +
-                '</div>' +
-                '<div class="col-md-12 border border-warning">' +
-                '<div class="device-mockup ambiente1 landscape white" data-toggle="modal" data-target="#lightbox4">' +
-                '<div class="device" style="background-image: url(/assets/img/ambiente1.jpg);">' +
-                '<div class="screen ' + orientacion + '" >' +
-                '<div style="background-color:#' + DatosJson[0].Color + ';" class="device-mockup ' + device + ' ' + orientacion + ' white ">' +
-                '<div class="device" style="background-image: url(' + DatosJson[0].RutaImagen1 + ');">' +
-                '<div class="screen " >' +
-                '<img src="/assets/tools/imageupload/' + DatosJson[0].ImagenUsuario + '" class="img-fluid" width="' + width + '" alt="img">' +
-                '</div>' +
-                '</div>' +
-                '</div>');
+                '</div>' 
+                
+                );
 
             $("#modal2").append(
                 '<img class="img-fluid" src="' + DatosJson[0].RutaImagen2 + '" alt="img">');
             $("#modal3").append(
                 '<img class="img-fluid" src="' + DatosJson[0].RutaImagen3 + '" alt="img">');
-            $("#modal4").append(
-                '<div class="device-mockup ambiente1 landscape white">' +
-                '<div class="device" style="background-image: url(/assets/img/ambiente1.jpg);">' +
-                '<div class="screen ' + orientacion + '" >' +
-                '<div style="background-color:#' + DatosJson[0].Color + ';" class="device-mockup ' + device + ' ' + orientacion + ' white ">' +
-                '<div class="device" style="background-image: url(' + DatosJson[0].RutaImagen1 + ');">' +
-                '<div class="screen " >' +
-                '<img src="/assets/tools/imageupload/' + DatosJson[0].ImagenUsuario + '" class="img-fluid" width="' + width + '" alt="img">' +
-                '</div>' +
-                '</div>');
+   
             $("#Descripcion").append('<p class="last-sold text-muted"><strong>Detalles del proyecto:</strong></p>' +
                 '<h4 class="product-title mb-2"> Marco: ' + DatosJson[0].Prod_Nombre + '<br> Tamaño de impresión: ' + DatosJson[0].Tamano + '</h4>' +
                 '<h2 class="product-price display-4">$ ? MXN </h2>' +
@@ -304,7 +349,7 @@ function Marialuisa() {
     var x = document.getElementById("Marialuisa_ID").value;
     if (x != 0) {
         var Id = document.getElementById("Marialuisa_ID").value;
-        var meta ='Marialuisa';
+        var meta = 'Marialuisa';
     } else {
         var Id = 2;
         var meta = "Vidrio";

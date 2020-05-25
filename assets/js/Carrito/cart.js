@@ -17,7 +17,8 @@ function GetIVA() {
             $("#CrearDireccion").hide();
             $(".loader").hide();
             ListaDirecciones();
-            Carrito(); ListaPedidos();
+            Carrito();
+            ListaPedidos();
         }
     });
 }
@@ -43,10 +44,16 @@ function Carrito() {
             var iva = parseFloat(1) + parseFloat(iva_porcentaje);
             var suma = 0;
             var imagen = "";
+
             $("#tbl_carrito").text("");
             for (i = 0; i < DatosJson.length; i++) {
                 if (DatosJson[i].Meta != 'Marialuisa' && DatosJson[i].Meta != 'Vidrio') {
-                    imagen = '<img width="50px" src="/assets/tools/imageupload/' + DatosJson[i].Imagen + '" />'
+                    if (DatosJson[i].Meta == 'ArteOriginal' || DatosJson[i].Meta == 'SoloMarco') {
+                        imagen = '<img width="50px" src="' + DatosJson[i].Imagen + '" />'
+                    } else {
+                         imagen = '<img width="50px" src="/assets/tools/imageupload/' + DatosJson[i].Imagen + '" />'
+                    }
+                   
                     var precio = (DatosJson[i].Cantidad * DatosJson[i].Precio) * iva;
                     $("#tbl_carrito").append('<tr>' +
                         '<td class="text-center">' + imagen + ' </td>' +

@@ -19,41 +19,46 @@ function ListaProductos(bg) {
         type: 'post',
         dataType: 'json',
         success: function (response) {
-            $("#Productos").text("");
+            //$("#Productos").text("");
             var DatosJson = JSON.parse(JSON.stringify(response));
-            var orientacion = "";
+            var orientacion_foto = "";
+            var orientacion_marco = "";
+            var rotar = "";
             for (i = 0; i < DatosJson.length; i++) {
                 //console.log(DatosJson[i].ImagenUsuario);
                 if (DatosJson[i].Orientacion == 1) {
-                    orientacion = "portrait";
+                    orientacion_foto = "foto_portrait_3cm";
+                    orientacion_marco = "marco_portrait";
+                    rotar = "";
+                } else if (DatosJson[i].Orientacion == 2) {
+                    orientacion_foto = "foto_landscape_3cm";
+                    orientacion_marco = "marco_landscape";
+                    rotar = "transform: rotate(90deg);"
                 } else {
-                    orientacion = "landscape";
+                    orientacion_foto = "foto_square_3cm";
+                    orientacion_marco = "marco_square";
+                    rotar = ""
                 }
-                $("#Productos").append('<div class="col-md-3 col-sm-6">' +
-                    '<div class="product-grid3 ">' +
-                    '<div class="product-image3 ">' +
+                var imagenusuario = document.getElementById("Imagen_Usuario").value;
+                $("#Productos").append('<div class="col-md-4 col-sm-6">' +
+                    '<div class="product-grid3">' +
+                    '<div class="product-image3">' +
                     '<a href="#" onclick="Redireccion(' + DatosJson[i].Producto_ID + ',' + DatosJson[i].Tamano_ID + ');">' +
-                    '<div class="pic-1 device-container" style="background-color:#' + bg + ';' +
-                    ' id="ImagenDiv_' + DatosJson[i].Producto_ID + '"> ' +
-                    '<div class="device-mockup tm_35cm ' + orientacion + ' white ">' +
-                    '<div class="device" style="background-image: url(' + DatosJson[i].RutaImagen1 + ');">' +
-                    '<div class="screen ">' +
-                    '<img src="/assets/tools/imageupload/' + DatosJson[i].ImagenUsuario + '" class="img-fluid foto" width="50%" alt="img">' +
+                    '<div class="pic-1" id="ImagenDiv_' + DatosJson[i].Producto_ID + '"> ' +
+                    '<img src="' + imagenusuario + '" class="foto ' + orientacion_foto + '" />' +
+                    '<img src="' + DatosJson[i].RutaImagen1 + '" class="' + orientacion_marco + ' cartulina" style="background-color:#' + bg + ';' + rotar + '"/>' +
                     '</div>' +
-                    '</div>' +
-                    '</div>' +
-                    '</div>' +
-                    '<img src="' + DatosJson[i].RutaImagen3 + '" class="mypic2 pic-2" alt="img">' +
+                    '<img class="mypic2 pic-2" src="' + DatosJson[i].RutaImagen3 + '">' +
                     '</a>' +
-
                     '<ul class="social">' +
                     '<li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>' +
                     '<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>' +
                     '</ul>' +
-                    '<span class="product-new-label">Nuevo</span>' +
+                    '<span class="product-new-label">New</span>' +
                     '</div>' +
+
                     '<div class="product-content">' +
-                    '<h3 class="title"><a href="#">' + '</a></h3>' +
+                    '<h3 class="title"></h3 > ' +
                     '<div class="price">' +
                     '' + DatosJson[i].Prod_Nombre +
                     '</div>' +
@@ -61,10 +66,9 @@ function ListaProductos(bg) {
                     '<li class="fa fa-star"></li>' +
                     '<li class="fa fa-star"></li>' +
                     '<li class="fa fa-star"></li>' +
-                    '<li class="fa fa-star "></li>' +
-                    '<li class="fa fa-star "></li>' +
+                    '<li class="fa fa-star"></li>' +
+                    '<li class="fa fa-star"></li>' +
                     '</ul>' +
-                    '</div>' +
                     '</div>' +
                     '</div>');
             }
@@ -85,7 +89,7 @@ function Marialuisa() {
             $("#form_entrevidrios").text("");
             var sw = 1;
             var sw2 = 0;
-            
+
             $("#Color").val(DatosJson[0].Producto_ID);
             for (i = 0; i < DatosJson.length; i++) {
                 if (DatosJson[i].PrdMeta_ID != 'Vidrio') {
@@ -116,7 +120,7 @@ function Marialuisa() {
 
             }
             $("#form_entrevidrios").append('<div id="Vidrio" class="swatch border border-primary text-center" style="background-color:#fff;"><img class="img-fluid" src="/assets/img/vidrio.png"></div>');
-         
+
             $('.custom-control-input').click(function onClick(event) {
                 //alert("algo");
                 $('.custom-control-input').prop("checked", false);
@@ -130,7 +134,7 @@ function Marialuisa() {
                 $("#Color").val(0);
                 $(".ml").removeClass('selected').addClass('border border-primary');
                 $(this).removeClass('border border-primary').addClass('selected');
-                $('.pic-1')
+                $('.cartulina')
                     .css({
                         backgroundColor: ''
                     });
@@ -148,7 +152,7 @@ function Marialuisa() {
                 if (selectorId != 'Vidrio') {
                     $("#Color").val(selectorId);
                     $('#input_vidrio_t').val('false');
-                    $('.pic-1')
+                    $('.cartulina')
                         .css({
                             backgroundColor: color
                         });
@@ -188,54 +192,144 @@ function TamanosMarialuisa() {
 $("#Tamano_Marialuisa").change(function () {
     $("select option:selected").each(function () {
         var selectorId = $(this).attr('id');
-        if (selectorId == 'Sin Marialuisa') {
-            //alert(selectorId);
-            $(".device-mockup").removeClass(" tm_35cm tm_5cm tm_10cm");
-            $(".device-mockup").addClass("galaxy_s5");
-            $(".foto").width("80%");
-            $(".ml").hide();
-            $("#form_marialuisa2").hide();
-            $('#Vidrio').click();
-        } else if (selectorId == '10 cm') {
-            //alert(selectorId);
-            $(".device-mockup").removeClass("galaxy_s5 tm_35cm tm_5cm tm_10cm");
-            $(".device-mockup").addClass("tm_10cm");
-            $(".foto").width("40%");
-            //Marialuisa();
-            $(".ml").show();
-            $("#form_marialuisa2").show();
-            $('.ml').first().click();
-            
-        } else if (selectorId == '5 cm') {
-            //alert(selectorId);
-            $(".device-mockup").removeClass("galaxy_s5 tm_35cm tm_5cm tm_10cm");
-            $(".device-mockup").addClass("tm_5cm");
-            $(".foto").width("45%");
-            //Marialuisa();
-            $(".ml").show();
-            $("#form_marialuisa2").show();
-            $('.ml').first().click();
+        var orientacion = document.getElementById("Imagen_Orientacion").value;
+        if (orientacion == 1) {
+            if (selectorId == 'Sin Marialuisa') {
+                //alert(selectorId);
+                $(".foto").removeClass("foto_portrait_3cm foto_portrait_5cm foto_portrait_10cm");
+                $(".foto").addClass("foto_portrait_SM");
+                $(".ml").hide();
+                $("#form_marialuisa2").hide();
+                $('#Vidrio').click();
+            } else if (selectorId == '10 cm') {
+                //alert(selectorId);
+                $(".foto").removeClass("foto_portrait_3cm foto_portrait_5cm foto_portrait_10cm foto_portrait_SM");
+                $(".foto").addClass("foto_portrait_10cm");
+                //Marialuisa();
+                $(".ml").show();
+                $("#form_marialuisa2").show();
+                $('.ml').first().click();
 
-        } else if (selectorId == '3.5 cm') {
-            //alert(selectorId);
-            $(".device-mockup").removeClass("galaxy_s5 tm_35cm tm_5cm tm_10cm");
-            $(".device-mockup").addClass("tm_35cm");
-            $(".foto").width("50%");
-            //Marialuisa();
-            $(".ml").show();
-            $("#form_marialuisa2").show();
-            $('.ml').first().click();
+            } else if (selectorId == '5 cm') {
+                //alert(selectorId);
+                $(".foto").removeClass("foto_portrait_3cm foto_portrait_5cm foto_portrait_10cm foto_portrait_SM");
+                $(".foto").addClass("foto_portrait_5cm");
+                //Marialuisa();
+                $(".ml").show();
+                $("#form_marialuisa2").show();
+                $('.ml').first().click();
 
-        } else {
-            //alert(selectorId);
-            $(".device-mockup").removeClass("galaxy_s5 tm_35cm tm_5cm tm_10cm");
-            $(".device-mockup").addClass("tm_35cm");
-            $(".foto").width("50%");
-            //Marialuisa();
-            $(".ml").show();
-            $("#form_marialuisa2").show();
-            $('.ml').first().click();
+            } else if (selectorId == '3.5 cm') {
+                //alert(selectorId);
+                $(".foto").removeClass("foto_portrait_3cm foto_portrait_5cm foto_portrait_10cm foto_portrait_SM");
+                $(".foto").addClass("foto_portrait_3cm");
+                //Marialuisa();
+                $(".ml").show();
+                $("#form_marialuisa2").show();
+                $('.ml').first().click();
+
+            } else {
+                //alert(selectorId);
+                $(".foto").removeClass("foto_portrait_3cm foto_portrait_5cm foto_portrait_10cm foto_portrait_SM");
+                $(".foto").addClass("foto_portrait_3cm");
+                //Marialuisa();
+                $(".ml").show();
+                $("#form_marialuisa2").show();
+                $('.ml').first().click();
+            }
+
+        } 
+        else if (orientacion == 2) {
+            if (selectorId == 'Sin Marialuisa') {
+                //alert(selectorId);
+                $(".foto").removeClass("foto_landscape_3cm foto_landscape_5cm foto_landscape_10cm");
+                $(".foto").addClass("foto_landscape_SM");
+                $(".ml").hide();
+                $("#form_marialuisa2").hide();
+                $('#Vidrio').click();
+            } else if (selectorId == '10 cm') {
+                //alert(selectorId);
+                $(".foto").removeClass("foto_landscape_3cm foto_landscape_5cm foto_landscape_10cm foto_landscape_SM");
+                $(".foto").addClass("foto_landscape_10cm");
+                //Marialuisa();
+                $(".ml").show();
+                $("#form_marialuisa2").show();
+                $('.ml').first().click();
+
+            } else if (selectorId == '5 cm') {
+                //alert(selectorId);
+                $(".foto").removeClass("foto_landscape_3cm foto_landscape_5cm foto_landscape_10cm foto_landscape_SM");
+                $(".foto").addClass("foto_landscape_5cm");
+                //Marialuisa();
+                $(".ml").show();
+                $("#form_marialuisa2").show();
+                $('.ml').first().click();
+
+            } else if (selectorId == '3.5 cm') {
+                //alert(selectorId);
+                $(".foto").removeClass("foto_landscape_3cm foto_landscape_5cm foto_landscape_10cm foto_landscape_SM");
+                $(".foto").addClass("foto_landscape_3cm");
+                //Marialuisa();
+                $(".ml").show();
+                $("#form_marialuisa2").show();
+                $('.ml').first().click();
+
+            } else {
+                //alert(selectorId);
+                $(".foto").removeClass("foto_landscape_3cm foto_landscape_5cm foto_landscape_10cm foto_landscape_SM");
+                $(".foto").addClass("foto_landscape_3cm");
+                //Marialuisa();
+                $(".ml").show();
+                $("#form_marialuisa2").show();
+                $('.ml').first().click();
+            }
         }
+        else {
+            if (selectorId == 'Sin Marialuisa') {
+                //alert(selectorId);
+                $(".foto").removeClass("foto_square_3cm foto_square_5cm foto_square_10cm");
+                $(".foto").addClass("foto_square_SM");
+                $(".ml").hide();
+                $("#form_marialuisa2").hide();
+                $('#Vidrio').click();
+            } else if (selectorId == '10 cm') {
+                //alert(selectorId);
+                $(".foto").removeClass("foto_square_3cm foto_square_5cm foto_square_10cm foto_square_SM");
+                $(".foto").addClass("foto_square_10cm");
+                //Marialuisa();
+                $(".ml").show();
+                $("#form_marialuisa2").show();
+                $('.ml').first().click();
+
+            } else if (selectorId == '5 cm') {
+                //alert(selectorId);
+                $(".foto").removeClass("foto_square_3cm foto_square_5cm foto_square_10cm foto_square_SM");
+                $(".foto").addClass("foto_square_5cm");
+                //Marialuisa();
+                $(".ml").show();
+                $("#form_marialuisa2").show();
+                $('.ml').first().click();
+
+            } else if (selectorId == '3.5 cm') {
+                //alert(selectorId);
+                $(".foto").removeClass("foto_square_3cm foto_square_5cm foto_square_10cm foto_square_SM");
+                $(".foto").addClass("foto_square_3cm");
+                //Marialuisa();
+                $(".ml").show();
+                $("#form_marialuisa2").show();
+                $('.ml').first().click();
+
+            } else {
+                //alert(selectorId);
+                $(".foto").removeClass("foto_square_3cm foto_square_5cm foto_square_10cm foto_square_SM");
+                $(".foto").addClass("foto_square_3cm");
+                //Marialuisa();
+                $(".ml").show();
+                $("#form_marialuisa2").show();
+                $('.ml').first().click();
+            }
+        }
+
     });
 
 }).trigger("change");

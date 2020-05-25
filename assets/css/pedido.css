@@ -1,5 +1,6 @@
 .box4 {
-    position: relative
+    position: relative;
+    z-index: +15;
 }
 
 .box4:hover:before {

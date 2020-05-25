@@ -5,9 +5,15 @@
     <title>DiiFrame - Elegir Marco</title>
     <meta name="description" content="">
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/head.html'; ?>
+    <?php session_start();
+    $imagen = $_SESSION['Nombre']; 
+    $Orientacion = $_SESSION['Orientacion'];
+    ?>
     <link href="/assets/css/cajasmarcos.min.css" rel="stylesheet">
     <link href="/assets/device-mockups/device-mockups.min.css" rel="stylesheet">
     <style>
+        
+
         .loader {
             position: fixed;
             left: 0px;
@@ -27,13 +33,13 @@
 </head>
 
 <body id="page-top">
-    <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/tools/connection.php'; ?>
-    <!-- Navigation -->
-    <!-- Navigation -->
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/nav2.html'; ?>
-
+    
+    <input class="d-none" id="Imagen_Usuario" value="/assets/tools/imageupload/<?php echo $imagen;?>">
+    <input class="d-none" id="Imagen_Orientacion" value="<?php echo $Orientacion;?>">
     <section class="features bg-light mb-5" id="features">
         <div class="container pb-5">
+
             <div class="card">
                 <div class="card-header text-center bg-primary">
                     <h3>Personaliza tu marco</h3>
@@ -50,7 +56,7 @@
                         <h4 class="text-primary text-left">2) Elegir tipo de marialuisa</h4>
                         <div class="form-group ">
 
-                            <div class="row justify-content-md-center my-3" >
+                            <div class="row justify-content-md-center my-3">
                                 <div class="col-md-4">
                                     <h5 class="text-warning">a)Color cartulina:</h5>
                                 </div>
@@ -82,6 +88,7 @@
         <div class="loader"></div>
         <div class="container">
             <div class="row justify-content-md-center" id="Productos">
+         
             </div>
         </div>
     </section>

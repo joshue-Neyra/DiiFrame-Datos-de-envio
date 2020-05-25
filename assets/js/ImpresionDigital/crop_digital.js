@@ -50,8 +50,11 @@ function crop() {
         if (alto>ancho){
             orientacion=1;
         }
-        else{
+        else if (alto<ancho){
             orientacion=2;
+        }
+        else{
+            orientacion=3;
         }
         //alert(ancho+"x"+alto+"-"+fileName+"- MPX: "+mp);
         
