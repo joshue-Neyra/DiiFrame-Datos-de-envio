@@ -278,7 +278,6 @@
             </div>
         </div>
     </div>
-    <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/scripts.html'; ?>
     <script type="text/javascript" src="/assets/js/Carrito/cart.js"></script>
     <script type="text/javascript" src="/assets/js/Carrito/pedido.js"></script>
     <script type="text/javascript" src="/assets/js/Principal/DireccionCompletar.js"></script>

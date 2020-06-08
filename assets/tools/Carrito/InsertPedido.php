@@ -4,6 +4,7 @@ session_start();
 $Cliente_ID=$_SESSION['Id'];
 $CostoEnvio=$_POST['CostoEnvio'];
 $Direccion_ID=$_POST['Direccion_ID'];
+$ivoy=$_POST['ivoy'];
 $fecha=$_POST['fecha'];
 $fechaEntrega= date('Y-m-d', strtotime($fecha. ' + 7 days'));
 $date = date_create($fecha);
@@ -36,8 +37,8 @@ $sql = "EXEC DPedInsertPed
 	@param20 =?,
 	@param21 =?,
     @param22 =?,
-    @param23 =?
-    ";
+    @param23 =?,
+    @param24 =?";
 $params = array(
     $fechanota,//Fecha_Recibo
     $fechanota,//Hora_Recibo
@@ -61,7 +62,8 @@ $params = array(
     0,//Hora_Entrega
     2,//ID_Status
     'Web',//Plataforma,
-    $Direccion_ID
+    $Direccion_ID,
+    $ivoy
 );
 
 $stmt = sqlsrv_query( $conn, $sql, $params);

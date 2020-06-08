@@ -30,7 +30,6 @@
         </div>
     </section>
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/footer.html'; ?>
-    <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/scripts.html'; ?>
     <script type="text/javascript" src="/assets/js/ArteOriginal/ArteOriginal.js"></script>
 
 </body>

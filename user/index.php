@@ -254,7 +254,6 @@
             </div>
         </div>
     </div>
-    <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/scripts.html'; ?>
     <script type="text/javascript" src="/assets/js/Usuario/cliente.js"></script>
 
 

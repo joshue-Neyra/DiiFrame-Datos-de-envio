@@ -49,7 +49,7 @@ function CotizacioniVoy(LatEmp, LngEmp, LatCli, LngCli, Direccion_ID) {
         success: function (r) {
             var precio = r.data.price;
             //console.log(precio);
-            InsertPedido(precio, Direccion_ID);
+            InsertPedido(precio, Direccion_ID,true);
 
         }
     });
@@ -125,8 +125,7 @@ function GetCoordenadasEmpresa(Direccion_ID, Clie_Estado, LatCli, LngCli) {
             if (Clie_Estado == "CDMX") {
                 CotizacioniVoy(r.Lat, r.Long, LatCli, LngCli, Direccion_ID);
             } else {
-                CostoEnvio(Direccion_ID)
-                //InsertPedido(precio, Direccion_ID);
+                CostoEnvio(Direccion_ID);
             }
         }
     });
@@ -143,19 +142,20 @@ function CostoEnvio(Direccion_ID) {
         success: function (response) {
             var DatosJson = JSON.parse(response);
             var CostoEnvio = DatosJson[0].Prod_Precio;
-            InsertPedido(CostoEnvio, parametros.Direccion_ID);
+            InsertPedido(CostoEnvio, parametros.Direccion_ID,false);
         }
     });
 
 
 }
 
-function InsertPedido(CostoEnvio, Direccion_ID) {
+function InsertPedido(CostoEnvio, Direccion_ID,ivoy) {
 
     var parametros = {
         "CostoEnvio": CostoEnvio,
         "fecha": document.getElementById("date").value,
-        "Direccion_ID": Direccion_ID
+        "Direccion_ID": Direccion_ID,
+        ivoy:ivoy
 
     }
     $.ajax({

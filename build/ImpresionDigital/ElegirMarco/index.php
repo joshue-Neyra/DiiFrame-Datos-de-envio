@@ -12,8 +12,6 @@
     <link href="/assets/css/cajasmarcos.min.css" rel="stylesheet">
     <link href="/assets/device-mockups/device-mockups.min.css" rel="stylesheet">
     <style>
-        
-
         .loader {
             position: fixed;
             left: 0px;
@@ -34,7 +32,7 @@
 
 <body id="page-top">
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/nav2.html'; ?>
-    
+
     <input class="d-none" id="Imagen_Usuario" value="/assets/tools/imageupload/<?php echo $imagen;?>">
     <input class="d-none" id="Imagen_Orientacion" value="<?php echo $Orientacion;?>">
     <section class="features bg-light mb-5" id="features">
@@ -47,7 +45,9 @@
                 <div class="card-body row justify-content-md-center">
                     <div class=" col-md-6">
                         <div class="form-group">
-                            <h4 class="text-primary text-center">1) Tamaño marialuisa:</h4>
+                            <h4 class="text-primary text-center">1) Tamaño marialuisa  <i class="far fa-question-circle"data-toggle="popover" data-img="/assets/img/marialuisa.png" title="Marialuisa o paspartú es el pequeño espacio que rodea las fotografías o arte antes del marco, en caso de que existan" ></i>  :</h4>
+                            
+                            
                             <select class="form-control" id="Tamano_Marialuisa">
                             </select>
                         </div>
@@ -87,13 +87,27 @@
         </div>
         <div class="loader"></div>
         <div class="container">
+            <p class="text-muted"><small>*Tu imagen es unicamente ilustrativa, esta puede variar al momento que la recibas</small></p>
             <div class="row justify-content-md-center" id="Productos">
-         
+
             </div>
         </div>
     </section>
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/footer.html'; ?>
     <script type="text/javascript" src="/assets/js/ImpresionDigital/Productos.js"></script>
+    <script>
+      
+         $('[data-toggle="popover"]').popover({
+          //trigger: 'focus',
+		  trigger: 'hover',
+          html: true,
+          content: function () {
+				return '<img class="img-fluid" src="'+$(this).data('img') + '" />';
+          },
+          title: 'Toolbox'
+    }) 
+
+    </script>
 
 </body>
 
