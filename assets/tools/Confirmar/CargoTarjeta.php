@@ -62,6 +62,7 @@ else{
         'method' => 'card',
         'source_id' => $_POST["token_id"],
         'amount' => $_POST["amount"],
+        'currency' => 'MXN',
         'description' => $_POST["description"],
         //'use_card_points' => 0, // Opcional, si estamos usando puntos
         'device_session_id' => $_POST["deviceIdHiddenFieldName"],
