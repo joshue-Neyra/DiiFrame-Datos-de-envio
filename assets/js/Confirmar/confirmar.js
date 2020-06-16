@@ -6,6 +6,23 @@ $(document).ready(function () {
 
 });
 
+function SoloNumeros(evt) {
+    if (window.event) {
+        keynum = evt.keyCode;
+    } else {
+        keynum = evt.which;
+    }
+    if ((keynum > 47 && keynum < 58) || keynum == 8 || keynum == 13 || keynum == 6 || keynum == 45) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+$("#card_number, #expiration_month, #expiration_year, #cvv2").keypress(function () {
+    return SoloNumeros(event);
+});
+
 function GetIVA() {
     $.ajax({
         type: 'post',
@@ -40,7 +57,6 @@ function VerPedido() {
             $("#tbl_correo").text("");
 
             for (i = 0; i < DatosJson.length; i++) {
-                //alert(DatosJson[i].PrdMeta_ID);
                 if (DatosJson[i].PrdMeta_ID == 'Producto' || DatosJson[i].PrdMeta_ID == 'ArteOriginal') {
                     $("#tbl_correo").append('<tr class="rounded  bg-white ">' +
                         '<td>' + '<img width="50px" src="' + DatosJson[i].RutaImagen + '" />' + ' </td>' +
@@ -78,7 +94,7 @@ function VerPedido() {
             var monto = suma;
             $("#inp_monto").val(monto);
             total = Math.round10(total, -2);
-            $("#iva").html("$" + Math.round10(iva,-2));
+            $("#iva").html("$" + Math.round10(iva, -2));
             $("#inp_iva").val(iva);
             $("#total").html("$" + total + ' (MXN)');
             $("#inp_total").val(total);
@@ -193,7 +209,9 @@ $(document).ready(function () {
 
     var error_callbak = function (response) {
         var desc = response.data.description != undefined ? response.data.description : response.message;
-        alert("ERROR [" + response.status + "] " + desc);
+        //alert("ERROR [" + response.status + "] " + desc);
+        alert("Tarjeta declinada");
+        location.reload();
         $("#pay-button").prop("disabled", false);
     };
 
@@ -212,7 +230,6 @@ function Pago(deviceSessionId) {
         "amount": total,
 
     }
-    //alert(parametros.deviceIdHiddenFieldName)
     $.ajax({
         data: parametros,
         url: '/assets/tools/Confirmar/CargoTarjeta.php',
@@ -232,9 +249,8 @@ function Pago(deviceSessionId) {
                 }
 
                 location.href = '/Pedido/?Nota_ID=' + parametros.Nota_ID + '';
-                //alert("Pago Aceptado");
             } else {
-                alert(response);
+                alert("Tarjeta declinada");
                 location.reload();
             }
         }
@@ -311,7 +327,8 @@ $('#form_facturacion').submit(function (event) {
         type: 'post',
         success: function (response) {
             $('#ModalFacturacion').modal('hide');
-            alert(response);
+            alert("Tarjeta no valida");
+            location.reload();
         }
     });
     event.preventDefault();
@@ -331,7 +348,6 @@ function CorreoCliente(Nota_ID) {
     // use innerHTML to get the contents of the table, then close the tag
     tableString += ">" + firstTable.innerHTML + "</" + firstTable.nodeName.toLowerCase() + ">";
 
-    //alert(tableString);
     var parametros = {
         Nota_ID: Nota_ID,
         Contenido: tableString
@@ -340,9 +356,7 @@ function CorreoCliente(Nota_ID) {
         data: parametros,
         url: '/assets/tools/mail/correocliente.php',
         type: 'POST',
-        success: function (response) {
-            //alert(response);
-        }
+        success: function (response) {}
     });
 }
 
