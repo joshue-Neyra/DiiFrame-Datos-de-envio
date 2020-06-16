@@ -122,13 +122,13 @@ function DetalleProducto() {
                 '<div class="thumbnail box4"  id="ImagenDiv_' + DatosJson[0].Producto_ID + '" data-toggle="modal" data-target="#lightbox1">' +
                 '<img src="/assets/tools/imageupload/' + imagenusuario + '" class="foto ' + orientacion_foto + '" style="z-index: 1;" />' +
                 '<img src="' + DatosJson[0].RutaImagen1 + '" class="' + orientacion_marco + ' cartulina" style="background-color:#' + DatosJson[0].Color + ';' + rotar + ' "/>' +
-               
+
                 '</div>');
 
             $("#modal1").append('<div class= "pic-1" id="ImagenDiv_' + DatosJson[0].Producto_ID + '">' +
                 '<img src="/assets/tools/imageupload/' + imagenusuario + '" class="foto ' + orientacion_foto + '" style="z-index: 1;" />' +
                 '<img src="' + DatosJson[0].RutaImagen1 + '" class="' + orientacion_marco + ' cartulina" style="background-color:#' + DatosJson[0].Color + ';' + rotar + ' "/>' +
-                '</div>' );
+                '</div>');
 
             $("#carrusel_zoom").append(
                 '<div class="col-md-6 border border-warning">' +
@@ -146,15 +146,40 @@ function DetalleProducto() {
                 '<h3 class = "text-center text-warning" ><i class = "fa fa-search fa-2x" > </i> </h3>' +
                 '</div >' +
                 '</div>' +
-                '</div>' 
-                
-                );
+                '</div>'
+
+            );
+            $("#ambiente1").append(
+                '<div class="col-md-12 border border-warning">' +
+                '<div class="device-mockup ambiente1 landscape white" data-toggle="modal" data-target="#lightbox4">' +
+                '<div class="device" style="background-image: url(/assets/img/ambiente1.jpg);">' +
+                '<div  class="screen" >' +
+                '<div id="ambiente1" style=";" class="device-mockup">' +
+                '<div class="device ' + orientacion_marco + '" style="background-color:#' + DatosJson[0].Color + ';background-image: url(' + DatosJson[0].RutaImagen1 + ');">' +
+                '<img src="/assets/tools/imageupload/' + imagenusuario + '" class="' + orientacion_foto + '" width="" alt="img">' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>');
 
             $("#modal2").append(
                 '<img class="img-fluid" src="' + DatosJson[0].RutaImagen2 + '" alt="img">');
             $("#modal3").append(
                 '<img class="img-fluid" src="' + DatosJson[0].RutaImagen3 + '" alt="img">');
-   
+            $("#modal4").append(
+                
+                '<div class="col-md-12 border border-warning">' +
+                '<div class="device-mockup ambiente1 landscape white" data-toggle="modal" data-target="#lightbox4">' +
+                '<div class="device" style="background-image: url(/assets/img/ambiente1.jpg);">' +
+                '<div  class="screen" >' +
+                '<div id="ambiente1" style=";" class="device-mockup">' +
+                '<div class="device ' + orientacion_marco + '" style="background-color:#' + DatosJson[0].Color + ';background-image: url(' + DatosJson[0].RutaImagen1 + ');">' +
+                '<img src="/assets/tools/imageupload/' + imagenusuario + '" class="' + orientacion_foto + '" width="" alt="img">' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>');
+
             $("#Descripcion").append('<p class="last-sold text-muted"><strong>Detalles del proyecto:</strong></p>' +
                 '<h4 class="product-title mb-2"> Marco: ' + DatosJson[0].Prod_Nombre + '<br> Tamaño de impresión: ' + DatosJson[0].Tamano + '</h4>' +
                 '<h2 class="product-price display-4">$ ? MXN </h2>' +

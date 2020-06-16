@@ -13,12 +13,14 @@
     <link href="/assets/device-mockups/device-mockups.css" rel="stylesheet">
     <link href="/assets/device-mockups/device-mockups_antiguo.css" rel="stylesheet">
 
+
+
 </head>
 
 <body id="page-top">
     <!-- Navigation -->
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/nav2.html'; ?>
-    
+
     <input class="d-none" id="Imagen_Orientacion" value="<?php echo $Orientacion;?>">
     <input class="d-none" id="Imagen_Usuario" value="<?php echo $imagen;?>">
     <div class="d-none">
@@ -71,10 +73,11 @@
                 <div class="card-header">
                 </div>
                 <div class="card-body">
-
                     <div class="row justify-content-md-center">
                         <div class="col col-lg-10 row justify-content-md-center" id="carrusel_zoom2"> </div>
-                        <div class="col col-lg-10 row justify-content-md-center" id="carrusel_zoom"> </div>
+                        <div class="col col-lg-12 row justify-content-md-center" id="carrusel_zoom"> </div>
+                        <div class="col col-lg-12" id="ambiente1">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -82,8 +85,6 @@
                 <div class="card-header">
                 </div>
                 <div class="card-body" id="Descripcion">
-
-
                 </div>
             </div>
         </div>

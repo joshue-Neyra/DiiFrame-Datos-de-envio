@@ -136,4 +136,156 @@
     z-index: 0;
 }
 
+.ambiente1 {
+    z-index: 0;
+}
+
+#ambiente1 {
+    z-index: 0;
+    position: relative;
+}
+
+#ambiente1 .marco_portrait {
+    height: 87.5px;
+    width: 75px;
+    margin-top: 15px;
+    margin-left: 110px;
+    z-index: 1;
+}
+
+#ambiente1 .marco_landscape {
+    height: 83.3px;
+    width: 100px;
+    margin-top: 15px;
+    margin-left: 100px;
+    z-index: 0;
+}
+#ambiente1 .marco_square {
+    height: 87.5px;
+    width: 75px;
+    margin-top: 15px;
+    margin-left: 110px;
+    z-index: 1;
+}
+
+#ambiente1 .foto_portrait_3cm {
+    position: absolute;
+    height: 50px;
+    width: 37.5px;
+    margin-top: 19px;
+    margin-bottom: 20px;
+    margin-left: 19px;
+    z-index: 1;
+}
+
+#ambiente1 .foto_portrait_5cm {
+    position: absolute;
+    height: 45px;
+    width: 32.5px;
+    margin-top: 21px;
+    margin-bottom: 20px;
+    margin-left: 21px;
+    z-index: 1;
+}
+
+#ambiente1 .foto_portrait_10cm {
+    position: absolute;
+    height: 40px;
+    width: 27.5px;
+    margin-top: 24px;
+    margin-bottom: 20px;
+    margin-left: 24px;
+    z-index: 1;
+}
+
+#ambiente1 .foto_portrait_SM {
+    position: absolute;
+    height: 60px;
+    width: 47.5px;
+    margin-top: 13px;
+    margin-bottom: 20px;
+    margin-left: 14px;
+    z-index: 1;
+}
+
+#ambiente1 .foto_landscape_3cm {
+    position: absolute;
+    height: 49px;
+    width: 55px;
+    margin-top: 18px;
+    margin-bottom: 100px;
+    margin-left: 22px;
+    z-index: 1;
+}
+
+#ambiente1 .foto_landscape_5cm {
+    position: absolute;
+    height: 45px;
+    width: 50px;
+    margin-top: 19px;
+    margin-bottom: 100px;
+    margin-left: 25px;
+    z-index: 1;
+}
+
+#ambiente1 .foto_landscape_10cm {
+    position: absolute;
+    height: 35px;
+    width: 40px;
+    margin-top: 25px;
+    margin-bottom: 100px;
+    margin-left: 30px;
+    z-index: 1;
+}
+
+#ambiente1 .foto_landscape_SM {
+    position: absolute;
+    height: 55px;
+    width: 65px;
+    margin-top: 14px;
+    margin-bottom: 100px;
+    margin-left: 18px;
+    z-index: 1;
+}
+
+#ambiente1 .foto_square_3cm {
+   position: absolute;
+    height: 50px;
+    width: 37.5px;
+    margin-top: 19px;
+    margin-bottom: 20px;
+    margin-left: 19px;
+    z-index: 1
+}
+
+#ambiente1 .foto_square_5cm {
+    position: absolute;
+    height: 45px;
+    width: 32.5px;
+    margin-top: 21px;
+    margin-bottom: 20px;
+    margin-left: 21px;
+    z-index: 1;
+}
+
+#ambiente1 .foto_square_10cm {
+    position: absolute;
+    height: 40px;
+    width: 27.5px;
+    margin-top: 24px;
+    margin-bottom: 20px;
+    margin-left: 24px;
+    z-index: 1;
+}
+
+#ambiente1 .foto_square_SM {
+    position: absolute;
+    height: 60px;
+    width: 47.5px;
+    margin-top: 13px;
+    margin-bottom: 20px;
+    margin-left: 14px;
+    z-index: 1;
+}
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
