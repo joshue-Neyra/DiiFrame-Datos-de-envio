@@ -69,7 +69,7 @@
         </div>
     </header>
 
-    <a href="https://api.whatsapp.com/send?phone=525518467498&text=Buen%20d%C3%ADa,%20quiero%20recibir%20m%C3%A1s%20informaci%C3%B3n%20acerca%20de%20DiiFrame.com" class="scroll-top-wrapper text-decoration-none rounded-pill bg-success">
+    <a  target="_blank" href="https://api.whatsapp.com/send?phone=525518467498&text=Buen%20d%C3%ADa,%20quiero%20recibir%20m%C3%A1s%20informaci%C3%B3n%20acerca%20de%20DiiFrame.com" class="scroll-top-wrapper text-decoration-none rounded-pill bg-success">
         <p class="d-inline text-white">Contactanos<span class="fa-stack">
                 <i class="fa fa-circle fa-stack-2x text-white"></i>
                 <i class="fab fa-whatsapp fa-stack-1x text-success fa-inverse"></i>
