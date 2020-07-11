@@ -49,7 +49,7 @@ function CotizacioniVoy(LatEmp, LngEmp, LatCli, LngCli, Direccion_ID) {
         success: function (r) {
             var precio = r.data.price;
             //console.log(precio);
-            InsertPedido(precio, Direccion_ID,true);
+            InsertPedido(precio, Direccion_ID, true);
 
         }
     });
@@ -142,20 +142,28 @@ function CostoEnvio(Direccion_ID) {
         success: function (response) {
             var DatosJson = JSON.parse(response);
             var CostoEnvio = DatosJson[0].Prod_Precio;
-            InsertPedido(CostoEnvio, parametros.Direccion_ID,false);
+            InsertPedido(CostoEnvio, parametros.Direccion_ID, false);
         }
     });
 
 
 }
 
-function InsertPedido(CostoEnvio, Direccion_ID,ivoy) {
-
+function InsertPedido(CostoEnvio, Direccion_ID, ivoy) {
+    var regalo = document.getElementById("inp_regalo").checked;
+    var mensaje = "";
+    if (regalo) {
+        mensaje = document.getElementById("text_mensaje").value;
+    } else {
+        mensaje = "";
+    }
     var parametros = {
         "CostoEnvio": CostoEnvio,
         "fecha": document.getElementById("date").value,
         "Direccion_ID": Direccion_ID,
-        ivoy:ivoy
+        "mensaje": mensaje,
+        "regalo": regalo,
+        ivoy: ivoy
 
     }
     $.ajax({

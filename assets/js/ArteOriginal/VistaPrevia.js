@@ -98,6 +98,7 @@ function DetalleProducto() {
                     '<h2 class="product-price display-4">$ ' + PrecioTotal.toFixed(2) + ' MXN </h2>' +
                     '<p class="text-primary"><i class="fab fa-cc-mastercard"></i> <i class="fab fa-cc-visa"></i> <i class="fab fa-cc-amex"></i></p>' +
                     '<p class="mb-0"><i class="fa fa-truck"></i> Envios a todo México</p>' +
+                    '<p class="mb-0"><i class="fas fa-stopwatch"></i> Entrega: Tiempo de produccion 3 días + tiempo de envio</p>' +
                     '<div class="text-muted mb-2"><small>Aplica restricciones</small></div>' +
                     '<form class="form-inline">' +
                     '<div class="form-group mb-2">' +

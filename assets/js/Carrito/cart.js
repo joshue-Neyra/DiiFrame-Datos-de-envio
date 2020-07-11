@@ -1,6 +1,5 @@
 $(document).ready(function () {
     GetIVA();
-
 });
 
 function GetIVA() {
@@ -51,9 +50,9 @@ function Carrito() {
                     if (DatosJson[i].Meta == 'ArteOriginal' || DatosJson[i].Meta == 'SoloMarco') {
                         imagen = '<img width="50px" src="' + DatosJson[i].Imagen + '" />'
                     } else {
-                         imagen = '<img width="50px" src="/assets/tools/imageupload/' + DatosJson[i].Imagen + '" />'
+                        imagen = '<img width="50px" src="/assets/tools/imageupload/' + DatosJson[i].Imagen + '" />'
                     }
-                   
+
                     var precio = (DatosJson[i].Cantidad * DatosJson[i].Precio) * iva;
                     $("#tbl_carrito").append('<tr>' +
                         '<td class="text-center">' + imagen + ' </td>' +
@@ -74,15 +73,43 @@ function Carrito() {
                 $("#btn_show").prop("disabled", true);
             }
             $("#tbl_carrito").append('<tr>' +
+                '<td class="text-center"></td>' +
+                '<td class="text-center"></td>' +
+                '<td class="text-center">' +
+                '<label class="text-primary">¿Tu cuadro es para regalo?</label> ' +
+                '<div class="custom-control custom-checkbox mb-3">' +
+                '<input type="checkbox" class="custom-control-input" id="inp_regalo" name="inp_regalo">' +
+                '<label class="custom-control-label" for="inp_regalo"></label>' +
+                '</div></td>' +
+                '<td class="text-center">' +
+                '<label id="lbl_regalo" class="text-primary" for="text_mensaje">Mensaje del regalo</label>' +
+                '</td>' +
+                '<td class="text-center"><textarea class="form-control" id="text_mensaje" placeholder="Mensaje" required></textarea></td>' +
+                '</tr>');
+            $('#lbl_regalo').hide();
+            $('#text_mensaje').hide();
+            $("#tbl_carrito").append('<tr>' +
                 '<td></td>' +
                 '<td></td>' +
                 '<td></td>' +
                 '<td>Sub-Total</td>' +
                 '<td class="text-right">$' + suma.toFixed(2) + ' MXN</td>' +
                 '</tr>');
+
+            $("#inp_regalo").change(function () {
+                if (this.checked) {
+                    $("#lbl_regalo").fadeIn("slow");
+                    $("#text_mensaje").fadeIn();
+                } else {
+                    $('#lbl_regalo').fadeOut("slow");
+                    $('#text_mensaje').fadeOut("slow");
+                }
+            });
         }
     });
 }
+
+
 
 function UpdateCantidad(i) {
     var parametros = {

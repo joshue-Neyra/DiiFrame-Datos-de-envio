@@ -327,8 +327,7 @@ $('#form_facturacion').submit(function (event) {
         type: 'post',
         success: function (response) {
             $('#ModalFacturacion').modal('hide');
-            alert("Tarjeta no valida");
-            location.reload();
+            
         }
     });
     event.preventDefault();

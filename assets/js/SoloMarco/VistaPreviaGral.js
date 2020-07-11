@@ -83,10 +83,11 @@ function DetalleProducto() {
                     '</div>');
                 var PrecioTotal = DatosJson[i].Precio * iva;
                 $("#Descripcion").append('<p class="last-sold text-muted"><strong>Detalles del proyecto:</strong></p>' +
-                    '<h4 class="product-title mb-2"> Marco: ' + DatosJson[i].Prod_Nombre +'<br>'+ DatosJson[i].Prod_Descripcion + '<br> Tamaño de marco: ' + DatosJson[i].Tamano + '</h4>' +
+                    '<h4 class="product-title mb-2"> Marco: ' + DatosJson[i].Prod_Nombre + '<br>' + DatosJson[i].Prod_Descripcion + '<br> Tamaño de marco: ' + DatosJson[i].Tamano + '</h4>' +
                     '<h2 class="product-price display-4">$ ' + PrecioTotal.toFixed(2) + ' MXN </h2>' +
                     '<p class="text-primary"><i class="fab fa-cc-mastercard"></i> <i class="fab fa-cc-visa"></i> <i class="fab fa-cc-amex"></i></p>' +
                     '<p class="mb-0"><i class="fa fa-truck"></i> Envios a todo México</p>' +
+                    '<p class="mb-0"><i class="fas fa-stopwatch"></i> Entrega: Tiempo de produccion 3 días + tiempo de envio</p>' +
                     '<div class="text-muted mb-2"><small>Aplica restricciones</small></div>' +
                     '<form class="form-inline">' +
                     '<div class="form-group mb-2">' +
@@ -122,10 +123,10 @@ function GetIVA() {
     $.ajax({
         type: 'post',
         url: '/assets/tools/Productos/GetIva.php',
-        dataType:"json",
+        dataType: "json",
         success: function (response) {
             var DatosJson = JSON.parse(JSON.stringify(response));
-             $("#inp_iva").val(DatosJson[0].TasaOCuota);
+            $("#inp_iva").val(DatosJson[0].TasaOCuota);
         }
     });
 }
