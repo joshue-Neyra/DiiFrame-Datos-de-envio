@@ -7,9 +7,10 @@ $total=$_POST['total'];
 $total_Pagado=$_POST['total_Pagado'];
 $proceso=$_POST['proceso'];
 $status=$_POST['status'];
+$descuento=$_POST['descuento'];
 
-$sql = "EXEC UpdateNota @ID =?,@subtotal=?,@impuestos=?,@total=?,@total_pagado=?,@proceso=?,@status=?";
-$params = array($Nota_ID,$subtotal,$impuestos,$total,$total_Pagado,$proceso,$status);
+$sql = "EXEC UpdateNota @ID =?,@subtotal=?,@impuestos=?,@total=?,@total_pagado=?,@proceso=?,@status=?,@descuento=?";
+$params = array($Nota_ID,$subtotal,$impuestos,$total,$total_Pagado,$proceso,$status,$descuento);
 
 $stmt = sqlsrv_query( $conn, $sql, $params);
 if( $stmt === false ) {

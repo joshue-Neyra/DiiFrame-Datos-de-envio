@@ -132,7 +132,7 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card mb-5">
+                    <div class="card mb-3">
                         <div class="card-header">
                             <h4 class="mb-0">
                                 Resumen de pedido</h4>
@@ -154,6 +154,10 @@
                                         <th class="py-4">I.V.A</th>
                                         <td class="py-4 text-right text-muted" id="iva">$</td>
                                     </tr>
+                                    <tr id="tr_descuento">
+                                        <th class="py-4">Descuento</th>
+                                        <td class="py-4 text-right text-muted" id="descuento">- $</td>
+                                    </tr>
                                     <tr>
                                         <th class="pt-4">Total</th>
                                         <td class="pt-4 text-right h5 font-weight-normal" id="total">$</td>
@@ -163,9 +167,10 @@
                             </table>
                             <form id="Pay">
                                 <input type="text" class="d-none" required id="inp_subtotal">
+                                <input type="text" class="d-none" required id="inp_descuento" value="0">
                                 <input type="text" class="d-none" required id="inp_envio">
                                 <input type="text" class="d-none" required id="inp_monto">
-                                <input type="text" class="d-none" required id="inp_iva">
+                                <input type="text" class="d-none" required id="inp_ivanota">
                                 <input type="text" class="d-none" required id="inp_total">
 
                                 <div class="custom-control custom-checkbox mb-3">
@@ -176,9 +181,30 @@
                                     <input type="checkbox" required class="custom-control-input" id="customCheck2">
                                     <label class="custom-control-label" for="customCheck2">He leído y estoy de acurerdo con la<a href="/PrivacyPolicy/"> Politica de privacidad</a></label>
                                 </div>
+
                                 <center><button type="submit" class="btn btn-lg text-light btn-warning">Continuar</button></center>
                             </form>
 
+
+                        </div>
+                    </div>
+                    <div class="card mb-5">
+                        <div class="card-header">
+                            <h4 class="mb-0">
+                                Codigos Promocionales</h4>
+                        </div>
+                        <div class="card-body py-4">
+
+                            <form id="form_voucher">
+                                <div class="form-row align-items-center">
+                                    <div class="col-sm-12 my-1">
+                                        <div class="input-group">
+                                            <input type="text" required class="form-control" id="codigo_voucher" placeholder="Codigo Promoción">
+                                            <button id="btn_voucher" type="submit" class="btn btn-primary text-sm">Canjear</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -303,13 +329,13 @@
                         </div>
                         <div class="form-group">
                             <label for="inp_rfc">R.F.C.</label>
-                            <input type="text" class="form-control" id="inp_rfc" required >
+                            <input type="text" class="form-control" id="inp_rfc" required>
                         </div>
                         <button type="submit" class="btn btn-primary">Confirmar</button>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="cancelar_facturacion" class="btn btn-secondary" >Cancelar</button>
+                    <button type="button" id="cancelar_facturacion" class="btn btn-secondary">Cancelar</button>
                 </div>
             </div>
         </div>

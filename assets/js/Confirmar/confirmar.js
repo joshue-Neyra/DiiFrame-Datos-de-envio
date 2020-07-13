@@ -2,7 +2,9 @@ $(document).ready(function () {
     GetIVA();
     VerPedido();
     $("#form_pago").hide();
+    $("#tr_descuento").hide();
     $(".loader").hide();
+
 
 });
 
@@ -84,18 +86,22 @@ function VerPedido() {
                 }
                 suma = parseFloat(DatosJson[i].Inv_pre_total) + suma;
             }
+
             sumaprod = Math.round10(sumaprod, -2);
             $("#subtotal").html("$" + sumaprod.toFixed(2));
             $("#inp_subtotal").val(sumaprod);
+
             var iva_porcentaje = document.getElementById("inp_iva").value;
+            var descuento = document.getElementById("inp_descuento").value;
+
             var iva_116 = parseFloat(1) + parseFloat(iva_porcentaje);
-            var iva = suma * iva_porcentaje;
-            var total = suma * iva_116;
-            var monto = suma;
+            var iva = (suma - descuento) * iva_porcentaje;
+            var total = (suma - descuento) * iva_116;
+            var monto = (suma - descuento);
             $("#inp_monto").val(monto);
             total = Math.round10(total, -2);
             $("#iva").html("$" + Math.round10(iva, -2));
-            $("#inp_iva").val(iva);
+            $("#inp_ivanota").val(iva);
             $("#total").html("$" + total + ' (MXN)');
             $("#inp_total").val(total);
             //Actializar NtaMain, noata_id, monto, iva,total,total_pagado_proceso,status
@@ -107,6 +113,8 @@ function VerPedido() {
         }
     });
 }
+
+
 
 function dosDecimales(n) {
     let t = n.toString();
@@ -235,12 +243,18 @@ function Pago(deviceSessionId) {
         url: '/assets/tools/Confirmar/CargoTarjeta.php',
         type: 'post',
         success: function (response) {
-            CorreoCliente(parametros.Nota_ID)
-            $(".loader").hide();
 
             if (response == "debit" || response == "credit") {
+                CorreoCliente(parametros.Nota_ID);
+                var descuento = document.getElementById("inp_descuento").value;
+                //alert("1: " + descuento);
+                if (descuento > 0) {
+                    RegistroPromocion(parametros.Nota_ID);
+                    Actualizarcodigo();
+                }
                 //Actializar NtaMain, noata_id, monto, iva,total,total_pagado_proceso,status
                 UpdateNota(parametros.Nota_ID, monto, iva, total, total, 1, 1);
+
                 PagoCRM(parametros.Nota_ID, total, response),
                     CorreoVentas(parametros.Nota_ID);
                 var factura = document.getElementById("inp_factura").checked;
@@ -253,9 +267,44 @@ function Pago(deviceSessionId) {
                 alert("Tarjeta declinada");
                 location.reload();
             }
+
         }
     });
 
+}
+
+function Actualizarcodigo() {
+    var parametros = {
+        "codigo": document.getElementById("codigo_voucher").value
+
+    }
+    $.ajax({
+        data: parametros,
+        url: '/assets/tools/Confirmar/ActualizarCodigo.php',
+        type: 'post',
+        success: function (response) {
+            console.log(response);
+        }
+    });
+}
+
+function RegistroPromocion(Nota_ID) {
+    var parametros = {
+        "codigo": document.getElementById("codigo_voucher").value,
+        "Nota_ID": Nota_ID,
+        "fecha": document.getElementById("date").value,
+        "cantidad": 1,
+        "descuento": document.getElementById("inp_descuento").value
+
+    }
+    $.ajax({
+        data: parametros,
+        url: '/assets/tools/Confirmar/Registropromocion.php',
+        type: 'post',
+        success: function (response) {
+            
+        }
+    });
 }
 
 function UpdateNota(id, monto, iva, total, total_pagado, proceso, status) {
@@ -267,6 +316,7 @@ function UpdateNota(id, monto, iva, total, total_pagado, proceso, status) {
         "total_Pagado": total_pagado,
         "proceso": proceso,
         "status": status,
+        "descuento": document.getElementById("inp_descuento").value
     }
 
     $.ajax({
@@ -327,7 +377,53 @@ $('#form_facturacion').submit(function (event) {
         type: 'post',
         success: function (response) {
             $('#ModalFacturacion').modal('hide');
-            
+
+        }
+    });
+    event.preventDefault();
+});
+
+function calcularpreciodesceunto() {
+    var subtotal = document.getElementById("inp_subtotal").value;
+    var envio = document.getElementById("inp_envio").value;
+    var suma = parseFloat(subtotal) + parseFloat(envio);
+    var iva_porcentaje = document.getElementById("inp_iva").value;
+    var descuento = document.getElementById("inp_descuento").value;
+    //alert(descuento);
+    var monto = (suma - descuento);
+    $("#inp_monto").val(monto);
+    var iva_116 = parseFloat(1) + parseFloat(iva_porcentaje);
+    var iva = monto * iva_porcentaje;
+    var total = monto * iva_116;
+
+    total = Math.round10(total, -2);
+    $("#iva").html("$" + Math.round10(iva, -2));
+    $("#inp_ivanota").val(iva);
+    $("#total").html("$" + total + ' (MXN)');
+    $("#inp_total").val(total);
+}
+
+$('#form_voucher').submit(function (event) {
+    var parametros = {
+        codigo: document.getElementById("codigo_voucher").value
+    }
+    $.ajax({
+        data: parametros,
+        url: '/assets/tools/Confirmar/ValidarVoucher.php',
+        type: 'post',
+        dataType: 'json',
+        success: function (r) {
+            console.log(r);
+            var DatosJson = JSON.parse(JSON.stringify(r));
+            var subtotal = document.getElementById("inp_subtotal").value;
+            var porcentaje = "0." + DatosJson[0].PorcentajeDescuento;
+            var descuento = parseFloat(subtotal) * parseFloat(porcentaje);
+            $('#inp_descuento').val(descuento);
+            $("#tr_descuento").show();
+            $("#descuento").html("- $" + descuento + ' (MXN)');
+            calcularpreciodesceunto();
+            $('#btn_voucher').attr('disabled', 'disabled');
+
         }
     });
     event.preventDefault();
