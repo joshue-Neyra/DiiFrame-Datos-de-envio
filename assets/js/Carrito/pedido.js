@@ -115,6 +115,30 @@ $("#reset").click(function (event) {
     event.preventDefault();
 });
 
+function ValidarPromocion(Direccion_ID, Clie_Estado, LatCli, LngCli) {
+    $(".loader").show();
+    $.ajax({
+        url: '/assets/tools/Carrito/PromocionAjusteGrl.php',
+        type: 'post',
+        dataType: 'json',
+        success: function (r) {
+            var DatosJson = JSON.parse(JSON.stringify(r));
+            //Validar envio gratis 
+            if (DatosJson[0].Activado) {
+                //tercer parametro ivoy u otro
+                if (Clie_Estado == "CDMX") {
+                    InsertPedido(0, Direccion_ID, true);
+                } else {
+                    InsertPedido(0, Direccion_ID, false);
+                }
+            }
+            else{
+                GetCoordenadasEmpresa(Direccion_ID, Clie_Estado, LatCli, LngCli);
+            }
+        }
+    });
+}
+
 function GetCoordenadasEmpresa(Direccion_ID, Clie_Estado, LatCli, LngCli) {
     $(".loader").show();
     $.ajax({

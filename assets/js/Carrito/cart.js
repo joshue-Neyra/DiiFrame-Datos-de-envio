@@ -37,7 +37,7 @@ function Carrito() {
         url: '/assets/tools/Carrito/VerCarrito.php',
         type: 'post',
         success: function (response) {
-            console.log(response);
+            //console.log(response);
             var DatosJson = JSON.parse(response);
             var iva_porcentaje = document.getElementById("inp_iva").value;
             var iva = parseFloat(1) + parseFloat(iva_porcentaje);
@@ -180,7 +180,7 @@ function ListaDirecciones() {
                     DatosJson[i].Clie_Calle + ' ' + DatosJson[i].Clie_Num_Ext + '</div>' +
                     '<div class = " mb-0 font-weight-bold text-muted"> C.P. ' + DatosJson[i].CP + ', ' + DatosJson[i].Clie_Colonia + ', ' + DatosJson[i].Clie_Estado + ', ' + DatosJson[i].Clie_Pais + ', Cel. ' + DatosJson[i].Celular + '</div>' +
                     '</div> <div class = "col-auto">' +
-                    '<btn class = "btn btn-sm btn-primary" onclick="GetCoordenadasEmpresa(' + DatosJson[i].Direccion_ID + ',' + estado + ',' + DatosJson[i].Lat + ',' + DatosJson[i].Long + ')"> Elegir </btn>' +
+                    '<btn class = "btn btn-sm btn-primary" onclick="ValidarPromocion(' + DatosJson[i].Direccion_ID + ',' + estado + ',' + DatosJson[i].Lat + ',' + DatosJson[i].Long + ')"> Elegir </btn>' +
                     '</div></div></div> </div> </div>');
             }
             $("#ClienteDirecciones").append('<div class="col-xl-8 mb-4">' +
