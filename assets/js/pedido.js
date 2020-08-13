@@ -116,14 +116,17 @@ function VerPedido() {
                     '<td class = "qty" > ' + DatosJson[i].Inv_cant + ' </td> ' +
                     '<td class = "total" > $' + Math.round10(DatosJson[i].Inv_pre_total, -2) + ' </td>' +
                     '</tr > ');
-                subtotal = parseFloat(subtotal) + parseFloat(DatosJson[i].Inv_pre_total);
+                subtotal = Math.round10(DatosJson[i].Nota_Monto);
+                var descuento = Math.round10(DatosJson[i].Nota_Descuento, -2);
+                var Impuesto = Math.round10(DatosJson[i].Nota_Impuesto, -2);
+                var Total = Math.round10(DatosJson[i].Nota_Total, -2);
+                 
+                
             }
             $("#subtotal").text('$' + subtotal);
-            var iva_porcentaje = document.getElementById("inp_iva").value;
-            var iva = parseFloat(1) + parseFloat(iva_porcentaje);
-            $("#impuestos").text('$' + Math.round10((subtotal * iva_porcentaje),-2));
-            var total = Math.round10((subtotal * iva), -2);
-            $("#total").text('$' + total);
+            $("#descuento").text('$ -' + descuento);
+            $("#impuestos").text('$' + Impuesto);
+            $("#total").text('$' + Total);
 
         }
     });

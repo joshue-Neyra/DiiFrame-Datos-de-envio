@@ -248,6 +248,11 @@
                                 </tr>
                             </tbody>
                             <tfoot>
+                                 <tr>
+                                    <td colspan="2"></td>
+                                    <td colspan="2">DESCUENTO</td>
+                                    <td id="descuento"></td>
+                                </tr>
                                 <tr>
                                     <td colspan="2"></td>
                                     <td colspan="2">SUBTOTAL</td>

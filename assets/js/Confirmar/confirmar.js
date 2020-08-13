@@ -228,7 +228,7 @@ $(document).ready(function () {
 function Pago(deviceSessionId) {
     var envio = document.getElementById("inp_envio").value;
     var monto = document.getElementById("inp_monto").value;
-    var iva = document.getElementById("inp_iva").value;
+    var iva = document.getElementById("inp_ivanota").value;
     var total = document.getElementById("inp_total").value;
     var parametros = {
         "token_id": document.getElementById("token_id").value,
@@ -256,7 +256,7 @@ function Pago(deviceSessionId) {
                 UpdateNota(parametros.Nota_ID, monto, iva, total, total, 1, 1);
 
                 PagoCRM(parametros.Nota_ID, total, response),
-                    CorreoVentas(parametros.Nota_ID);
+                CorreoVentas(parametros.Nota_ID);
                 var factura = document.getElementById("inp_factura").checked;
                 if (factura == true) {
                     facturar(parametros.Nota_ID);

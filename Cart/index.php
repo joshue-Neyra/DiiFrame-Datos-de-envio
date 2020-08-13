@@ -232,7 +232,7 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="pac-card" id="pac-card">
+                    <div class="pac-card d-none" id="pac-card">
                         <div>
                             <div id="type-selector" class="pac-controls d-none">
                                 <input type="radio" name="type" id="changetype-address" checked="checked">

@@ -28,6 +28,22 @@ function dosDecimales(n) {
     return t.match(regex)[0];
 }
 
+function SoloNumeros(evt) {
+    if (window.event) {
+        keynum = evt.keyCode;
+    } else {
+        keynum = evt.which;
+    }
+    if ((keynum > 47 && keynum < 58) || keynum == 8 || keynum == 13 || keynum == 6 || keynum == 45) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+$("#inp_cli_cel, #inp_cli_tel").keypress(function () {
+    return SoloNumeros(event);
+});
 
 function Carrito() {
     var parametros = "";

@@ -28,7 +28,7 @@
     <!-- Navigation -->
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/nav2.html'; ?>
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/tools/instagram/instagram_basic_display_api.php'; ?>
-  <?php
+    <?php
 	$accessToken = 'ACCESS-TOKEN';
 
 	$params = array(
@@ -53,7 +53,11 @@
                                     <label class="custom-file-label" for="imagen">Buscar desde Ordenador</label>
                                 </div>
 
-                                <a href="<?php echo $ig->authorizationUrl; ?>" id="btn_instagram" class="btn btn-warning">Cargar imagen desde instagram</a>
+                                <a href="<?php echo $ig->authorizationUrl; ?>" id="btn_instagram" class="btn btn-warning">Cargar imagen desde Instagram</a><br>
+                                <a class="btn btn-primary my-3">
+                                    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+                                        Cargar imagen desde Facebook</fb:login-button>
+                                </a>
                             </div>
                             <div class="card-footer container">
                                 <button id="btn_submit" data-setclass="jcrop-light" onclick="crop();" class="btn btn-warning d-none">Elegir</button>
@@ -68,6 +72,58 @@
     <script src="/assets/crop/jquery-3.3.1.min.js"></script>
     <script src="/assets/crop/cropper.js"></script>
     <script type="text/javascript" src="/assets/js/ImpresionDigital/crop_digital.js"></script>
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId: '983887345394123',
+                cookie: true,
+                xfbml: true,
+                version: 'v8.0'
+            });
+
+            FB.AppEvents.logPageView();
+
+        };
+
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        function checkLoginState() {
+            FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+            });
+        }
+
+        function statusChangeCallback(response) {
+            console.log('statusChangeCallback');
+            console.log(response);
+            // The response object is returned with a status field that lets the
+            // app know the current login status of the person.
+            // Full docs on the response object can be found in the documentation
+            // for FB.getLoginStatus().
+            if (response.status === 'connected') {
+                // Logged into your app and Facebook.
+                console.log('Welcome!  Fetching your information.... ');
+                FB.api('/me', function(response) {
+                    console.log('Successful login for: ' + response.name);
+                    alert('Thanks for logging in, ' + response.name + '!') ;
+                       
+                });
+            } else {
+                // The person is not logged into your app or we are unable to tell.
+                alert('Please log into this app.');
+            }
+        }
+
+    </script>
     <style>
         .cropper-crop {
             display: none;
