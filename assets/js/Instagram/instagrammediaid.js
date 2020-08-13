@@ -1,11 +1,12 @@
 $(document).ready(function () {
+    $('#media_id').removeClass("d-none");
     InstagramMedidas();
 });
 
 function InstagramMedidas() {
-   
+
     var imagen = $('#media_id');
-    
+
     var alto = imagen.height();
     var ancho = imagen.width();
     var calculo = (alto * ancho) / 100000
@@ -31,7 +32,7 @@ function InstagramMedidas() {
         "success": function (response) {
             console.log(response);
             $("#mp").val(mp);
-            $(".text-warning").text("Tamaño de imagen ="+mp+"MP");
+            $(".text-warning").text("Tamaño de imagen =" + mp + "MP");
             size();
             $(".loader").hide();
         }
@@ -49,6 +50,8 @@ function size() {
         size = 6;
     } else if (size == 9) {
         size = 8;
+    } else if (size == 11) {
+        size = 10;
     } else if (size > 12 && size < 16) {
         size = 12;
     } else if (size > 16 && size < 18) {
