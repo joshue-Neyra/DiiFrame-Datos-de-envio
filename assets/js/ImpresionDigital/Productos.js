@@ -1,25 +1,26 @@
 var myVar;
 $(document).ready(function () {
     //ListaProductos();
-    Marialuisa();
+    Marialuisa(1);
     TamanosMarialuisa();
     $(".loader").hide();
 
 });
 
 
-function ListaProductos(bg) {
+function ListaProductos(bg,Familia_Id) {
     var parametros = {
-        "Tamano": document.getElementById("Tamano_ID").value
+        "Tamano": document.getElementById("Tamano_ID").value,
+         "Familia_ID": Familia_Id
     }
-
+    alert(Familia_Id);
     $.ajax({
         data: parametros,
         url: '/assets/tools/Productos/ListaProductos.php',
         type: 'post',
         dataType: 'json',
         success: function (response) {
-            //$("#Productos").text("");
+            $("#Productos").text("");
             var DatosJson = JSON.parse(JSON.stringify(response));
             var orientacion_foto = "";
             var orientacion_marco = "";
@@ -77,7 +78,7 @@ function ListaProductos(bg) {
     });
 }
 
-function Marialuisa() {
+function Marialuisa(Familia_Id) {
     $.ajax({
         url: '/assets/tools/Productos/MariaLuisa.php',
         type: 'post',
@@ -158,7 +159,7 @@ function Marialuisa() {
                         });
                 }
             });
-            ListaProductos(bg);
+            ListaProductos(bg,Familia_Id);
         }
     });
 

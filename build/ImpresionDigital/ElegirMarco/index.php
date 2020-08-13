@@ -45,9 +45,9 @@
                 <div class="card-body row justify-content-md-center">
                     <div class=" col-md-6">
                         <div class="form-group">
-                            <h4 class="text-primary text-center">1) Tamaño marialuisa  <i class="far fa-question-circle"data-toggle="popover" data-img="/assets/img/marialuisa.png" title="Marialuisa o paspartú es el pequeño espacio que rodea las fotografías o arte antes del marco, en caso de que existan" ></i>  :</h4>
-                            
-                            
+                            <h4 class="text-primary text-center">1) Tamaño marialuisa <i class="far fa-question-circle" data-toggle="popover" data-img="/assets/img/marialuisa.png" title="Marialuisa o paspartú es el pequeño espacio que rodea las fotografías o arte antes del marco, en caso de que existan"></i> :</h4>
+
+
                             <select class="form-control" id="Tamano_Marialuisa">
                             </select>
                         </div>
@@ -87,6 +87,11 @@
         </div>
         <div class="loader"></div>
         <div class="container">
+            <ol class="breadcrumb justify-content-center" id="Filtro_Familia">
+                <li class="breadcrumb-item active" onclick="Marialuisa(1);">¿Un cuadro para tu casa?</li>
+                <li class="breadcrumb-item active" onclick="Marialuisa(2);">¿Un cuadro para tu oficina?</li>
+                <li class="breadcrumb-item active" onclick="Marialuisa(3);">¿Un regalo?</li>
+            </ol>
             <p class="text-muted"><small>*Tu imagen es unicamente ilustrativa, esta puede variar al momento que la recibas</small></p>
             <div class="row justify-content-md-center" id="Productos">
 
@@ -96,16 +101,15 @@
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/footer.html'; ?>
     <script type="text/javascript" src="/assets/js/ImpresionDigital/Productos.js"></script>
     <script>
-      
-         $('[data-toggle="popover"]').popover({
-          //trigger: 'focus',
-		  trigger: 'hover',
-          html: true,
-          content: function () {
-				return '<img class="img-fluid" src="'+$(this).data('img') + '" />';
-          },
-          title: 'Toolbox'
-    }) 
+        $('[data-toggle="popover"]').popover({
+            //trigger: 'focus',
+            trigger: 'hover',
+            html: true,
+            content: function() {
+                return '<img class="img-fluid" src="' + $(this).data('img') + '" />';
+            },
+            title: 'Toolbox'
+        })
 
     </script>
 
