@@ -13,7 +13,7 @@ function ListaProductos(bg,Familia_Id) {
         "Tamano": document.getElementById("Tamano_ID").value,
          "Familia_ID": Familia_Id
     }
-    alert(Familia_Id);
+    
     $.ajax({
         data: parametros,
         url: '/assets/tools/Productos/ListaProductos.php',
