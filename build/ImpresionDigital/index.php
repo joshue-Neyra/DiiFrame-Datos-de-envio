@@ -5,8 +5,7 @@
     <title>DiiFrame - Inicio</title>
     <meta name="description" content="">
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/head.html'; ?>
-
-
+    <link href="/assets/css/hover.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/assets/crop/cropper.css">
     <style>
         .loader {
@@ -18,6 +17,35 @@
             z-index: 9999;
             background: url('/assets/img/loading.gif') 50% 50% no-repeat rgb(249, 249, 249);
             opacity: .8;
+        }
+
+        .cropper-crop {
+            display: none;
+        }
+
+        .cropper-bg {
+            background: none;
+        }
+
+        #Facebook_feed {
+            padding: 10px 0 0 10px;
+            background-color: white;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            width: 200px;
+            height: 200px;
+            float: left;
+            margin: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 10px solid #fff;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.5);
+        }
+
 
     </style>
 </head>
@@ -54,10 +82,8 @@
                                 </div>
 
                                 <a href="<?php echo $ig->authorizationUrl; ?>" id="btn_instagram" class="btn btn-warning">Cargar imagen desde Instagram</a><br>
-                                <a class="btn btn-primary my-3">
-                                    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-                                        Cargar imagen desde Facebook</fb:login-button>
-                                </a>
+                                <fb:login-button class="fb-login-button my-3 btn" data-size="large" data-button-type="login_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="true" data-width="" scope="public_profile,email" onlogin="checkLoginState();">
+                                </fb:login-button>
                             </div>
                             <div class="card-footer container">
                                 <button id="btn_submit" data-setclass="jcrop-light" onclick="crop();" class="btn btn-warning d-none">Elegir</button>
@@ -68,72 +94,22 @@
             </div>
         </div>
     </section>
+    <section class="features" id="facebook_section">
+        <div class="container">
+            <div class="section-heading text-center">
+                <h2>Elige una foto</h2>
+                <hr>
+            </div>
+            
+            <div class="row text-center justify-content-md-center" id="Facebook_feed">
+            </div>
+        </div>
+    </section>
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/footer.html'; ?>
     <script src="/assets/crop/jquery-3.3.1.min.js"></script>
     <script src="/assets/crop/cropper.js"></script>
     <script type="text/javascript" src="/assets/js/ImpresionDigital/crop_digital.js"></script>
-    <script>
-        window.fbAsyncInit = function() {
-            FB.init({
-                appId: '983887345394123',
-                cookie: true,
-                xfbml: true,
-                version: 'v8.0'
-            });
-
-            FB.AppEvents.logPageView();
-
-        };
-
-        (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {
-                return;
-            }
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-
-        function checkLoginState() {
-            FB.getLoginStatus(function(response) {
-                statusChangeCallback(response);
-            });
-        }
-
-        function statusChangeCallback(response) {
-            console.log('statusChangeCallback');
-            console.log(response);
-            // The response object is returned with a status field that lets the
-            // app know the current login status of the person.
-            // Full docs on the response object can be found in the documentation
-            // for FB.getLoginStatus().
-            if (response.status === 'connected') {
-                // Logged into your app and Facebook.
-                console.log('Welcome!  Fetching your information.... ');
-                FB.api('/me', function(response) {
-                    console.log('Successful login for: ' + response.name);
-                    alert('Thanks for logging in, ' + response.name + '!') ;
-                       
-                });
-            } else {
-                // The person is not logged into your app or we are unable to tell.
-                alert('Please log into this app.');
-            }
-        }
-
-    </script>
-    <style>
-        .cropper-crop {
-            display: none;
-        }
-
-        .cropper-bg {
-            background: none;
-        }
-
-    </style>
+    <script type="text/javascript" src="/assets/js/Facebook/facebook.js"></script>
 </body>
 
 </html>
