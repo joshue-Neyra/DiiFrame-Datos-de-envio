@@ -1,15 +1,18 @@
 $(document).ready(function () {
-    $('#media_id').removeClass("d-none");
-    InstagramMedidas();
+    var delayInMilliseconds = 2500; //1 second
+
+    setTimeout(function () {
+        InstagramMedidas();
+    }, delayInMilliseconds);
+    
 });
 
 function InstagramMedidas() {
-
+    $('#media_id').removeClass("d-none");
     var imagen = $('#media_id');
-
     var alto = imagen.height();
     var ancho = imagen.width();
-    var calculo = (alto * ancho) / 100000
+    var calculo = (alto * ancho) / 100000;
     var mp = parseInt(calculo);
     var orientacion = 0;
     if (alto > ancho) {
@@ -17,26 +20,27 @@ function InstagramMedidas() {
     } else {
         orientacion = 2;
     }
-    //alert(imagen.width()); // ancho original. Ej. 800
-    //alert(imagen.height());
-    //alert(mp);
-    $('#media_id').addClass("d-none");
-    var parametros = {
-        Mp: mp,
-        Ori: orientacion
-    }
-    $.ajax({
-        "url": '/assets/tools/Sesion/sesion_mp_nombre2.php',
-        "method": "POST",
-        "data": parametros,
-        "success": function (response) {
-            console.log(response);
-            $("#mp").val(mp);
-            $(".text-warning").text("Tamaño de imagen =" + mp + "MP");
-            size();
-            $(".loader").hide();
+    if (mp != 0) {
+        $('#media_id').addClass("d-none");
+        var parametros = {
+            Mp: mp,
+            Ori: orientacion
         }
-    });
+        $.ajax({
+            "url": '/assets/tools/Sesion/sesion_mp_nombre2.php',
+            "method": "POST",
+            "data": parametros,
+            "success": function (response) {
+                console.log(response);
+                $("#mp").val(mp);
+                $(".text-warning").text("Tamaño de imagen =" + mp + "MP");
+                size();
+                $(".loader").hide();
+            }
+        });
+    } else {
+        location.reload();
+    }
 
 }
 

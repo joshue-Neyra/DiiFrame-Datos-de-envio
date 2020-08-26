@@ -14,7 +14,6 @@
             height: 100%;
             z-index: 9999;
             background: url('/assets/img/loading.gif') 50% 50% no-repeat rgb(249, 249, 249);
-            opacity: .8;
         }
     </style>
 </head>
@@ -26,7 +25,7 @@
     <!-- Navigation -->
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/nav2.html'; ?>
     <div class="loader"></div>
-    <img id="media_id"  class="" src="/assets/tools/imageupload/<?php echo $_SESSION['Nombre']; ?>" alt="build">
+    <img id="media_id" src="/assets/tools/imageupload/<?php echo $_SESSION['Nombre']; ?>" alt="build">
 
     <section class="features" id="features">
         <div class="container">

@@ -15,7 +15,6 @@
             height: 100%;
             z-index: 9999;
             background: url('/assets/img/loading.gif') 50% 50% no-repeat rgb(249, 249, 249);
-            opacity: .8;
         }
 
         #Instagram_feed {
@@ -71,8 +70,9 @@
             </div>
         </div>
     </section>
-    <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/footer.html'; ?>
+    
     <script type="text/javascript" src="/assets/js/Instagram/instagram.js"></script>
+    <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/footer.html'; ?>
 </body>
 
 </html>

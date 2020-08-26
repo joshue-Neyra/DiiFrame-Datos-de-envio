@@ -82,7 +82,7 @@
                                 </div>
 
                                 <a href="<?php echo $ig->authorizationUrl; ?>" id="btn_instagram" class="btn btn-warning">Cargar imagen desde Instagram</a><br>
-                                <fb:login-button class="fb-login-button my-3 btn" data-size="large" data-button-type="login_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="true" data-width="" scope="public_profile,email" onlogin="checkLoginState();">
+                                <fb:login-button class="fb-login-button my-3 btn" data-size="large" data-button-type="login_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="true" data-width="" scope="public_profile,email" onlogin="checkLoginState();">Iniciar con Facebook
                                 </fb:login-button>
                             </div>
                             <div class="card-footer container">
