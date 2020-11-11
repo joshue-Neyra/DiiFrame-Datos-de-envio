@@ -41,6 +41,16 @@
             line-height: inherit;
         }
 
+        .carousel-item {
+            height: 80vh;
+            min-height: 350px;
+            background: no-repeat center center scroll;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
     </style>
 </head>
 
@@ -55,6 +65,7 @@
     } ?>">
     <!-- Navigation -->
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/nav.html'; ?>
+<<<<<<< Updated upstream
     <header class="masthead" style="background-image: url('/assets/img/header.jpg')">
         <div class="overlay"></div>
         <div class="container">
@@ -63,9 +74,44 @@
                     <div class="site-heading">
                         <h1>Un marco es el toque final perfecto </h1>
                         <span class="subheading">Verdaderos Marcos personalizados :)</span>
+=======
+    <header>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <!-- Slide One - Set the background image for this slide in the line below -->
+                <div class="carousel-item active" style="background-image: url('/assets/img/header.jpg')">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3 class="display-3">Un marco es el toque final perfecto</h3>
+                        <p class="lead">Verdaderos Marcos personalizados</p>
+>>>>>>> Stashed changes
                     </div>
                 </div>
+                <!-- Slide Two - Set the background image for this slide in the line below -->
+                <div class="carousel-item" style="background-image: url('/assets/img/buenfin/slide3.png')"></div>
+                <!-- Slide Three - Set the background image for this slide in the line below -->
+                <div class="carousel-item" style="background-image: url('/assets/img/buenfin/slide2.png')">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2 class="lead">Código promocional:</h2>
+                        <h1 class="display-1">Buenfin2020</h1>
+                    </div>
+                </div>
+                <!-- Slide Three - Set the background image for this slide in the line below -->
+                <div class="carousel-item" style="background-image: url('/assets/img/buenfin/slide1.png')"></div>
             </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
     </header>
 
@@ -449,7 +495,7 @@
         </div>
     </section>
 
-    <div class="modal fade text-center py-5 subscribeModal-lg" id="subscribeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade text-center py-5 subscribeModal-lg" id="subscribeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-body">
@@ -468,6 +514,32 @@
                     </form>
                     <p class="pb-1 text-muted"><small>
                             Su correo electrónico está seguro con nosotros. No haremos spam.</small></p>
+                    <div class="bottom-strip"></div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="modal fade text-center py-5 subscribeModal-lg" id="subscribeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                <div class="top-strip"></div>
+                    <img class="img-fluid" src="/assets/img/logo_buenfin.png" width="500" height="600">
+                    <h3 class="pt-5 mb-0 text-secondary">Código promocional</h3>
+                    <h1 class="pt-5 mb-0 text-secondary">Buenfin2020</h1>
+                    <h3 class="pt-5 mb-0 text-secondary">Aprovecha nuestros grandes descuentos este gran fin</h3>
+                    <p class="pb-1 text-muted"><large>No te los pierdas del 9 al 20 de Noviembre</large></p>
+                    <form id="inp_newsletter">
+                        <div class="input-group mb-3 w-75 mx-auto">
+                            <input type="email" id="clie_news" class="form-control" placeholder="Email" aria-label="Recipient's username" aria-describedby="button-addon2" required>
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-paper-plane"></i></button>
+                            </div>
+                        </div>
+
+                    </form>
+                    <p class="pb-1 text-muted"><small>Su correo electrónico está seguro con nosotros. No haremos spam.</small></p>
                     <div class="bottom-strip"></div>
                 </div>
             </div>

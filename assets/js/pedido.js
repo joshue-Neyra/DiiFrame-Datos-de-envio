@@ -89,11 +89,11 @@ function VerPedido() {
             $("#tbl_Pedido").text("");
             var d = new Date(DatosJson[0].Fecha_Recibo.date);
             var Dia1 = d.getDate();
-            var Mes1 = d.getMonth();
+            var Mes1 = d.getMonth() + 1;
             var Año1 = d.getFullYear();
             var d2 = new Date(DatosJson[0].Fecha_Entrega.date);
             var Dia2 = d2.getDate();
-            var Mes2 = d2.getMonth();
+            var Mes2 = d2.getMonth() + 1;
             var Año2 = d2.getFullYear();
             $("#date1").text("Fecha de recibo: " + Dia1 + '/' + Mes1 + '/' + Año1);
             $("#date2").text("Fecha estimada de entrega: " + Dia2 + '/' + Mes2 + '/' + Año2);
