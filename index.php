@@ -62,7 +62,7 @@
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <div class="site-heading">
                         <h1>Un marco es el toque final perfecto </h1>
-                        <span class="subheading">Verdaderos Marcos personalizados</span>
+                        <span class="subheading">Verdaderos Marcos personalizados :)</span>
                     </div>
                 </div>
             </div>
