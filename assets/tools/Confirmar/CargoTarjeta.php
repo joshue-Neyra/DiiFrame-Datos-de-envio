@@ -49,8 +49,8 @@ else{
 	
 
 
-    $openpay = Openpay::getInstance('mw8d97ek1oeitzkxg8cm',
-      'sk_45ad3ad67db7422f9eb4f8c48a3bb0cf');
+    $openpay = Openpay::getInstance('mnyeni3tgymyscsrc823',
+      'sk_e67d069232574bc0a8cfe10d26d1943a');
 
     $customer = array(
          'name' => $Cli_Nombre,

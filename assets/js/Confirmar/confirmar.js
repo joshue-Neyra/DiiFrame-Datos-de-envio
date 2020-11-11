@@ -114,8 +114,6 @@ function VerPedido() {
     });
 }
 
-
-
 function dosDecimales(n) {
     let t = n.toString();
     let regex = /(\d*.\d{0,2})/;
@@ -196,9 +194,9 @@ function BorrarInventario(id) {
 
 $(document).ready(function () {
 
-    OpenPay.setId('mw8d97ek1oeitzkxg8cm');
-    OpenPay.setApiKey('pk_6e0269d2baea4b78a48c9b12e7edd7a0');
-    OpenPay.setSandboxMode(true);
+    OpenPay.setId('mnyeni3tgymyscsrc823');
+    OpenPay.setApiKey('pk_6557ab10001e460796c221f00d5823d3');
+    OpenPay.setSandboxMode(false);
     //Se genera el id de dispositivo
     var deviceSessionId = OpenPay.deviceData.setup("payment-form", "deviceIdHiddenFieldName");
 
