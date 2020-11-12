@@ -5,14 +5,14 @@
 <head>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-M0QJP86GZV"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ED2F2ZSZ7B"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-  gtag('config', 'G-M0QJP86GZV');
-</script>
+        gtag('config', 'G-ED2F2ZSZ7B');
+    </script>
 
     <title>DiiFrame - Inicio</title>
     <meta name="description" content="">
