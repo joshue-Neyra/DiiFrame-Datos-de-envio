@@ -3,6 +3,17 @@
 <html lang="en">
 
 <head>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M0QJP86GZV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-M0QJP86GZV');
+</script>
+
     <title>DiiFrame - Inicio</title>
     <meta name="description" content="">
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/head.html'; ?>
@@ -65,16 +76,6 @@
     } ?>">
     <!-- Navigation -->
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/nav.html'; ?>
-<<<<<<< Updated upstream
-    <header class="masthead" style="background-image: url('/assets/img/header.jpg')">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-md-10 mx-auto">
-                    <div class="site-heading">
-                        <h1>Un marco es el toque final perfecto </h1>
-                        <span class="subheading">Verdaderos Marcos personalizados :)</span>
-=======
     <header>
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -89,7 +90,6 @@
                     <div class="carousel-caption d-none d-md-block">
                         <h3 class="display-3">Un marco es el toque final perfecto</h3>
                         <p class="lead">Verdaderos Marcos personalizados</p>
->>>>>>> Stashed changes
                     </div>
                 </div>
                 <!-- Slide Two - Set the background image for this slide in the line below -->

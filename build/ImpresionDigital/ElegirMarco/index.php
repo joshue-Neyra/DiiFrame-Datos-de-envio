@@ -88,9 +88,9 @@
         <div class="loader"></div>
         <div class="container">
             <ol class="breadcrumb justify-content-center" id="Filtro_Familia">
-                <li class="breadcrumb-item active" onclick="Marialuisa(1);">¿Un cuadro para tu casa?</li>
-                <li class="breadcrumb-item active" onclick="Marialuisa(2);">¿Un cuadro para tu oficina?</li>
-                <li class="breadcrumb-item active" onclick="Marialuisa(3);">¿Un regalo?</li>
+                <li class="breadcrumb-item active" onclick="Marialuisa(1);"><a href="#">¿Un cuadro para tu casa?</a></li>
+                <li class="breadcrumb-item active" onclick="Marialuisa(2);"><a href="#">¿Un cuadro para tu oficina?</a></li>
+                <li class="breadcrumb-item active" onclick="Marialuisa(3);"><a href="#">¿Un regalo?</a></li>
             </ol>
             <p class="text-muted"><small>*Tu imagen es unicamente ilustrativa, esta puede variar al momento que la recibas</small></p>
             <div class="row justify-content-md-center" id="Productos">

@@ -52,8 +52,8 @@ function ListaProductos(bg,Familia_Id) {
                     '<img class="mypic2 pic-2" src="' + DatosJson[i].RutaImagen3 + '">' +
                     '</a>' +
                     '<ul class="social">' +
-                    '<li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>' +
-                    '<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>' +
+                    //'<li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>' +
+                    //'<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>' +
                     '</ul>' +
                     '<span class="product-new-label">New</span>' +
                     '</div>' +

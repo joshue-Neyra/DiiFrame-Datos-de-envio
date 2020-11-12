@@ -275,7 +275,7 @@
                                             <label class="my-1 mr-2">Código de seguridad (cvc)</label>
                                             <div class="form-row align-items-center">
                                                 <div class="col-auto">
-                                                    <input required class="form-control mb-2" type="password" maxlength="3" placeholder="3 dígitos" data-openpay-card="cvv2" id="cvv2">
+                                                    <input required class="form-control mb-2" type="password" maxlength="4" placeholder="3 o 4 dígitos" data-openpay-card="cvv2" id="cvv2">
                                                 </div>
                                                 <div class="col-auto">
                                                     <img class="img-fluid" src="/assets/img/openpay/cvv.png">
