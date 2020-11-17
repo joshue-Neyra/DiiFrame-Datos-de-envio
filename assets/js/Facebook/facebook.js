@@ -6,10 +6,10 @@
                 appId: '983887345394123',
                 cookie: true,
                 xfbml: true,
-                version: 'v8.0'
+                version: 'v9.0'
             });
 
-            FB.AppEvents.logPageView();
+            FB.AppEvents.logEvent();
 
         };
 
@@ -32,6 +32,8 @@
 
         function statusChangeCallback(response) {
             if (response.status === 'connected') {
+                var accessToken = response.authResponse.accessToken;
+                console.log(accessToken)
                 FB.api('/me', function (response) {
                     $('#facebook_section').show();
                     $('#features').hide();
@@ -53,10 +55,10 @@
                     var fbdata = response.data;
 
                     if (fbdata.length == 0) {
-                        profilephoto(userId);
-                        
 
+                        profilephoto(userId);
                     } else {
+                        
                         var images = response.data[0].images[0];
                         for (i = 0; i < fbdata.length; i++) {
                             var url = "'" + fbdata[i].images[0].source.toString() + "'";

@@ -146,11 +146,11 @@ function GetCoordenadasEmpresa(Direccion_ID, Clie_Estado, LatCli, LngCli) {
         type: 'post',
         dataType: 'json',
         success: function (r) {
-            if (Clie_Estado == "CDMX") {
-                CotizacioniVoy(r.Lat, r.Long, LatCli, LngCli, Direccion_ID);
-            } else {
+            //if (Clie_Estado == "CDMX") {
+            //    CotizacioniVoy(r.Lat, r.Long, LatCli, LngCli, Direccion_ID);
+            //} else {
                 CostoEnvio(Direccion_ID);
-            }
+            //}
         }
     });
 }

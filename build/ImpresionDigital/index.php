@@ -53,7 +53,6 @@
 <body id="page-top">
 
     <!-- Navigation -->
-    <!-- Navigation -->
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/nav2.html'; ?>
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/tools/instagram/instagram_basic_display_api.php'; ?>
     <?php

@@ -6,9 +6,11 @@ $(document).ready(function () {
 function InstagramGetMedia() {
 
     var at = document.getElementById("ig_access_token").value;
-    //alert(at);
+    console.log(at)
+    console.log(at.toString)
+    alert(at);
     $.ajax({
-        "url": 'https://graph.facebook.com/v9.0/134895793791914?fields=instagram_business_account&access_token=' + at,
+        "url": 'https://graph.facebook.com/v9.0/me/accounts?access_token=' + at,
         "method": "GET",
         "dataType": "jsonp",
         "cache": false,
@@ -17,6 +19,7 @@ function InstagramGetMedia() {
             var algo = response.data;
             
             //console.log(algo[0].media_url);
+            console.log(response.toString);
             for (i = 0; i < algo.length; i++) {
                 if (algo[i].media_type != "VIDEO") {
                     var url = "'" + algo[i].media_url.toString() + "'";
