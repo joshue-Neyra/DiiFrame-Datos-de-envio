@@ -10,7 +10,7 @@ function InstagramGetMedia() {
     console.log(at.toString)
     alert(at);
     $.ajax({
-        "url": 'https://graph.facebook.com/v9.0/me/accounts?access_token=' + at,
+        "url": 'https://graph.instagram.com/me/media?fields=id,caption,media_url,media_type&access_token=' + at,
         "method": "GET",
         "dataType": "jsonp",
         "cache": false,
