@@ -93,16 +93,11 @@
                     </div>
                 </div>
                 <!-- Slide Two - Set the background image for this slide in the line below -->
-                <div class="carousel-item" style="background-image: url('/assets/img/buenfin/slide3.png')"></div>
+                <div class="carousel-item" style="background-image: url('/assets/img/navidad2020/bannernavidad1.png')"></div>
                 <!-- Slide Three - Set the background image for this slide in the line below -->
-                <div class="carousel-item" style="background-image: url('/assets/img/buenfin/slide2.png')">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h2 class="lead">Código promocional:</h2>
-                        <h1 class="display-1">Buenfin2020</h1>
-                    </div>
+                <div class="carousel-item" style="background-image: url('/assets/img/navidad2020/bannernavidad2.png')">
                 </div>
                 <!-- Slide Three - Set the background image for this slide in the line below -->
-                <div class="carousel-item" style="background-image: url('/assets/img/buenfin/slide1.png')"></div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
