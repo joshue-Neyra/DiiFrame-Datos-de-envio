@@ -35,9 +35,9 @@
                 <form>
                     <div class="form-group">
                         <div class="form-label-group">
-                            <label for="inp_usuario">Usuario</label>
-                            <input type="email" id="inp_usuario" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
                             
+                            <input type="email" id="inp_usuario" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
+                            <label for="inp_usuario">Usuario</label>
                         </div>
                     </div>
                     <div class="form-group">
