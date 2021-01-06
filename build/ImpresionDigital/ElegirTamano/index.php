@@ -26,7 +26,7 @@
                 <div class="col-lg-6 col-sm-6 mb-4">
                     <div class="table-responsive">
                         <table class="table table-light  table-striped">
-                            <caption>La calidad de impresión es proporcional al número de estrellas</caption>
+                            <caption class="text-center">La calidad de impresión es proporcional al número de estrellas</caption>
                             <thead class="table-primary">
                                 <tr>
                                     <th scope="col">Tamaño</th>

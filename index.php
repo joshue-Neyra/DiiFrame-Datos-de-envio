@@ -14,7 +14,7 @@
         gtag('config', 'G-ED2F2ZSZ7B');
     </script>
 
-    <title>DiiFrame - Inicio</title>
+    <title>DiiFrame - JOSHUE</title>
     <meta name="description" content="">
     <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/head.html'; ?>
     <link href="/assets/css/hover.min.css" rel="stylesheet">

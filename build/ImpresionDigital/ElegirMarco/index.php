@@ -50,7 +50,7 @@
                             <h4 class="text-primary text-center">1) Tamaño marialuisa <i class="far fa-question-circle" data-toggle="popover" data-img="/assets/img/marialuisa.png" title="Marialuisa o paspartú es el pequeño espacio que rodea las fotografías o arte antes del marco, en caso de que existan"></i> :</h4>
 
 
-                            <select class="form-control" id="Tamano_Marialuisa">
+                            <select class="form-control" id="Tamano_Marialuisa">  //select de marialuisa
                             </select>
                         </div>
                     </div>
@@ -96,11 +96,11 @@
             </ol>
             <p class="text-muted"><small>*Tu imagen es unicamente ilustrativa, esta puede variar al momento que la recibas</small></p>
             <div class="row justify-content-md-center" id="Productos">
-
+                <!-- aqui se imprimen los marcos con fotos -->
             </div>
         </div>
     </section>
-    <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/footer.html'; ?>
+    <?php require $_SERVER['DOCUMENT_ROOT'].'/assets/components/principal/footer.html'; ?>  <!-- cargar el footer -->
     <script type="text/javascript" src="/assets/js/ImpresionDigital/Productos.js"></script>
     <script>
         $('[data-toggle="popover"]').popover({

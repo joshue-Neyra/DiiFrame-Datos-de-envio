@@ -81,8 +81,14 @@
                                 </div>
 
                                 <a href="<?php echo $ig->authorizationUrl; ?>" id="btn_instagram" class="btn btn-warning">Cargar imagen desde Instagram</a><br>
-                                <!--  <fb:login-button class="fb-login-button my-3 btn" data-size="large" data-button-type="login_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="true" data-width="" scope="public_profile,email" onlogin="checkLoginState();">Iniciar con Facebook
-                                </fb:login-button> -->
+
+                                <!-- boton de inicio de sesion en facebbok -->
+                                <fb:login-button class="fb-login-button my-3 btn" data-size="large" data-button-type="login_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="true" data-width="" scope="public_profile,email" onlogin="checkLoginState();">Iniciar con Facebook
+                                </fb:login-button>
+                                
+                                <!-- boton para cerrar sesion -->
+                                <!-- <a href="#" id="btnLogout" class="btn btn-info">Cerrar Sesion</a> -->
+                                 
                             </div>
                             <div class="card-footer container">
                                 <button id="btn_submit" data-setclass="jcrop-light" onclick="crop();" class="btn btn-warning d-none">Elegir</button>
