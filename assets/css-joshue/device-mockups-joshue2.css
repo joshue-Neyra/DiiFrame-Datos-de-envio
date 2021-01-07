@@ -1,0 +1,418 @@
+.foto_portrait_3cm {
+    position: absolute;
+    height: 200px;
+    width: 150px;
+    margin-top: 75px;
+    margin-bottom: 75px;
+    margin-left: 75px;
+    z-index: 1;
+}
+
+.foto_portrait_5cm {
+    position: absolute;
+    height: 180px;
+    width: 130px;
+    margin-top: 85px;
+    margin-bottom: 85px;
+    margin-left: 85px;
+    z-index: 1;
+}
+
+.foto_portrait_10cm {
+    position: absolute;
+    height: 150px;
+    width: 100px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-left: 100px;
+    z-index: 1;
+}
+
+.foto_portrait_SM {
+    position: absolute;
+    height: 250px;
+    width: 200px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 50px;
+    z-index: -1;
+}
+
+.foto_landscape_3cm {
+    position: absolute;
+    height: 100px;
+    width: 150px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-left: 50px;
+    z-index: 1;
+}
+
+
+.foto_landscape_5cm {
+    position: absolute;
+    height: 90px;
+    width: 140px;
+    margin-top: 105px;
+    margin-bottom: 105px;
+    margin-left: 55px;
+    z-index: 1;
+}
+
+.foto_landscape_10cm {
+    position: absolute;
+    height: 70px;
+    width: 120px;
+    margin-top: 115px;
+    margin-bottom: 115px;
+    margin-left: 65px;
+    z-index: 1;
+}
+
+.foto_landscape_SM {
+    position: absolute;
+    height: 150px;
+    width: 200px;
+    margin-top: 75px;
+    margin-bottom: 75px;
+    margin-left: 25px;
+    z-index: -1;
+}
+
+.foto_square_3cm {
+    position: absolute;
+    height: 160px;
+    width: 150px;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    margin-left: 75px;
+    z-index: 1;
+}
+
+.foto_square_5cm {
+    position: absolute;
+    height: 150px;
+    width: 140px;
+    margin-top: 75px;
+    margin-bottom: 75px;
+    margin-left: 80px;
+    z-index: 1;
+}
+
+.foto_square_10cm {
+    position: absolute;
+    height: 120px;
+    width: 110px;
+    margin-top: 90px;
+    margin-bottom: 90px;
+    margin-left: 95px;
+    z-index: 1;
+}
+
+.foto_square_SM {
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 50px;
+    z-index: -1;
+}
+
+.marco_portrait {
+    height: 350px;
+    width: 300px;
+    z-index: 0;
+}
+
+.marco_landscape {
+    height: 300px;
+    width: 250px;
+    z-index: 0;
+}
+
+.marco_square {
+    height: 300px;
+    width: 300px;
+    z-index: 0;
+}
+
+.ambiente1 {
+    z-index: 0;
+}
+
+#ambiente1 {
+    z-index: 0;
+    position: relative;
+}
+
+#ambiente1 .marco_portrait {
+    height: 87.5px;
+    width: 75px;
+    margin-top: 15px;
+    margin-left: 110px;
+    z-index: 1;
+}
+
+#ambiente1 .marco_landscape {
+    height: 83.3px;
+    width: 100px;
+    margin-top: 15px;
+    margin-left: 100px;
+    z-index: 0;
+}
+#ambiente1 .marco_square {
+    height: 87.5px;
+    width: 75px;
+    margin-top: 15px;
+    margin-left: 110px;
+    z-index: 1;
+}
+
+#ambiente1 .foto_portrait_3cm {
+    position: absolute;
+    height: 50px;
+    width: 37.5px;
+    margin-top: 19px;
+    margin-bottom: 20px;
+    margin-left: 19px;
+    z-index: 1;
+}
+
+#ambiente1 .foto_portrait_5cm {
+    position: absolute;
+    height: 45px;
+    width: 32.5px;
+    margin-top: 21px;
+    margin-bottom: 20px;
+    margin-left: 21px;
+    z-index: 1;
+}
+
+#ambiente1 .foto_portrait_10cm {
+    position: absolute;
+    height: 40px;
+    width: 27.5px;
+    margin-top: 24px;
+    margin-bottom: 20px;
+    margin-left: 24px;
+    z-index: 1;
+}
+
+#ambiente1 .foto_portrait_SM {
+    position: absolute;
+    height: 60px;
+    width: 47.5px;
+    margin-top: 13px;
+    margin-bottom: 20px;
+    margin-left: 14px;
+    z-index: 1;
+}
+
+#ambiente1 .foto_landscape_3cm {
+    position: absolute;
+    height: 49px;
+    width: 55px;
+    margin-top: 18px;
+    margin-bottom: 100px;
+    margin-left: 22px;
+    z-index: 1;
+}
+
+#ambiente1 .foto_landscape_5cm {
+    position: absolute;
+    height: 45px;
+    width: 50px;
+    margin-top: 19px;
+    margin-bottom: 100px;
+    margin-left: 25px;
+    z-index: 1;
+}
+
+#ambiente1 .foto_landscape_10cm {
+    position: absolute;
+    height: 35px;
+    width: 40px;
+    margin-top: 25px;
+    margin-bottom: 100px;
+    margin-left: 30px;
+    z-index: 1;
+}
+
+#ambiente1 .foto_landscape_SM {
+    position: absolute;
+    height: 55px;
+    width: 65px;
+    margin-top: 14px;
+    margin-bottom: 100px;
+    margin-left: 18px;
+    z-index: 1;
+}
+
+#ambiente1 .foto_square_3cm {
+   position: absolute;
+    height: 50px;
+    width: 37.5px;
+    margin-top: 19px;
+    margin-bottom: 20px;
+    margin-left: 19px;
+    z-index: 1
+}
+
+#ambiente1 .foto_square_5cm {
+    position: absolute;
+    height: 45px;
+    width: 32.5px;
+    margin-top: 21px;
+    margin-bottom: 20px;
+    margin-left: 21px;
+    z-index: 1;
+}
+
+#ambiente1 .foto_square_10cm {
+    position: absolute;
+    height: 40px;
+    width: 27.5px;
+    margin-top: 24px;
+    margin-bottom: 20px;
+    margin-left: 24px;
+    z-index: 1;
+}
+
+#ambiente1 .foto_square_SM {
+    position: absolute;
+    height: 60px;
+    width: 47.5px;
+    margin-top: 13px;
+    margin-bottom: 20px;
+    margin-left: 14px;
+    z-index: 1;
+}
+
+/* ################### seccion de landscape ################### */
+
+/* eliminar marialuisa para el marco 4 y 5 */
+.imagen_marco_4y5{
+    position: absolute;
+    height: 180px;
+    width: 230px;
+    margin-top: 68px;
+    margin-bottom: 75px;
+    margin-left: 2px;
+    z-index: -1;
+}
+
+/* eliominar maria luisa marco 8 y 9 */
+.imagen_marco_8y9{
+    position: absolute;
+    height: 190px;
+    width: 240px;
+    margin-top: 60px;
+    margin-bottom: 75px;
+    margin-left: 2px;
+    z-index: -1;
+}
+
+/* eliminar marialuisa marcos 10 a 15 */
+.imagen_marco10a13{
+    position: absolute;
+    height: 216px;
+    width: 263px;
+    margin-top: 40px;
+    margin-bottom: 70px;
+    margin-left: -6px;
+    z-index: -1;
+}
+
+/* elimina marialuisa resto de marcos */
+.imagen_marco16a22{
+    position: absolute;
+    height: 216px;
+    width: 263px;
+    margin-top: 40px;
+    margin-bottom: 70px;
+    margin-left: -6px;
+    z-index: -1;
+}
+
+
+/* ################### seccion de portrait ################### */
+
+/* elimina marialuisa marcos 8 y 9 */
+.portrait_marco_8y9{
+    position: absolute;
+    height: 274px;
+    width: 221px;
+    margin-top: 37px;
+    margin-bottom: 50px;
+    margin-left: 43px;
+    z-index: -1;
+}
+
+/* elimina marialuisa marcos del 10 al 15 */
+.portrait_marco10a15{
+    position: absolute;
+    height: 318px;
+    width: 255px;
+    margin-top: 22px;
+    margin-bottom: 55px;
+    margin-left: 22px;
+    z-index: -1;
+}
+
+/* elimina el resto de marialuisa */
+.portrait_marco_resto{
+    position: absolute;
+    height: 300px;
+    width: 234px;
+    margin-top: 22px;
+    margin-bottom: 55px;
+    margin-left: 39px;
+    z-index: -1;
+}
+
+/* ######################### seccion de square ########################## */
+
+/* elimina marialuisa de marco 4 y 5 */
+.marco_square4y5{
+    position: absolute;
+    height: 212px;
+    width: 212px;
+    margin-top: 45px;
+    margin-bottom: 50px;
+    margin-left: 50px;
+    z-index: -1;
+}
+
+/* elimina marialuisa de marco 8 y 9 */
+.marco_square8y9{
+    position: absolute;
+    height: 236px;
+    width: 236px;
+    margin-top: 31px;
+    margin-bottom: 50px;
+    margin-left: 40px;
+    z-index: -1;
+}
+
+/* elimina maria luisa del marco 10 al 15 */
+.marco_square10a15{
+    position: absolute;
+    height: 265px;
+    width: 265px;
+    margin-top: 19px;
+    margin-bottom: 50px;
+    margin-left: 20px;
+    z-index: -1;
+}
+
+/* elimna marialuisa del resto de imagenes */
+.marco_square_resto{
+    position: absolute;
+    height: 252px;
+    width: 252px;
+    margin-top: 16px;
+    margin-bottom: 50px;
+    margin-left: 20px;
+    z-index: -1;
+}

@@ -9,8 +9,8 @@
     $imagen = $_SESSION['Nombre']; 
     $Orientacion = $_SESSION['Orientacion'];
     ?>
-    <link href="/assets/css/cajasmarcos.min.css" rel="stylesheet">
-    <link href="/assets/device-mockups/device-mockups.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css-joshue/device-mockups-joshue2.css">
+    <link rel="stylesheet" href="/assets/css-joshue/cajasmarcosjoshue2.css">
     <style>
         .loader {
             position: fixed;
