@@ -82,36 +82,38 @@ function agregarDireccion(e){
 
 }
 
-
-// reiniciar el formulario.
+// reiniciar el formulario y el input de la direccion de entrega:
 function reset(e){
     e.preventDefault();
     formulario.reset();
+
+    const mostrarDireccion = document.getElementById('pac-input');
+    mostrarDireccion.value = '';  //reiniciar el valor del input
 }
+
 
 
 // google api:
 function initMap() {
-    var map = new google.maps.Map(document.getElementById('map'), {
+    var map = new google.maps.Map(document.getElementById('map'), {   //insertar el mapa en el html
         center: {
-            lat: 19.4326018,
+            lat: 19.4326018,  //coordenadas de inicio
             lng: -99.1353936
         },
         zoom: 12
     });
-    var card = document.getElementById('pac-card');
+    var card = document.getElementById('pac-card');   //id para mostrar el mapa de google
     var input = document.getElementById('pac-input');   //input con el valor de la direccion
-    var types = document.getElementById('type-selector');
-    var strictBounds = document.getElementById('strict-bounds-selector');
+    // valor del input:
 
     map.controls[google.maps.ControlPosition.TOP_RIGHT].push(card);
 
-    var autocomplete = new google.maps.places.Autocomplete(input);
+    var autocomplete = new google.maps.places.Autocomplete(input);  //metodo para autocompletar la busqueda del usuario
 
     // Bind the map's bounds (viewport) property to the autocomplete object,
     // so that the autocomplete requests use the current map bounds for the
     // bounds option in the request.
-    autocomplete.bindTo('bounds', map);
+    autocomplete.bindTo('bounds', map);   //vincula la vista del modelo del mapa
 
     // Set the data fields to return when the user selects a place.
     autocomplete.setFields(
@@ -143,6 +145,7 @@ function initMap() {
             map.setCenter(place.geometry.location);
             map.setZoom(17); // Why 17? Because it looks good.
         }
+        // insertar el marcador en la localizacion
         marker.setPosition(place.geometry.location);
         marker.setVisible(true);
 

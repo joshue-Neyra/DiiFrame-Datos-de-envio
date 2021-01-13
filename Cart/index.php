@@ -240,7 +240,7 @@
                 </div>
                     <!-- fin de input tomado por google -->
                     
-                <!-- form generado por google -->
+                <!-- form generado por google con los datos de la direccion -->
                 <form id="target">
                     <div class="container mx-auto">
 

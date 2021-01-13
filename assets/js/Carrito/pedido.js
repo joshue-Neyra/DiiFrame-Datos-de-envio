@@ -69,8 +69,8 @@ function ShowDireccion() {
 $("#target").submit(function (event) {
 
     var parametros = {
-        "Celular": document.getElementById("inp_cli_cel").value,
-        "Telefono": document.getElementById("inp_cli_tel").value,
+        "Celular": document.getElementById("celular").value,
+        "Telefono": document.getElementById("telefono").value,
         "street_number": document.getElementById("street_number").value,
         "Calle": document.getElementById("route").value,
         "ciudad": document.getElementById("locality").value,
