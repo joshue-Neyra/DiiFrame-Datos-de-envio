@@ -156,43 +156,94 @@
         </div>
         <div class="card mx-auto" id="CrearDireccion">
             <div class="card-body">
-                <h3 class="mb-3 my-3 text-center text-danger">Datos de envio</h3>
-                <form id="target">
-                    <div class="form-group">
-                        <div class="form-row">
-                            <div class="col-md-6">
-                                <div class="form-label-group">
-                                    <input type="tel" pattern="[0-9]{10}" id="inp_cli_cel" class="form-control"
-                                        placeholder="Celular" required="required" autofocus="autofocus">
-                                    <label for="inp_cli_cel">Celular</label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-label-group">
-                                    <input type="tel" pattern="[0-9]{10}" title="Ten digits code" id="inp_cli_tel"
-                                        class="form-control" placeholder="Teléfono" required="required">
-                                    <label for="inp_cli_tel">Teléfono</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="form-label-group">
-                            <input type="text" id="pac-input" class="form-control" placeholder="Dirección de Entrega"
-                                required="required">
-                            <label for="pac-input">Dirección de Entrega</label>
-                            <span id="error_direccion" class=" d-none text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="form-group">
-                            <label for="pac-input">Referencias</label>
-                            <textarea rows="3" name="p_mensaje" class="form-control" id="inp_referencias"
-                                placeholder="Referencias" maxlength="250" required></textarea>
+                <h3 class="mb-2 my-3 text-center text-danger">Datos de envio</h3>
 
+                <!-- form principal -->
+                <form action="#" id="form_principal">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="calle">Calle</label>
+                                <input type="text" placeholder="Calle" id="calle" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="num_ext">Número Ext</label>
+                                <input type="text" placeholder="Número Ext" id="num_ext" class="form-control">
+                            </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="num_int">Número Int</label>
+                                <input type="text" placeholder="Número Int" id="num_int" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="colonia">Colonia</label>
+                                <input type="text" placeholder="Colonia" id="colonia" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="alcaldia">Alcaldía o Municipio</label>
+                                <input type="text" placeholder="Alcaldía o Municipio" id="alcaldia" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="estado">Estado</label>
+                                <input type="text" placeholder="Estado" id="estado" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="pais">País</label>
+                                <input type="text" placeholder="País" id="pais" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="cp">Código Postal</label>
+                                <input type="text" placeholder="Código Postal" id="cp" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="celular">Celular</label>
+                            <input type="number" placeholder="Celular" id="celular" class="form-control">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="telefono">Teléfono</label>
+                            <input type="number" placeholder="Teléfono" id="telefono" class="form-control">
+                        </div>
+                    </div>
+                    <label for="inp_referencias">Referencias</label>
+                    <textarea rows="3" name="p_mensaje" class="form-control" id="inp_referencias"
+                        placeholder="Referencias" maxlength="250"></textarea>
+
+                    <button type="submit" id="button_aceptar" class="btn btn-warning mt-4">Valida tu Dirección</button>
+                    <button type="submit" id="resetBTN" class="btn btn-danger mt-4">Reiniciar</button>
+                </form>
+                  <!-- fin de form principal -->
+                    <!-- input que toma google para el mapa y generar direccion -->
+                <div class="mb-4" id="direccion_entrega">
+                    <input type="text" id="pac-input" class="form-control">
+                </div>
+                    <!-- fin de input tomado por google -->
+                    
+                <!-- form generado por google -->
+                <form id="target">
                     <div class="container mx-auto">
+
                         <table id="address" class="table disabled">
                             <tr>
                                 <td class="label">Calle y número</td>
@@ -232,6 +283,9 @@
                             </tr>
                         </table>
                     </div>
+
+                <!-- fin de form generado por google -->
+
                     <div class="pac-card d-none" id="pac-card">
                         <div>
                             <div id="type-selector" class="pac-controls d-none">
@@ -247,7 +301,7 @@
                     </div>
                     <div class="mx-auto my-4">
                         <button type="submit" class="btn  btn-success">
-                            Continuar
+                            Guardar
                         </button>
                         <button id="reset" type="reset" class="btn  btn-danger">
                             Cancelar
@@ -280,7 +334,8 @@
     </div>
     <script type="text/javascript" src="/assets/js/Carrito/cart.js"></script>
     <script type="text/javascript" src="/assets/js/Carrito/pedido.js"></script>
-    <script type="text/javascript" src="/assets/js/Principal/DireccionCompletar.js"></script>
+    <!-- <script type="text/javascript" src="/assets/js/Principal/DireccionCompletar.js"></script> -->
+    <script src="/assets/js/Principal/formPrincipal.js"></script>
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZUUeX_yN1WG82W6v4ZyqF9UeygP0gSME&libraries=places&callback=initMap"
         async defer></script>

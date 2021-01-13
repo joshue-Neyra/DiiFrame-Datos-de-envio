@@ -7,7 +7,7 @@
          zoom: 12
      });
      var card = document.getElementById('pac-card');
-     var input = document.getElementById('pac-input');
+     var input = document.getElementById('pac-input');    //valior de la direccion a buscar en el mapa
      var types = document.getElementById('type-selector');
      var strictBounds = document.getElementById('strict-bounds-selector');
 
