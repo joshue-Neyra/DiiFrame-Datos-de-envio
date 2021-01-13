@@ -79,6 +79,7 @@ function agregarDireccion(e){
     // agregar el input con la direccion al documento:
     const mostrarDirecion = document.getElementById('pac-input');   //input para mostrar la direccion
     mostrarDirecion.value = direccion_entrega;
+    mostrarDirecion.focus();
 
 }
 
@@ -104,8 +105,7 @@ function initMap() {
     });
     var card = document.getElementById('pac-card');   //id para mostrar el mapa de google
     var input = document.getElementById('pac-input');   //input con el valor de la direccion
-    // valor del input:
-
+    
     map.controls[google.maps.ControlPosition.TOP_RIGHT].push(card);
 
     var autocomplete = new google.maps.places.Autocomplete(input);  //metodo para autocompletar la busqueda del usuario
