@@ -13,6 +13,7 @@ const boton_aceptar = document.getElementById('button_aceptar');
 const boton_reiniciar = document.getElementById('resetBTN');
 const formulario = document.getElementById('form_principal');
 const input = document.getElementById('pac-input');
+const boton_guardar_direccion = document.getElementById('guardar_direccion');
 
 // event listeners
 
@@ -45,12 +46,15 @@ function eventListener(){
 
 // funciones:
 
-// desactivar el boton de aceptar
+// desactivar el boton de aceptar y el de guardar Direccion:
 function btnAceptar(e){
     e.preventDefault();
     let aceptar = boton_aceptar;
+    let boton_guardar = boton_guardar_direccion;
     aceptar.disabled = true;
+    boton_guardar.disabled = true;
 }
+
 
 // validacion de los campos del formulario:
 function validarCampo(){
@@ -78,8 +82,10 @@ function agregarDireccion(e){
 
     // agregar el input con la direccion al documento:
     const mostrarDirecion = document.getElementById('pac-input');   //input para mostrar la direccion
-    mostrarDirecion.value = direccion_entrega;
-    mostrarDirecion.focus();
+    mostrarDirecion.value = direccion_entrega;  //insertar el valor de la direccion con formato
+    mostrarDirecion.focus();  //enfocar el input para mostrar las opciones de google maps
+    let boton_guardar = boton_guardar_direccion; //seleccionar el boton de guardar
+    boton_guardar.disabled = false;  //activar el boton de guardar
 
 }
 

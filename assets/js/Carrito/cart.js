@@ -168,7 +168,7 @@ function ListaPedidos() {
     });
 }
 
-function ListaDirecciones() {
+function ListaDirecciones() {   //listar tarjetas de direcciones
     var parametros = "";
 
     $.ajax({
@@ -199,7 +199,7 @@ function ListaDirecciones() {
                     '<btn class = "btn btn-sm btn-primary" onclick="ValidarPromocion(' + DatosJson[i].Direccion_ID + ',' + estado + ',' + DatosJson[i].Lat + ',' + DatosJson[i].Long + ')"> Elegir </btn>' +
                     '</div></div></div> </div> </div>');
             }
-            $("#ClienteDirecciones").append('<div class="col-xl-8 mb-4">' +
+            $("#ClienteDirecciones").append('<div class="col-xl-8 mb-4">' +   //formulario para crear nuevas direcciones
                 '<center><button class="btn btn-danger" onclick="ShowFormCrear();">Crear Nueva Dirección <i class="fas fa-plus-circle"></i></button></center>' +
                 '</div>')
         }

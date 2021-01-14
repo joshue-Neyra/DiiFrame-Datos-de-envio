@@ -152,7 +152,7 @@
     </div>
 
     <div class="container mb-4 my-5" id="form-direccion">
-        <div class="row justify-content-md-center" id="ClienteDirecciones">
+        <div class="row justify-content-md-center" id="ClienteDirecciones">   //div para insertar las direcciones creadas
         </div>
         <div class="card mx-auto" id="CrearDireccion">
             <div class="card-body">
@@ -300,7 +300,7 @@
                         <span id="place-address"></span>
                     </div>
                     <div class="mx-auto my-4">
-                        <button type="submit" class="btn  btn-success">
+                        <button type="submit" class="btn  btn-success" id="guardar_direccion">
                             Guardar
                         </button>
                         <button id="reset" type="reset" class="btn  btn-danger">
